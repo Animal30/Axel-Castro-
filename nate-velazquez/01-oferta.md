@@ -1,5 +1,7 @@
 # 01 — La Oferta: "Método Velázquez 90"
 
+> ⚠️ **Actualizado:** los paquetes y precios finales están en [07-paquetes-y-propuesta.md](07-paquetes-y-propuesta.md) (Foundation / Transformation / Elite VIP). Este documento queda como base del avatar y del mensaje.
+
 ## La promesa (una sola frase)
 
 > **"Te ayudo a bajar entre 6 y 10 kg de grasa y verte en forma en 90 días, entrenando 4 veces por semana y sin dejar de comer lo que te gusta — o sigo trabajando con vos gratis hasta que lo logres."**

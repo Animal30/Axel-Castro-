@@ -18,6 +18,8 @@ Todo lo que Nate necesita para vender su coaching: qué vende, a quién, a qué 
 | 4 | [04-script-llamada-de-venta.md](04-script-llamada-de-venta.md) | Guion completo de la llamada de cierre (45–60 min), palabra por palabra |
 | 5 | [05-manejo-de-objeciones.md](05-manejo-de-objeciones.md) | Respuestas a las 12 objeciones más comunes |
 | 6 | [06-seguimiento-y-onboarding.md](06-seguimiento-y-onboarding.md) | Qué hacer si no cierra en la llamada, y qué hacer cuando sí cierra |
+| 7 | [07-paquetes-y-propuesta.md](07-paquetes-y-propuesta.md) | **Los 3 paquetes (697 / 1.197 / 2.497 USD)** y cómo presentarlos. Reemplaza el precio de 01 |
+| — | [propuesta-clientes/](propuesta-clientes/) | **Propuesta en PDF (inglés) para mandar a los clientes** |
 
 ## El proceso en una línea
 
