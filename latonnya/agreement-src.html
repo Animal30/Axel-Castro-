@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Publishing Services Agreement · L. T. Webb · Maison Enterprises</title>
+<style>/*FONTS*/</style>
+<style>
+  :root {
+    --ink: #141821; --body: #2c3340; --muted: #667085; --blue: #2f8fd1; --label: #5b82b8;
+    --orange: #d98b3d; --card: #f6f8fb; --line: #e3e7ee;
+  }
+  @page {
+    size: letter;
+    margin: 0.71in 0.71in 0.8in;
+    @bottom-left { content: "Maison Enterprises · Services Agreement · L. T. Webb"; font: 7.5pt Arial, sans-serif; color: #50565f; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 7.5pt Arial, sans-serif; color: #50565f; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Inter", Arial, sans-serif; color: var(--body); font-size: 10.4pt; line-height: 1.62; }
+  b, strong { color: var(--ink); font-weight: 700; }
+
+  .top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12pt; border-bottom: 0.75pt solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 9pt; font-weight: 700; font-size: 11pt; color: var(--ink); }
+  .logo { width: 22pt; height: 22pt; border-radius: 5pt; background: var(--blue); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 13pt; }
+  .meta { text-align: right; font-size: 8.6pt; color: var(--muted); line-height: 1.55; }
+  .meta b { color: #3d4658; font-weight: 600; }
+  .accentbar { width: 34pt; height: 2.5pt; margin-top: 18pt; background: linear-gradient(90deg, var(--blue), var(--orange)); border-radius: 2pt; }
+  .kicker { font-size: 8.4pt; font-weight: 700; letter-spacing: .14em; color: var(--blue); margin-top: 8pt; text-transform: uppercase; }
+  h1 { font-size: 25pt; font-weight: 800; color: var(--ink); line-height: 1.2; margin-top: 6pt; letter-spacing: -.01em; }
+  .subtitle { font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 13pt; color: var(--muted); margin-top: 6pt; }
+
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 11pt; margin-top: 18pt; }
+  .party { background: var(--card); border: 0.75pt solid var(--line); border-radius: 6pt; padding: 12pt 12pt 11pt; }
+  .party .lbl { font-size: 7.8pt; font-weight: 700; letter-spacing: .12em; color: var(--label); text-transform: uppercase; margin-bottom: 7pt; }
+  .party .nm { font-size: 10.8pt; font-weight: 700; color: var(--ink); margin-bottom: 2pt; }
+  .party .ln { font-size: 9.2pt; color: var(--muted); line-height: 1.55; }
+  .intro { margin-top: 14pt; }
+
+  .keybox { margin-top: 14pt; border: 0.75pt solid #d6e6f3; border-radius: 7pt; padding: 13pt 14pt 10pt; background: linear-gradient(180deg, #eef6fc, #fbfdff); }
+  .keybox h4 { font-size: 9pt; font-weight: 700; letter-spacing: .1em; color: var(--blue); text-transform: uppercase; margin-bottom: 8pt; }
+  .keybox ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 16pt; row-gap: 5pt; }
+  .keybox li { font-size: 9.4pt; line-height: 1.5; padding-left: 16pt; position: relative; }
+  .keybox li::before { content: ""; position: absolute; left: 1pt; top: 3.5pt; width: 5pt; height: 5pt; border: 1.6pt solid var(--blue); border-radius: 50%; background: radial-gradient(circle, var(--blue) 35%, #fff 40%); }
+
+  section { margin-top: 18pt; }
+  h2 { font-size: 12.2pt; font-weight: 700; color: var(--ink); display: flex; align-items: baseline; gap: 9pt; margin-bottom: 7pt; break-after: avoid; }
+  h2 .n { font-size: 9pt; font-weight: 800; color: var(--orange); width: 15pt; }
+  p + p { margin-top: 6pt; }
+
+  .stages { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin: 9pt 0; }
+  .stage { border: 0.75pt solid var(--line); border-radius: 6pt; padding: 10pt 11pt; font-size: 9.2pt; line-height: 1.55; break-inside: avoid; }
+  .stage .s { font-size: 7.6pt; font-weight: 700; letter-spacing: .14em; color: var(--orange); }
+  .stage .t { font-size: 10pt; font-weight: 700; color: var(--ink); margin: 2pt 0 4pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 9pt 0; }
+  th { font-size: 7.6pt; font-weight: 700; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; text-align: left; padding: 6pt 8pt; border-bottom: 1.2pt solid #9aa1ad; }
+  td { font-size: 9.2pt; padding: 8pt 8pt; border-bottom: 0.75pt solid var(--line); vertical-align: top; line-height: 1.55; }
+  td.r, th.r { text-align: right; }
+  .muted { color: var(--muted); }
+  .cb { display: inline-block; width: 8.5pt; height: 8.5pt; border: 1pt solid var(--blue); border-radius: 2pt; margin-right: 5pt; vertical-align: -1pt; }
+  tr { break-inside: avoid; }
+
+  .clauses { list-style: none; }
+  .clauses li { display: grid; grid-template-columns: 24pt 1fr; margin-top: 6pt; }
+  .clauses .k { color: var(--label); font-weight: 600; }
+  ul.dots { list-style: none; margin: 5pt 0; }
+  ul.dots li { padding-left: 13pt; position: relative; margin-top: 4pt; }
+  ul.dots li::before { content: ""; position: absolute; left: 1pt; top: 6.5pt; width: 4.5pt; height: 4.5pt; border-radius: 50%; background: var(--orange); }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8pt; margin: 9pt 0; }
+  .steps > div { background: var(--card); border: 0.75pt solid var(--line); border-radius: 6pt; padding: 10pt 11pt; font-size: 8.6pt; color: var(--muted); line-height: 1.5; }
+  .steps .s { font-size: 7.4pt; font-weight: 700; letter-spacing: .12em; color: var(--label); }
+  .steps .t { font-size: 12pt; font-weight: 800; color: var(--ink); margin: 3pt 0 4pt; }
+
+  .steps { break-inside: avoid; }
+  .ms td:nth-child(2), .ms td:nth-child(3), .ms th:nth-child(2), .ms th:nth-child(3) { text-align: right; white-space: nowrap; }
+  .ms tfoot td { font-weight: 700; color: var(--ink); border-bottom: none; border-top: 1.2pt solid #9aa1ad; }
+  .note { background: var(--card); border-left: 2.5pt solid var(--label); border-radius: 0 5pt 5pt 0; padding: 9pt 11pt; font-size: 9.2pt; margin-top: 8pt; }
+
+  .schedule { break-before: page; border-top: 1.2pt solid var(--ink); padding-top: 18pt; margin-top: 0; }
+  .schedule .kicker { color: var(--orange); margin-top: 0; }
+  .schedule h1 { font-size: 16pt; margin-top: 6pt; }
+  .schedule .sub { color: var(--muted); margin-top: 3pt; }
+  .svc td:first-child { font-weight: 700; color: var(--ink); width: 34%; }
+  .pill { display: inline-block; font-size: 6.8pt; font-weight: 700; letter-spacing: .1em; color: var(--blue); background: #e5f1fa; border-radius: 8pt; padding: 1pt 6pt; margin-left: 5pt; vertical-align: 1pt; }
+  .sig-title { font-size: 8.4pt; font-weight: 700; letter-spacing: .14em; color: var(--label); margin-top: 26pt; }
+  .sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; margin-top: 12pt; break-inside: avoid; }
+  .sig { border: 0.75pt solid var(--line); border-radius: 7pt; padding: 13pt 11pt 11pt; }
+  .sig .lbl { font-size: 7.8pt; font-weight: 700; letter-spacing: .12em; color: var(--label); }
+  .sig .line { border-bottom: 0.9pt solid #3a3f48; height: 28pt; }
+  .sig .cap { font-size: 8.6pt; color: var(--muted); margin-top: 4pt; }
+  .sig .nm { font-weight: 700; color: var(--ink); margin-top: 14pt; font-size: 9.6pt; }
+  .endline { display: flex; justify-content: space-between; font-size: 8pt; color: #98a0ad; border-top: 0.75pt solid var(--line); margin-top: 22pt; padding-top: 8pt; }
+
+  /* Highlighted-changes version */
+  .show-changes .chg { background: #fff3a8; box-shadow: 0 0 0 2pt #fff3a8; border-radius: 1pt; }
+  .show-changes .chg-banner { display: block; }
+  .show-changes .chg-block p, .show-changes .chg-block td { background: #fff3a8; }
+  .chg-banner { display: none; background: #fff3a8; border: 0.75pt solid #e8d670; border-radius: 5pt; padding: 7pt 10pt; font-size: 9pt; color: #4a4320; margin-top: 12pt; }
+</style>
+</head>
+<body class="/*MODE*/">
+
+<div class="top">
+  <div class="brand"><div class="logo">M</div>Maison Enterprises</div>
+  <div class="meta">Agreement No. <b>ME-2026-LTW-01</b> · <span class="chg">Revision 2</span><br>Effective Date: <span class="chg"><b>the date of the Client's signature</b></span></div>
+</div>
+
+<div class="chg-banner"><b>Revised version.</b> Changes from the original draft are highlighted in yellow: Sections 4.2, 4.3, 7, 13, and 16. Everything else is unchanged.</div>
+
+<div class="accentbar"></div>
+<div class="kicker">Self-Publishing Services Agreement</div>
+<h1>Publishing, Translation &amp; Launch Services Agreement</h1>
+<div class="subtitle">For the book “I'm 93% Christian! Don't Judge Me!” by L. T. Webb</div>
+
+<div class="parties">
+  <div class="party"><div class="lbl">Service Provider</div><div class="nm">Maison Enterprises</div><div class="ln">Represented by Nahuel Casartelli<br>nahuelcasartelli@hotmail.com.ar<br>maison.enterprises</div></div>
+  <div class="party"><div class="lbl">Author (the “Client”)</div><div class="nm">Latonnya Webb, writing as L. T. Webb</div><div class="ln">spectvfitness@gmail.com<br>Author of “I'm 93% Christian! Don't Judge Me!”</div></div>
+</div>
+
+<p class="intro">This Agreement describes how Maison Enterprises (“Maison”) will take the Client's book, <b>“I'm 93% Christian! Don't Judge Me!”</b> (the “Work”), from finished manuscript to a professionally published, translated, and marketed book. The Client stays the full owner of her book at every step. Maison's role is to handle the entire process for her: formatting, design, translation, publication, and marketing.</p>
+
+<div class="keybox">
+  <h4>The key terms, in plain language</h4>
+  <ul>
+    <li>You are the full owner of your book, in every language and format.</li>
+    <li>You keep 100% of your royalties, paid by Amazon directly to you.</li>
+    <li>Your Amazon, Meta, and website accounts are all in your name.</li>
+    <li>The fee below is a one-time production fee. Maison's work is the service itself.</li>
+    <li>You approve every cover, translation, and ad before it goes live.</li>
+    <li>Every cover, translation, website, and video made for you is yours.</li>
+    <li>Advertising starts after publication, with a small test budget that grows with results.</li>
+    <li>You set the pace of the project and can end it at any time (Section 13).</li>
+  </ul>
+</div>
+
+<section>
+  <h2><span class="n">01</span>Services and Your Role as Author</h2>
+  <p>Maison will provide the services described in <b>Schedule A</b> under the <b>All Inclusive</b> plan (the “Services”). This is a self-publishing service: the Client is the author, owner, and publisher of her own Work in every edition, and Maison works on her behalf. Additional services can be added at any time with a written quote agreed by both parties.</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>How the Process Works</h2>
+  <p>The project runs in four stages. The Client's investment goes entirely into production first. Paid advertising begins only once the book is published.</p>
+  <div class="stages">
+    <div class="stage"><div class="s">STAGE 1</div><div class="t">Onboarding</div>The Client shares the final manuscript and any photos or material she would like to use. Maison sets up the Amazon KDP account, Meta account, and domain in her name, together with her.</div>
+    <div class="stage"><div class="s">STAGE 2</div><div class="t">Production + Organic Marketing</div>Maison formats the interior, designs the covers, and prepares the translations. At the same time, organic content starts building an audience for the book, with no ad spend.</div>
+    <div class="stage"><div class="s">STAGE 3</div><div class="t">Publication</div>After the Client's approval, the English edition goes live on Amazon, followed by the Spanish, Portuguese, and French editions, and the author website.</div>
+    <div class="stage"><div class="s">STAGE 4</div><div class="t">Launch + Paid Advertising</div>With the book live, Maison launches the Meta Ads campaign with a small test budget, then scales it step by step based on real results (Section 9).</div>
+  </div>
+  <p><b>Communication.</b> Throughout the project, the Client has a direct line with Maison by email and message, receives a progress update every week, and gets a reply within one business day.</p>
+</section>
+
+<section>
+  <h2><span class="n">03</span>Investment and Payment</h2>
+  <p>The total investment for the Services is <b>$1,600 USD</b>, a one-time fee, paid under the option the Client selects at signing:</p>
+  <table>
+    <thead><tr><th style="width:20%">Option</th><th>Schedule</th><th class="r" style="width:18%">Amount</th></tr></thead>
+    <tbody>
+      <tr><td><span class="cb"></span>Single payment</td><td>At signing</td><td class="r"><b>$1,600 USD</b></td></tr>
+      <tr><td><span class="cb"></span>Two payments</td><td>Payment 1: at signing<br>Payment 2: when the Client approves the final English edition files, before publication</td><td class="r"><b>$840 USD</b><br><b>$840 USD</b><br><span class="muted">$1,680 total</span></td></tr>
+    </tbody>
+  </table>
+  <p><b>Payment methods.</b> Payments can be made by <b>bank transfer</b> or by <b>credit or debit card through Stripe</b>, at the same amounts shown above. Maison sends a receipt for every payment.</p>
+  <p>Work begins as soon as the first payment is received. The Client does not need to set aside any advertising budget at this stage. The only other costs, all paid by the Client directly to the provider and only when the time comes, are: the advertising budget once the book is published (Section 9), her own ISBNs if she chooses to buy them (Section 7), and domain renewal from the second year onward (Section 8). Maison will always confirm any cost with the Client in advance.</p>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Copyright and Ownership</h2>
+  <ul class="clauses">
+    <li><span class="k">4.1</span><span><b>The Work.</b> The Client is and remains the sole owner of all copyright and other rights in the Work, including the manuscript, its title, and its content, in every language and format. All rights in the Work stay with the Client at all times.</span></li>
+    <li><span class="k">4.2</span><span><b>Everything created for the Client.</b> All materials Maison creates for the Client under this Agreement (the “Deliverables”), including the covers, interior files, translations, website content and files, videos, ad creatives, and press kit, belong to the Client. Upon payment of the fee, Maison transfers to the Client all rights in the Deliverables. The translations are editions of the Client's own Work and belong to her. <span class="chg">The Client owns the finished Deliverables and receives both the <b>final files</b> (including the print-ready and ebook files, cover files, website files, and videos) and the <b>editable source files</b> for each of them.</span></span></li>
+    <li><span class="k">4.3</span><span class="chg"><b>Design assets.</b> Maison uses only images, fonts, and design elements whose licenses allow commercial use on a permanent basis. The Client has a <b>permanent, royalty-free right</b> to use them as part of her book (in every edition, language, and format), her website, and her marketing, and this right continues after this Agreement ends. Maison gives the Client a list of every third-party asset used, with its source and license. Some font licenses cannot be transferred from one person to another; this never limits the Client's use of the finished files. If the Client later wants to edit the source files herself and a font license does not cover her, Maison will replace that font with a freely licensed one at no cost, or she may purchase her own license.</span></li>
+    <li><span class="k">4.4</span><span><b>Portfolio.</b> Once the book is published, Maison may show the published covers and website in its portfolio. The manuscript itself stays private. The Client may ask Maison to remove these samples at any time.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">05</span>Permission to Work on the Book</h2>
+  <p>So that Maison can do its job, the Client gives Maison a <b>limited, non-exclusive permission</b> to use, format, translate, and adapt the Work <b>only to perform the Services</b> and to publish it under the Client's own accounts. This permission ends when the Services are complete. It gives Maison no publishing, print, ebook, audio, film, or territorial rights of any kind.</p>
+</section>
+
+<section>
+  <h2><span class="n">06</span>Amazon KDP Account and Royalties</h2>
+  <p>Every edition will be published through an Amazon KDP account <b>registered in the Client's name</b>, with her own banking and tax information. <b>100% of the royalties</b> from every sale, in every language and format, are paid by Amazon directly to the Client. Maison's compensation is the one-time fee in Section 3, and nothing else.</p>
+  <p>The Client will give Maison access to the KDP account in whatever way she prefers, so Maison can upload and manage the listings. Maison works only on the books and listings. The Client's banking, tax, and payment details stay private to her, and she can update her password or access at any time.</p>
+</section>
+
+<section>
+  <h2><span class="n">07</span>ISBNs</h2>
+  <p><span class="chg">For each edition, the Client chooses the ISBN option she prefers:</span></p>
+  <ul class="dots">
+    <li><b>Free KDP ISBN:</b> <span class="chg">assigned and registered by Amazon KDP at no cost, ideal for books sold on Amazon. The listing shows “Independently published” as the publisher, and this ISBN can be used only for that edition on Amazon KDP.</span></li>
+    <li><b>Her own ISBN:</b> purchased by the Client from Bowker (currently about $125 USD each, or less in blocks of 10) <span class="chg">and registered in her name</span>. Her name, or an imprint name she chooses, appears as the publisher, and the ISBN works on any platform.</li>
+  </ul>
+  <p><span class="chg">Under either option, the Client remains the author and sole owner of the Work, and every edition is published from her own KDP account.</span> Maison will guide the Client through either option at no extra cost.</p>
+</section>
+
+<section>
+  <h2><span class="n">08</span>Author Website and Domain</h2>
+  <p>The author website's domain is <b>registered in the Client's name</b>. Maison covers the domain and hosting for the <b>first 12 months</b>. From the second year, the Client simply renews the domain directly (currently about $15 to $20 USD per year), with no maintenance fee from Maison. Whenever the Client wishes, Maison will hand over the domain, the hosting, and a complete copy of the website to her own accounts.</p>
+</section>
+
+<section>
+  <h2><span class="n">09</span>Marketing and Advertising</h2>
+  <p><b>During production:</b> while the book is being formatted, designed, and translated, Maison works on organic marketing, building interest in the book through content, with no advertising budget needed.</p>
+  <p><b>After publication:</b> once the book is live on Amazon, Maison launches the Meta Ads campaign. The approach is to test first with a low budget, learn what works, and then scale with confidence:</p>
+  <div class="steps">
+    <div><div class="s">STEP 1 · TEST</div><div class="t">$100 to $200</div>Starting budget for the first month after publication, to test audiences and ads.</div>
+    <div><div class="s">STEP 2 · OPTIMIZE</div><div class="t">Best ads</div>Maison keeps the ads and audiences that sell the book and refines the rest.</div>
+    <div><div class="s">STEP 3 · SCALE</div><div class="t">Grows with results</div>The budget increases gradually, always with the Client's approval.</div>
+  </div>
+  <p>The campaign runs from a Meta ad account <b>owned by the Client</b>, with Maison added as a partner. The Client pays Meta directly and sees every result in real time. Campaign management is included for <b>60 days from publication</b>, and can be extended afterward if the Client wishes.</p>
+</section>
+
+<section>
+  <h2><span class="n">10</span>Your Approval at Every Step</h2>
+  <p>The Client has <b>final approval</b> over every cover, the interior layout, every translation, the website, every video, and every ad. Everything goes live on Amazon, the website, or Meta only after her written approval (an email or message is enough). The project timeline follows the Client's review pace.</p>
+</section>
+
+<section>
+  <h2><span class="n">11</span>Translations</h2>
+  <p>Each translation (Spanish, Portuguese, and French) is a complete translation of the Work, <b>reviewed in full by a fluent human translator</b> to preserve the Client's voice, humor, and faith language. Translations are delivered first as manuscript files, so the Client, or any reader she trusts, can review them. Corrections are included until she is fully happy and gives her approval.</p>
+</section>
+
+<section>
+  <h2><span class="n">12</span>Materials</h2>
+  <p>The Client provides the manuscript and the materials she owns (such as her original illustrated cover and personal photos). Maison provides everything it creates and every design asset it uses. Each party stands behind the materials it provides.</p>
+</section>
+
+<section>
+  <h2><span class="n">13</span>Flexibility</h2>
+  <p>Either party may end this Agreement with written notice. In that case, Maison delivers to the Client every file completed so far, and any amount paid beyond the work already completed is refunded. The Client keeps her book, her accounts, and every deliverable she has paid for.</p>
+  <div class="chg-block" style="margin-top:6pt">
+  <p><b>How completed work is valued.</b> The value of the work already completed is calculated using the following milestones, as a percentage of the total fee under the payment option the Client selected ($1,600 or $1,680):</p>
+  <table class="ms">
+    <thead><tr><th>Milestone</th><th>% of fee</th><th>On $1,600</th></tr></thead>
+    <tbody>
+      <tr><td>1. Onboarding: KDP, Meta, and domain set up in the Client's name</td><td>10%</td><td>$160</td></tr>
+      <tr><td>2. English edition: interior formatting and cover design delivered</td><td>30%</td><td>$480</td></tr>
+      <tr><td>3. Spanish translation and edition delivered</td><td>10%</td><td>$160</td></tr>
+      <tr><td>4. Portuguese translation and edition delivered</td><td>10%</td><td>$160</td></tr>
+      <tr><td>5. French translation and edition delivered</td><td>10%</td><td>$160</td></tr>
+      <tr><td>6. Author website delivered</td><td>10%</td><td>$160</td></tr>
+      <tr><td>7. Launch: launch content, video, and Meta Ads campaign</td><td>20%</td><td>$320</td></tr>
+    </tbody>
+    <tfoot><tr><td>Total</td><td>100%</td><td>$1,600</td></tr></tfoot>
+  </table>
+  <p>A milestone counts as completed once its files have been delivered to the Client for review. A milestone that is in progress counts at half its value only if Maison has already delivered a first draft of it (for example, the cover concepts); otherwise, it is not counted. Any amount the Client has paid above the value of completed work is refunded within <b>14 days</b> of the written notice, by the same payment method. <i>Example: if the Agreement ends after milestones 1 and 2 are completed, completed work is 40% ($640 on the $1,600 option), and anything paid above that amount is refunded.</i></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">14</span>Confidentiality</h2>
+  <p>The manuscript, the translations, and any personal information the Client shares are kept strictly confidential. They are shared only with the Maison team members working on the book, and used only for the Services.</p>
+</section>
+
+<section>
+  <h2><span class="n">15</span>Our Commitment</h2>
+  <p>Maison commits to delivering every Service with professional quality, clear communication, and full transparency. Marketing decisions are based on real data, and results are shared openly with the Client. If Amazon or Meta request any adjustment to a file, listing, or ad, Maison takes care of it at no extra cost.</p>
+</section>
+
+<section>
+  <h2><span class="n">16</span>General Terms</h2>
+  <p>Maison works as an independent service provider. This Agreement, together with Schedule A, is the complete agreement between the parties. Any change is agreed in writing by both parties. <span class="chg">This Agreement is governed by the laws of the Commonwealth of Puerto Rico, where the Client resides, and applicable United States federal law. If a disagreement arises, the parties will first try in good faith to resolve it by direct conversation and, if needed, through mediation conducted online. If it is not resolved within 30 days, it may be submitted to the competent courts of Puerto Rico.</span> This Agreement may be signed electronically.</p>
+</section>
+
+<div class="schedule">
+  <div class="kicker">Schedule A</div>
+  <h1>Scope of Services: All Inclusive Plan</h1>
+  <div class="sub">$1,600 USD, one-time investment. Or two payments of $840 USD.</div>
+  <table class="svc">
+    <thead><tr><th>Service</th><th>What is included</th></tr></thead>
+    <tbody>
+      <tr><td>Interior formatting</td><td>Professional interior layout of the English edition for paperback and ebook, ready for Amazon KDP, with 2 rounds of revisions.</td></tr>
+      <tr><td>Cover design</td><td>3 original professional cover concepts. The Client selects her favorite, with 2 rounds of revisions. Includes the full paperback wrap (front, spine, back) and the ebook cover.</td></tr>
+      <tr><td>Alternate edition</td><td>The Client's original illustrated cover is kept as a special alternate edition of the English paperback, prepared and listed on Amazon at no extra cost.</td></tr>
+      <tr><td>English edition</td><td>Publication on Amazon KDP (paperback and ebook) in the Client's account.</td></tr>
+      <tr><td>Spanish edition</td><td>Full translation (Section 11), adapted cover, interior formatting, and its own Amazon listing.</td></tr>
+      <tr><td>Portuguese edition</td><td>Full translation (Section 11), adapted cover, interior formatting, and its own Amazon listing.</td></tr>
+      <tr><td>French edition</td><td>Full translation (Section 11), adapted cover, interior formatting, and its own Amazon listing.</td></tr>
+      <tr><td>Author website</td><td>A dedicated author website presenting the Client and the book, with links to every edition on Amazon, a press section, and a booking contact form. Domain and hosting covered for the first 12 months.</td></tr>
+      <tr><td>Organic marketing<br><span class="pill" style="margin-left:0">DURING PRODUCTION</span></td><td>Content that builds interest in the book while it is being produced, with no ad spend.</td></tr>
+      <tr><td>Launch content</td><td>A full launch content calendar for the release month, created from the Client's material.</td></tr>
+      <tr><td>Video</td><td>Edited video content, including a launch book trailer.</td></tr>
+      <tr><td>Meta Ads <span class="pill">60 DAYS</span></td><td>Campaign strategy, creatives, setup, and management for 60 days from publication, starting with a $100 to $200 test budget and scaling with results. Ad budget paid by the Client directly to Meta.</td></tr>
+      <tr><td>Amazon Author Central</td><td>Setup and optimization of the Client's author page on Amazon.</td></tr>
+      <tr><td>Press kit</td><td>A one-page press kit for media, podcasts, and interviews.</td></tr>
+      <tr><td>Support</td><td>Priority support through launch week.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><b>Estimated timeline.</b> English edition live on Amazon within <b>3 to 4 weeks</b> of the first payment and the final manuscript. Translated editions live within <b>4 to 6 weeks</b> of the English launch, following the Client's review pace.</div>
+
+  <div style="break-inside: avoid">
+  <div class="sig-title">SIGNATURES</div>
+  <p style="margin-top:6pt">By signing below, both parties agree to this Agreement, including Schedule A.</p>
+  <div class="sigs">
+    <div class="sig"><div class="lbl">MAISON ENTERPRISES</div><div class="line"></div><div class="cap">Signature</div><div class="nm">Nahuel Casartelli</div><div class="cap" style="margin-top:0">Owner, Maison Enterprises</div><div class="line" style="height:18pt"></div><div class="cap">Date</div></div>
+    <div class="sig"><div class="lbl">THE CLIENT</div><div class="line"></div><div class="cap">Signature</div><div class="nm">Latonnya Webb (L. T. Webb)</div><div class="cap" style="margin-top:0">Author</div><div class="line" style="height:18pt"></div><div class="cap">Date</div></div>
+  </div>
+  <div class="endline"><span>Maison Enterprises · maison.enterprises</span><span>Agreement ME-2026-LTW-01 · Revision 2 · Confidential</span></div>
+  </div>
+</div>
+
+</body>
+</html>
