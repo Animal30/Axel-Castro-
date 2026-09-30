@@ -1,6 +1,29 @@
 # 08 — Anuncio de Meta (Nate Velazquez)
 
-## Versión principal
+## Versión corta (recomendada para empezar)
+
+**Primary text:**
+
+You don't need another diet. You need a plan that fits your life.
+
+My 12-Week 1-on-1 Nutrition Coaching is built around your schedule and the foods you actually enjoy, with weekly check-ins so you stay on track.
+
+Join this month and you'll also get:
+
+✅ A done-for-you meal plan built around the foods you love
+✅ 100+ high-protein recipes
+✅ The Dining Out & Travel Playbook
+
+Only 10 spots available this month.
+
+Tap "Apply Now" to book a private call.
+
+**Headline:** Lose Weight Without Restrictive Diets
+**Description:** 1-on-1 Nutrition Coaching · 10 Spots
+**Botón (CTA):** Apply Now
+
+
+## Versión larga (para probar contra la corta)
 
 **Primary text:**
 
