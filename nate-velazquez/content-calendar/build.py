@@ -64,7 +64,7 @@ SCRIPTS = [
                "DIET VOICE: \"But what about tomorrow?\"",
                "COACH: \"Tomorrow you eat breakfast like normal. That's it. One slice of cake never ruined anyone. The 'I already ruined it' part does.\""],
          ending="Diet voice takes a bite, shrugs: \"...okay this is good.\" Cut.",
-         note="Change one detail per character (hat, hoodie, side of the frame) so it reads instantly with no sound. Captions on screen are a must. Have fun with it, this is the one that shows Nate's personality."),
+         note="Change one detail per character (hat, hoodie, side of the frame) so it reads instantly with no sound. Captions on screen are a must. Have fun with it, this is the one that shows your personality."),
     dict(tag="LIST", day="Sat · Week 2", title="Things I'll Never Do As A Nutrition Coach",
          angle="Fast-cut list", fmt="Quick cuts · on-screen text", length="20-30 sec", goal="Saves + comments",
          onscreen="I'LL NEVER…",
