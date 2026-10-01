@@ -5,79 +5,87 @@ HERE = pathlib.Path(__file__).parent
 FONTS = pathlib.Path(sys.argv[1]).read_text() if len(sys.argv) > 1 else ""
 
 TAGS = {
-    "CONTRARIAN": ("#fb923c", "rgba(251,146,60,.14)"),
-    "MINDSET": ("#c084fc", "rgba(192,132,252,.14)"),
-    "EDUCATIONAL": ("#60a5fa", "rgba(96,165,250,.14)"),
-    "MYTH": ("#f87171", "rgba(248,113,113,.14)"),
-    "ADVICE": ("#2dd4bf", "rgba(45,212,191,.14)"),
-    "INSIGHT": ("#4ade80", "rgba(74,222,128,.14)"),
-    "OFFER": ("#facc15", "rgba(250,204,21,.14)"),
+    "EXPERIMENT": ("#60a5fa", "rgba(96,165,250,.14)"),
+    "HOT TAKE": ("#f87171", "rgba(248,113,113,.14)"),
+    "REAL LIFE": ("#4ade80", "rgba(74,222,128,.14)"),
+    "SKIT": ("#c084fc", "rgba(192,132,252,.14)"),
+    "LIST": ("#2dd4bf", "rgba(45,212,191,.14)"),
+    "SOFT OFFER": ("#facc15", "rgba(250,204,21,.14)"),
 }
 
 SCRIPTS = [
-    dict(tag="CONTRARIAN", day="Mon · Week 2", title="Eating Less Is Why Your Nights Fall Apart",
-         angle="Contrarian angle", fmt="Talking Head", length="30-40 sec", kw="FUEL",
-         hook="If you're \"good\" all day and then lose it every night, you're not weak. You're hungry.",
-         core=["Most busy adults skip breakfast, grab something small at lunch, and call it discipline. Then 8pm hits and the kitchen wins.",
-               "That's not a lack of self-control. That's a body that went ten hours on almost nothing, doing exactly what it's designed to do.",
-               "The fix isn't eating less at night. It's eating enough during the day, so night never turns into a fight.",
-               "I'm Nate. I coach busy adults on nutrition, and the first thing I fix for most clients isn't what they eat at dinner. It's what they didn't eat before it."],
-         cta="DM me FUEL and I'll show you how I build a day that doesn't fall apart at night.",
-         note="Open almost confessional, like you're letting them in on something. The turn is \"you're not weak, you're hungry\": give it a beat, it's the line people will screenshot. Calm, zero judgment."),
-    dict(tag="MINDSET", day="Tue · Week 2", title="Your Weekends Are Undoing Your Weekdays",
-         angle="Mindset angle", fmt="Talking Head", length="30-40 sec", kw="WEEKEND",
-         hook="Five good days and two \"off\" days isn't a 70% plan. For a lot of people, it's a zero.",
-         core=["Monday to Friday you're locked in. Then Friday night turns into Sunday night, and the weekend quietly cancels out everything the week built.",
-               "The answer isn't giving up your weekends. It's to stop treating them like a break from the plan, and start making them part of it.",
-               "Pick the one meal you're actually looking forward to. Enjoy it fully, no guilt. Keep the rest of the weekend simple.",
-               "I'm Nate, nutrition coach for busy adults. My clients don't lose their weekends. They just stop letting two days decide the other five."],
-         cta="DM me WEEKEND and I'll send you the exact weekend rules I give my clients.",
-         note="Record it on a Friday or Saturday if you can, it feels timely. Light and relatable, not preachy: you love weekends too. Say \"no guilt\" like you mean it."),
-    dict(tag="EDUCATIONAL", day="Wed · Week 2", title="The \"Healthy\" Foods Quietly Stalling Your Progress",
-         angle="Educational · Authority angle", fmt="Talking Head + B-roll", length="35-45 sec", kw="SWAP",
-         hook="You're eating \"healthy\" and nothing's changing. These might be the reason.",
-         core=["The smoothie with three fruits, nut butter and honey. The granola that's basically dessert. The salad with half a cup of dressing. The coffee drink that's really a milkshake.",
-               "None of these are bad foods. But they're labeled healthy, so nobody counts them, and together they can add up to a whole extra meal every day without you noticing.",
-               "I'm Nate. I coach busy adults on nutrition, and I don't take these foods away from my clients. I show them the swaps that keep the taste and cut the hidden extras.",
-               "Healthy and helpful aren't always the same thing."],
-         cta="DM me SWAP and I'll send you my top 5 swaps.",
-         note="Show each food on screen as you name it (B-roll or holding it up in the kitchen). Quick rhythm on the list, then slow down for \"none of these are bad foods\". Never shame the food or the person."),
-    dict(tag="MYTH", day="Thu · Week 2", title="You Don't Have To Quit Carbs",
-         angle="Myth-busting angle", fmt="Talking Head", length="30-40 sec", kw="CARBS",
-         hook="Carbs didn't make you gain weight. And cutting them is why it keeps coming back for so many people.",
-         core=["Going no-carb feels great for two weeks, mostly because you're losing water. Then a birthday, a pasta night, a vacation, and it all comes back, plus the guilt.",
-               "Carbs were never the problem. Eating them without a plan was.",
-               "Rice, potatoes, bread, fruit. My clients eat all of it. The difference is they know how much, and what to pair it with.",
-               "I'm Nate, nutrition coach for busy adults. A plan without the foods you love isn't a plan you'll keep. It's just a countdown to quitting."],
-         cta="DM me CARBS and I'll show you how my clients eat them and still make progress.",
-         note="Confident, slightly playful. Could hold a bowl of rice or a slice of bread for the hook, it stops the scroll. Land \"a countdown to quitting\" slowly and stop there."),
-    dict(tag="ADVICE", day="Fri · Week 2", title="How To Eat Out Without Starting Over Monday",
-         angle="Advice angle", fmt="Talking Head", length="35-45 sec", kw="MENU",
-         hook="You don't have to skip dinner with friends to stay on track. You just need three rules.",
-         core=["One: decide before you get there. Check the menu ahead of time, so you're not choosing while you're starving.",
-               "Two: pick your one. The drink, the bread, or the dessert. Enjoy one of them fully, not all three halfway.",
-               "Three: stop at satisfied, not stuffed. Restaurant portions aren't a challenge you have to finish.",
-               "I'm Nate. I coach busy adults on nutrition, and eating out is where most of my clients think they'll fail. It usually ends up being where they feel the most confident."],
-         cta="DM me MENU and I'll send you my full dining-out guide.",
-         note="Count the rules on your fingers, it keeps people watching to the end. Film at a restaurant table or in the car before dinner if possible. Practical, quick, friendly."),
-    dict(tag="INSIGHT", day="Sat · Week 2", title="Your Diet Gets Decided In The Grocery Store",
-         angle="Insight angle", fmt="Walk & Talk", length="30-40 sec", kw="LIST",
-         hook="Most of your diet gets decided right here, not in your kitchen.",
-         core=["If it's in your house, you'll eat it eventually. Not because you're weak. Because you're tired, busy, and it's right there.",
-               "Which means the most important nutrition decision of your week happens in about forty minutes, pushing a cart.",
-               "My clients shop from one simple list: proteins, easy carbs, fruit and veggies, and two snacks they actually love. So the easy choice at home is already the right one.",
-               "I'm Nate, nutrition coach for busy adults. I don't ask my clients to fight the food in their house. I help them change what's waiting for them there."],
-         cta="DM me LIST and I'll send you the grocery list template I give my clients.",
-         note="Film walking through a grocery store aisle with a cart, phone at chest height. Point at shelves naturally. Relaxed weekend energy, like you're shopping together."),
-    dict(tag="OFFER", day="Sun · Week 2", title="What 12 Weeks With Me Actually Looks Like",
-         angle="Process + offer angle", fmt="Talking Head", length="40-50 sec", kw="APPLY",
-         hook="People keep asking what coaching with me actually looks like. Here's the honest version.",
-         core=["Weeks one to four: we build your plan around your schedule and the food you already eat, and lock in the first few habits. Nothing extreme.",
-               "Weeks five to eight: we adjust every week based on your check-ins, so nothing stalls and nothing feels forced.",
-               "Weeks nine to twelve: we make it yours. How to eat out, travel, and handle a rough week without needing me.",
-               "I'm Nate. I coach busy adults on nutrition, and I only take ten new clients a month, so every plan gets real attention."],
-         cta="DM me APPLY and let's see if you're a fit for this month.",
-         note="The clearest, most structured video of the week: hold up one, two, three fingers or use on-screen text for each phase. Calm and confident, no hype. Pause before the CTA."),
+    dict(tag="EXPERIMENT", day="Mon · Week 2", title="Same Calories. Two Very Different Plates.",
+         angle="Visual experiment", fmt="Table-top demo", length="20-30 sec", goal="Shares + saves",
+         onscreen="SAME CALORIES ↓",
+         hook="These two plates have the exact same calories. Only one of them keeps you full until 3pm.",
+         core=["Left: a blueberry muffin and a vanilla latte. Gone in four minutes. Hungry again by 10.",
+               "Right: eggs, toast, a pile of fruit, Greek yogurt, and a chicken sausage. Same number. You'll struggle to finish it.",
+               "Your stomach doesn't count calories. It counts volume and protein. That's the whole trick.",
+               "Nobody's telling you to never eat the muffin. Just know what you're trading when you do."],
+         ending="Slide the muffin plate off frame. End on the full plate, no words. Let people rewatch to compare.",
+         note="Weigh every food and put the real calorie number on each plate on screen; adjust portions until they truly match. Overhead or 45° angle, clean table, good light. The visual does 80% of the work, keep talking to a minimum."),
+    dict(tag="HOT TAKE", day="Tue · Week 2", title="\"Eat Clean\" Is The Worst Advice On The Internet",
+         angle="Unpopular opinion", fmt="Talking Head", length="25-35 sec", goal="Comments",
+         onscreen="UNPOPULAR OPINION",
+         hook="Unpopular opinion from a nutrition coach: \"eat clean\" is the worst advice on the internet.",
+         core=["Nobody can tell you what it actually means. Is bread clean? Pasta? A burger you made at home?",
+               "What it really does is split food into good and bad. And once a food is \"bad,\" eating it doesn't feel like a meal. It feels like failing.",
+               "That's how one cookie turns into the whole sleeve. Not hunger. Guilt.",
+               "Food isn't clean or dirty. It's more filling or less filling, more protein or less. That's it. Everything else is marketing."],
+         ending="\"Change my mind.\" Then stop. People will try in the comments.",
+         note="Say the hook straight into the lens with a half-smile, like you know you're about to start something. Reply to the best comments with video replies, that's where the second wave of views comes from."),
+    dict(tag="REAL LIFE", day="Wed · Week 2", title="What I Eat On A Bad Day As A Nutrition Coach",
+         angle="Day-in-the-life, flipped", fmt="Vlog · quick cuts", length="35-45 sec", goal="Watch time + follows",
+         onscreen="NOT A PERFECT DAY",
+         hook="Everyone shows you their perfect day of eating. Here's my bad one.",
+         core=["Overslept. Coffee in the car, a protein shake I found in the gym bag. Not cute.",
+               "Lunch is a gas station: a turkey sandwich, a cheese stick, a banana. Fine.",
+               "3pm, back-to-back calls, I grab a handful of whatever's in the office. Happens.",
+               "Dinner at 8:30. Frozen stir-fry and microwave rice. Ten minutes.",
+               "Not perfect. But every meal had something that kept me full, and nothing turned into a free-for-all. That's the real skill. Not the perfect days. The bad ones."],
+         ending="Last clip: you eating dinner on the couch. \"That's it. That's the secret.\"",
+         note="Film it on a genuinely busy day, real locations, phone in hand, no polish. Cut every 2-3 seconds. Honesty is the hook here: the less staged it looks, the better it performs."),
+    dict(tag="EXPERIMENT", day="Thu · Week 2", title="I Asked People To Pour One Tablespoon Of Peanut Butter",
+         angle="Street / home experiment", fmt="Interactive challenge", length="25-35 sec", goal="Shares",
+         onscreen="POUR 1 TBSP",
+         hook="I asked three people to pour one tablespoon of peanut butter. Nobody got close.",
+         core=["Person one: two and a half tablespoons. Person two: almost three. Person three just laughed.",
+               "A real, level tablespoon is around 90 to 100 calories. What most people call \"a spoonful\" is two or three times that.",
+               "Peanut butter isn't the problem. Eyeballing it every day for a year is.",
+               "You don't need to measure forever. Just do it once, so your eyes learn what one actually looks like."],
+         ending="Hand the jar to the camera: \"Your turn.\"",
+         note="Use friends, family or gym regulars (get their OK to post). Show the measuring spoon reveal on a kitchen scale for each person, the gap is the punchline. Keep reactions in, they're the reason people share it."),
+    dict(tag="SKIT", day="Fri · Week 2", title="The Diet Voice vs. Your Coach At A Birthday Party",
+         angle="Two-character skit", fmt="Skit · you play both", length="25-35 sec", goal="Shares + tags",
+         onscreen="DIET VOICE vs. COACH",
+         hook="The voice in your head at a birthday party vs. what I'd actually tell you.",
+         core=["DIET VOICE: \"Don't touch the cake. You already had pizza. Today's ruined anyway, so just go for it.\"",
+               "COACH: \"Have the slice. Sit down, enjoy it, talk to people.\"",
+               "DIET VOICE: \"But what about tomorrow?\"",
+               "COACH: \"Tomorrow you eat breakfast like normal. That's it. One slice of cake never ruined anyone. The 'I already ruined it' part does.\""],
+         ending="Diet voice takes a bite, shrugs: \"...okay this is good.\" Cut.",
+         note="Change one detail per character (hat, hoodie, side of the frame) so it reads instantly with no sound. Captions on screen are a must. Have fun with it, this is the one that shows Nate's personality."),
+    dict(tag="LIST", day="Sat · Week 2", title="Things I'll Never Do As A Nutrition Coach",
+         angle="Fast-cut list", fmt="Quick cuts · on-screen text", length="20-30 sec", goal="Saves + comments",
+         onscreen="I'LL NEVER…",
+         hook="Things I'll never do as a nutrition coach. Number four surprises people.",
+         core=["One: skip breakfast to \"save calories\" for a big dinner.",
+               "Two: buy anything that says \"guilt-free\" on the label.",
+               "Three: drink my calories without noticing. Looking at you, caramel cold brew.",
+               "Four: weigh myself the morning after a vacation. That number lies for about a week.",
+               "Five: eat dinner standing over the kitchen counter."],
+         ending="\"Which one are you guilty of? Number in the comments.\"",
+         note="One cut per item, a quick visual for each (empty plate, label close-up, the coffee, a scale with a towel thrown over it, the counter). On-screen number for each one. Fast and punchy, the whole thing should feel like 15 seconds."),
+    dict(tag="SOFT OFFER", day="Sun · Week 2", title="Who I Won't Coach",
+         angle="Reverse pitch", fmt="Talking Head", length="30-40 sec", goal="Leads", kw="FIT",
+         onscreen="I WON'T COACH YOU IF…",
+         hook="I only take ten new clients a month. So here's who I'm not taking.",
+         core=["If you want to lose twenty pounds by your vacation next week, I'm not your guy.",
+               "If you want a meal plan you'll follow for three days and throw away, there are free ones online.",
+               "If you think you have to give up pizza forever to get results, I'll spend twelve weeks proving you wrong. But you have to let me.",
+               "But if you're busy, you're tired of starting over, and you want something that actually fits your life... that's exactly who I built this for."],
+         ending="\"If that's you, DM me FIT.\"",
+         note="Calm and a little blunt, not arrogant. Disqualifying people makes the right ones lean in. This is the only video this week with a call to action: keep it soft, one line, then stop."),
 ]
 
 def esc(s): return html.escape(s, quote=False)
@@ -95,11 +103,11 @@ pages.append(f'''<section class="page cover">
   <div class="cv">
     <div class="eyebrow">NATE VELAZQUEZ · @_NATEVELAZQUEZ</div>
     <h1>Content Calendar</h1>
-    <p class="sub">{len(SCRIPTS)} scripts. Ready to record. Built to convert.</p>
+    <p class="sub">{len(SCRIPTS)} scripts. Built for reach, not just leads.</p>
     <div class="meta">
       <p><b>TARGET</b> — Busy adults 30+ who've tried restrictive diets and want a sustainable way to eat</p>
-      <p><b>STYLE</b> — Direct, personal, coach-to-camera. No hype, no shame.</p>
-      <p><b>FORMAT</b> — 30–50 sec · Talking Head · Instagram Reels</p>
+      <p><b>STYLE</b> — Visual, surprising, real. Things people stop scrolling for, not another coach tip.</p>
+      <p><b>FORMAT</b> — 20–45 sec · Experiments, skits, real life &amp; hot takes · Instagram Reels</p>
     </div>
   </div>
   <div class="list"><div class="lh">SCRIPTS IN THIS DOCUMENT</div>{rows}</div>
@@ -108,7 +116,11 @@ pages.append(f'''<section class="page cover">
 
 for i, s in enumerate(SCRIPTS):
     core = "".join(f"<p>{esc(p)}</p>" for p in s["core"])
-    cta = esc(s["cta"]).replace(s["kw"], f'<span class="kw">{s["kw"]}</span>', 1)
+    kw = s.get("kw")
+    last = (f'<div><span>DM KEYWORD</span><b class="kw">{kw}</b></div>' if kw
+            else f'<div><span>GOAL</span><b>{esc(s["goal"])}</b></div>')
+    ending = esc(s["ending"])
+    if kw: ending = ending.replace(kw, f'<span class="kw">{kw}</span>', 1)
     pages.append(f'''<section class="page">
   <div class="eyebrow">NATE VELAZQUEZ · @_NATEVELAZQUEZ</div>
   <div class="top"><span class="sc"><i></i>SCRIPT {i+1} OF {len(SCRIPTS)}</span>{tag_html(s["tag"])}</div>
@@ -118,12 +130,12 @@ for i, s in enumerate(SCRIPTS):
   <div class="facts">
     <div><span>FORMAT</span><b>{esc(s["fmt"])}</b></div>
     <div><span>LENGTH</span><b>{s["length"]}</b></div>
-    <div><span>CHANNEL</span><b>Instagram Reels</b></div>
-    <div><span>DM KEYWORD</span><b class="kw">{s["kw"]}</b></div>
+    <div><span>ON-SCREEN TEXT</span><b>{esc(s["onscreen"])}</b></div>
+    {last}
   </div>
   <div class="box"><div class="bh"><em>01</em>THE HOOK</div><p class="hook">“{esc(s["hook"])}”</p></div>
-  <div class="box"><div class="bh"><em>02</em>CORE MESSAGE</div><div class="core">{core}</div></div>
-  <div class="box cta"><div class="bh"><em>03</em>CALL TO ACTION</div><p class="hook">“{cta}”</p></div>
+  <div class="box"><div class="bh"><em>02</em>THE BEATS</div><div class="core">{core}</div></div>
+  <div class="box{' cta' if kw else ''}"><div class="bh"><em>03</em>{'CALL TO ACTION' if kw else 'THE ENDING'}</div><p class="hook">{ending}</p></div>
   <div class="box note"><div class="bh">DIRECTOR'S NOTE</div><p>{esc(s["note"])}</p></div>
   <div class="foot"><span>NATE VELAZQUEZ · CONTENT CALENDAR</span><span>{i+2:02d} / {total:02d}</span></div>
 </section>''')
