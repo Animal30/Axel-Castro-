@@ -13,7 +13,7 @@ SCRIPTS = [
                "Lighter and controlled beats heavy and sloppy. Every time, for every goal."],
          cta="DM me FORM. I'll show you the three cues I fix first with every new client."),
     dict(title="You Don't Need More Time. You Need Three Sessions.", angle="Talking Head · Mindset angle", fmt="Talking Head", length="30-40 sec", kw="THREE",
-         hook="“I don't have time” usually means “I don't have a plan that fits the time I have.”",
+         hook="‘I don't have time’ usually means ‘I don't have a plan that fits the time I have.’",
          core=["Most people think getting in shape means an hour a day, six days a week. So they wait for a season of life that has that kind of time. It never comes.",
                "Three focused sessions a week, forty-five minutes each, is less than two and a half hours. That's less than one evening of scrolling.",
                "I'm Sam, owner of Iron Bird Fitness. The clients with the busiest calendars are often the most consistent ones, because their sessions are short, planned and non-negotiable.",
