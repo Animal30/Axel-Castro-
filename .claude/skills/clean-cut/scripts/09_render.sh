@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 # Step 9 - check, render and make a phone copy.   09_render.sh <project_dir> "<out_dir>" "<Title>" <fps, e.g. 24000/1001>
 # Render at the SOURCE frame rate (the same --fps given to 02_cut.py), so no frame is dropped or doubled.
 set -e; P=$1; OUT=$2; TITLE=$3; FPS=${4:-30}; cd "$P"

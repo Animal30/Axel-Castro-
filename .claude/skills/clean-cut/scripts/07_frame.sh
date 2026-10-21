@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 # Step 7 - frame the cut as a 9:16 vertical video (1080x1920, with the audio).
 #   07_frame.sh "<CUT.mp4>" "<out 9x16.mp4>" [w h x y]
 # Horizontal source: pass a 9:16 crop window in source pixels with the face centred
