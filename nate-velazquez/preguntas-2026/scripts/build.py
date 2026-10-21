@@ -5,51 +5,49 @@ HERE = pathlib.Path(__file__).parent
 FONTS = pathlib.Path(sys.argv[1]).read_text() if len(sys.argv) > 1 else ""
 
 ADS = [
-    dict(title="How Much Protein Do You Actually Need?", angle="Talking Head · Yapping · Most-searched question", length="30-45 sec", kw="PROTEIN", use="FEED + AD",
+    dict(title="How Much Protein Do You Actually Need?", angle="Talking Head · Yapping · Nutrition", length="30-45 sec", kw="PROTEIN", use="FEED + AD",
          hook="Hungry by 10am? You're making the most common protein mistake there is.",
          alts=[],
-         core=["Here it is: plenty of protein at dinner, almost none at breakfast. A bagel and a coffee gets you maybe 10 grams, and by mid-morning your body is asking for food again.",
-               "The number you usually see, about 0.8 grams per kilo of body weight, is just the minimum to avoid a deficiency. For most active adults, the research points closer to 1.2 to 1.6.",
-               "In real life, I keep it simple for my clients: 25 to 40 grams per meal, three or four times a day.",
-               "Start with breakfast. Eggs, Greek yogurt, cottage cheese or a protein shake, and watch how different your morning feels.",
+         core=["Dinner is usually fine. Breakfast is where it falls apart: a bagel and a coffee is maybe 10 grams of protein, and by mid-morning you're already looking for a snack.",
+               "The 0.8 grams per kilo you've probably heard is the minimum to avoid a deficiency, not the amount that keeps you full. Most active adults do better closer to 1.2 to 1.6.",
+               "The simple version: 25 to 40 grams per meal. For breakfast, that's three eggs with a cup of Greek yogurt, or a protein shake with your coffee.",
+               "Fix that one meal, and the 10am hunger usually goes away with it.",
                "I'm Nate, nutrition coach."],
          cta="Send me a message with the word PROTEIN and tell me what you eat for breakfast. I'll tell you exactly how to hit your number."),
-    dict(title="Is Fibermaxxing Actually Healthy?", angle="Talking Head · Yapping · 2026 trend", length="30-45 sec", kw="FIBER", use="FEED + AD",
+    dict(title="Is Fibermaxxing Actually Healthy?", angle="Talking Head · Yapping · 2026 trend", length="30-45 sec", kw=None, use="ORGANIC",
          hook="Fibermaxxing works. But start it like most people do and you'll regret it by tomorrow.",
          alts=[],
-         core=["Good news first: this is one of the few trends I actually like. Most adults only get about half the fiber they need.",
-               "The target is roughly 25 grams a day for women and about 30 to 38 for men.",
-               "Here's where people get it wrong: they go from 10 grams to 50 overnight, and spend the next two days bloated and miserable.",
-               "Go up slowly, a few grams a week, and drink more water as you do it. Beans, berries, oats, chia, veggies. Real food, not a powder in every drink.",
-               "I'm Nate, nutrition coach."],
-         cta="Send me a message with the word FIBER and tell me what a normal day of eating looks like for you. I'll tell you where I'd add it first."),
-    dict(title="Are Seed Oils Actually Bad For You?", angle="Talking Head · Yapping · Myth vs. truth", length="30-45 sec", kw="OILS", use="FEED + AD",
+         core=["The trend itself is great. Most adults get about half the fiber they need, and fiber is a big part of what keeps a meal from disappearing an hour later.",
+               "The target: roughly 25 grams a day for women, and 30 to 38 for men.",
+               "The regret part is going from 10 grams to 50 overnight. That's two days of bloating and cramps, and most people quit right there.",
+               "Do it like this instead: add about 5 grams a week, drink more water as you go, and get it from food first. A cup of raspberries has about 8 grams. Half a cup of black beans, around 7. A tablespoon of chia, about 4.",
+               "Slow and steady is the whole trick."],
+         cta="What's your go-to high-fiber food? Drop it in the comments and I'll tell you if it's actually doing the job."),
+    dict(title="Are Seed Oils Actually Bad For You?", angle="Talking Head · Yapping · Myth vs. truth", length="30-45 sec", kw=None, use="ORGANIC",
          hook="You cut seed oils and felt better. The oil wasn't the reason.",
          alts=[],
-         core=["When people cut seed oils, they also cut fries, chips, fast food and packaged snacks. That's what actually changed.",
-               "The research on the oil itself doesn't back the fear. Studies that swap saturated fat for oils like canola or soybean tend to show better cholesterol, not worse.",
-               "The problem was never the bottle of canola oil in your kitchen. It was the deep fryer.",
-               "Cooking at home with canola or olive oil? You're fine. Watch how often you're eating fried and packaged food instead.",
-               "I'm Nate, nutrition coach."],
-         cta="Send me a message with the word OILS and tell me what you usually cook with. I'll tell you if I'd change anything."),
-    dict(title="Should You Take Creatine?", angle="Talking Head · Yapping · Supplements", length="30-45 sec", kw="CREATINE", use="ORGANIC ONLY",
+         core=["Think about what usually goes when people cut seed oils: fries, chips, fast food, pastries, packaged snacks. Of course they feel better.",
+               "The oil itself? The research doesn't back the fear. Studies that replace saturated fat with oils like canola or soybean tend to show better cholesterol, not worse.",
+               "So the problem was never the bottle of canola oil in your kitchen. It was the deep fryer, and how often you were eating from it.",
+               "Cook at home with olive or canola oil, and put your energy into eating less fried and packaged food. That's the part that actually made the difference."],
+         cta="So be honest: when you cut seed oils, what else did you cut? Tell me in the comments."),
+    dict(title="Should You Take Creatine?", angle="Talking Head · Yapping · Supplements", length="30-45 sec", kw=None, use="ORGANIC ONLY",
          hook="If you only take one supplement this year, make it this one. Here's why.",
          alts=[],
          core=["It's creatine. And no, it's not just for bodybuilders.",
-               "It's one of the most studied supplements in the world. It helps your muscles recover and perform, and people of every age are using it now.",
-               "How to take it: 3 to 5 grams of creatine monohydrate a day, every day. No loading phase, no special timing.",
-               "One heads-up: the scale might go up a little at first. That's water in your muscles, not fat.",
-               "If you have kidney issues or take medication, check with your doctor before you start.",
-               "I'm Nate, nutrition coach."],
-         cta="Send me a message with the word CREATINE and tell me what supplements you take right now. I'll tell you which ones I'd actually keep."),
+               "It's one of the most researched supplements out there, and today people of every age use it to recover better and keep their strength up.",
+               "How to take it: 3 to 5 grams of creatine monohydrate a day, every day. No loading phase, no perfect timing. Mix it into water, coffee or a shake.",
+               "The scale might go up a pound or two at first. That's water stored in your muscles, not fat, so don't panic and quit.",
+               "If you have kidney issues or take medication, check with your doctor first."],
+         cta="Are you already taking creatine, or is something holding you back? Tell me in the comments and I'll answer every one."),
     dict(title="Are Ultra-Processed Foods Really That Bad?", angle="Talking Head · Yapping · Myth vs. truth", length="30-45 sec", kw="REAL", use="FEED + AD",
          hook="Cut every ultra-processed food and you'll quit in two weeks. Do this instead.",
          alts=[],
-         core=["Trying to eat zero processed food sounds healthy. But with a job and a family, almost nobody can keep it up.",
-               "And the label covers more than you think: soda and candy, but also some whole-grain breads, flavored Greek yogurt and protein bars. A protein bar and a donut are not the same food.",
-               "So instead of zero, aim for most of your plate to be real food.",
-               "And when you do buy packaged food, pick the options that bring protein or fiber with them. Better most of the time beats perfect for two weeks.",
-               "I'm Nate, nutrition coach."],
+         core=["Zero processed food sounds great, until you have a job, a family and a Tuesday night with nothing in the fridge. That's when the plan breaks.",
+               "And ‘ultra-processed’ covers more than soda and candy. Some whole-grain breads, flavored Greek yogurt and protein bars are on that list too. A protein bar and a donut are not the same food.",
+               "So aim for most of your plate to be real food: meat, fish, eggs, fruit, veggies, rice, potatoes.",
+               "For the rest, ask one question when you grab something packaged: does this bring protein or fiber with it? If it does, it can stay.",
+               "Better most of the time beats perfect for two weeks."],
          cta="Send me a message with the word REAL and tell me the packaged foods you buy every week. I'll tell you which ones I'd keep and which I'd swap."),
 ]
 
@@ -57,7 +55,14 @@ def esc(s): return html.escape(s, quote=False)
 N = len(ADS)
 pages = []
 for i, a in enumerate(ADS):
-    cta_html = esc(a["cta"]).replace(a["kw"], '<span class="kw">' + a["kw"] + '</span>', 1)
+    if a["kw"]:
+        cta_html = esc(a["cta"]).replace(a["kw"], '<span class="kw">' + a["kw"] + '</span>', 1)
+        last_fact = '<div><span>DM KEYWORD</span><b class="kw">' + a["kw"] + '</b></div>'
+        cta_label, channel = 'CALL TO ACTION', 'IG Feed + Meta Ads'
+    else:
+        cta_html = esc(a["cta"])
+        last_fact = '<div><span>GOAL</span><b>Comments</b></div>'
+        cta_label, channel = 'QUESTION FOR THE AUDIENCE', 'IG Feed (organic)'
     core = "".join(f"<p>{esc(p)}</p>" for p in a["core"])
     pages.append(f'''<section class="page">
   <div class="eyebrow">NATE VELAZQUEZ · @_NATEVELAZQUEZ</div>
@@ -68,12 +73,12 @@ for i, a in enumerate(ADS):
   <div class="facts">
     <div><span>FORMAT</span><b>{esc(a["angle"].split(" · ")[0])}</b></div>
     <div><span>LENGTH</span><b>{a["length"]}</b></div>
-    <div><span>CHANNEL</span><b>IG Feed + Meta Ads</b></div>
-    <div><span>DM KEYWORD</span><b class="kw">{a["kw"]}</b></div>
+    <div><span>CHANNEL</span><b>{channel}</b></div>
+    {last_fact}
   </div>
   <div class="box"><div class="bh"><em>01</em>THE HOOK</div><p class="hook">“{esc(a["hook"])}”</p></div>
   <div class="box"><div class="bh"><em>02</em>CORE MESSAGE</div><div class="core">{core}</div></div>
-  <div class="box cta"><div class="bh"><em>03</em>CALL TO ACTION</div><p class="hook">“{cta_html}”</p></div>
+  <div class="box cta"><div class="bh"><em>03</em>{cta_label}</div><p class="hook">“{cta_html}”</p></div>
   <div class="foot"><span>NATE VELAZQUEZ · NUTRITION Q&amp;A</span><span>{i+1:02d} / {N:02d}</span></div>
 </section>''')
 
