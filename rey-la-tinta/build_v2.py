@@ -6,31 +6,31 @@ FONTS = pathlib.Path(sys.argv[1]).read_text() if len(sys.argv) > 1 else ""
 
 ADS = [
     dict(title="No Sabes Qué Tatuarte", angle="Talking Head + B-roll · Tatuajes con significado", length="30-40 seg",
-         hook="¿Quieres tatuarte pero no sabes qué? Así empiezan muchos de mis mejores trabajos.",
+         hook="Nunca elijas tu tatuaje de un catálogo. Dime 3 cosas que te importan.",
          core=["Me llamo Rey, soy tatuador en Coral Springs, y casi nadie llega a mi estudio con el diseño listo. Llegan con algo que les importa.",
                "El nombre de un hijo. El lugar donde creciste. Una canción. Un animal que significa algo para ti.",
-               "Con eso empiezo. Me cuentas la historia, hago el boceto y lo ajustamos juntos hasta que sea tuyo.",
+               "Con esas 3 cosas empiezo. Me cuentas la historia, hago el boceto y lo ajustamos juntos hasta que sea tuyo.",
                "Lo ves puesto en tu piel antes de empezar, y solo entonces lo tatuamos.",
-               "Una pieza que nadie más va a tener."],
-         cta="Pasa por el estudio aquí en Coral Springs y lo hablamos en persona, sin compromiso. O mándame por mensaje tres cosas que te importan y te digo qué haría con eso.",
+               "Un catálogo te da el tatuaje de cualquiera. Esto te da uno que nadie más va a tener."],
+         cta="Toca el botón y escríbeme por WhatsApp esas 3 cosas. Te digo qué haría con ellas, o te espero en el estudio en Coral Springs para hablarlo en persona.",
          note="A cámara en la mesa de dibujo. Muestra cada paso mientras lo dices: la charla con el cliente, el boceto a lápiz o en la tablet, el stencil puesto en la piel y el tatuaje terminado. Cierra con el cliente viendo su pieza por primera vez."),
     dict(title="La Foto Guardada En Tu Celular", angle="Talking Head + B-roll · Idea de referencia", length="30-40 seg",
-         hook="¿Tienes una foto de un tatuaje guardada en el celular desde hace meses? Tráemela.",
-         core=["Casi todos tienen una. Una captura de Instagram, algo de Pinterest, un tatuaje que le viste a otra persona.",
-               "No la voy a copiar. La uso para entender lo que te gusta: el estilo, el tamaño, la zona.",
+         hook="¿Esa foto de tatuaje que guardaste en el celular? Ya la tiene otra persona. Haz esto.",
+         core=["Una captura de Instagram, algo de Pinterest, un tatuaje que le viste a alguien. Si la copias tal cual, llevas el tatuaje de otro.",
+               "Yo no la copio. La uso para entender lo que te gusta: el estilo, el tamaño, la zona.",
                "Después le agrego lo tuyo: una fecha, un detalle, algo de tu historia. Y la dibujo para tu cuerpo, no para el de otra persona.",
                "Te enseño el boceto, lo cambiamos las veces que haga falta y lo ves puesto antes de empezar.",
                "Esa foto deja de ser de otro y se convierte en tu tatuaje."],
-         cta="Mándame esa foto por mensaje, o tráela al estudio en Coral Springs y la vemos juntos. Sin compromiso.",
+         cta="Toca el botón y mándame esa foto por WhatsApp. O tráela al estudio en Coral Springs y la vemos juntos, sin compromiso.",
          note="Abre con el celular en la mano, pasando capturas de tatuajes. Después, pantalla dividida: la foto de referencia de un cliente a un lado y el tatuaje final que le hiciste al otro. Muestra 2 o 3 ejemplos así."),
     dict(title="Algún Día", angle="Talking Head · Ángulo decisión", length="30-40 seg",
-         hook="¿Cuántos años llevas diciendo que te vas a tatuar «algún día»?",
-         core=["Casi siempre es la misma historia. La idea está, pero falta algo: no sabes con quién, no sabes cuánto, no sabes por dónde empezar.",
-               "Y así pasan los años.",
-               "Por eso el primer paso no es tatuarte. Es sentarte a hablar.",
+         hook="¿Llevas 5 años con la misma idea de tatuaje? Te falta un paso que nadie te cuenta.",
+         core=["La idea la tienes clara. Lo que falta es lo demás: con quién, cuánto, por dónde empezar. Y así pasan los años.",
+               "El paso que falta no es sentarte en la silla. Es sentarte a hablar.",
                "Vienes al estudio, me cuentas la idea, ves mis trabajos de cerca y te explico cómo lo haríamos, cuánto tiempo lleva y dónde quedaría mejor.",
-               "Sin presión. Si te convence, armamos el diseño juntos y separamos tu fecha."],
-         cta="Escríbeme por mensaje y te reservo un rato en el estudio aquí en Coral Springs para que nos conozcamos.",
+               "Sin presión. Si te convence, armamos el diseño juntos y separamos tu fecha.",
+               "Cinco años pensándolo. Una conversación para empezar."],
+         cta="Toca el botón, escríbeme por WhatsApp y te reservo un rato en el estudio en Coral Springs para que nos conozcamos.",
          note="A cámara, cercano, en el estudio. En «y así pasan los años», muestra el celular con una nota vieja que diga «tatuaje». Mientras explicas la visita, recorre el estudio: la entrada, la mesa de dibujo, el portafolio y la silla. Que se vea limpio y acogedor."),
 ]
 
@@ -49,7 +49,7 @@ for i, a in enumerate(ADS):
     <div><span>FORMATO</span><b>{esc(a["angle"].split(" · ")[0])}</b></div>
     <div><span>DURACIÓN</span><b>{a["length"]}</b></div>
     <div><span>CANAL</span><b>Meta Ads (IG + FB)</b></div>
-    <div><span>OBJETIVO</span><b class="kw">Mensajes</b></div>
+    <div><span>OBJETIVO</span><b class="kw">WhatsApp</b></div>
   </div>
   <div class="box"><div class="bh"><em>01</em>EL GANCHO</div><p class="hook">“{esc(a["hook"])}”</p></div>
   <div class="box"><div class="bh"><em>02</em>MENSAJE PRINCIPAL</div><div class="core">{core}</div></div>
