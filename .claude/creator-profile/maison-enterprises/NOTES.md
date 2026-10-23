@@ -9,7 +9,7 @@ Nahuel decided (2026-10-23): exactly the same editing style and prompt as Nate V
 - Never a watermark or the editor's (Nahuel's) name or brand. Maison's name and logo do go in.
 - Split screen only when the top half has a moving animation or B-roll.
 - B-roll: generated with Higgsfield by Claude.
-- Outro: cinematic ~5.5 s logo outro like Nate's (template /mnt/project-files/nate-velazquez/brand/outro-hyperframes/), with Maison's logo.
+- Outro: cinematic 5.5 s logo outro, template /mnt/project-files/maison-enterprises/brand/outro-hyperframes/ (render: maison-cierre.mp4). Tagline "Your vision, launched." and CTA "BOOK A FREE CALL" are Claude placeholders until Nahuel confirms.
 - Footage: iPhone HDR, tone-map to SDR bt709 at 23.976 fps.
 
 ## Pending
