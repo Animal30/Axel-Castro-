@@ -18,5 +18,7 @@
  },
  "transcriber": "elevenlabs",
  "output_rule": "/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)",
- "proof_dir": "none yet"
+ "proof_dir": "none yet",
+ "sfx_dir": "/home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx",
+ "music_rule": "ask"
 }
