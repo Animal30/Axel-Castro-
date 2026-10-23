@@ -3,8 +3,8 @@
  "accent": "#FF7A1A",
  "accent_name": "orange",
  "bg": "#050505",
- "creator_name": "Myson Enterprises",
- "brand_name": "Myson Enterprises",
+ "creator_name": "Maison Enterprises",
+ "brand_name": "Maison Enterprises",
  "font_main_name": "Inter",
  "font_main_bold": {
   "file": "Inter-Bold.otf"
@@ -17,7 +17,7 @@
   "file": "PlayfairDisplay-Italic.ttf"
  },
  "transcriber": "elevenlabs",
- "output_rule": "/mnt/project-files/myson-enterprises/<nombre del reel>/",
+ "output_rule": "/mnt/project-files/maison-enterprises/<nombre del reel>/",
  "proof_dir": "none yet",
  "sfx_dir": "/home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx",
  "music_rule": "ask",
