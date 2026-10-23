@@ -1,0 +1,22 @@
+{
+ "creator_name": "Sam",
+ "brand_name": "Iron Bird Fitness",
+ "handle": "@IRONBIRDFIT",
+ "platform": "Instagram",
+ "accent": "#EC272E",
+ "accent_name": "Iron Bird red",
+ "bg": "#120607",
+ "paper": "#FFFFFF",
+ "font_main_bold": {
+  "local": [
+   "Inter Bold",
+   "Inter-Bold"
+  ]
+ },
+ "font_main_name": "Inter",
+ "font_accent_name": "Playfair Display Italic",
+ "transcriber": "elevenlabs",
+ "music_rule": "ask",
+ "niche": "Personal trainer helping busy adults get in shape with short, planned strength sessions",
+ "output_rule": "/mnt/project-files/sam/<reel name>/"
+}
