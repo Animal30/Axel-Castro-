@@ -55,16 +55,26 @@ All times are **source seconds** in `src.mp4`.
    on the next. At most one every ~5-8 s. A segment can also carry its own `"focus": {"x":..,"y":..}`.
 5. **Framing**: `focus` is the crop centre in the source (0-1). Put the eyes in the upper third of the band
    (default y 0.42 suits a vertical selfie). Check in stills that the head is not cut off.
-6. **Look**: `grade` = `cine` (default, cool and desaturated like the reference), `warm`, `mono` or `none`;
-   `grain` 0-10 (default 5); `vignette` true/false. `aspect` = `4:3` (default), `16:9`, `1.85`, `2.39`.
-7. **Colours**: `headline_color` / `caption_color` are `#FFFFFF` by default; set either to `"accent"` when the
+6. **Look**: `grade` = `cine` (default, cool and desaturated like the reference), `moody` (for bright, flat,
+   yellowish phone footage such as a sunny cream wall: neutralises the yellow, keeps skin warm, deeper contrast),
+   `warm`, `mono` or `none`; `grade_extra` = extra ffmpeg filters appended; `grain` 0-10 (default 5);
+   `vignette` true (soft) or a number (4.2 = darker edges, pulls the eye to the face). Always compare the raw
+   frame and the graded still: footage straight from the phone should never reach the final. `aspect` = `4:3` (default), `16:9`, `1.85`, `2.39`.
+7. **Typography**: default is the brand bold sans (like the reference). For the **elegant / film** look
+   (Nahuel's choice for reflective "thought" videos, 2026-10-23) use the bundled Cormorant Garamond serif:
+   `"headline_font": "CormorantGaramond-SemiBold.ttf", "headline_tracking": 0.10, "headline_shadow": 0.5,
+   "headline_color": "#F4F1EA", "headline": {"size": 62, "line_height": 1.12, ...}` and
+   `"caption_font": "CormorantGaramond-SemiBold.ttf", "caption_size": 74, "caption_shadow": 0.85,
+   "caption_color": "#FFFFFF"` (all white, deep shadow, no accent colour). Also bundled: `-Medium`,
+   `-MediumItalic`. Any font: a file name in `assets/fonts` or the profile's fonts, or an absolute path.
+8. **Colours**: `headline_color` / `caption_color` are `#FFFFFF` by default; set either to `"accent"` when the
    client's typography is brand-coloured (Nate Velazquez and Maison Enterprises use orange typography).
    A profile can set defaults once in `profile.json` under `"cine_frame": {"caption_color": "accent", ...}`.
-8. **Audio**: voice is normalised to -14 LUFS. `music`: a file path (ducked under the voice, `music_db` -24 by
+9. **Audio**: voice is normalised to -14 LUFS. `music`: a file path (ducked under the voice, `music_db` -24 by
    default). If the client's music rule is "ask", ask Nahuel which track before the final render, or deliver
    without music and say so. `sfx`: `[{"t": <OUTPUT seconds>, "file": ".../impact.mp3", "db": -14}]`, sparingly
    (a soft hit on the headline idea at most). SFX from the profile's `sfx_dir`.
-9. **End**: `fade_out` (seconds, default 1.2) fades picture and sound to black. `outro`: path to the client's
+10. **End**: `fade_out` (seconds, default 1.2) fades picture and sound to black. `outro`: path to the client's
    outro clip (Nate/Maison cinematic logo outro, Sam's Iron Bird app + eagle ending) appended after the fade.
    Never add a CTA card or end screen that the client's rules don't ask for.
 
