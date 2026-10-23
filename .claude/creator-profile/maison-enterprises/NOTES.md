@@ -13,4 +13,4 @@ Nahuel decided (2026-10-23): exactly the same editing style and prompt as Nate V
 - Footage: iPhone HDR, tone-map to SDR bt709 at 23.976 fps.
 
 ## Pending
-- Logo: 3 options in assets/logo-options/ (2026-10-23), waiting for Nahuel to pick one. Then export emblem + wordmark PNGs (transparent) to assets/.
+- Logo (chosen 2026-10-23, option 2 "monogram"): orange italic Playfair M in a double ring + "Maison" Playfair Italic white + "ENTERPRISES" Inter Medium orange, tracked. Files: assets/logo.png (horizontal), logo-stacked.png, emblem.png, words.png (transparent).
