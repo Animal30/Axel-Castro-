@@ -27,8 +27,8 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
-| What they teach | not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
+| What they teach | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Series or channel name (the kicker line) | the channel name |
 | Colours | accent #FF7A1A (orange) · small accent text and labels #D16415 · page white · bars #111 |
 | Fonts | body and headings: Inter · big title: Inter · title keyword: Playfair Display Italic |

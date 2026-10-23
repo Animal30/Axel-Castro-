@@ -27,7 +27,7 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
 | Accent colour (the key word in a stack) | #FF7A1A (orange) |
 | Fonts | captions and small lines: Inter · large line: Inter bold · key word: Playfair Display Italic |
 | Transcriber | elevenlabs |

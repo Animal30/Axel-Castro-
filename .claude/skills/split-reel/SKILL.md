@@ -27,8 +27,8 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
-| What they teach, and to whom | not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
+| What they teach, and to whom | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Colours | accent #FF7A1A (orange) · text on the accent #120C08 · chips and light text #F2F0EC · small labels #9A928A (the panel base is always black, so it blends into the black half of the composite) |
 | Fonts | main: Inter · emphasis: Playfair Display Italic |
 | Transcriber | elevenlabs |

@@ -25,7 +25,7 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
 | Fonts | main (hook): Inter · captions: Inter |
 | Caption size · tracking | 46 px · -0.045 em |
 | Cut-out width on screen | 540 px |

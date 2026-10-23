@@ -13,7 +13,7 @@ WORK_ROOT = os.path.expanduser("~/reel-work")             # small working files,
 PROJECTS_ROOT = os.path.expanduser("~/videos")     # HyperFrames projects, one folder per video
 ACCENT = "#FF7A1A"                                       # the brand accent colour
 # the creator's answers for this skill (setup/SETUP.md). Change the answer and re-run setup/apply_profile.py, never this text.
-SET = {"handle": "not set", "platform": "instagram", "watermark": "no", "emphasis_scale": "1.12",
+SET = {"handle": "@_natevelazquez", "platform": "Instagram", "watermark": "no", "emphasis_scale": "1.12",
        "heading_block": "block", "popout": "on", "close_up_zoom": "off",
        "proof_dir": r"none yet", "asset_dirs": r"none"}
 VIDEO_EXT = (".mp4", ".mov", ".m4v", ".mxf", ".mkv", ".avi", ".webm")

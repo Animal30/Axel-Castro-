@@ -89,7 +89,7 @@ Example, walking alone outdoors with headphones:
 - conceptual: thinking, clarity, mindset, reflection, freedom, routine, getting away from the
   desk, processing ideas, morning walk, lifestyle
 
-Use the creator's world when it fits. What they do: @@NICHE@@. What their videos are about:
+Use the creator's world when it fits. What they do: Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa). What their videos are about:
 @@VIDEO_TOPICS@@. Conceptual tags in their own vocabulary are the ones a script search will hit, so
 prefer the words they would say out loud over generic ones. Do not invent concepts the shot cannot
 carry (a messy desk is not "luxury").

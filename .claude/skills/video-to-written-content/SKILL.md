@@ -30,7 +30,7 @@ Filled in by the setup interview. If a line still shows a placeholder in double 
 |---|---|
 | Creator (the voice everything is written in) | Nahuel |
 | Brand | Nahuel |
-| What they do | @@NICHE@@ |
+| What they do | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Formats to write by default | @@OUTPUTS@@ |
 | Voice samples | @@VOICE_SAMPLES@@ (analysis in `~/.claude/creator-profile/notes/video-to-written-content.md` under `## Voice`) |
 | Offers, lead magnets and links a CTA may point to | @@OFFERS@@ |

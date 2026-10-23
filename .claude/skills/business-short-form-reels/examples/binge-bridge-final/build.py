@@ -99,7 +99,7 @@ K.ac(44.0, "slide", -22); K.ac(45.6, "slide", -22)
 
 # 11 The guide (FULL): the real Google Docs window, then the notifications
 K.gdoc("s11-doc", 46.5445, 49.4, "7-Day Personal Brand Guide", "Day 1: Pick your positioning", "Day 7: Sign your first client", [47.4, 48.1, 48.5, 48.9], full=True)
-K.notifs("s12-cta", 49.4, DUR, True, [("Instagram", "<b>jess.creates</b> commented: GUIDE", False, None), ("Instagram", "<b>mark.builds</b> commented: GUIDE", False, 50.0), ("@@HANDLE@@".lstrip("@"), "Your 7-day guide is here", True, 50.75)])
+K.notifs("s12-cta", 49.4, DUR, True, [("Instagram", "<b>jess.creates</b> commented: GUIDE", False, None), ("Instagram", "<b>mark.builds</b> commented: GUIDE", False, 50.0), ("@_natevelazquez".lstrip("@"), "Your 7-day guide is here", True, 50.75)])
 
 K.agenda([("1", "LEAD MAGNETS", 27.3), ("2", "LONG-FORM", 36.2)], 22.6, 46.3)
 
