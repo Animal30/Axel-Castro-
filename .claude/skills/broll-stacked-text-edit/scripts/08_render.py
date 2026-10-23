@@ -17,6 +17,7 @@ plan.json (all times are CUT-timeline seconds, from edit.txt / cuts.json):
 B-roll replaces the picture only; the speaker's voice always continues underneath. B-roll audio is never used."""
 import hashlib, json, os, subprocess, sys
 from fractions import Fraction
+from enc import venc
 from common import work, load, save, library, frame_mode, vf_place, num, CW, CH
 
 W = work(sys.argv[1]); M = load(W, "meta.json"); plan = load(W, "plan.json") or sys.exit("no plan.json")
@@ -108,15 +109,15 @@ n += 1; inp += ["-framerate", FR, "-start_number", "0", "-i", L["seq"]]
 ch.append(f"[{cur}][{n}:v]overlay=0:0:eof_action=pass:format=auto[v{n}]"); cur = f"v{n}"
 out_dir, stem = M["out"], M["stem"]
 if mode == "--draft":
-    ch.append(f"[{cur}]scale=720:1280,format=yuv420p[vo]"); out = f"{out_dir}/{stem} - DRAFT{tag}.mp4"; enc = ["-c:v", "h264_videotoolbox", "-b:v", "5M"]
+    ch.append(f"[{cur}]scale=720:1280,format=yuv420p[vo]"); out = f"{out_dir}/{stem} - DRAFT{tag}.mp4"; enc = venc("h264", "5M")
 else:
-    ch.append(f"[{cur}]format=yuv420p[vo]"); out = f"{out_dir}/{stem} - EDIT{tag}.mp4"; enc = ["-c:v", "hevc_videotoolbox", "-b:v", "20M", "-tag:v", "hvc1"]
+    ch.append(f"[{cur}]format=yuv420p[vo]"); out = f"{out_dir}/{stem} - EDIT{tag}.mp4"; enc = venc("hevc", "20M")
 subprocess.run(["ffmpeg", "-v", "error", "-stats", "-y", *inp, "-filter_complex", ";".join(ch), "-map", "[vo]", "-map", "0:a",
                 *enc, "-r", FR, "-c:a", "copy", "-t", f"{TOT:.3f}", "-movflags", "+faststart", out], check=True)
 M["last"] = out; print("wrote", out)
 if mode == "--final":
     ph = f"{out_dir}/{stem} - EDIT{tag} (phone).mp4"; rate = int(min(8e6, 26e6 * 8 / TOT - 192e3))
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", out, "-c:v", "h264_videotoolbox", "-b:v", str(rate),
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", out, *venc("h264", rate),
                     "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", ph], check=True)
     M["phone"] = ph; print("wrote", ph)
 save(W, "meta.json", M)

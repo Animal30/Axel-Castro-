@@ -60,6 +60,10 @@
   },
   "visual-essay-reel": {
    "configured": "2026-10-23"
+  },
+  "broll-stacked-text-edit": {
+   "broll_dirs": "/mnt/project-files/nahuel-pruebas/broll",
+   "configured": "2026-10-23"
   }
  }
 }
