@@ -24,10 +24,10 @@ def senses(sid, a, b, full, js):
     sz, gap, top = (250, 70, 500) if full else (230, 60, 60); x0 = (1080 - 3 * sz - 2 * gap) // 2
     body = "".join('<div id="{ID}-s%d" class="sn" style="left:%dpx;top:%dpx;width:%dpx;height:%dpx"><span>%s</span></div><div id="{ID}-l%d" class="sl" style="left:%dpx;top:%dpx;width:%dpx">%s</div>' % (
         i, x0 + i * (sz + gap), top, sz, sz, ic, i, x0 + i * (sz + gap) - 30, top + sz + 22, sz + 60, nm) for i, (ic, nm) in enumerate([(EAR, "LISTEN"), (BEAT, "LIVE"), (EYE, "LOOK")]))
-    return K.raw(sid, a, b, full, body, """.sn{position:absolute;border-radius:64px;background:#1B1917;border:3px solid rgba(255,255,255,.3);box-shadow:0 26px 54px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;box-sizing:border-box;color:@@PAPER@@;z-index:5;opacity:0}
+    return K.raw(sid, a, b, full, body, """.sn{position:absolute;border-radius:64px;background:#1B1917;border:3px solid rgba(255,255,255,.3);box-shadow:0 26px 54px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;box-sizing:border-box;color:#F2F0EC;z-index:5;opacity:0}
     .sn span{display:block;width:58%;height:58%} .sl{position:absolute;text-align:center;font-family:"HelvB";font-size:38px;letter-spacing:-.04em;z-index:5;opacity:0}""",
     """function show(i, g){ tl.fromTo(q("s"+i), {opacity:0, y:30}, {opacity:1, y:0, duration:0.5}, T(g)); tl.fromTo(q("l"+i), {opacity:0}, {opacity:1, duration:0.5}, T(g + 0.1)); }
-    function lit(i, g){ tl.to(q("s"+i), {borderColor:"@@ACCENT@@", color:"@@ACCENT@@", boxShadow:"0 0 70px rgba(@@ACCENT_RGB@@,.55)", scale:1.1, duration:0.4, ease:"power2.inOut"}, T(g)); tl.to(q("l"+i), {color:"@@ACCENT@@", duration:0.3}, T(g));
+    function lit(i, g){ tl.to(q("s"+i), {borderColor:"#FF7A1A", color:"#FF7A1A", boxShadow:"0 0 70px rgba(255,122,26,.55)", scale:1.1, duration:0.4, ease:"power2.inOut"}, T(g)); tl.to(q("l"+i), {color:"#FF7A1A", duration:0.3}, T(g));
       [0,1,2].forEach(function(k){ if (k !== i) tl.to([q("s"+k), q("l"+k)], {opacity:0.35, duration:0.4}, T(g)); }); }
     """ + js)
 
@@ -57,7 +57,7 @@ K.raw("s04-comp", 18.5999 - 0.25, 22.3537, False, '<div id="{ID}-tile" class="de
     .cmr > div{flex:1;line-height:1.25} .cmr b{display:block;font-weight:600;font-size:25px;color:rgba(235,235,245,.7)} .cav{flex:none;width:66px;height:66px;border-radius:33px;background:#3A3A3C;color:#8E8E93;overflow:hidden;display:block}""",
     """tl.fromTo(q("tile"), {opacity:0, y:30}, {opacity:1, y:0, duration:0.5}, T(18.4));
     [20.0, 20.7, 21.4].forEach(function(g,i){ tl.fromTo(q("r"+i), {opacity:0, y:26}, {opacity:1, y:0, duration:0.5}, T(g)); });
-    tl.to(q("r1"), {borderColor:"@@ACCENT@@", boxShadow:"0 0 46px rgba(@@ACCENT_RGB@@,.5)", duration:0.3}, T(21.9));""")
+    tl.to(q("r1"), {borderColor:"#FF7A1A", boxShadow:"0 0 46px rgba(255,122,26,.5)", duration:0.3}, T(21.9));""")
 [K.ac(t, "pop", -23) for t in (20.0, 20.7, 21.4)]
 
 
@@ -79,9 +79,9 @@ K.ac(38.1, "shine")
 tl3 = "".join('<div id="{ID}-t%d" class="de-tile ot" style="left:%dpx"><img src="%s"/><span class="vw">&#9654; %s</span></div>' % (i, 96 + i * 306, K.R(n), v) for i, (n, v) in enumerate([(3, "8.1K"), (12, "1.2M"), (6, "9.4K")]))
 K.raw("s10-outlier", 42.9576, 54.1771 - 0.25, True, tl3 + '<div id="{ID}-chip" class="och">OUTLIER</div>',
     """.ot{top:420px;width:276px;height:490px;border-radius:26px;z-index:5} .vw{position:absolute;left:10px;bottom:10px;padding:5px 12px 6px;border-radius:14px;background:rgba(0,0,0,.72);font-family:"HelvB";font-size:28px;color:#fff}
-    .och{position:absolute;left:402px;top:950px;width:276px;height:84px;border-radius:42px;background:@@ACCENT@@;color:@@ON_ACCENT@@;display:flex;align-items:center;justify-content:center;font-family:"HelvB";font-size:30px;letter-spacing:-.02em;opacity:0;z-index:6;box-shadow:0 0 46px rgba(@@ACCENT_RGB@@,.6)}""",
+    .och{position:absolute;left:402px;top:950px;width:276px;height:84px;border-radius:42px;background:#FF7A1A;color:#120C08;display:flex;align-items:center;justify-content:center;font-family:"HelvB";font-size:30px;letter-spacing:-.02em;opacity:0;z-index:6;box-shadow:0 0 46px rgba(255,122,26,.6)}""",
     """[0,1,2].forEach(function(i){ tl.fromTo(q("t"+i), {opacity:0, y:40}, {opacity:1, y:0, duration:0.5}, T(42.7)); });
-    tl.to(q("t1"), {scale:1.14, borderColor:"@@ACCENT@@", boxShadow:"0 0 70px rgba(@@ACCENT_RGB@@,.6)", duration:0.45, ease:"power2.inOut"}, T(44.3)); tl.to([q("t0"), q("t2")], {opacity:0.4, duration:0.45}, T(44.3));
+    tl.to(q("t1"), {scale:1.14, borderColor:"#FF7A1A", boxShadow:"0 0 70px rgba(255,122,26,.6)", duration:0.45, ease:"power2.inOut"}, T(44.3)); tl.to([q("t0"), q("t2")], {opacity:0.4, duration:0.45}, T(44.3));
     tl.fromTo(q("chip"), {opacity:0, y:-20}, {opacity:1, y:0, duration:0.5}, T(44.9));""")
 K.ac(44.3, "shine")
 

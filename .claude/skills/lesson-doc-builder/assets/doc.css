@@ -1,12 +1,12 @@
 /* Lesson Doc Builder: design system. Page = 960px wide (one half of a 1080p frame).
    Brand values are filled in by setup (setup/apply_profile.py). Fonts are read from fonts/ beside this file. */
-  @font-face{font-family:"DocMain";font-weight:700;src:@@FONT_MAIN_BOLD_SRC_CSS@@}
-  @font-face{font-family:"DocMain";font-weight:400;src:@@FONT_MAIN_REGULAR_SRC_CSS@@}
-  @font-face{font-family:"DocTitle";font-weight:100 900;src:@@FONT_TITLE_SRC_CSS@@}
-  @font-face{font-family:"DocAccent";font-weight:100 900;font-style:italic;src:@@FONT_ACCENT_SRC_CSS@@}
+  @font-face{font-family:"DocMain";font-weight:700;src:url("fonts/Inter-Bold.otf")}
+  @font-face{font-family:"DocMain";font-weight:400;src:url("fonts/Inter-Regular.otf")}
+  @font-face{font-family:"DocTitle";font-weight:100 900;src:url("fonts/Inter-Bold.otf")}
+  @font-face{font-family:"DocAccent";font-weight:100 900;font-style:italic;src:url("fonts/PlayfairDisplay-Italic.ttf")}
   :root{
     --ink:#111111; --body:#1d1d1d; --muted:#8E8983; --line:#E6E1DA; --raised:#F6F4F1; --neutral:#D9D4CD;
-    --accent:@@ACCENT@@; --accent-text:@@ACCENT_DARK@@; --on-accent-text:@@ON_ACCENT_DARK@@; --accent-tint:@@ACCENT_TINT@@;
+    --accent:#FF7A1A; --accent-text:#D16415; --on-accent-text:#120C08; --accent-tint:#FFEFE4;
     --link:#1a5fd0;
     --sans:"DocMain", 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --title:"DocTitle", "DocMain", 'Helvetica Neue', Helvetica, Arial, sans-serif;

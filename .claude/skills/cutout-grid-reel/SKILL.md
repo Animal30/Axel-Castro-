@@ -25,19 +25,19 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| Fonts | main (hook): @@FONT_MAIN_NAME@@ · captions: @@FONT_CAPTION_NAME@@ |
-| Caption size · tracking | @@CAPTION_SIZE@@ px · @@CAPTION_TRACKING@@ em |
-| Cut-out width on screen | @@CUTOUT_WIDTH@@ px |
-| Opening hook | @@HOOK_RULE@@ |
-| Images from the web | @@WEB_IMAGES@@ |
-| Never show | @@NEVER_SHOW@@ |
-| Real material (own images) | @@PROOF_DIR@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` · projects `@@PROJECTS_ROOT@@` |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
+| Creator | Nahuel · Nahuel · not set |
+| Fonts | main (hook): Inter · captions: Inter |
+| Caption size · tracking | 46 px · -0.045 em |
+| Cut-out width on screen | 540 px |
+| Opening hook | ask each time |
+| Images from the web | yes: web search, every source listed in the report |
+| Never show | nothing listed |
+| Real material (own images) | none yet |
+| Transcriber | elevenlabs |
+| Footage drive | none |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` · projects `~/videos` |
+| Music | ask · music folder: none |
 
 The only brand values this style draws are the fonts (hook and captions) and a thin light rim round the cut-out, which
 takes the profile's off-white. No logo and no accent colour are involved.

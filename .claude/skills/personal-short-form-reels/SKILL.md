@@ -26,25 +26,25 @@ dated, the moment it is said.
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ (@@HANDLE@@, @@PLATFORM@@) |
-| Brand | @@BRAND_NAME@@: @@NICHE@@ |
-| Accent colour | @@ACCENT@@ (@@ACCENT_NAME@@) |
-| Caption font | @@FONT_CAPTION_NAME@@, bold |
-| Emphasis font | @@FONT_ACCENT_NAME@@ (key words only) |
-| Transcriber | @@TRANSCRIBER@@ |
+| Creator | Nahuel (@@HANDLE@@, Instagram) |
+| Brand | Nahuel: @@NICHE@@ |
+| Accent colour | #FF7A1A (orange) |
+| Caption font | Inter, bold |
+| Emphasis font | Playfair Display Italic (key words only) |
+| Transcriber | elevenlabs |
 | Working style | @@WORKING_STYLE@@ |
 | B-roll | @@BROLL_SOURCE@@ |
-| Music | @@MUSIC_RULE@@ (library: @@MUSIC_DIR@@; favourites in `assets/music.json`) |
-| Sound effects | @@SFX_DIR@@ |
-| Folders | work `@@WORK_ROOT@@/<slug>` · projects `@@PROJECTS_ROOT@@/<slug>-psf` · finals: @@OUTPUT_RULE@@ |
-| Usual camera | @@CAMERA_SETUP@@ (horizontal default crops: full `@@CROP_FULL@@`, top `@@CROP_TOP@@`) |
+| Music | ask (library: none yet; favourites in `assets/music.json`) |
+| Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
+| Folders | work `~/reel-work/<slug>` · projects `~/videos/<slug>-psf` · finals: /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Usual camera | @@CAMERA_SETUP@@ (horizontal default crops: full `1215 2160 1312 0`, top `1800 1600 1020 280`) |
 
 One raw talking-head file in, one finished 1080x1920 reel out. Before designing, read
 `examples/fear-of-failure/build.py`: a worked reel in this style, kept as a structure reference (another creator's
 reel: copy how it is put together, never its wording, names or assets).
 
-`SK=~/.claude/skills/personal-short-form-reels` · `S=$SK/scripts` · work dir `W=@@WORK_ROOT@@/<slug>` (small files) ·
-project `P=@@PROJECTS_ROOT@@/<slug>-psf` · output `OUT` = @@OUTPUT_RULE@@ (default:
+`SK=~/.claude/skills/personal-short-form-reels` · `S=$SK/scripts` · work dir `W=~/reel-work/<slug>` (small files) ·
+project `P=~/videos/<slug>-psf` · output `OUT` = /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) (default:
 `"<folder of the raw file>/<Title> - Edit"`). Video files are large: keep the big files on the drive that holds the
 raw file. Long steps run in the background; render one reel at a time.
 
@@ -101,7 +101,7 @@ different format: do not mix them into this one.
   others appearing either side for "not the only one");
 - anything quoted or received is a **real interface**: comments and DMs are Instagram notification banners
   (`P.comments`), a document is a Google Doc, a script line is a Notion page (see `kit.py`);
-- positive = green `#2FA65A`, negative = red `#B3261E`, the neutral focal element = the accent colour `@@ACCENT@@`;
+- positive = green `#2FA65A`, negative = red `#B3261E`, the neutral focal element = the accent colour `#FF7A1A`;
   text inside graphics stays modest (labels 34-50 px); nothing behind the head; no 3D, no bounces, no headlines over
   anything.
 Entrances are a short focus pull (`opop`), exits a soft fade before the switch (`oout`).
@@ -150,7 +150,7 @@ which logos are being fetched and from where before downloading; list the source
 
 **Sound.** Quiet effects on key moments only (a soft whoosh as each B-roll or split window comes in, a pop on a
 graphic landing): `K.ac(t, name)` and the scene helpers log them, `mix.py` adds them from the creator's own pack
-(`sfx_map.json`, made at setup; no map = no sound effects, and say so). **Music: @@MUSIC_RULE@@.** `pick` = choose
+(`sfx_map.json`, made at setup; no map = no sound effects, and say so). **Music: ask.** `pick` = choose
 one of the creator's favourites from `assets/music.json` whose feel suits the video, vary it from reel to reel, start
 it at the listed second. `ask` = ask whether to add music and which track. The bed sits at **-43 dB mean** (the mix
 default; -39 reads as loud under a voice). Deliver the music version and a no-music version and say which track was
@@ -160,7 +160,7 @@ creator's to manage: commercial tracks can get a post muted.
 
 ## Workflow
 
-**1. Transcribe** with the transcriber chosen at setup (@@TRANSCRIBER@@).
+**1. Transcribe** with the transcriber chosen at setup (elevenlabs).
 ```bash
 mkdir -p $W && ffmpeg -v error -y -i "$RAW" -vn -ac 1 -ar 48000 -c:a pcm_s16le $W/a48.wav && ffmpeg -v error -y -i $W/a48.wav -ar 16000 $W/a16.wav
 python3 $S/01_transcribe.py $W && python3 $S/01b_el_to_tx.py $W          # prints the script with times and pauses

@@ -11,7 +11,7 @@ Downloads go to the output dir's parent when an output dir is given, otherwise t
 Needs yt-dlp for links (brew install yt-dlp)."""
 import json, os, re, subprocess, sys
 from ytcommon import work, probe, save, run, grab, mmss
-DOWNLOADS = os.path.expanduser("@@DOWNLOADS_DIR@@")     # setup answer: where downloaded videos are kept
+DOWNLOADS = os.path.expanduser("~/Movies/YouTube Downloads")     # setup answer: where downloaded videos are kept
 arg = sys.argv[1]; W = work(sys.argv[2])
 out = os.path.expanduser(sys.argv[3]) if len(sys.argv) > 3 else None
 if re.match(r"https?://", arg):

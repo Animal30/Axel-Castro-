@@ -43,9 +43,9 @@ rows = "".join(D.vrow(f"sr-r{i}", 230, 129, d_, f'<div class="yl" style="width:{
                for i, (d_, w1, w2) in enumerate((("0:42", 82, 50), ("26:08", 90, 64), ("7:15", 70, 44))))
 body = (f'<div id="sr-c" class="xy h" style="top:14px;padding:16px">{rows}</div><div id="sr-cur" class="h" style="position:absolute;left:520px;top:470px">{D.CUR}</div>')
 E.enter("#sr-c", a + 0.5, "focus"); E.sfx(a + 0.25, "woosh")
-E.tw("#sr-c .yth b", t_long, 0.3, {"backgroundColor": "@@ACCENT@@", "scale": 1.18}, None, "back.out(2)"); E.sfx(t_long, "pop", -26)
+E.tw("#sr-c .yth b", t_long, 0.3, {"backgroundColor": "#FF7A1A", "scale": 1.18}, None, "back.out(2)"); E.sfx(t_long, "pop", -26)
 E.setp("#sr-cur", t_click - 0.9, {"opacity": 1}); E.tw("#sr-cur", t_click - 0.9, 0.8, {"x": -330, "y": -190}, None, "power2.inOut")
-E.tw("#sr-r1", t_click, 0.25, {"borderColor": "@@ACCENT@@", "backgroundColor": "rgba(@@ACCENT_RGB@@,.16)"}, None, "power2.out"); E.sfx(t_click, "accept", -25)
+E.tw("#sr-r1", t_click, 0.25, {"borderColor": "#FF7A1A", "backgroundColor": "rgba(255,122,26,.16)"}, None, "power2.out"); E.sfx(t_click, "accept", -25)
 E.float_(K.custom("search", a + 0.35, t_after + 0.5, body, (660, 460), name="search-results", text="search"), why="demonstrate", score=4, side="left")
 
 # ───────── 6. a sequence of steps as icon tiles that arrive on each spoken step ─────────
@@ -53,7 +53,7 @@ a, b = D.win(300.0); T = []; tt = a
 for _ in range(3): tt = E.w("<the repeated word for each step>", tt + 0.05); T.append(tt)
 body = ""
 for i, x in enumerate([40, 330, 620]):
-    body += f'<div id="bg-t{i}" class="tile h" style="left:{x}px;top:10px;width:220px;height:150px">{D.PLAY.format(70, "@@PAPER@@")}</div>'
+    body += f'<div id="bg-t{i}" class="tile h" style="left:{x}px;top:10px;width:220px;height:150px">{D.PLAY.format(70, "#F2F0EC")}</div>'
     if i: body += f'<div id="bg-a{i}" class="xar h" style="left:{x - 62}px;top:50px">&rarr;</div>'
 for i, t_ in enumerate(T):
     E.enter(f"#bg-t{i}", t_, "rise", lead=0.12); E.sfx(t_, "pop", -26)

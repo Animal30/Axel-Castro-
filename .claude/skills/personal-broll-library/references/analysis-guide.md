@@ -14,7 +14,7 @@ screen, what ideas it can stand for, which seconds are good, and when it would b
 3. If something matters and the sheet is ambiguous (is that a phone or a remote? are they talking?),
    extract more frames: `broll extract --id <id> --frames 24`, or grab one frame yourself with
    ffmpeg into the scratchpad. Never write into the footage folder.
-4. The person in the footage is assumed to be the creator (@@CREATOR_FIRST_NAME@@) unless clearly
+4. The person in the footage is assumed to be the creator (Nahuel) unless clearly
    someone else. If another person appears, describe them by role ("a client on a video call",
    "a friend") and never guess names.
 5. Check the clip against the creator's never-use list: **@@NEVER_SHOW@@**. If a clip shows any of it
@@ -26,9 +26,9 @@ screen, what ideas it can stand for, which seconds are good, and when it would b
 
 | Field | How to fill it |
 |---|---|
-| `summary` | One line, under 15 words, the way you'd describe it to an editor. "@@CREATOR_FIRST_NAME@@ typing on a MacBook at their home office desk". |
+| `summary` | One line, under 15 words, the way you'd describe it to an editor. "Nahuel typing on a MacBook at their home office desk". |
 | `description` | 2-4 sentences: who, doing what, where, how it's shot, how it changes over the clip, the feeling. |
-| `people` | e.g. `"@@CREATOR_FIRST_NAME@@ (subject, upper body)"`, `"@@CREATOR_FIRST_NAME@@ (hands only)"`, `"client on screen"`. |
+| `people` | e.g. `"Nahuel (subject, upper body)"`, `"Nahuel (hands only)"`, `"client on screen"`. |
 | `speaking` | One of: `none`, `talking to camera`, `talking off camera`, `on a call`, `background voices`. |
 | `location` / `environment` / `time_of_day` / `setting_details` | "home office", "indoor", "day", "white desk, plant, window light from left". |
 | `objects` / `devices` | Everything an editor could cut on: MacBook, iPhone, ring light, mug, notebook, Premiere timeline on screen. |
@@ -99,9 +99,9 @@ carry (a messy desk is not "luxury").
 ```json
 {
   "clip_id": "c_39cdd491d2c2",
-  "summary": "@@CREATOR_FIRST_NAME@@ typing on a MacBook at their home office desk",
-  "description": "@@CREATOR_FIRST_NAME@@ sits at their desk in their home office working on a MacBook, typing steadily and glancing at the screen. Medium side-angle shot on a static tripod with soft window light. Calm, focused, getting-it-done feel.",
-  "people": ["@@CREATOR_FIRST_NAME@@ (subject, upper body)"],
+  "summary": "Nahuel typing on a MacBook at their home office desk",
+  "description": "Nahuel sits at their desk in their home office working on a MacBook, typing steadily and glancing at the screen. Medium side-angle shot on a static tripod with soft window light. Calm, focused, getting-it-done feel.",
+  "people": ["Nahuel (subject, upper body)"],
   "speaking": "none",
   "location": "home office", "environment": "indoor", "time_of_day": "day",
   "setting_details": "white desk, plant, window light from left",

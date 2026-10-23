@@ -18,7 +18,7 @@ import html as _html, json, os, re
 
 ROOT = None; P = {}; R = "16x9"; W = H = 0; FACE = (960, 540); SHOTS = []; CAPS = []; CUTS = []
 _H, _C, _J, WARN = [], [], [], []
-O, GREEN, RED, PAPER, GREY = "@@ACCENT@@", "#2FA65A", "#B3261E", "@@PAPER@@", "@@GREY@@"
+O, GREEN, RED, PAPER, GREY = "#FF7A1A", "#2FA65A", "#B3261E", "#F2F0EC", "#9A928A"
 SW, SH = 1920, 1080                 # source size
 PUNCH = 1.12                        # 16x9 punch-in
 SIDE, SIDEP = 1.2, 1.34            # 16x9 "graphics" framings: enlarged and anchored to the LEFT edge, so the speaker moves right and the left opens up
@@ -184,11 +184,11 @@ def build():
             inner = "".join((f'<em class="{"nu" if any(ch.isdigit() for ch in p["t"]) else "iv"}">{_html.escape(p["t"], quote=False)}</em>' if p.get("em") else _html.escape(p["t"], quote=False)) for p in c["parts"])
             caps += f'<div id="cap{n}" class="clip cap" data-layout-allow-overlap data-start="{round(x, 3)}" data-duration="{round(y - x, 3)}" data-track-index="30"><span data-layout-allow-overlap style="top:{CAP[R][m]}px{";color:#d9d4cb" if c.get("other") else ""}">{inner}</span></div>\n'; n += 1
     fonts = """
-      @font-face { font-family: "SFB"; src: @@FONT_CAPTION_SRC@@; font-weight: 700; }
-      @font-face { font-family: "SFS"; src: @@FONT_CAPTION_SRC@@; font-weight: 600; }
-      @font-face { font-family: "SFM"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 500; }
-      @font-face { font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }
-      @font-face { font-family: "Ivy"; src: @@FONT_ACCENT_SRC@@; font-style: normal; font-weight: 400; }"""
+      @font-face { font-family: "SFB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+      @font-face { font-family: "SFS"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 600; }
+      @font-face { font-family: "SFM"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 500; }
+      @font-face { font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+      @font-face { font-family: "Ivy"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-style: normal; font-weight: 400; }"""
     scr = ('<div id="scrim"></div>' if R == "16x9" else '<div id="top"><i></i><i></i></div>')
     index = f"""<!doctype html>
 <html lang="en">
@@ -200,15 +200,15 @@ def build():
     <style>{fonts}
       :root {{ --o: {O}; --g: {GREEN}; --r: {RED}; --p: {PAPER}; --gy: {GREY}; }}
       body {{ margin: 0; background: #000; }}
-      #root {{ position: relative; width: {W}px; height: {H}px; overflow: hidden; background: @@BG@@; font-family: "SFB", "HelvB", sans-serif; color: #fff; letter-spacing: -0.04em; }}
+      #root {{ position: relative; width: {W}px; height: {H}px; overflow: hidden; background: #050505; font-family: "SFB", "HelvB", sans-serif; color: #fff; letter-spacing: -0.04em; }}
       #clip {{ position: absolute; left: 0; top: 0; width: {W}px; height: {H}px; overflow: hidden; z-index: 1; }}
       #vid {{ position: absolute; display: block; }}
-      #cover, #top {{ position: absolute; z-index: 2; background: @@BG@@; overflow: hidden; opacity: 0; }}
+      #cover, #top {{ position: absolute; z-index: 2; background: #050505; overflow: hidden; opacity: 0; }}
       #cover {{ inset: 0; }} #top {{ left: 0; top: 0; width: 1080px; height: 960px; }}
       #cover i, #top i {{ position: absolute; border-radius: 50%; filter: blur(70px); }}
-      #cover i:nth-child(1), #top i:nth-child(1) {{ left: 8%; top: 22%; width: 420px; height: 420px; background: rgba(@@ACCENT_RGB@@,.38); }}
-      #cover i:nth-child(2), #top i:nth-child(2) {{ right: 6%; top: 48%; width: 360px; height: 360px; background: rgba(@@ACCENT_RGB@@,.22); }}
-      #scrim {{ position: absolute; inset: 0; z-index: 3; opacity: 0; background: linear-gradient(90deg, rgba(@@BG_RGB@@,.78) 0%, rgba(@@BG_RGB@@,.62) 30%, rgba(@@BG_RGB@@,0) 50%); }}
+      #cover i:nth-child(1), #top i:nth-child(1) {{ left: 8%; top: 22%; width: 420px; height: 420px; background: rgba(255,122,26,.38); }}
+      #cover i:nth-child(2), #top i:nth-child(2) {{ right: 6%; top: 48%; width: 360px; height: 360px; background: rgba(255,122,26,.22); }}
+      #scrim {{ position: absolute; inset: 0; z-index: 3; opacity: 0; background: linear-gradient(90deg, rgba(5,5,5,.78) 0%, rgba(5,5,5,.62) 30%, rgba(5,5,5,0) 50%); }}
       .stage {{ position: absolute; width: 680px; height: 540px; transform-origin: 0 0; z-index: 5; opacity: 0; }}
       .stage > * {{ position: absolute; }}
       .glass {{ border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.05) 55%, rgba(255,255,255,.11)), rgba(12,11,10,.50); -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%); border: 1.5px solid rgba(255,255,255,.24); box-shadow: inset 0 1px 0 rgba(255,255,255,.32), 0 26px 60px rgba(0,0,0,.5); box-sizing: border-box; }}

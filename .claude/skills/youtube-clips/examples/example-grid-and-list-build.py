@@ -7,8 +7,8 @@ import clip_engine as E, ytkit as K
 ROOT = os.path.dirname(os.path.abspath(__file__)); RATIO = sys.argv[1] if len(sys.argv) > 1 else "16x9"; W16 = RATIO == "16x9"
 K.start(ROOT, RATIO, face=(1045, 402)); D = E.P["dur"]
 GREY = "rgba(255,255,255,.30)"
-GRID = "".join(f'<div id="{"me" if (r, c) == (1, 1) else f"g{r}{c}"}" style="left:{115 + 150 * c}px;top:{45 + 150 * r}px;width:110px;height:110px;border-radius:50%;overflow:hidden;background:{E.O if (r, c) == (1, 1) else GREY};{"box-shadow:0 0 44px rgba(@@ACCENT_RGB@@,.7)" if (r, c) == (1, 1) else ""}">{K.AV}</div>' for r in range(3) for c in range(3))
-GJS = K.to("#me", {"backgroundColor": GREY, "boxShadow": "0 0 0px rgba(@@ACCENT_RGB@@,0)", "duration": 2.7, "ease": "power1.inOut"}, 21.64)
+GRID = "".join(f'<div id="{"me" if (r, c) == (1, 1) else f"g{r}{c}"}" style="left:{115 + 150 * c}px;top:{45 + 150 * r}px;width:110px;height:110px;border-radius:50%;overflow:hidden;background:{E.O if (r, c) == (1, 1) else GREY};{"box-shadow:0 0 44px rgba(255,122,26,.7)" if (r, c) == (1, 1) else ""}">{K.AV}</div>' for r in range(3) for c in range(3))
+GJS = K.to("#me", {"backgroundColor": GREY, "boxShadow": "0 0 0px rgba(255,122,26,0)", "duration": 2.7, "ease": "power1.inOut"}, 21.64)
 ITEMS = [("Your offer", 28.89), ("What you do", 30.28), ("Your service", 31.45), ("How good you are", 32.23)]
 LIST = "".join(K.pill(f"it{k}", "pl-w", "", t, 90, 40 + 120 * k, 500) for k, (t, _) in enumerate(ITEMS))
 LJS = "".join(K.fin(f"#it{k}", t) + K.to(f"#it{k}", {"opacity": 0.38, "duration": 0.6}, t + 0.75) for k, (_, t) in enumerate(ITEMS))

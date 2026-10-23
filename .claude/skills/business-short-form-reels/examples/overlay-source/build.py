@@ -44,15 +44,15 @@ for i, w in enumerate(WORDS):
     tl_caps.append(f"tl.set('#cw{i}',{{opacity:0}},{end:.3f});")
 
 FONTS = """
-@font-face { font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }
-@font-face { font-family: "HelvR"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 400; }
-@font-face { font-family: "PlayIt"; src: @@FONT_ACCENT_SRC@@; font-style: italic; }
+@font-face { font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+@font-face { font-family: "HelvR"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 400; }
+@font-face { font-family: "PlayIt"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-style: italic; }
 """
 
 CSS = FONTS + """
-:root { --o: @@ACCENT@@; --paper: @@PAPER@@; }
-body { margin: 0; background: @@BG@@; }
-#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: @@BG@@; }
+:root { --o: #FF7A1A; --paper: #F2F0EC; }
+body { margin: 0; background: #050505; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #050505; }
 #stage { position: absolute; inset: 0; transform-origin: 540px 780px; filter: blur(0px); }
 #stage video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; display: block; }
 #vBase { z-index: 1; } #behind { position: absolute; inset: 0; z-index: 2; } #vFg { z-index: 3; }
@@ -74,11 +74,11 @@ body { margin: 0; background: @@BG@@; }
 #cnt { top: 306px; font-size: 214px; letter-spacing: -0.065em; }
 #cntl { top: 150px; font-size: 76px; }
 #prof { position: absolute; left: 90px; top: 1214px; width: 700px; height: 236px; border-radius: 34px; overflow: hidden; background: #000 url("assets/img/client-profile.jpg") no-repeat; background-size: 700px auto; background-position: 0 -12px; box-shadow: 0 26px 70px rgba(0,0,0,.6), 0 0 0 2px rgba(255,255,255,.12); opacity: 0; }
-#chart { position: absolute; left: 650px; top: 1346px; width: 290px; height: 150px; border-radius: 30px; background: rgba(12,10,9,.9); border: 2px solid rgba(@@ACCENT_RGB@@,.75); box-shadow: 0 0 44px rgba(@@ACCENT_RGB@@,.35), 0 22px 60px rgba(0,0,0,.6); opacity: 0; }
+#chart { position: absolute; left: 650px; top: 1346px; width: 290px; height: 150px; border-radius: 30px; background: rgba(12,10,9,.9); border: 2px solid rgba(255,122,26,.75); box-shadow: 0 0 44px rgba(255,122,26,.35), 0 22px 60px rgba(0,0,0,.6); opacity: 0; }
 #chart svg { position: absolute; left: 18px; top: 16px; width: 254px; height: 118px; }
 /* orbit */
 .ring { position: absolute; left: 0; top: 0; }
-.pill { position: absolute; left: 0; top: 0; width: 168px; height: 82px; margin: -41px 0 0 -84px; border-radius: 41px; background: rgba(12,10,9,.88); border: 2px solid var(--o); box-shadow: 0 0 34px rgba(@@ACCENT_RGB@@,.45), 0 12px 30px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; font-family: "HelvB", Helvetica, sans-serif; font-weight: 700; font-size: 46px; letter-spacing: -0.04em; color: #fff; opacity: 0; }
+.pill { position: absolute; left: 0; top: 0; width: 168px; height: 82px; margin: -41px 0 0 -84px; border-radius: 41px; background: rgba(12,10,9,.88); border: 2px solid var(--o); box-shadow: 0 0 34px rgba(255,122,26,.45), 0 12px 30px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; font-family: "HelvB", Helvetica, sans-serif; font-weight: 700; font-size: 46px; letter-spacing: -0.04em; color: #fff; opacity: 0; }
 /* label */
 #lb1 { top: 274px; font-size: 44px; } #lb2 { top: 304px; font-size: 122px; }
 /* comments */
@@ -88,7 +88,7 @@ body { margin: 0; background: @@BG@@; }
 .cm svg { position: absolute; right: 26px; top: 22px; }
 /* gain / lose */
 .gl { position: absolute; top: 1236px; width: 350px; height: 140px; border-radius: 36px; background: rgba(12,10,9,.88); display: flex; align-items: center; justify-content: center; gap: 18px; font-family: "HelvB", Helvetica, sans-serif; font-weight: 700; font-size: 66px; letter-spacing: -0.04em; color: #fff; opacity: 0; }
-#gain { left: 150px; border: 2px solid var(--o); box-shadow: 0 0 44px rgba(@@ACCENT_RGB@@,.45), 0 18px 50px rgba(0,0,0,.5); }
+#gain { left: 150px; border: 2px solid var(--o); box-shadow: 0 0 44px rgba(255,122,26,.45), 0 18px 50px rgba(0,0,0,.5); }
 #lose { left: 580px; border: 2px solid rgba(255,255,255,.22); box-shadow: 0 18px 50px rgba(0,0,0,.5); color: #b9b3ac; }
 /* scroll columns */
 #colwrap { position: absolute; left: 0; top: 270px; width: 1080px; height: 1230px; overflow: hidden; }
@@ -102,7 +102,7 @@ def cm(i, left, top, text):
     return f'<div id="cm{i}" class="cm" style="left:{left}px;top:{top}px;filter:url(#fx{i})"><b>{text}</b><i>2h &nbsp; Reply</i>{heart}</div>'
 
 RING = '<ellipse cx="540" cy="1100" rx="400" ry="150" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 17"/>'
-ARROW_UP = '<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="@@ACCENT@@" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5M5 11l7-7 7 7"/></svg>'
+ARROW_UP = '<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#FF7A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5M5 11l7-7 7 7"/></svg>'
 ARROW_DN = '<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#b9b3ac" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M5 13l7 7 7-7"/></svg>'
 SPARK = "M6 150 C 40 148, 70 140, 100 138 S 150 128, 180 118 S 230 104, 252 82 S 300 44, 350 10"
 
@@ -139,7 +139,7 @@ HTML = f"""<!doctype html>
     <div id="front">
       <div id="q1" class="q" style="left:235px"><span>?</span></div><div id="q2" class="q" style="left:455px"><span>?</span></div><div id="q3" class="q" style="left:675px"><span>?</span></div>
       <div id="prof" style="filter:url(#fx4)"></div>
-      <div id="chart"><svg viewBox="0 0 358 166"><path id="spark" d="{SPARK}" fill="none" stroke="@@ACCENT@@" stroke-width="7" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/><circle id="dot" cx="350" cy="10" r="11" fill="#fff" opacity="0"/></svg></div>
+      <div id="chart"><svg viewBox="0 0 358 166"><path id="spark" d="{SPARK}" fill="none" stroke="#FF7A1A" stroke-width="7" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/><circle id="dot" cx="350" cy="10" r="11" fill="#fff" opacity="0"/></svg></div>
       <svg class="ring" id="ringF" width="1080" height="1920" style="opacity:0;clip-path:inset(1100px 0 0 0)">{RING}</svg>
       <div id="pf1" class="pill">C1</div><div id="pf2" class="pill">C2</div><div id="pf3" class="pill">C3</div>
       {cm(1, 80, 1196, "ok but what's in it for me?")}
@@ -193,7 +193,7 @@ tl.fromTo('#prof', {{ rotation: 4 }}, {{ rotation: -2, duration: 0.46, ease: 'ex
 rise('#cnt', 5.36, 40);
 const c = {{ n: 13000 }}, cnt = $('#cnt');
 tl.fromTo(c, {{ n: 13000 }}, {{ n: 500000, duration: 0.95, ease: 'power2.inOut', onUpdate: () => {{ cnt.textContent = Math.round(c.n).toLocaleString('en-US'); }} }}, 6.48);
-tl.to('#cnt', {{ color: '@@ACCENT@@', duration: 0.12 }}, 7.36);
+tl.to('#cnt', {{ color: '#FF7A1A', duration: 0.12 }}, 7.36);
 tl.to('#cnt', {{ scale: 1.05, duration: 0.1, ease: 'power2.out', yoyo: true, repeat: 1 }}, 7.36);
 pop('#chart', 5.40, 0.8);
 tl.fromTo('#spark', {{ strokeDashoffset: 1000 }}, {{ strokeDashoffset: 0, duration: 1.8, ease: 'power1.inOut' }}, 5.5);

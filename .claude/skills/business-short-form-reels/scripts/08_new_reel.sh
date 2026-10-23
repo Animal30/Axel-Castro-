@@ -1,9 +1,9 @@
 #!/bin/zsh
 # Step 8 — scaffold the HyperFrames project.   08_new_reel.sh <slug> "<Title>" "<out_dir>"
 #   e.g. 08_new_reel.sh pricing-story-hf "Pricing Story" ".../Pricing Story - Edit"
-# Needs <out_dir>/hf-media/cam_top.mp4 + cam_full.mp4 (07_crops.sh). Creates @@PROJECTS_ROOT@@/<slug>:
+# Needs <out_dir>/hf-media/cam_top.mp4 + cam_full.mp4 (07_crops.sh). Creates ~/videos/<slug>:
 #   assets/{brand.css, fonts, reels (if any), proof/avatar.jpg, cam_top.mp4, cam_full.mp4}, reel_engine.py, kit.py, mix.py, sfx_map.json, build.py (starter), BRIEF.md
-set -e; SK=${0:A:h:h}; SLUG=$1; TITLE=$2; OUT=$3; PR="@@PROJECTS_ROOT@@"; PR="${PR/#\~/$HOME}"; P="$PR/$SLUG"
+set -e; SK=${0:A:h:h}; SLUG=$1; TITLE=$2; OUT=$3; PR="~/videos"; PR="${PR/#\~/$HOME}"; P="$PR/$SLUG"
 [ -e "$P" ] && { echo "$P already exists"; exit 1; }
 [ -f "$OUT/hf-media/cam_top.mp4" ] || { echo "missing $OUT/hf-media/cam_top.mp4 — run 07_crops.sh first"; exit 1; }
 mkdir -p "$PR" && cd "$PR" && npx -y hyperframes@latest init "$SLUG" --non-interactive --example=blank --skill=general-video >/dev/null
@@ -26,7 +26,7 @@ aspect: "9:16"
 language: en
 ---
 ## Intent
-Business short-form reel for @@CREATOR_NAME@@ (skill: business-short-form-reels). Split / full-face / full-animation rotation, captions under the chin.
+Business short-form reel for Nahuel (skill: business-short-form-reels). Split / full-face / full-animation rotation, captions under the chin.
 ## Notes
 Output dir: $OUT
 B

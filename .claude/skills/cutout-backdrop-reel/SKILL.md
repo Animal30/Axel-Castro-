@@ -27,22 +27,22 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they make, and for whom | @@NICHE@@ |
-| Accent colour | @@ACCENT@@ (@@ACCENT_NAME@@), text on it @@ON_ACCENT@@ |
-| Fonts | hook and sub-line: @@FONT_MAIN_NAME@@ · captions: @@FONT_CAPTION_NAME@@ |
-| Hook label | @@HOOK_LABEL@@ (white label with dark text, or an accent-colour label) |
-| Captions | size @@CAPTION_SIZE@@ px, centred at y @@CAPTION_Y@@ |
-| Light rim round the cut-out | @@RIM@@ (0 = off) |
-| Transcriber | @@TRANSCRIBER@@ |
-| Images: own folders first | @@IMAGE_DIRS@@ |
-| Images: from the web | @@WEB_IMAGES@@ |
-| Never show | @@NEVER_SHOW@@ |
-| Review | @@REVIEW_RULE@@ |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
-| Real material (proof) | @@PROOF_DIR@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` |
+| Creator | Nahuel · Nahuel · not set |
+| What they make, and for whom | not set |
+| Accent colour | #FF7A1A (orange), text on it #120C08 |
+| Fonts | hook and sub-line: Inter · captions: Inter |
+| Hook label | white (white label with dark text, or an accent-colour label) |
+| Captions | size 58 px, centred at y 885 |
+| Light rim round the cut-out | 0.5 (0 = off) |
+| Transcriber | elevenlabs |
+| Images: own folders first | none |
+| Images: from the web | yes: search the web, never anything with a watermark |
+| Never show | nothing listed |
+| Review | preview first, wait for approval |
+| Music | ask · music folder: none yet |
+| Real material (proof) | none yet |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` |
 
 The fonts are read from the creator profile at build time (`font_main_bold`, `font_main_regular`, `font_caption`): the
 script prints a `FONT:` line for each one and a `NOT FOUND` line if it had to fall back. A fallback is never shipped:
@@ -135,7 +135,7 @@ automated search; if a logged-in browser tool is connected, searching there work
    lost the point of the picture.
 8. **Preview** and show it: `... cutout_reel.py preview ... --out W/review/preview_720.mp4`.
 9. **Final after approval:** `... cutout_reel.py final --video clip.mp4 --out "<Title> - 9x16 Reel.mp4"`, delivered to
-   the output folder (`@@OUTPUT_RULE@@`).
+   the output folder (`/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`).
 
 Music and sound effects are not handled by the script: follow the music answer in **Your setup** (ask whether and
 which, or add a favourite and say which), and keep the voice natural and clearly above the music.

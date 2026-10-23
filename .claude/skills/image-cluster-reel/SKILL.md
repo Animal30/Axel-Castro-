@@ -27,20 +27,20 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they teach, and to whom | @@NICHE@@ |
-| Caption font | @@FONT_CAPTION_NAME@@ (white, a regular or medium weight reads best at this size) |
-| Caption size and position | @@CAPTION_SIZE@@ px · left edge x @@CAPTION_X@@ · top y @@CAPTION_Y@@ (on a 1080 x 1920 frame; `plan.json` can override per reel) |
-| Kinds of image | @@IMAGE_TYPES@@ |
-| Where to look for images | @@IMAGE_SOURCES@@ |
-| The creator's own image folders | @@IMAGE_DIRS@@ · proof folder: @@PROOF_DIR@@ |
-| Never show | @@NEVER_SHOW@@ |
-| Review | @@REVIEW_RULE@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Working files | `@@WORK_ROOT@@` |
+| Creator | Nahuel · Nahuel · not set |
+| What they teach, and to whom | not set |
+| Caption font | Inter (white, a regular or medium weight reads best at this size) |
+| Caption size and position | 30 px · left edge x 92 · top y 1196 (on a 1080 x 1920 frame; `plan.json` can override per reel) |
+| Kinds of image | a mix of metaphor and surreal art, memes people recognise, known experiments or diagrams, and quote screenshots or the person when one is named |
+| Where to look for images | Pinterest through the Claude in Chrome extension when it is connected, otherwise the web image search script, plus the creator's own folders first |
+| The creator's own image folders | none · proof folder: none yet |
+| Never show | nothing listed |
+| Review | show a preview and wait for approval before the final render |
+| Transcriber | elevenlabs |
+| Music | ask · music folder: none yet |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Footage drive | none |
+| Working files | `~/reel-work` |
 
 The scripts read the caption font and the caption defaults straight from the profile, so this table is for you to
 read, not something the code needs.

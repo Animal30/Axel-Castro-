@@ -27,22 +27,22 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ (@@PLATFORM@@) |
-| What they teach, and to whom | @@NICHE@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ · text @@PAPER@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ (title, tier letters, item names on the cards) · captions: @@FONT_CAPTION_NAME@@ |
-| Topic title | style @@TITLE_STYLE@@, case @@TITLE_CASE@@, in the accent colour |
-| Item name on the card | colour @@CARD_NAME_COLOUR@@, outlined |
-| Captions | @@CAPTIONS@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Item images | @@WEB_ASSETS@@ · own material first in `@@PROOF_DIR@@` and `@@ASSET_DIRS@@` |
-| Never show | @@NEVER_SHOW@@ |
-| Face rule | @@FACE_RULE@@ |
-| How far to go alone | @@WORK_RULE@@ |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` |
+| Creator | Nahuel · Nahuel · not set (not set) |
+| What they teach, and to whom | not set |
+| Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC |
+| Fonts | main: Inter (title, tier letters, item names on the cards) · captions: Inter |
+| Topic title | style italic, case uppercase, in the accent colour |
+| Item name on the card | colour #FFE53B, outlined |
+| Captions | on |
+| Transcriber | elevenlabs |
+| Item images | yes: real over drawn, every source listed in the report · own material first in `none yet` and `none` |
+| Never show | nothing listed |
+| Face rule | safe zone first, then lower into the bottom zone, then 10-20% smaller; always show the option frames and let the creator choose |
+| How far to go alone | build a preview, show the layout options when the table cannot sit in the safe zone, then wait for approval before the final |
+| Music | ask · music folder: none yet |
+| Footage drive | none |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` |
 
 `K=~/.claude/skills/ranking-format`. Engine: `engine/rank_engine.py` (driven by `plan.json`, no code to write per
 reel). Look first: `examples/placeholder-sample/index.html` (a 15 s placeholder sample of the whole format: grey
@@ -96,14 +96,14 @@ wider or lower, then run it again. Never scale or shift the footage itself to ma
    - How many items, which tiers, and anything after the ranking ends.
 1. **Transcribe and cut** with the `business-short-form-reels` scripts
    (`S=~/.claude/skills/business-short-form-reels/scripts`, its workflow steps 1-3): transcript with the transcriber
-   chosen at setup (@@TRANSCRIBER@@), tight cut (dead space, mistakes, false starts, repeats out; never cut inside a
+   chosen at setup (elevenlabs), tight cut (dead space, mistakes, false starts, repeats out; never cut inside a
    verdict or between an item's name and its explanation), verify, then word timings of the cut
    (`cut/words.json`). Voice stays natural, only raised to about -16 LUFS. `scripts/stt.py` here is the same shared
    transcription helper those scripts use (it also lets you check the ElevenLabs key is found).
 2. **Crop to 9:16** (`07_crops.sh` with `NO_MATTE=1`: no cut-out is needed, the table sits in front). For this format
    crop as WIDE as the footage allows and place the head high (chin above about y 880 is ideal) so the table has
    room. Open a still and check the speaker is centred.
-3. **Scaffold:** `$K/scripts/new_reel.sh @@PROJECTS_ROOT@@/<slug>-rank <hf-media>/cam_full.mp4 <cut>/words.json`.
+3. **Scaffold:** `$K/scripts/new_reel.sh ~/videos/<slug>-rank <hf-media>/cam_full.mp4 <cut>/words.json`.
 4. **Plan** (`plan.json`): `title` (the topic, 1-3 words), `duration`, `table_in`, `table_out` (null, or when the
    ranking ends), and one entry per item, in order, with times from `words.json`:
    `label` (short name for the card, 1-4 words), `image`, `t_in` (start of the word where they name it), `t_name_end`
@@ -120,7 +120,7 @@ wider or lower, then run it again. Never scale or shift the footage itself to ma
    every card readable, every card lands in the right row, no caption under a card, face never covered. Hand the
    creator `review/preview_720.mp4`.
 8. **Final after approval:** `$K/scripts/final.sh <project> "<CUT file>" "<Title> - 9x16 Ranking.mp4"`, then file it
-   where finished videos go (@@OUTPUT_RULE@@).
+   where finished videos go (/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)).
 
 ## Preview first (applies to every render)
 
@@ -133,10 +133,10 @@ creator keeps a review tool of their own, point `REVIEW_HOOK` at it (see the hea
 
 ## How to work with the creator
 
-The setup answer "how far to go alone" is @@WORK_RULE@@. Whatever it says: always show the layout options frame when
+The setup answer "how far to go alone" is build a preview, show the layout options when the table cannot sit in the safe zone, then wait for approval before the final. Whatever it says: always show the layout options frame when
 the recommendation is not A, and always say which images you chose.
 
-**Music and sound effects:** @@MUSIC_RULE@@ (music folder: @@MUSIC_DIR@@). If music is wanted, use the business
+**Music and sound effects:** ask (music folder: none yet). If music is wanted, use the business
 skill's `engine/mix.py` standard (music 28 dB under the voice, sparse effects only on real animations) and deliver a
 with-music and a no-music version. This format has no sound effects of its own.
 

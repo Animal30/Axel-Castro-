@@ -27,21 +27,21 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they teach | @@NICHE@@ |
-| Series or channel name (the kicker line) | @@SERIES_NAME@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · small accent text and labels @@ACCENT_DARK@@ · page white · bars #111 |
-| Fonts | body and headings: @@FONT_MAIN_NAME@@ · big title: @@FONT_TITLE_NAME@@ · title keyword: @@FONT_ACCENT_NAME@@ |
+| Creator | Nahuel · Nahuel · not set |
+| What they teach | not set |
+| Series or channel name (the kicker line) | the channel name |
+| Colours | accent #FF7A1A (orange) · small accent text and labels #D16415 · page white · bars #111 |
+| Fonts | body and headings: Inter · big title: Inter · title keyword: Playfair Display Italic |
 | Why people should listen (the credibility section) | @@CREDIBILITY@@ |
-| Real proof (screenshots, results, reviews) lives in | `@@PROOF_DIR@@` |
-| Their own framework images / models live in | `@@MODEL_DIR@@` |
-| Scripts and outlines come from | @@SCRIPT_SOURCE@@ |
+| Real proof (screenshots, results, reviews) lives in | `none yet` |
+| Their own framework images / models live in | `none: draw the diagrams` |
+| Scripts and outlines come from | pasted into the chat |
 | Spelling | @@SPELLING@@ |
-| The two audience types for the examples section | @@AUDIENCE_TYPES@@ |
-| What the in-video call to action usually points to | @@CTA_DEFAULT@@ |
-| Which version to build | @@DOC_VERSION@@ |
-| The document sits on this half of the frame | @@DOC_SIDE@@ |
-| Docs are saved in | `@@DOCS_ROOT@@/<slug>/` |
+| The two audience types for the examples section | decide per lesson from the script |
+| What the in-video call to action usually points to | a free download for that lesson; ask for its name and link each time |
+| Which version to build | full |
+| The document sits on this half of the frame | left |
+| Docs are saved in | `~/lesson-docs/<slug>/` |
 
 ## What it makes
 
@@ -50,12 +50,12 @@ One self-contained HTML document (960px wide: one half of a 1080p frame), plus P
 - a full page
 - 960×1080 scroll stops
 - @4k stills (1920×2160: one half of a 4K frame)
-- a split-screen mock with the document on the @@DOC_SIDE@@
+- a split-screen mock with the document on the left
 
 The creator opens the HTML in their browser and scrolls it while recording. Alternatively, the @4k stills go into
 the edit. On request it also makes a paged PDF for reading or presenting from a tablet.
 
-Output goes to `@@DOCS_ROOT@@/<slug>/` (for example `ep03-topic-name`).
+Output goes to `~/lesson-docs/<slug>/` (for example `ep03-topic-name`).
 
 **Skill layout** (`SK=~/.claude/skills/lesson-doc-builder`):
 
@@ -71,7 +71,7 @@ Output goes to `@@DOCS_ROOT@@/<slug>/` (for example `ep03-topic-name`).
 
 ## Workflow
 
-1. **Find the source.** Scripts and outlines come from: @@SCRIPT_SOURCE@@. If the creator pasted or attached a
+1. **Find the source.** Scripts and outlines come from: pasted into the chat. If the creator pasted or attached a
    script, outline, transcript or notes, that is the source. If they only gave a topic, ask for whatever they have
    (a script, a previous video on it, bullet points); with nothing but a topic, write an outline first and get a yes
    before building. For an episode in a series, read the previous episode's close ("In the next video…") so this
@@ -79,14 +79,14 @@ Output goes to `@@DOCS_ROOT@@/<slug>/` (for example `ep03-topic-name`).
    one-line "land" sentences. Say which sources you used.
 2. **Collect real assets:**
    - **Model image:** if the creator has their own framework image or diagram for the topic, use it (look in
-     `@@MODEL_DIR@@`, or ask). If it comes from a link that expires (a Notion or cloud-drive file link), download it
+     `none: draw the diagrams`, or ask). If it comes from a link that expires (a Notion or cloud-drive file link), download it
      immediately. Make a web copy about 1400px wide (`sips -Z 1400 <file>` on a Mac).
-   - **Proof shots:** take them from `@@PROOF_DIR@@`. Pick four that support this episode's claim. If the folder is
+   - **Proof shots:** take them from `none yet`. Pick four that support this episode's claim. If the folder is
      empty or unset, ask the creator for four, and if they have none yet, leave the grid out rather than faking it.
    - Copy everything into `<slug>/assets/`. Use real assets; don't draw substitutes. Only draw SVG diagrams where no
      model image exists.
 3. **Scaffold:** run `$SK/scripts/new.sh <slug>`, then write `doc.html` following the section order below.
-4. **Render and check:** run `node $SK/scripts/render.cjs "@@DOCS_ROOT@@/<slug>/doc.html"`. It must report every
+4. **Render and check:** run `node $SK/scripts/render.cjs "~/lesson-docs/<slug>/doc.html"`. It must report every
    font as loaded. Then Read the view-N.png files and check:
    - nothing is clipped
    - diagrams are legible
@@ -98,7 +98,7 @@ Output goes to `@@DOCS_ROOT@@/<slug>/` (for example `ep03-topic-name`).
 
 ## Section order (follow it; this is the format)
 
-1. **Kicker + H1:** "@@SERIES_NAME@@ · Episode N · Pillar" (drop the parts that do not apply). The title is the
+1. **Kicker + H1:** "the channel name · Episode N · Pillar" (drop the parts that do not apply). The title is the
    video title, with one keyword in `<em>`.
 2. **Credibility:** the `.runin` "How I know this works and why you should listen to me", one or two short
    paragraphs built only from the creator's real results (see "Why people should listen" in Your setup), then the
@@ -119,9 +119,9 @@ Output goes to `@@DOCS_ROOT@@/<slug>/` (for example `ep03-topic-name`).
    - a transition line
 7. **In-video call to action:** placed right after the part that creates the need. An h3 "If You're Working Through
    This Yourself", an h5 "I Can Show You With This Episode", the pitch for what it points to (default:
-   @@CTA_DEFAULT@@), "Notice when that came up…", and a `.bar`. If the creator gave rules about their offer (never
+   a free download for that lesson; ask for its name and link each time), "Notice when that came up…", and a `.bar`. If the creator gave rules about their offer (never
    state the price, no guarantees, a named method), follow them exactly.
-8. **By audience type:** two h3s, one per audience type (@@AUDIENCE_TYPES@@), each with bold-lead bullets, plus a
+8. **By audience type:** two h3s, one per audience type (decide per lesson from the script), each with bold-lead bullets, plus a
    `.bar`.
 9. **Two Honest Limitations:** two bold-lead bullets.
 10. **Apply it:** an h2 practical test ("Test It On Your Last Ten …") and a loop diagram.

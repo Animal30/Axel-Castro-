@@ -28,8 +28,8 @@ Filled in by the setup interview. If a line still shows a placeholder in double 
 
 | | |
 |---|---|
-| Creator (the voice everything is written in) | @@CREATOR_NAME@@ |
-| Brand | @@BRAND_NAME@@ |
+| Creator (the voice everything is written in) | Nahuel |
+| Brand | Nahuel |
 | What they do | @@NICHE@@ |
 | Formats to write by default | @@OUTPUTS@@ |
 | Voice samples | @@VOICE_SAMPLES@@ (analysis in `~/.claude/creator-profile/notes/video-to-written-content.md` under `## Voice`) |
@@ -41,7 +41,7 @@ Filled in by the setup interview. If a line still shows a placeholder in double 
 | Names and terms the transcriber must spell correctly | @@KEYTERMS@@ |
 | Extra words and phrases never to use | @@BANNED_PHRASES@@ |
 | Output folder | `@@OUTPUT_DIR@@` |
-| Transcription | @@TRANSCRIBER@@ |
+| Transcription | elevenlabs |
 
 ## The job
 
@@ -102,7 +102,7 @@ python3 ~/.claude/skills/video-to-written-content/scripts/transcribe.py "<url-or
   [--out <folder>] [--keyterms "Guest Name,Product Name"] [--speakers N] [--language en]
 ```
 
-- The script transcribes with the engine chosen at setup (`@@TRANSCRIBER@@`), through `scripts/stt.py`:
+- The script transcribes with the engine chosen at setup (`elevenlabs`), through `scripts/stt.py`:
   - **`elevenlabs` (recommended for accuracy)**: ElevenLabs Speech-to-Text. The most accurate words, speaker labels on interviews, and it uses the key terms. About $0.22 per hour of audio.
   - **`local` (the free option)**: runs on this computer through HyperFrames. No cost and nothing leaves the machine. Names and unusual terms are misheard more often, there are no speaker labels, and key terms are not used, so Step 1b needs a closer read.
 - The key terms saved at setup (`@@KEYTERMS@@`) are passed automatically. Use `--keyterms` only to **add** proper nouns specific to this video that you can anticipate: guest names from the title or description, a product or book that is mentioned.

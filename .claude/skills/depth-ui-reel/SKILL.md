@@ -27,20 +27,20 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ (@@PLATFORM@@) |
-| What they teach, and to whom | @@NICHE@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ · text @@PAPER@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ (every figure and label) · emphasis: @@FONT_ACCENT_NAME@@ (the few key words, never numbers) · captions: @@FONT_CAPTION_NAME@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Working style | @@WORKING_STYLE@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` · finished reels: @@OUTPUT_RULE@@ |
-| Real material (proof) | @@PROOF_DIR@@ · footage drive: @@MEDIA_DRIVE@@ |
-| Real assets from the web | @@WEB_ASSETS@@ |
-| Never show | @@NEVER_SHOW@@ |
-| Music | @@MUSIC_RULE@@ (library: @@MUSIC_DIR@@) · sound effects: @@SFX_DIR@@ |
-| Captions | @@CAPTION_SIZE@@ px, top edge at y @@CAPTION_Y@@, emphasis words @@EMPH_SIZE@@ px |
-| Camera | strongest punch-in x@@PUNCH_MAX@@ · background dim @@DIM_LEVEL@@ |
-| Head box (at scale 1, in the 1080 x 1920 frame) | x0 y0 x1 y1 = @@HEAD_BOX@@ |
+| Creator | Nahuel · Nahuel · not set (Instagram) |
+| What they teach, and to whom | not set |
+| Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC |
+| Fonts | main: Inter (every figure and label) · emphasis: Playfair Display Italic (the few key words, never numbers) · captions: the main font |
+| Transcriber | elevenlabs |
+| Working style | build-first |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` · finished reels: /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Real material (proof) | none yet · footage drive: none |
+| Real assets from the web | yes: real over drawn, every source listed in the report |
+| Never show | nothing listed |
+| Music | ask (library: none yet) · sound effects: /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
+| Captions | 64 px, top edge at y 1146, emphasis words 132 px |
+| Camera | strongest punch-in x1.10 · background dim 0.40 |
+| Head box (at scale 1, in the 1080 x 1920 frame) | x0 y0 x1 y1 = 320 320 840 1120 |
 
 **HyperFrames only.** The reel is built and rendered with HyperFrames (`npx hyperframes`). Do not switch to another
 motion-graphics tool part-way. Engine: `engine/depth_engine.py`. Worked example: `examples/worked-example/build.py`
@@ -94,7 +94,7 @@ The numbers below are for a tight 9:16 crop where the head covers roughly the he
 
 ## Working with the creator
 
-- **Working style: @@WORKING_STYLE@@.** `consult` = ask about design choices (which interface per sentence, the opening
+- **Working style: build-first.** `consult` = ask about design choices (which interface per sentence, the opening
   graphic, wording) with 2-4 concrete options before building. `build-first` = build the whole reel on your own
   judgement and report everything you chose, everything invented and every placeholder.
 - **Review first.** Never render the full-quality final first. Render the 720p preview, give the creator the file and the
@@ -102,7 +102,7 @@ The numbers below are for a tight 9:16 crop where the head covers roughly the he
   caption, graphic and zoom with stable ids and times), re-preview, and render the final only once approved.
 - **Any screenshot the creator drags in** is probably meant for the reel: animate it in, but ask first where it goes
   and how it moves.
-- **Music: @@MUSIC_RULE@@.** `ask` = never assume a track: ask whether they want music and which. `pick` = choose a
+- **Music: ask.** `ask` = never assume a track: ask whether they want music and which. `pick` = choose a
   favourite from the library that suits the video and say which. When music is used, deliver a with-music and a
   no-music version.
 - **Real assets first.** Look in the proof folder, the other asset folders and the earlier projects' `assets/`, then
@@ -118,7 +118,7 @@ The numbers below are for a tight 9:16 crop where the head covers roughly the he
    all three. If a 9:16 tight cut exists from anywhere else, make the cut-out with
    `npx hyperframes remove-background cam_full.mp4 -o cam_fg.webm --quality best` and a `words.json` of
    `[[start, end, word], ...]`.
-2. **Scaffold:** `K=~/.claude/skills/depth-ui-reel; $K/scripts/new_reel.sh @@PROJECTS_ROOT@@/<slug>-depth "<hf-media dir>" <cut words.json>`.
+2. **Scaffold:** `K=~/.claude/skills/depth-ui-reel; $K/scripts/new_reel.sh ~/videos/<slug>-depth "<hf-media dir>" <cut words.json>`.
    It links the media, copies the engine, fonts, profile picture and reel covers saved at setup, and starts `build.py`
    from the worked example.
 3. **Plan the graphics.** Read the script sentence by sentence. For each sentence choose ONE thing to show (an interface

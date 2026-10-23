@@ -2,8 +2,8 @@
 
 This is the pack's **default style** for clips. It is one system: do not mix in other looks clip by clip. The
 creator's own changes live in `~/.claude/creator-profile/notes/<this skill's name>.md` under `## Style overrides`
-and win over everything here. Brand values (accent colour @@ACCENT@@, main font @@FONT_MAIN_NAME@@, emphasis font
-@@FONT_ACCENT_NAME@@, caption font @@FONT_CAPTION_NAME@@) come from setup and are already filled into the engine.
+and win over everything here. Brand values (accent colour #FF7A1A, main font Inter, emphasis font
+Playfair Display Italic, caption font Inter) come from setup and are already filled into the engine.
 
 If the pack's `business-short-form-reels` skill is installed, sections 2-5 below are the same look that skill
 uses. Its notes file (`~/.claude/creator-profile/notes/business-short-form-reels.md`) is where the vertical look is
@@ -102,10 +102,10 @@ Centre every graphic horizontally.
 
 ## 3. Graphic language
 
-- **Background**: the brand's dark background (@@BG@@) with a soft glow in the accent colour. No coarse grain, no
+- **Background**: the brand's dark background (#050505) with a soft glow in the accent colour. No coarse grain, no
   grid.
-- **Colour**: the accent colour only on the one focal element. Text in the off-white (@@PAPER@@), small labels in
-  the grey (@@GREY@@). **Positive is green (`#2FA65A`) and negative is red (`#B3261E`), every time** (gain / loss,
+- **Colour**: the accent colour only on the one focal element. Text in the off-white (#F2F0EC), small labels in
+  the grey (#9A928A). **Positive is green (`#2FA65A`) and negative is red (`#B3261E`), every time** (gain / loss,
   right / wrong, chosen / struck out). That is a meaning, not a brand colour, and it does not change with the brand.
 - **Type**: the main font for everything inside graphics; the emphasis font for the occasional whole word;
   **numbers are always in the main font**.

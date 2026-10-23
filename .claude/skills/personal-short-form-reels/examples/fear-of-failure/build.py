@@ -27,7 +27,7 @@ P.comments([("dan.w", "commented: who does he think he is?", 0.02), ("kieran_92"
 # 5.46 - 6.80 s  "was just the fear of failing": a dot heads for the goal, a red wall drops in its way
 K.OF.append("""<div id="g2" style="position:absolute;left:190px;top:1218px;width:700px;height:150px;opacity:0"><svg width="700" height="150" viewBox="0 0 700 150" style="overflow:visible">
   <line x1="40" y1="84" x2="640" y2="84" stroke="rgba(255,255,255,.38)" stroke-width="10" stroke-linecap="round"/>
-  <path d="M650,112 V34 M650,36 L692,50 L650,66" fill="@@PAPER@@" stroke="@@PAPER@@" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M650,112 V34 M650,36 L692,50 L650,66" fill="#F2F0EC" stroke="#F2F0EC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
   <rect id="g2b" x="352" y="22" width="18" height="124" rx="9" fill="#B3261E" style="filter:drop-shadow(0 0 16px rgba(179,38,30,.9))"/>
   <circle id="g2d" cx="40" cy="84" r="22" fill="#FFFFFF" style="filter:drop-shadow(0 4px 12px rgba(0,0,0,.6))"/></svg></div>""")
 K.ojs("""tl.fromTo('#g2', {opacity:0}, {opacity:1, duration:0.18, ease:'power2.out'}, %s);
@@ -48,7 +48,7 @@ K.ac(C2 + 0.04, "pop", -24)
 for i in range(7):
     me = i == 3
     K.OF.append('<div id="g4a%d" style="position:absolute;left:%dpx;top:1222px;width:110px;height:110px;border-radius:55px;overflow:hidden;opacity:0;box-sizing:border-box;border:%s;box-shadow:0 14px 34px rgba(0,0,0,.5);%s">%s</div>' % (
-        i, 101 + i * 128, "5px solid @@ACCENT@@" if me else "3px solid rgba(255,255,255,.5)", "background:url(assets/proof/avatar.jpg) center/cover" if me else "",
+        i, 101 + i * 128, "5px solid #FF7A1A" if me else "3px solid rgba(255,255,255,.5)", "background:url(assets/proof/avatar.jpg) center/cover" if me else "",
         "" if me else K.ANON.replace('width="112" height="112"', 'width="100%" height="100%"')))
 K.ojs("".join("opop('#g4a%d', %s);" % (i, t) for i, t in [(3, C3 + 0.04), (2, 14.92), (4, 14.92), (1, 15.12), (5, 15.12), (0, 15.32), (6, 15.32)]))
 K.ac(14.92, "pops", -23)

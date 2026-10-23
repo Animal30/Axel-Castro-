@@ -27,24 +27,24 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
+| Creator | Nahuel · Nahuel · not set |
 | Channel | @@CHANNEL@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ · text @@PAPER@@ · small labels @@GREY@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ · captions: @@FONT_CAPTION_NAME@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` · real material (proof) `@@PROOF_DIR@@` |
-| Raw recordings and clean cuts live in | @@RAW_DIR@@ |
-| Published videos have captions / music burned in | @@PUBLISHED_LOOK@@ |
-| Downloads go to | `@@DOWNLOADS_DIR@@` |
-| Swearing | kept in the audio; captions: @@SWEAR_CAPTIONS@@ |
-| How many clips | every clip that clears the bar, @@MAX_CLIPS@@ at most |
-| After the prompts are written | @@BUILD_RULE@@ |
-| Ratios | @@RATIOS@@ |
-| Music and sound effects | @@CLIP_SOUND@@ |
-| Pointing back to the full video | @@FULL_VIDEO_TAG@@ |
-| Finished clips go to | @@FINALS_DIR@@ |
-| Other people's videos | @@OTHER_CREATORS@@ |
-| Never clip | @@NEVER_CLIP@@ |
+| Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC · small labels #9A928A |
+| Fonts | main: Inter · emphasis: Playfair Display Italic · captions: Inter |
+| Transcriber | elevenlabs |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` · real material (proof) `none yet` |
+| Raw recordings and clean cuts live in | none: ask each time |
+| Published videos have captions / music burned in | check each video |
+| Downloads go to | `~/Movies/YouTube Downloads` |
+| Swearing | kept in the audio; captions: starred |
+| How many clips | every clip that clears the bar, 10 at most |
+| After the prompts are written | ask |
+| Ratios | both |
+| Music and sound effects | none |
+| Pointing back to the full video | no tag |
+| Finished clips go to | beside the video |
+| Other people's videos | ask each time |
+| Never clip | nothing listed |
 
 ## What this skill does
 
@@ -58,7 +58,7 @@ A full YouTube video goes in (a file, or a YouTube link). What comes out, in thi
 
 The skill owns the listening, the choosing, the story edit and the build. Everything it needs is inside this folder.
 
-`S=~/.claude/skills/youtube-clips/scripts` · cut pipeline `C=$S/cut` · work dir `W=@@WORK_ROOT@@/<slug>` (small
+`S=~/.claude/skills/youtube-clips/scripts` · cut pipeline `C=$S/cut` · work dir `W=~/reel-work/<slug>` (small
 files) · outputs `"<video folder>/<video name> - Clips/"`, one sub-folder per clip (called `<out>` below). Video
 files are large: big files (downloads included) stay on the drive that holds the video. Long steps run in the
 background, one render at a time (two renders writing to the same external drive at once can fail).
@@ -110,13 +110,13 @@ Do not combine every treatment in one clip. For each moment pick the single trea
 Ask for, or find, the cleanest picture of the same recording, in this order:
 
 1. **The raw or the clean cut** (no captions, no graphics, no music). Look before asking, and before downloading
-   anything: the folder from setup (`@@RAW_DIR@@`), then next to any file the creator has given you. Best for
+   anything: the folder from setup (`none: ask each time`), then next to any file the creator has given you. Best for
    everything.
 2. **The finished export** from the creator's own drive. Fine when the stretch being clipped is plain talking head.
 3. **A download of the published video** (a YouTube link): what the prep script fetches. Lower bitrate than the
    creator's own file; say so in the report.
 
-Setup says the published videos carry burned-in captions or music: **@@PUBLISHED_LOOK@@**. Whatever it says, check
+Setup says the published videos carry burned-in captions or music: **check each video**. Whatever it says, check
 the contact sheets of this video. When the only picture has things burned in:
 
 - Never put captions over burned-in captions, or a graphic over a burned-in graphic. Either choose a stretch where
@@ -130,7 +130,7 @@ the contact sheets of this video. When the only picture has things burned in:
 - Existing cuts and zooms in the published picture count as joins: note them from the contact sheet.
 
 **Someone else's video** (not the channel in "Your setup": @@CHANNEL@@). The setup answer is
-**@@OTHER_CREATORS@@**. Under the default (`ask each time`), stop and ask once before doing anything past the clip
+**ask each time**. Under the default (`ask each time`), stop and ask once before doing anything past the clip
 list: whose words may be clipped and published is the creator's decision, and every rule below about the speaker's
 words then applies to that speaker.
 
@@ -141,12 +141,12 @@ python3 $S/01_video_prep.py "<video file or YouTube URL>" <slug>     # download 
 python3 $S/02_video_transcribe.py <slug>                             # the whole video
 ```
 
-For a link the script downloads with `yt-dlp` (best quality, to `@@DOWNLOADS_DIR@@`, or beside the output folder
+For a link the script downloads with `yt-dlp` (best quality, to `~/Movies/YouTube Downloads`, or beside the output folder
 when you pass one) and prints the title, channel, chapters and the "most replayed" points. Chapters help the map;
 most-replayed is a hint about what viewers re-watched, not a ranking. Act on the warnings (variable frame rate,
 under 1080p, HDR, downloads folder not available).
 
-**Transcription uses the transcriber chosen at setup: `@@TRANSCRIBER@@`.** Every script goes through
+**Transcription uses the transcriber chosen at setup: `elevenlabs`.** Every script goes through
 `scripts/stt.py`, so nothing else needs changing when the answer changes.
 
 - `elevenlabs` (recommended): the most accurate words and timings, and speaker labels, at roughly $0.22 per hour of
@@ -187,12 +187,12 @@ Read `references/selection-and-story.md` (what to look for, the scoring, the sto
 
 In short: list every candidate, score each on the eight criteria, and keep **every clip that is strong enough to
 post and can actually be cut cleanly**. No target and no minimum: three is a fine answer, so is seven.
-**@@MAX_CLIPS@@ is the ceiling**; if more clear the bar, keep the strongest and name the rest under "next in line".
+**10 is the ceiling**; if more clear the bar, keep the strongest and name the rest under "next in line".
 Do not trim a good clip to keep the list short, and do not pad it to look productive. Make a judgment: every clip on
 the list is one you would publish, mapped out in `clips.json`, with its source cut and its prompts written. Say
 plainly how many cleared the bar and how many were borderline.
 
-Leave out anything on the creator's never-clip list (**@@NEVER_CLIP@@**).
+Leave out anything on the creator's never-clip list (**nothing listed**).
 
 ## 4. Edit each clip as a story
 
@@ -225,16 +225,16 @@ the framing notes describe the real picture, not a guess.
 
 - `"<out>/Clip list.md"`: the video map, then the ranked clips.
 - `"<out>/<id>/<id> - 16x9 prompt.md"` and `"<out>/<id>/<id> - 9x16 prompt.md"` for every clip (only the ratios in
-  "Your setup": @@RATIOS@@).
+  "Your setup": both).
 
 For each graphic, find the real thing first: the website, post, profile, document or person the speaker names. If
 the full video already showed it on screen, that is the first place to look (the project folder for that video, then
-the proof folder `@@PROOF_DIR@@`, the creator's drives, then the web). Record in the prompt where each asset is, or
+the proof folder `none yet`, the creator's drives, then the web). Record in the prompt where each asset is, or
 that it still has to be found. A graphic field left as "none: stay on the speaker" is a correct answer; do not fill
 a field because the template has one.
 
 Then show the creator the clip list in chat (short) and link the prompt files. What happens next is the setup answer
-"after the prompts are written": **@@BUILD_RULE@@**.
+"after the prompts are written": **ask**.
 
 - `ask`: stop here and ask the open questions in one go with `AskUserQuestion` (which clips to build, anything
   flagged, sound if the setup answer is "ask each time").
@@ -259,7 +259,7 @@ Both versions start the same way: the tight cut of `<id> - source.mov`, made wit
 SRC="<out>/<id>/<id> - source.mov"
 python3 $C/01_prep.py "$SRC" <clip slug> "<out>/<id>"   # the clip's own slug and its own folder
 python3 $C/02_transcribe.py <clip slug>                 # transcriber from setup
-#   write @@WORK_ROOT@@/<clip slug>/drops.json: paste the "secs" from source.json, then add anything else to remove
+#   write ~/reel-work/<clip slug>/drops.json: paste the "secs" from source.json, then add anything else to remove
 python3 $C/03_cut.py <clip slug> && python3 $C/04_verify.py <clip slug>     # repeat until the verify is clean
 python3 $C/05_render_cut.py <clip slug>                 # "<out>/<id>/<id> - source - CUT.mp4" (background)
 python3 $C/06_captions.py <clip slug>                   # drafts phrases.txt; edit it; run again
@@ -272,8 +272,8 @@ Then build the ratios from that one cut with this skill's engine (`engine/clip_e
 (`engine/ytkit.py`). One HyperFrames project per clip:
 
 ```bash
-python3 $S/06_project.py <clip slug> "<Title>"     # @@PROJECTS_ROOT@@/<clip slug>
-cd @@PROJECTS_ROOT@@/<clip slug> && python3 build.py 16x9       # then 9x16; write build.py first (start from the nearest example)
+python3 $S/06_project.py <clip slug> "<Title>"     # ~/videos/<clip slug>
+cd ~/videos/<clip slug> && python3 build.py 16x9       # then 9x16; write build.py first (start from the nearest example)
 ```
 
 `06_project.py` makes the project: init, engine, kit, fonts, the full-resolution cut linked as `assets/cam.mp4`, a
@@ -344,9 +344,9 @@ If the head leaves little room, make the text inside the graphic larger rather t
 - 9:16 follows the three-mode structure in `references/style.md` (text hook on frame 1, three modes, every switch on
   a cut). A 1080p source gives a 1.78x enlargement when the speaker is full screen and is a little soft; a 4K raw is
   not. Say which it was in the report.
-- **Swearing** stays in the audio. Captions follow the setup answer (**@@SWEAR_CAPTIONS@@**): `06_project.py` stars
+- **Swearing** stays in the audio. Captions follow the setup answer (**starred**): `06_project.py` stars
   the common words when it is `starred`.
-- **Pointing back to the full video** (setup answer: **@@FULL_VIDEO_TAG@@**). `no tag` means no title tag and no end
+- **Pointing back to the full video** (setup answer: **no tag**). `no tag` means no title tag and no end
   card. Anything else: a small tag with the full video's title, lower left, for the first 3 s, or the end card the
   creator described.
 - No pill or label that repeats the caption word.
@@ -361,11 +361,11 @@ full-screen graphic in the vertical; on a punch-in/out or under a large graphic 
 with a -1.5 dBTP ceiling, so it plays at a normal level and never peaks. Picture untouched. Check the before/after
 line it prints (a published video is usually close already; a raw is not).
 
-**Music and sound effects** (setup answer: **@@CLIP_SOUND@@**). `none` means the clip carries the video's own sound
+**Music and sound effects** (setup answer: **none**). `none` means the clip carries the video's own sound
 and nothing else. Anything else: follow `references/style.md` section 5, add the sound after the render and before
 the loudness pass, and never guess a music track: use the creator's music folder and favourites from the profile.
 
-**Where finals go** (setup answer: **@@FINALS_DIR@@**). Loudness-corrected finals are plainly named
+**Where finals go** (setup answer: **beside the video**). Loudness-corrected finals are plainly named
 ("<Title> - 16x9.mp4", "<Title> - 9x16.mp4"). `beside the video` means `"<out>/Finals/"`; a folder means that folder
 (if the drive is not connected, say so and keep the finals in `"<out>/Finals/"` meanwhile). Working files stay
 beside the video.
@@ -402,9 +402,9 @@ compared.
 - **Other people's material shown on screen** (a creator's post, a website, a clip played in the video): show it as
   the real thing, uncropped and credited by its own visible name or handle. Permissions are the creator's to manage;
   list each one in the report.
-- **Someone else's video** is handled as the setup answer says (@@OTHER_CREATORS@@); under the default it is never
+- **Someone else's video** is handled as the setup answer says (ask each time); under the default it is never
   clipped past the clip list without asking first.
-- **The never-clip list** (@@NEVER_CLIP@@) is absolute: those topics and names stay out of clips, captions and
+- **The never-clip list** (nothing listed) is absolute: those topics and names stay out of clips, captions and
   graphics.
 
 ## Defaults of this style (each is a setup answer or a style rule; change when the creator says)

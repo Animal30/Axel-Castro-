@@ -27,21 +27,21 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ · text @@PAPER@@ · small labels @@GREY@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ · captions: @@FONT_CAPTION_NAME@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` · real material (proof) `@@PROOF_DIR@@` |
-| How calls are recorded | @@CALL_RECORDER@@ · camera @@CAMERA_ANGLE@@ · usually @@CALL_RESOLUTION@@ |
+| Creator | Nahuel · Nahuel · not set |
+| Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC · small labels #9A928A |
+| Fonts | main: Inter · emphasis: Playfair Display Italic · captions: Inter |
+| Transcriber | elevenlabs |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` · real material (proof) `none yet` |
+| How calls are recorded | Zoom · camera off to the side · usually 1080p |
 | People on the calls have agreed to be clipped | @@CLIP_CONSENT@@ |
-| A client who is hard to hear | @@QUIET_CLIENT@@ |
-| Swearing | kept in the audio; captions: @@SWEAR_CAPTIONS@@ |
-| How many clips | every clip that clears the bar, @@MAX_CLIPS@@ at most |
-| After the prompts are written | @@BUILD_RULE@@ |
-| Ratios | @@RATIOS@@ |
-| Music and sound effects | @@CLIP_SOUND@@ |
-| Finished clips go to | @@FINALS_DIR@@ |
-| Never clip | @@NEVER_CLIP@@ |
+| A client who is hard to hear | cut their lines |
+| Swearing | kept in the audio; captions: starred |
+| How many clips | every clip that clears the bar, 10 at most |
+| After the prompts are written | ask |
+| Ratios | both |
+| Music and sound effects | none |
+| Finished clips go to | beside the recording |
+| Never clip | nothing listed |
 
 ## What this skill does
 
@@ -55,7 +55,7 @@ A full coaching call goes in. What comes out, in this order:
 
 The skill owns the listening, the choosing, the story edit and the build. Everything it needs is inside this folder.
 
-`S=~/.claude/skills/coaching-call-clips/scripts` · cut pipeline `C=$S/cut` · work dir `W=@@WORK_ROOT@@/<slug>` (small
+`S=~/.claude/skills/coaching-call-clips/scripts` · cut pipeline `C=$S/cut` · work dir `W=~/reel-work/<slug>` (small
 files) · outputs `"<call folder>/<call name> - Clips/"`, one sub-folder per clip (called `<out>` below). Video files
 are large: big files stay beside the recording, on whichever drive holds it. Long steps run in the background, one
 render at a time (two renders writing to the same external drive at once can fail).
@@ -90,7 +90,7 @@ Do not combine every treatment in one clip. For each moment pick the single trea
 ## What makes these different from a scripted reel
 
 The coach is not talking to the camera. On most calls the camera is off to one side and they are looking at the
-client on their monitor (setup says: camera @@CAMERA_ANGLE@@). Leave it that way. The appeal is that the viewer has
+client on their monitor (setup says: camera off to the side). Leave it that way. The appeal is that the viewer has
 been let into a private conversation where something unusually useful is being said; the edit removes friction and
 makes the idea easier to follow, and stops there. So:
 
@@ -110,7 +110,7 @@ python3 $S/02_call_transcribe.py <slug>              # the whole call, with spea
 
 Act on the warnings (Zoom recordings are often variable frame rate).
 
-**Transcription uses the transcriber chosen at setup: `@@TRANSCRIBER@@`.** Every script goes through
+**Transcription uses the transcriber chosen at setup: `elevenlabs`.** Every script goes through
 `scripts/stt.py`, so nothing else needs changing when the answer changes.
 
 - `elevenlabs` (recommended): the most accurate words and timings, and speaker labels, at roughly $0.22 per hour of
@@ -150,12 +150,12 @@ Read `references/selection-and-story.md` (what to look for, the scoring, the sto
 
 In short: list every candidate, score each on the eight criteria, and keep **every clip that is strong enough to
 post and can actually be cut cleanly**. No target and no minimum: three is a fine answer, so is seven.
-**@@MAX_CLIPS@@ is the ceiling**; if more clear the bar, keep the strongest and name the rest under "next in line".
+**10 is the ceiling**; if more clear the bar, keep the strongest and name the rest under "next in line".
 Do not trim a good clip to keep the list short, and do not pad it to look productive. Make a judgment: every clip on
 the list is one you would publish, mapped out in `clips.json`, with its source cut and its prompts written. Say
 plainly how many cleared the bar and how many were borderline.
 
-Leave out anything on the creator's never-clip list (**@@NEVER_CLIP@@**), and apply the consent rule under "Rules
+Leave out anything on the creator's never-clip list (**nothing listed**), and apply the consent rule under "Rules
 that protect people" before a candidate goes on the list, not after.
 
 ## 4. Edit each clip as a story
@@ -190,15 +190,15 @@ the framing notes describe the real picture, not a guess.
 
 - `"<out>/Clip list.md"`: the call map, then the ranked clips.
 - `"<out>/<id>/<id> - 16x9 prompt.md"` and `"<out>/<id>/<id> - 9x16 prompt.md"` for every clip (only the ratios in
-  "Your setup": @@RATIOS@@).
+  "Your setup": both).
 
 For each graphic, find the real thing first: the website, post, profile, document or person the speaker names. Look
-in the proof folder (`@@PROOF_DIR@@`), then elsewhere on the creator's computer and drives, then the web, and record
+in the proof folder (`none yet`), then elsewhere on the creator's computer and drives, then the web, and record
 in the prompt where each asset is, or that it still has to be found. A graphic field left as "none: stay on the
 speaker" is a correct answer; do not fill a field because the template has one.
 
 Then show the creator the clip list in chat (short) and link the prompt files. What happens next is the setup answer
-"after the prompts are written": **@@BUILD_RULE@@**.
+"after the prompts are written": **ask**.
 
 - `ask`: stop here and ask the open questions in one go with `AskUserQuestion` (which clips to build, anything
   flagged, sound if the setup answer is "ask each time").
@@ -223,7 +223,7 @@ Both versions start the same way: the tight cut of `<id> - source.mov`, made wit
 SRC="<out>/<id>/<id> - source.mov"
 python3 $C/01_prep.py "$SRC" <clip slug> "<out>/<id>"   # the clip's own slug and its own folder
 python3 $C/02_transcribe.py <clip slug>                 # transcriber from setup
-#   write @@WORK_ROOT@@/<clip slug>/drops.json: paste the "secs" from source.json, then add anything else to remove
+#   write ~/reel-work/<clip slug>/drops.json: paste the "secs" from source.json, then add anything else to remove
 python3 $C/03_cut.py <clip slug> && python3 $C/04_verify.py <clip slug>     # repeat until the verify is clean
 python3 $C/05_render_cut.py <clip slug>                 # "<out>/<id>/<id> - source - CUT.mp4" (background)
 python3 $C/06_captions.py <clip slug>                   # drafts phrases.txt; edit it; run again
@@ -236,8 +236,8 @@ Then build the ratios from that one cut with this skill's engine (`engine/coach_
 (`engine/coach_kit.py`):
 
 ```bash
-python3 $S/06_new_project.py <clip slug> "<Title>"   # @@PROJECTS_ROOT@@/<clip slug>: engine, kit, fonts, cut, captions, faces.json
-cd @@PROJECTS_ROOT@@/<clip slug> && python3 build.py 16x9       # then 9x16; write build.py first (start from the nearest example)
+python3 $S/06_new_project.py <clip slug> "<Title>"   # ~/videos/<clip slug>: engine, kit, fonts, cut, captions, faces.json
+cd ~/videos/<clip slug> && python3 build.py 16x9       # then 9x16; write build.py first (start from the nearest example)
 ```
 
 `examples/` holds three worked builds written with the kit, kept as structure references only (never reuse their
@@ -285,7 +285,7 @@ If the head leaves little room, make the text inside the graphic larger rather t
   of the call removed) can be listed as a *small* cut by the tight-cut script, or not listed at all when no silence
   was trimmed at it: treat every `source.json` join as big and work out its cut-timeline time from the words either
   side.
-- **A client who is hard to hear** (setup answer: **@@QUIET_CLIENT@@**). Clients usually come through the coach's
+- **A client who is hard to hear** (setup answer: **cut their lines**). Clients usually come through the coach's
   speakers, so their audio is thin. Under the default (`cut their lines`): remove the client's lines and let the
   clip run on the coach's words alone, which also flows better. Keep a client line only when it is clearly audible
   on a phone speaker AND the clip does not make sense without it AND the consent rule allows it; then mark its
@@ -296,9 +296,9 @@ If the head leaves little room, make the text inside the graphic larger rather t
   9:16 frame. Same components, different timing where the modes differ.
 - 9:16 follows the three-mode structure in `references/style.md` (text hook on frame 1, three modes, every switch on
   a cut). A 1080p call gives a 1.78x enlargement when the speaker is full screen: it is the widest crop there is,
-  they fill the frame, and it is a little soft (setup says calls are usually @@CALL_RESOLUTION@@). Say so in the
+  they fill the frame, and it is a little soft (setup says calls are usually 1080p). Say so in the
   report.
-- **Swearing** stays in the audio. Captions follow the setup answer (**@@SWEAR_CAPTIONS@@**): `06_new_project.py`
+- **Swearing** stays in the audio. Captions follow the setup answer (**starred**): `06_new_project.py`
   stars the common words when it is `starred`.
 - No pill or label that repeats the caption word.
 - Anything on screen that belongs to a client (a profile, a handle, a face) is built as a generic stand-in with a
@@ -316,11 +316,11 @@ first (70 Hz high-pass, afftdn 14 dB with noise tracking: about 9 dB less hiss, 
 -14 LUFS with a -1.5 dBTP ceiling, so it plays at a normal level and never peaks. Picture untouched. Check the
 before/after line it prints. Keep the denoise light.
 
-**Music and sound effects** (setup answer: **@@CLIP_SOUND@@**). `none` means the clip carries the call's own sound
+**Music and sound effects** (setup answer: **none**). `none` means the clip carries the call's own sound
 and nothing else. Anything else: follow `references/style.md` section 5, add the sound after the render and before
 the loudness pass, and never guess a music track: use the creator's music folder and favourites from the profile.
 
-**Where finals go** (setup answer: **@@FINALS_DIR@@**). Loudness-corrected finals are plainly named
+**Where finals go** (setup answer: **beside the recording**). Loudness-corrected finals are plainly named
 ("<Title> - 16x9.mp4", "<Title> - 9x16.mp4"). `beside the recording` means `"<out>/Finals/"`; a folder means that
 folder (make a dated sub-folder only if the creator asked for one; if the drive is not connected, say so and keep
 the finals in `"<out>/Finals/"` meanwhile). Working files stay beside the call recording.
@@ -366,7 +366,7 @@ compared.
 - **Other people's material shown on screen** (a creator's post, a website): show it as the real thing, uncropped
   and credited by its own visible name or handle. Permissions are the creator's to manage; list each one in the
   report.
-- **The never-clip list** (@@NEVER_CLIP@@) is absolute: those topics and names stay out of clips, captions and
+- **The never-clip list** (nothing listed) is absolute: those topics and names stay out of clips, captions and
   graphics.
 
 ## Defaults of this style (each is a setup answer or a style rule; change when the creator says)

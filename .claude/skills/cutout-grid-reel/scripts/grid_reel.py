@@ -52,8 +52,8 @@ for x in raw:
     if norm(str(w)): words.append([float(s), float(e), str(w)])
 DUR = float(P.get('duration') or VD or words[-1][1] + 0.3); DUR = min(DUR, VD) if VD else DUR
 words = [w for w in words if w[0] < DUR - 0.01]
-CAPS = P['captions']; HOOK = P.get('hook') or {}; BG = sorted(P['sets'], key=lambda b: b['t']); CUT = dict(top=230, left=0, width=1080, height=1180, w=int('@@CUTOUT_WIDTH@@'), rim=0.5); CUT.update(P.get('cutout', {}))
-CAP = dict(size=int('@@CAPTION_SIZE@@'), lead=0.08, up=140, track=float('@@CAPTION_TRACKING@@')); CAP.update(P.get('caption', {})); ZOOM = P.get('zoom', 0.05)
+CAPS = P['captions']; HOOK = P.get('hook') or {}; BG = sorted(P['sets'], key=lambda b: b['t']); CUT = dict(top=230, left=0, width=1080, height=1180, w=int('540'), rim=0.5); CUT.update(P.get('cutout', {}))
+CAP = dict(size=int('46'), lead=0.08, up=140, track=float('-0.045')); CAP.update(P.get('caption', {})); ZOOM = P.get('zoom', 0.05)
 CW = CUT['w']; CH = round(CUT['height'] * CW / CUT['width']); CX, CY = (W - CW) // 2, (H - CH) // 2; CAP['y'] = CY + CH - CAP['up']   # cut-out centred where the four images meet
 # ---- checks ----
 problems = []; a_ = [norm(w) for c in CAPS for w in c.split()]; b_ = [norm(w[2]) for w in words]

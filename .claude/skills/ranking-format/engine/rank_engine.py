@@ -8,11 +8,11 @@ An item card pops up big over the table when the item is named and shrinks into 
 import json, os, re, sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 TIERS = [("S", "#FF7F7E"), ("A", "#FFBF7F"), ("B", "#FFFF7F"), ("C", "#7FFF7F"), ("D", "#7FBFFF"), ("E", "#807FFF"), ("F", "#FF7FFE")]
-ACCENT = "@@ACCENT@@"                                    # topic title + the item name when it is spoken as a caption
-CARD_NAME = "@@CARD_NAME_COLOUR@@"                       # item name printed on the card
-TITLE_STYLE = "@@TITLE_STYLE@@"                          # italic | normal
-TITLE_CASE = "@@TITLE_CASE@@"                            # uppercase | none
-CAPTIONS_DEFAULT = "@@CAPTIONS@@"                        # on | off
+ACCENT = "#FF7A1A"                                    # topic title + the item name when it is spoken as a caption
+CARD_NAME = "#FFE53B"                       # item name printed on the card
+TITLE_STYLE = "italic"                          # italic | normal
+TITLE_CASE = "uppercase"                            # uppercase | none
+CAPTIONS_DEFAULT = "on"                        # on | off
 TW, TH, ROW, PITCH, LBL = 760, 500, 68, 72, 72          # table geometry at scale 1
 CW, CH = 560, 315                                        # big card (16:9), centred on the table
 CAP_GAP = 78                                             # caption line sits this far above the table top
@@ -84,11 +84,11 @@ def build():
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" /><title>{esc(plan['title'])}</title>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 <style>
-@font-face {{ font-family: "MainF"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 800; }}
-@font-face {{ font-family: "CapF"; src: @@FONT_CAPTION_SRC@@; font-weight: 500; }}
-@font-face {{ font-family: "CapF"; src: @@FONT_CAPTION_SRC@@; font-weight: 600; }}
-body {{ margin: 0; background: @@BG@@; }}
-#root {{ position: relative; width: 1080px; height: 1920px; overflow: hidden; background: @@BG@@; font-family: "CapF", -apple-system, sans-serif; color: @@PAPER@@; }}
+@font-face {{ font-family: "MainF"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 800; }}
+@font-face {{ font-family: "CapF"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 500; }}
+@font-face {{ font-family: "CapF"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 600; }}
+body {{ margin: 0; background: #050505; }}
+#root {{ position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #050505; font-family: "CapF", -apple-system, sans-serif; color: #F2F0EC; }}
 #vFull {{ position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; display: block; z-index: 1; }}
 #title {{ position: absolute; left: 0; width: 1080px; top: {plan.get('title_y', 286)}px; text-align: center; font-family: "MainF", -apple-system, sans-serif; font-weight: 800; font-style: {TITLE_STYLE}; font-size: 58px; letter-spacing: -0.01em; line-height: 1; color: {ACCENT}; text-transform: {TITLE_CASE}; text-shadow: 0 3px 14px rgba(0,0,0,.6); z-index: 10; opacity: 0; }}
 #rank {{ position: absolute; left: {left:.1f}px; top: {top:.1f}px; width: {TW}px; height: {TH}px; transform: scale({s}); transform-origin: 0 0; z-index: 12; opacity: 0; }}
@@ -101,7 +101,7 @@ body {{ margin: 0; background: @@BG@@; }}
 .item .sh {{ position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.55) 100%); }}
 .item .nm {{ position: absolute; left: 10px; right: 10px; bottom: 20px; text-align: center; font-family: "MainF", Impact, sans-serif; font-weight: 800; line-height: .92; letter-spacing: -0.01em; color: {CARD_NAME}; -webkit-text-stroke: 5px #111; paint-order: stroke fill; text-shadow: 0 5px 0 rgba(0,0,0,.55); }}
 .cap {{ position: absolute; inset: 0; z-index: 20; pointer-events: none; }}
-.cap span {{ position: absolute; left: 40px; right: 40px; top: {cap_top:.0f}px; display: block; text-align: center; white-space: nowrap; font-weight: 500; font-size: 46px; letter-spacing: -0.045em; line-height: 1.2; color: @@PAPER@@; text-shadow: 0 3px 14px rgba(0,0,0,.85), 0 0 4px rgba(0,0,0,.7); }}
+.cap span {{ position: absolute; left: 40px; right: 40px; top: {cap_top:.0f}px; display: block; text-align: center; white-space: nowrap; font-weight: 500; font-size: 46px; letter-spacing: -0.045em; line-height: 1.2; color: #F2F0EC; text-shadow: 0 3px 14px rgba(0,0,0,.85), 0 0 4px rgba(0,0,0,.7); }}
 .cap.nm span {{ color: {ACCENT}; font-weight: 600; }}
 </style></head>
 <body>

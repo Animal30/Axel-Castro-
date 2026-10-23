@@ -27,26 +27,26 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they teach, and to whom | @@NICHE@@ |
-| Accent colour | @@ACCENT@@ (@@ACCENT_NAME@@). Every colour of the look (the light, the near-black, the charcoal, the highlights) is derived from this one value |
-| Fonts | main: @@FONT_MAIN_NAME@@ · caption: @@FONT_CAPTION_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ |
-| Title font | @@TITLE_FONT@@ (first line of an opening title) |
-| Caption size | @@CAPTION_SIZE@@ px |
-| Presenter position | top of the head at y @@HEAD_Y@@, head @@HEAD_PX@@ px tall (frame 1080x1920) |
-| Default light | from the @@GLOW_DEFAULT@@ |
-| Pace of the cut | gap between sentences @@CUT_GAP@@ s |
-| Transcriber | @@TRANSCRIBER@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` |
-| Real material (proof) | @@PROOF_DIR@@ |
-| Other folders to search for real assets | @@ASSET_DIRS@@ |
-| Real assets from the web | @@WEB_ASSETS@@ |
-| Never show | @@NEVER_SHOW@@ |
-| How far to go alone | @@WORK_RULE@@ |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
-| Sound effects | @@SFX_DIR@@ |
+| Creator | Nahuel · Nahuel · not set |
+| What they teach, and to whom | not set |
+| Accent colour | #FF7A1A (orange). Every colour of the look (the light, the near-black, the charcoal, the highlights) is derived from this one value |
+| Fonts | main: Inter · caption: Inter · emphasis: Playfair Display Italic |
+| Title font | emphasis (first line of an opening title) |
+| Caption size | 54 px |
+| Presenter position | top of the head at y 1000, head 320 px tall (frame 1080x1920) |
+| Default light | from the bottom |
+| Pace of the cut | gap between sentences 0.12 s |
+| Transcriber | elevenlabs |
+| Footage drive | none |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` |
+| Real material (proof) | none yet |
+| Other folders to search for real assets | none |
+| Real assets from the web | yes: real over drawn, every source listed in the report |
+| Never show | nothing listed |
+| How far to go alone | run to the end, then report |
+| Music | ask · music folder: none yet |
+| Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
 
 One raw talking-head file goes in. A 1080x1920 video comes out in which:
 
@@ -63,8 +63,8 @@ Before the first build of a session read `references/reference-study.md` (what t
 skill changes on purpose) and open `examples/validation/build.py` (a working build, structure only). The skill
 recreates the reference's system (hierarchy, pacing, evidence, hard cuts), not its frames.
 
-`S=~/.claude/skills/visual-essay-reel/scripts` · work dir `W=@@WORK_ROOT@@/<slug>` (small files) · HyperFrames project
-`@@PROJECTS_ROOT@@/<slug>-essay` · outputs per the output rule (`@@OUTPUT_RULE@@`). Video files are large: the cut,
+`S=~/.claude/skills/visual-essay-reel/scripts` · work dir `W=~/reel-work/<slug>` (small files) · HyperFrames project
+`~/videos/<slug>-essay` · outputs per the output rule (`/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`). Video files are large: the cut,
 crops and renders go beside the source (or on the footage drive), one render at a time. Long steps run in the
 background. Every script prints its own usage.
 

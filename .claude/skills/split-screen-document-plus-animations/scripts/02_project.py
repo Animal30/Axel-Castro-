@@ -8,7 +8,7 @@ import json, os, shutil, subprocess, sys
 import numpy as np
 slug, title = sys.argv[1], sys.argv[2]; HERE = os.path.dirname(os.path.abspath(__file__)); SK = os.path.dirname(HERE)
 ED = os.path.expanduser("~/.claude/skills/educational-youtube-editor/scripts")
-WORK_ROOT = os.path.expanduser("@@WORK_ROOT@@"); PROJECTS_ROOT = os.path.expanduser("@@PROJECTS_ROOT@@")     # the same folders the educational-youtube-editor uses
+WORK_ROOT = os.path.expanduser("~/reel-work"); PROJECTS_ROOT = os.path.expanduser("~/videos")     # the same folders the educational-youtube-editor uses
 if "@" * 2 in WORK_ROOT + PROJECTS_ROOT: sys.exit("This skill has not been set up yet: run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")
 os.path.exists(f"{ED}/06_new_project.py") or sys.exit("The educational-youtube-editor skill is not installed: its cut, render and review scripts are used as they are. Install it, set it up, then run this again.")
 os.path.exists(f"{ED}/../.configured") or sys.exit("The educational-youtube-editor skill has not been set up yet (its scripts hold the creator's folders and cut settings). Run its setup, or `creator-setup`, then run this again.")

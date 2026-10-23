@@ -12,8 +12,8 @@ from PIL import Image, ImageDraw, ImageFont
 K = os.path.dirname(os.path.abspath(__file__)); P = os.path.abspath(sys.argv[1]); args = sys.argv[2:]
 def opt(name, d=None): return args[args.index(name) + 1] if name in args else d
 TW, TH, SAFE_T, SAFE_B, LOW = 760, 500, 270, 1500, 1720
-try: CAPS_ON = json.load(open(os.path.join(P, "plan.json"))).get("captions", "@@CAPTIONS@@" != "off") not in (False, "off", "no")
-except Exception: CAPS_ON = "@@CAPTIONS@@" != "off"
+try: CAPS_ON = json.load(open(os.path.join(P, "plan.json"))).get("captions", "on" != "off") not in (False, "off", "no")
+except Exception: CAPS_ON = "on" != "off"
 NEED = (78 if CAPS_ON else 0) + 26          # caption line above the table (when captions are on) + breathing room under the chin
 W = os.path.join(P, "work"); F = os.path.join(W, "layout_frames"); os.makedirs(F, exist_ok=True)
 for f in glob.glob(F + "/*.jpg"): os.remove(f)
@@ -71,7 +71,7 @@ for o in options:
     d.text((40, 24), f"{o['key']}  {o['name']}", font=font(46), fill="white")
     d.text((40, 84), ("clears the face" if ok else "COVERS THE FACE / CAPTION") + (f"   |   {o['below_safe']} px below the safe zone" if o["below_safe"] else "   |   inside the safe zone"),
            font=font(36), fill="#7CFFA0" if ok else "#FF7B6B")
-    if tag: d.text((40, 136), tag.strip(), font=font(40), fill="@@ACCENT@@")
+    if tag: d.text((40, 136), tag.strip(), font=font(40), fill="#FF7A1A")
     tiles.append(im.resize((540, 960)))
 sheet = Image.new("RGB", (540 * 4 + 30, 960), "#111")
 for i, t in enumerate(tiles): sheet.paste(t, (i * 550, 0))

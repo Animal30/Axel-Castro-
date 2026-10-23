@@ -1,9 +1,9 @@
 #!/bin/zsh
 # Scaffold the HyperFrames project for a personal short-form reel.   new_project.sh <slug> "<Title>" "<out dir>"
-#   needs <out dir>/hf-media/cam_full.mp4 + cam_top.mp4 (prep_cams.py). Creates @@PROJECTS_ROOT@@/<slug>-psf with:
+#   needs <out dir>/hf-media/cam_full.mp4 + cam_top.mp4 (prep_cams.py). Creates ~/videos/<slug>-psf with:
 #   assets/{brand.css, fonts, proof/avatar.jpg, cam_*.mp4 -> out dir, broll/ screen/ -> out dir, logos/},
 #   reel_engine.py, kit.py, psf.py, mix.py, sfx_map.json, build.py (starter), words.json if <work>/cut/words.json is passed as a 4th argument.
-set -e; SK=${0:A:h:h}; SLUG=$1; TITLE=$2; OUT=$3; PR="@@PROJECTS_ROOT@@"; PR="${PR/#\~/$HOME}"; P="$PR/$SLUG-psf"
+set -e; SK=${0:A:h:h}; SLUG=$1; TITLE=$2; OUT=$3; PR="~/videos"; PR="${PR/#\~/$HOME}"; P="$PR/$SLUG-psf"
 [ -e "$P" ] && { echo "$P already exists"; exit 1; }
 [ -f "$OUT/hf-media/cam_top.mp4" ] || { echo "missing $OUT/hf-media/cam_top.mp4 - run prep_cams.py first"; exit 1; }
 mkdir -p "$PR" && cd "$PR" && npx -y hyperframes@latest init "$SLUG-psf" --non-interactive --example=blank --skill=general-video >/dev/null

@@ -26,19 +26,19 @@ written into the notes file, dated, the moment it is said.
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ (@@HANDLE@@, @@PLATFORM@@) |
-| Brand | @@BRAND_NAME@@: @@NICHE@@ |
-| Accent colour | @@ACCENT@@ (@@ACCENT_NAME@@) on background @@BG@@ |
-| Main font | @@FONT_MAIN_NAME@@ (bold for hooks, captions, labels, numbers) |
-| Emphasis font | @@FONT_ACCENT_NAME@@ (key words only, never numbers) |
-| Transcriber | @@TRANSCRIBER@@ |
+| Creator | Nahuel (@@HANDLE@@, Instagram) |
+| Brand | Nahuel: @@NICHE@@ |
+| Accent colour | #FF7A1A (orange) on background #050505 |
+| Main font | Inter (bold for hooks, captions, labels, numbers) |
+| Emphasis font | Playfair Display Italic (key words only, never numbers) |
+| Transcriber | elevenlabs |
 | Working style | @@WORKING_STYLE@@ |
-| Music | @@MUSIC_RULE@@ (library: @@MUSIC_DIR@@) |
-| Sound effects | @@SFX_DIR@@ |
-| Real assets | @@PROOF_DIR@@ |
-| Folders | work `@@WORK_ROOT@@/<slug>` · projects `@@PROJECTS_ROOT@@/<slug>-hf` · finals: @@OUTPUT_RULE@@ |
-| Usual camera | @@CAMERA_SETUP@@ (default crops: full `@@CROP_FULL@@`, top `@@CROP_TOP@@`) |
-| CTA style | @@CTA_STYLE@@ |
+| Music | ask (library: none yet) |
+| Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
+| Real assets | none yet |
+| Folders | work `~/reel-work/<slug>` · projects `~/videos/<slug>-hf` · finals: /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Usual camera | @@CAMERA_SETUP@@ (default crops: full `1215 2160 1312 0`, top `1800 1600 1020 280`) |
+| CTA style | comment a keyword to get the resource |
 
 **Worked examples:** the three `examples/*-final/build.py` reels. Read one before building; they use `engine/kit.py`.
 They are another creator's reels kept as structure references: copy how a reel is put together, never its wording,
@@ -61,10 +61,10 @@ motion-graphics tool part-way.
   do not mount into this layout as-is). Say so when reporting.
 - **Any screenshot the creator drags in:** assume it should be animated into the reel, but ask first (where it goes,
   how it moves).
-- **Music: @@MUSIC_RULE@@.** `ask` = never assume a track; ask whether to add music and which one. `pick` = choose a
+- **Music: ask.** `ask` = never assume a track; ask whether to add music and which one. `pick` = choose a
   favourite that suits the video and say which. When music is used, deliver two versions: with and without.
 - **Always prioritise real assets:** real client screenshots, real photos, real reel covers (other creators' as well
-  as the creator's own), the creator's real profile picture. Look in the proof folder (`@@PROOF_DIR@@`) first. Where a
+  as the creator's own), the creator's real profile picture. Look in the proof folder (`none yet`) first. Where a
   detail is missing (commenter names, mock-up captions, doc lines) use a generic default and list every one at the end.
 - The creator reviews the phone copy. Report what changed, what you chose without asking, and anything invented.
 
@@ -123,7 +123,7 @@ These are the pack's defaults. The creator's own references and corrections (the
   lens on a crowd, a heartbeat against a flatline). Do not reuse the same pill stacks reel after reel.
 - **Don't overdo text pills.** If a graphic can show the idea, build the graphic. On the creator: at most two or
   three short pills in a block, and none where the caption already says it.
-- **A person is mentioned -> real footage or photos of them.** Look in the proof folder (`@@PROOF_DIR@@`) first, then
+- **A person is mentioned -> real footage or photos of them.** Look in the proof folder (`none yet`) first, then
   ask the creator.
 - **Never crop the person.** Show the clip WHOLE in a card that matches its shape:
   `K.pcard(src, t, dur, left, top, h, tag)` for portrait footage.
@@ -145,8 +145,8 @@ These are the pack's defaults. The creator's own references and corrections (the
   one at a time.
 
 **Brand and graphic language**
-- Dark background (@@BG@@) with a soft glow in the accent colour and very fine grain. The accent colour (@@ACCENT@@)
-  only on the focal element, off-white @@PAPER@@ for text, grey @@GREY@@ for small labels. One deep red accent
+- Dark background (#050505) with a soft glow in the accent colour and very fine grain. The accent colour (#FF7A1A)
+  only on the focal element, off-white #F2F0EC for text, grey #9A928A for small labels. One deep red accent
   (#B3261E, pulse twice then stay) for the odd one out.
 - The main font (bold) for everything; the emphasis font for emphasis words; numbers always in the main font.
 - **Boxes are pills, and pills stack vertically** (icon + label). No square tiles, no 2x2 grids.
@@ -175,16 +175,16 @@ These are the pack's defaults. The creator's own references and corrections (the
   map = no sound effects: say so in the report rather than inventing any.
 - Quiet: `TRIM = -8.5` in `mix.py` (whooshes peak ~-29.5 dBFS, pops ~-32.5; a voice peaks near -3).
 - Music, when used: ~-39 dB mean (about 11 dB under the voice), started where the beat drops, 0.4 s fade in, 1.5 s
-  fade out. Tracks live in `@@MUSIC_DIR@@`.
+  fade out. Tracks live in `none yet`.
 
 ## Workflow
 
-`S=~/.claude/skills/business-short-form-reels/scripts` · work dir `W=@@WORK_ROOT@@/<slug>` (small files) · project
-`@@PROJECTS_ROOT@@/<slug>-hf` · output `OUT` = @@OUTPUT_RULE@@ (default: `"<folder of the raw file>/<Title> - Edit"`).
+`S=~/.claude/skills/business-short-form-reels/scripts` · work dir `W=~/reel-work/<slug>` (small files) · project
+`~/videos/<slug>-hf` · output `OUT` = /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) (default: `"<folder of the raw file>/<Title> - Edit"`).
 Long steps run in the background. Video files are large: keep the cut, crops and renders on the drive that holds the
 raw file, and render one reel at a time.
 
-1. **Transcribe** with the transcriber chosen at setup (@@TRANSCRIBER@@).
+1. **Transcribe** with the transcriber chosen at setup (elevenlabs).
    `mkdir -p $W && ffmpeg -v error -y -i "<raw>" -vn -ac 1 -ar 48000 $W/a48.wav && ffmpeg -v error -y -i $W/a48.wav -ar 16000 $W/a16.wav`,
    then `python3 $S/01_transcribe.py $W`, then `python3 $S/01b_el_to_tx.py $W` to print the script with times.
    ElevenLabs gives the most accurate word edges; with local transcription, check step 2's output more closely for
@@ -212,7 +212,7 @@ raw file, and render one reel at a time.
    `python3 build.py && npx hyperframes lint && npx hyperframes snapshot --at <every moment that matters>`; read every
    tile. On the first build, check the fonts are the real ones and not a fallback.
 8. **Render, mix, verify, deliver.**
-   `$S/09_render.sh @@PROJECTS_ROOT@@/<slug>-hf "$OUT" "<Title>" " (v1 - no SFX)"`, then
+   `$S/09_render.sh ~/videos/<slug>-hf "$OUT" "<Title>" " (v1 - no SFX)"`, then
    `python3 mix.py "$OUT" "<Title>" "v1" [music file] [music start s]` (reads `sfx.json` written by `K.flush()`;
    writes "no music" and "with music" for the master and the phone copy). Render ONE reel at a time.
    `python3 $S/check_cuts.py "<reel>" "$OUT/hf-media" $W/edl.json` must report nothing off a cut. `$S/sheet.sh` makes a

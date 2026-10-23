@@ -9,8 +9,8 @@ sys.path.insert(0, SCRIPTS)
 import stt  # noqa: E402
 
 HOME = os.path.expanduser("~")
-WORK_ROOT = os.path.expanduser("@@WORK_ROOT@@")           # small working files, one folder per slug
-PROJECTS_ROOT = os.path.expanduser("@@PROJECTS_ROOT@@")   # HyperFrames projects, one folder per clip
+WORK_ROOT = os.path.expanduser("~/reel-work")           # small working files, one folder per slug
+PROJECTS_ROOT = os.path.expanduser("~/videos")   # HyperFrames projects, one folder per clip
 VIDEO_EXT = (".mp4", ".mov", ".m4v", ".mxf", ".mkv", ".avi", ".webm")
 if "@" * 2 in WORK_ROOT + PROJECTS_ROOT:
     sys.exit("This skill has not been set up yet. Run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")

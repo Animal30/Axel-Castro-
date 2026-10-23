@@ -27,24 +27,24 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they teach, and to whom | @@NICHE@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · text on the accent @@ON_ACCENT@@ · chips and light text @@PAPER@@ · small labels @@GREY@@ (the panel base is always black, so it blends into the black half of the composite) |
-| Fonts | main: @@FONT_MAIN_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished reels go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` · Remotion project (the kit) `@@PROJECTS_ROOT@@/split-reel-kit` |
-| Real material (proof) | @@PROOF_DIR@@ |
-| Other folders to search for real assets | @@ASSET_DIRS@@ |
-| Real assets from the web | @@WEB_ASSETS@@ |
-| Never show | @@NEVER_SHOW@@ |
-| Full-screen windows when none are named | @@FULLSCREEN_RULE@@ |
-| Usual call to action | @@CTA_DEFAULT@@ |
-| Name on the call-to-action panel | @@CTA_SIGNATURE@@ |
-| Silence tightening (only when asked) | gaps longer than @@TIGHTEN_GAP@@ s |
-| Preview before the final | @@PREVIEW_FIRST@@ |
-| How far to go alone | @@WORK_RULE@@ |
+| Creator | Nahuel · Nahuel · not set |
+| What they teach, and to whom | not set |
+| Colours | accent #FF7A1A (orange) · text on the accent #120C08 · chips and light text #F2F0EC · small labels #9A928A (the panel base is always black, so it blends into the black half of the composite) |
+| Fonts | main: Inter · emphasis: Playfair Display Italic |
+| Transcriber | elevenlabs |
+| Footage drive | none |
+| Finished reels go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` · Remotion project (the kit) `~/videos/split-reel-kit` |
+| Real material (proof) | none yet |
+| Other folders to search for real assets | none |
+| Real assets from the web | yes: real over drawn, every source listed in the report |
+| Never show | nothing listed |
+| Full-screen windows when none are named | pick 1 to 3 short moments and tell me which |
+| Usual call to action | comment a keyword |
+| Name on the call-to-action panel | yes |
+| Silence tightening (only when asked) | gaps longer than 0.32 s |
+| Preview before the final | yes: a 720p preview first, the final after approval |
+| How far to go alone | run to the end, then report |
 
 ## Preview first (applies to every render this skill produces)
 
@@ -73,7 +73,7 @@ Never drop or reorder their content yourself.
 ## Pipeline
 
 All scripts are in `~/.claude/skills/split-reel/scripts/`. Panels are Remotion compositions in a small Remotion
-project, the kit, at `@@PROJECTS_ROOT@@/split-reel-kit`. `new.sh` creates it from the skill's `kit/` folder the first
+project, the kit, at `~/videos/split-reel-kit`. `new.sh` creates it from the skill's `kit/` folder the first
 time (it runs `npm install` there, a few minutes, needs Node 22 and a network connection) and refreshes the shared
 files (`src/brand.js`, `src/splitReel/kit.tsx`, `register.tsx`) from the skill on every run, so brand changes made in
 setup reach the panels. Put one-off pieces in the reel's own `<PREFIX>.tsx`, not in the kit files. Remotion itself is
@@ -88,14 +88,14 @@ $S/new.sh <folder> <PREFIX> "<Title>" "<cut.mp4>" "<out_dir>"
 - This creates `src/<folder>/reel.json` plus `<PREFIX>.tsx` in the kit, and registers `<PREFIX>-<sceneid>` comps in
   `src/Root.tsx`. The crops in `reel.json` are worked out from the cut's size (centred, full height for the 9:16
   crop): a starting point, see step 3.
-- Keep `out_dir` next to the source, on the footage drive if there is one (`@@MEDIA_DRIVE@@`), and keep it off a
-  nearly full internal disk. Output location rule: `@@OUTPUT_RULE@@`.
+- Keep `out_dir` next to the source, on the footage drive if there is one (`none`), and keep it off a
+  nearly full internal disk. Output location rule: `/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`.
 - `reel.json` is the single source of truth. The scenes import it, and `composite.py` reads it. `examples/reel.example.json`
   shows the shape.
 
 ### 2. Transcribe
 ```bash
-python3 $S/transcribe.py "<cut.mp4>" <work_dir>      # work_dir under @@WORK_ROOT@@
+python3 $S/transcribe.py "<cut.mp4>" <work_dir>      # work_dir under ~/reel-work
 ```
 - Produces `words.json` and `readable.txt`, using the transcriber chosen at setup (`stt.py`). Run it in the background
   for long cuts.
@@ -105,7 +105,7 @@ python3 $S/transcribe.py "<cut.mp4>" <work_dir>      # work_dir under @@WORK_ROO
 
 ### 3. Framing
 ```bash
-$S/stills.sh "<cut.mp4>" @@WORK_ROOT@@/split-reel/frame.jpg <reel.json>
+$S/stills.sh "<cut.mp4>" ~/reel-work/split-reel/frame.jpg <reel.json>
 ```
 - Orange box = top-half crop (9:8). Cyan box = full-screen crop (9:16).
 - The defaults assume the speaker is roughly centred. Always look at the four stills and adjust:
@@ -133,8 +133,8 @@ $S/stills.sh "<cut.mp4>" @@WORK_ROOT@@/split-reel/frame.jpg <reel.json>
     first beat at, or 0.1 s after, the window's end. Otherwise the reel cuts back to an empty black half.
   - A scene that is fully covered by full screen still needs a panel file, because it is delivered as its own file.
     Make it a strong standalone graphic.
-- Look for the creator's own framework names and visuals first: their proof folder (`@@PROOF_DIR@@`), the extra asset
-  folders (`@@ASSET_DIRS@@`), and anything they pasted into the chat. Use their named frameworks verbatim, with
+- Look for the creator's own framework names and visuals first: their proof folder (`none yet`), the extra asset
+  folders (`none`), and anything they pasted into the chat. Use their named frameworks verbatim, with
   whatever trademark or capitalisation they use.
 
 ### 5. Build the panels (`src/<folder>/<PREFIX>.tsx` in the kit)
@@ -170,7 +170,7 @@ Design language (a diagram-carousel look adapted to a 1080x960 panel):
   - Use continuous motion where it makes sense: a radar sweep, a list that keeps filling, a thumbnail strip scrolling.
   - Nothing should sit still and empty for more than about 1.5 s.
 - **Real assets over mock-ups:** use the creator's real channels, thumbnails, reel covers and client screenshots from
-  `@@PROOF_DIR@@` and `@@ASSET_DIRS@@`. Real thumbnails of a YouTube channel can be fetched (`yt-dlp --flat-playlist
+  `none yet` and `none`. Real thumbnails of a YouTube channel can be fetched (`yt-dlp --flat-playlist
   --print "%(id)s"`, then `i.ytimg.com/vi/<id>/mqdefault.jpg`) when the web-assets answer is a yes. Put new assets in
   `public/<folder>/` in the kit and reference them with `staticFile("<folder>/name.png")`. Never show anything under
   "Never show". List every real asset and its source in the report.
@@ -186,7 +186,7 @@ Design language (a diagram-carousel look adapted to a 1080x960 panel):
 ### 6. QA the panels
 Render a still at the end of every beat:
 ```bash
-$S/qa_stills.sh <folder> <PREFIX> @@WORK_ROOT@@/split-reel/qa.jpg "01-Hook:85" "04-Part:120" ...
+$S/qa_stills.sh <folder> <PREFIX> ~/reel-work/split-reel/qa.jpg "01-Hook:85" "04-Part:120" ...
 ```
 Look at every tile, and fix:
 - overlaps, especially handwritten notes left over from an earlier phase (use `until`)
@@ -200,9 +200,9 @@ Look at every tile, and fix:
 $S/render_scenes.sh <folder> <PREFIX>            # all panels -> <out_dir>/Animations (or list ids to re-render some)
 python3 $S/composite.py <kit>/src/<folder>/reel.json --preview     # the 720p preview first (see "Preview first")
 python3 $S/composite.py <kit>/src/<folder>/reel.json               # the final, after approval
-$S/reel_sheet.sh "<out_dir>/<Title> - 9x16 Reel.mp4" @@WORK_ROOT@@/split-reel/reel.jpg 2 8 20 ...   # include +-0.1 s around every full-screen edge
+$S/reel_sheet.sh "<out_dir>/<Title> - 9x16 Reel.mp4" ~/reel-work/split-reel/reel.jpg 2 8 20 ...   # include +-0.1 s around every full-screen edge
 ```
-- `<kit>` is `@@PROJECTS_ROOT@@/split-reel-kit`.
+- `<kit>` is `~/videos/split-reel-kit`.
 - Panels: H.264 CRF 14, about 20 s each.
 - `composite.py`:
   - overlays each panel at its `start` on a black 1080x960 base

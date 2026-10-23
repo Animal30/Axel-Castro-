@@ -27,26 +27,26 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| Accent colour (the key word in a stack) | @@ACCENT@@ (@@ACCENT_NAME@@) |
-| Fonts | captions and small lines: @@FONT_CAPTION_NAME@@ · large line: @@FONT_MAIN_NAME@@ bold · key word: @@FONT_ACCENT_NAME@@ |
-| Transcriber | @@TRANSCRIBER@@ |
+| Creator | Nahuel · Nahuel · not set |
+| Accent colour (the key word in a stack) | #FF7A1A (orange) |
+| Fonts | captions and small lines: Inter · large line: Inter bold · key word: Playfair Display Italic |
+| Transcriber | elevenlabs |
 | B-roll folders | @@BROLL_DIRS@@ |
-| Never use as B-roll | @@NEVER_SHOW@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Working files | `@@WORK_ROOT@@/<slug>` (the shared B-roll library is `@@WORK_ROOT@@/broll-library`) |
-| Horizontal source in the vertical frame | @@SOURCE_FRAMING@@ |
-| Caption size · stack large line | @@CAPTION_SIZE@@ px · @@STACK_SIZE@@ px |
-| B-roll share of the runtime | at most about @@BROLL_MAX_SHARE@@% |
-| Stacked captions | @@STACK_DENSITY@@ |
-| Before the final render | @@REVIEW_RULE@@ |
+| Never use as B-roll | nothing listed |
+| Footage drive | none |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Working files | `~/reel-work/<slug>` (the shared B-roll library is `~/reel-work/broll-library`) |
+| Horizontal source in the vertical frame | fill |
+| Caption size · stack large line | 54 px · 132 px |
+| B-roll share of the runtime | at most about 35% |
+| Stacked captions | 2 to 4 a minute at most, never back to back |
+| Before the final render | show the draft and wait for approval before the final render |
 
 One talking-head video goes in; B-roll comes from the creator's B-roll library. A tight 9:16 edit comes out: the
 speaker's voice runs unbroken, B-roll replaces the picture where it helps, every spoken line is captioned below the
 chin, and the few important phrases become stacked captions.
 
-`S=~/.claude/skills/broll-stacked-text-edit/scripts` · work dir `W=@@WORK_ROOT@@/<slug>` (small files; pass the
+`S=~/.claude/skills/broll-stacked-text-edit/scripts` · work dir `W=~/reel-work/<slug>` (small files; pass the
 slug to every script) · outputs go to the folder the output rule gives (default `"<video folder>/<video name> - Edit/"`).
 Video files are large: renders stay beside the source (the footage drive, when there is one), one render at a time,
 and long renders run in the background. Every script prints its own usage.
@@ -108,7 +108,7 @@ The creator's standing B-roll folders are the `broll_dirs` answer in the setup t
 unless they name another folder for that video; a folder they name is added with `06_broll.py "<folder>"`. Anything in
 "Never use as B-roll" is recorded in the clip's notes as unusable and never placed.
 
-Clips are catalogued once into a shared library, `@@WORK_ROOT@@/broll-library` (`library.json` + one contact
+Clips are catalogued once into a shared library, `~/reel-work/broll-library` (`library.json` + one contact
 sheet per clip), so each clip is reviewed once and reused by every edit:
 - `python3 $S/06_broll.py` - catalogue new or changed clips (background; the first run takes a long time).
 - `python3 $S/06_broll.py --todo` - clips with no notes yet. **Open each one's sheet with Read and save notes**

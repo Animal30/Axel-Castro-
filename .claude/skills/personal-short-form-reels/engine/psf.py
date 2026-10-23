@@ -133,13 +133,13 @@ def logos(pre, items, out, top=1212, size=150, gap=26):
 def finish(css=""):
     cy, sy = ST["cap_y"], ST["split_cap_y"]
     base = """
-    @font-face { font-family: "SFB"; src: @@FONT_CAPTION_SRC@@; font-weight: 700; }
+    @font-face { font-family: "SFB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
     #camTop { opacity: 0; }                                     /* the bottom-half camera shows only inside SPLIT windows (the engine switches it on there) */
     .cap span, .cap-f span, .cap-a span, .cap-s span { top: %dpx; font-family: "SFB", "SF Pro Display", -apple-system, "HelvB", Helvetica, sans-serif; font-weight: 700; font-size: 92px; letter-spacing: -0.03em; line-height: 1; color: #fff;
       text-shadow: 0 4px 22px rgba(0,0,0,.7), 0 0 3px rgba(0,0,0,.6); transform: none !important; opacity: 1 !important; filter: none !important; }      /* no pop-in */
     .cap span:has(i.em) { top: %dpx; }
-    .cap span i.em { font-family: "PlayIt", serif; font-style: normal; font-weight: 500; font-size: 112px; letter-spacing: -0.04em; color: @@ACCENT@@; text-shadow: 0 4px 26px rgba(0,0,0,.8), 0 0 4px rgba(0,0,0,.7); }
-    .cap span i.nu { font-style: normal; color: @@ACCENT@@; }
+    .cap span i.em { font-family: "PlayIt", serif; font-style: normal; font-weight: 500; font-size: 112px; letter-spacing: -0.04em; color: #FF7A1A; text-shadow: 0 4px 26px rgba(0,0,0,.8), 0 0 4px rgba(0,0,0,.7); }
+    .cap span i.nu { font-style: normal; color: #FF7A1A; }
     .cap-s span { top: %dpx; font-size: 84px; } .cap-s span:has(i.em) { top: %dpx; } .cap-s span i.em { font-size: 102px; }
     .hk1, #hk2 { font-family: "SFB", "SF Pro Display", -apple-system, "HelvB", Helvetica, sans-serif; letter-spacing: -0.035em; }
     """ % (cy, cy - 13, sy, sy - 11)

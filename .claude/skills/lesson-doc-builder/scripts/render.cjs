@@ -4,7 +4,7 @@
 const path=require('path'),fs=require('fs'),{execSync}=require('child_process'),{open}=require('./browser.cjs');
 const file=path.resolve(process.argv[2]); const dir=path.dirname(file); const out=path.join(dir,'preview');
 const si=process.argv.indexOf('--stops');
-const DOC_SIDE='@@DOC_SIDE@@';   // which half of the frame the document sits on while recording
+const DOC_SIDE='left';   // which half of the frame the document sits on while recording
 (async()=>{
   fs.mkdirSync(out,{recursive:true});
   const {b,p}=await open(file);

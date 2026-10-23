@@ -9,12 +9,12 @@ import stt  # noqa: E402
 
 HOME = os.path.expanduser("~")
 PDIR = os.path.dirname(stt.PROFILE)                         # the creator profile folder (shared by every skill in the pack)
-WORK_ROOT = os.path.expanduser("@@WORK_ROOT@@")             # small working files, one folder per slug
-PROJECTS_ROOT = os.path.expanduser("@@PROJECTS_ROOT@@")     # HyperFrames projects, one folder per video
-ACCENT = "@@ACCENT@@"                                       # the brand accent colour
+WORK_ROOT = os.path.expanduser("~/reel-work")             # small working files, one folder per slug
+PROJECTS_ROOT = os.path.expanduser("~/videos")     # HyperFrames projects, one folder per video
+ACCENT = "#FF7A1A"                                       # the brand accent colour
 # the creator's answers for this skill (setup/SETUP.md). Change the answer and re-run setup/apply_profile.py, never this text.
-SET = {"pause_over": "@@PAUSE_OVER@@", "pause_to": "@@PAUSE_TO@@", "breaths": "@@BREATHS@@", "master": "@@MASTER_RESOLUTION@@",
-       "captions": "@@CAPTIONS@@", "proof_dir": r"@@PROOF_DIR@@", "asset_dirs": r"@@ASSET_DIRS@@"}
+SET = {"pause_over": "0.5", "pause_to": "0.25", "breaths": "keep", "master": "1080p",
+       "captions": "none", "proof_dir": r"none yet", "asset_dirs": r"none"}
 VIDEO_EXT = (".mp4", ".mov", ".m4v", ".mxf", ".mkv", ".avi", ".webm")
 if "@" * 2 in WORK_ROOT + PROJECTS_ROOT + ACCENT + "".join(SET.values()):
     sys.exit("This skill has not been set up yet. Run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")

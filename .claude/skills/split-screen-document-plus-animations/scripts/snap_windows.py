@@ -7,7 +7,7 @@ graphics, punch-ins and the camera drift can switch on exactly the same frame as
 import json, os, subprocess, sys
 import numpy as np
 slug, base = sys.argv[1], sys.argv[2]
-WR = f"{os.path.expanduser('@@WORK_ROOT@@')}/{slug}"; P = f"{WR}/windows.json"; W = json.load(open(P))
+WR = f"{os.path.expanduser('~/reel-work')}/{slug}"; P = f"{WR}/windows.json"; W = json.load(open(P))
 E = json.load(open(f"{WR}/edl.json")); FPS = E["fps"]; R = 4
 edges = sorted({round(x * FPS) for a, b in W["doc"] for x in (a, b)})
 total = round(W["dur"] * FPS)

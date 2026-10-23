@@ -52,8 +52,8 @@ POSES = {               # presenter presets: scale, dx, dy (transform origin = b
     "corner-left": (0.62, -250, -610), "corner-right": (0.62, 250, -610), "hidden": None}
 
 
-TITLE_FONT = "@@TITLE_FONT@@"     # setup answer: "emphasis" (line 1 of a title in the emphasis font) or "main" (the caption / main font)
-GLOW_DEFAULT = "@@GLOW_DEFAULT@@"  # setup answer: where the light enters when a build does not say (a key of GLOWS)
+TITLE_FONT = "emphasis"     # setup answer: "emphasis" (line 1 of a title in the emphasis font) or "main" (the caption / main font)
+GLOW_DEFAULT = "bottom"  # setup answer: where the light enters when a build does not say (a key of GLOWS)
 
 
 # ----------------------------------------------------------------------------------------------- set-up
@@ -420,11 +420,11 @@ def build():
     fade = f'-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 {M["fade"]}px);mask-image:linear-gradient(0deg,transparent 0,#000 {M["fade"]}px);' if M.get("fade") else ""
     fg = f'<div id="me" style="{fade}"><video id="vFg" src="assets/cam_fg.webm" muted playsinline data-start="0" data-duration="{D}" data-track-index="2"></video></div>' if has_fg else ""
     fonts = """
-      @font-face { font-family: "SFB"; src: @@FONT_CAPTION_SRC@@; font-weight: 700; }
-      @font-face { font-family: "SFS"; src: @@FONT_CAPTION_SRC@@; font-weight: 600; }
-      @font-face { font-family: "SFM"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 500; }
-      @font-face { font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }
-      @font-face { font-family: "Ivy"; src: @@FONT_ACCENT_SRC@@; font-style: normal; font-weight: 400; }"""
+      @font-face { font-family: "SFB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+      @font-face { font-family: "SFS"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 600; }
+      @font-face { font-family: "SFM"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 500; }
+      @font-face { font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+      @font-face { font-family: "Ivy"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-style: normal; font-weight: 400; }"""
     pv = "; ".join(f"--{k.replace('_', '-')}: {v}" for k, v in PAL.items())
     index = f"""<!doctype html>
 <html lang="en">

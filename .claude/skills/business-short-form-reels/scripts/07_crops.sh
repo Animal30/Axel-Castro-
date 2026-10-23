@@ -6,7 +6,7 @@
 # cam_fg.webm  = the same crop with the background removed (for graphics behind the creator's head)
 # Defaults are the crops saved at setup for the creator's usual camera set-up (source pixels). Check with a still first; shift x so the face is centred.
 set -e; C=$1; O=$2; mkdir -p "$O"
-DT=(@@CROP_TOP@@); DF=(@@CROP_FULL@@)
+DT=(1800 1600 1020 280); DF=(1215 2160 1312 0)
 TW=${3:-$DT[1]} TH=${4:-$DT[2]} TX=${5:-$DT[3]} TY=${6:-$DT[4]}; FW=${7:-$DF[1]} FH=${8:-$DF[2]} FX=${9:-$DF[3]} FY=${10:-$DF[4]}
 ffmpeg -v error -y -i "$C" -vf "crop=$TW:$TH:$TX:$TY,scale=1080:960:flags=lanczos" -c:v libx264 -crf 15 -preset medium -pix_fmt yuv420p -c:a aac -b:a 320k -movflags +faststart "$O/cam_top.mp4"
 ffmpeg -v error -y -i "$C" -an -vf "crop=$FW:$FH:$FX:$FY,scale=1080:1920:flags=lanczos" -c:v libx264 -crf 15 -preset medium -pix_fmt yuv420p -movflags +faststart "$O/cam_full.mp4"

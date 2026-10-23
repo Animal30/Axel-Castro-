@@ -10,11 +10,11 @@ import stt  # noqa: E402
 HOME = os.path.expanduser("~")
 NAME = "broll-stacked-text-edit"
 PDIR = os.path.dirname(stt.PROFILE)                         # the creator profile folder (shared by every skill in the pack)
-WORK_ROOT = os.path.expanduser("@@WORK_ROOT@@")             # small working files, one folder per slug
-ACCENT = "@@ACCENT@@"                                       # the brand accent colour (the key word in a stack)
+WORK_ROOT = os.path.expanduser("~/reel-work")             # small working files, one folder per slug
+ACCENT = "#FF7A1A"                                       # the brand accent colour (the key word in a stack)
 # the creator's answers for this skill (setup/SETUP.md). Change the answer and re-run setup/apply_profile.py, never this text.
-SET = {"caption_size": "@@CAPTION_SIZE@@", "stack_size": "@@STACK_SIZE@@", "source_framing": "@@SOURCE_FRAMING@@",
-       "broll_max_share": "@@BROLL_MAX_SHARE@@"}
+SET = {"caption_size": "54", "stack_size": "132", "source_framing": "fill",
+       "broll_max_share": "35"}
 VIDEO_EXT = (".mp4", ".mov", ".m4v", ".mxf", ".mkv", ".avi", ".webm")
 if "@" * 2 in WORK_ROOT + ACCENT + "".join(SET.values()):
     sys.exit("This skill has not been set up yet. Run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")

@@ -6,6 +6,7 @@ description: Creator Setup - run this FIRST. A short one-time interview that lea
 > **Cloud sessions (this repo):** the pack skills live in `.claude/skills/` of the repo, but their commands use `~/.claude/skills/<skill>/`. Before the first command, from the repo root run:
 > `mkdir -p ~/.claude/skills .claude/creator-profile && for d in .claude/skills/*/; do ln -sfn "$PWD/${d%/}" ~/.claude/skills/; done && ln -sfn "$PWD/.claude/creator-profile" ~/.claude/creator-profile`
 > This keeps the brand profile in the repo (commit it) so it survives between sessions.
+> **One profile per client (this repo):** profiles live in `.claude/creator-profile/<name>/` (`nahuel` = Nahuel's own brand; each client gets its own folder and its own thread). Before editing for someone, switch every skill to their profile: `export CREATOR_PROFILE_DIR=$PWD/.claude/creator-profile/<name> CREATOR_SKILLS_DIR=$PWD/.claude/skills && python3 .claude/skills/creator-setup/scripts/apply_all.py` (it re-renders from each skill's `setup/.pristine/`). Read that profile's `notes/all-styles.md` too.
 
 # Creator Setup
 

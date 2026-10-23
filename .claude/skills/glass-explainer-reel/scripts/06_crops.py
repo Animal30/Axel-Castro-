@@ -58,7 +58,7 @@ def layout(t):
     mask = Image.new("L", (PN["w"], PN["h"] + PN["r"]), 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, PN["w"], PN["h"] + PN["r"] * 2), PN["r"], fill=255)
     b.paste(pc.crop((0, PN["head"], PN["w"], ph)), (PN["x"], PN["y"]), mask.crop((0, 0, PN["w"], PN["h"])))
     for img, y in ((a, cap_full), (b, cap_panel)):
-        d = ImageDraw.Draw(img); d.line([(200, y), (880, y)], fill=(@@ACCENT_RGB@@), width=4); d.text((210, y - 34), "caption centre line", fill=(@@ACCENT_RGB@@))
+        d = ImageDraw.Draw(img); d.line([(200, y), (880, y)], fill=(255,122,26), width=4); d.text((210, y - 34), "caption centre line", fill=(255,122,26))
     out = Image.new("RGB", (2200, 1920), (40, 40, 40)); out.paste(a, (0, 0)); out.paste(b, (1120, 0)); return out.resize((1100, 960))
 
 

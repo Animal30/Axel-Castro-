@@ -16,7 +16,7 @@ D.init(ROOT, json.load(open(os.path.join(ROOT, "words.json"))), DUR, title="Dept
 print("captions:", " | ".join(D.captions()))
 YT = lambda ns: [f"assets/yt/t{n}.jpg" for n in ns]; RL = lambda ns: [f"assets/reels/r{n:02d}.jpg" for n in ns]
 # The channel the cards show. Defaults to the creator's own; for a client's reel use the client's real name, handle and avatar.
-CHANNEL = dict(name="@@BRAND_NAME@@", handle="@@HANDLE@@", avatar="assets/real/avatar.jpg")
+CHANNEL = dict(name="Nahuel", handle="not set", avatar="assets/real/avatar.jpg")
 
 # camera: punch in / out on the sentence cuts (scales above the creator's punch strength setting are clamped by the engine)
 D.camera([(0, 3.66, 1.0, 1.035), (3.66, 6.09, 1.085, 1.11), (6.09, 8.03, 1.0, 1.03), (8.03, 11.62, 1.07, 1.10), (11.62, DUR, 1.0, 1.04)])

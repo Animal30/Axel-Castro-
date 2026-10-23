@@ -142,7 +142,7 @@ def scene(cid, start, end, full, body, css, js):
     vis = next((b for a, b in FACE if a - 0.001 <= start < b), start) if not full else start     # split scenes may start early, hidden under a face window
     k = len(S) % 3
     oy = 0 if not full else 330      # light orbs the glass refracts (they drift slowly); full-screen graphics live around y 330-1100
-    orbs = ('<div class="lg-orbs"><i id="{ID}-o0" style="left:110px;top:%dpx;width:400px;height:400px;background:rgba(@@ACCENT_RGB@@,.40)"></i>'
+    orbs = ('<div class="lg-orbs"><i id="{ID}-o0" style="left:110px;top:%dpx;width:400px;height:400px;background:rgba(255,122,26,.40)"></i>'
             '<i id="{ID}-o1" style="left:600px;top:%dpx;width:440px;height:440px;background:rgba(255,190,130,.24)"></i>'
             '<i id="{ID}-o2" style="left:380px;top:%dpx;width:300px;height:300px;background:rgba(255,255,255,.10)"></i></div>') % (oy + 40, oy + (200 if not full else 420), oy + (-40 if not full else 640))
     dx, dy = ((0, -80), (90, 0), (-90, 0))[k] if not full else ((0, 90), (-90, 0), (90, 0))[k]      # SOFT GLIDE: short travel
@@ -169,9 +169,9 @@ def scene(cid, start, end, full, body, css, js):
     <template>
       <link rel="stylesheet" href="assets/brand.css" />
       <style>
-        @font-face {{ font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }}
-        @font-face {{ font-family: "HelvR"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 400; }}
-        @font-face {{ font-family: "PlayIt"; src: @@FONT_ACCENT_SRC@@; font-style: normal; font-weight: 400 900; }}
+        @font-face {{ font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }}
+        @font-face {{ font-family: "HelvR"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 400; }}
+        @font-face {{ font-family: "PlayIt"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-style: normal; font-weight: 400 900; }}
         @font-face {{ font-family: "Hand"; src: url("assets/fonts/Caveat.ttf") format("truetype"); }}
         #root {{ position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }}
         {css}
@@ -181,9 +181,9 @@ def scene(cid, start, end, full, body, css, js):
         #root .mc, #root .pl1, #root .yp, #root .rp3, #root .fill, #root .sv, #root .tp, #root .gp, #root .sc, #root .mk, #root .bb, #root .rw3.de-glass {{
           background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.05) 55%, rgba(255,255,255,.11)), rgba(12,11,10,.46); -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%);
           border: 1.5px solid rgba(255,255,255,.44); box-shadow: inset 0 2px 1px rgba(255,255,255,.55), inset 0 -2px 2px rgba(255,255,255,.10), inset 0 0 26px rgba(255,255,255,.07), 0 22px 54px rgba(0,0,0,.45); }}
-        #root .de-hot, #root .fill, #root .rp3, #root .sc.hot {{ border-color: rgba(245,170,110,.95); background: linear-gradient(180deg, rgba(@@ACCENT_RGB@@,.26), rgba(@@ACCENT_RGB@@,.06) 55%, rgba(@@ACCENT_RGB@@,.16)), rgba(12,11,10,.52);
-          box-shadow: inset 0 2px 1px rgba(255,225,200,.6), inset 0 0 26px rgba(@@ACCENT_RGB@@,.14), 0 0 46px rgba(@@ACCENT_RGB@@,.45), 0 22px 54px rgba(0,0,0,.45); }}
-        #root .tp.nw, #root .yp.pc2 {{ background: @@ACCENT@@; border-color: @@ACCENT_LIGHT@@; }}
+        #root .de-hot, #root .fill, #root .rp3, #root .sc.hot {{ border-color: rgba(245,170,110,.95); background: linear-gradient(180deg, rgba(255,122,26,.26), rgba(255,122,26,.06) 55%, rgba(255,122,26,.16)), rgba(12,11,10,.52);
+          box-shadow: inset 0 2px 1px rgba(255,225,200,.6), inset 0 0 26px rgba(255,122,26,.14), 0 0 46px rgba(255,122,26,.45), 0 22px 54px rgba(0,0,0,.45); }}
+        #root .tp.nw, #root .yp.pc2 {{ background: #FF7A1A; border-color: #FFB27A; }}
       </style>
       <div id="root" data-composition-id="{cid}" data-width="1080" data-height="1920" data-duration="{dur}" data-layout-allow-overflow>
         <div id="{cid}-box" class="{box}">
@@ -303,13 +303,13 @@ def build():
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
         <link rel="stylesheet" href="assets/brand.css" />
         <style>
-          @font-face {{ font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }}
-            @font-face {{ font-family: "HelvR"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 400; }}
-            @font-face {{ font-family: "PlayIt"; src: @@FONT_ACCENT_SRC@@; font-style: normal; font-weight: 400 900; }}
+          @font-face {{ font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }}
+            @font-face {{ font-family: "HelvR"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 400; }}
+            @font-face {{ font-family: "PlayIt"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-style: normal; font-weight: 400 900; }}
             @font-face {{ font-family: "Hand"; src: url("assets/fonts/Caveat.ttf") format("truetype"); }}
-          body {{ margin: 0; background: @@BG@@; }}
-          #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: @@BG@@; }}
-          #base {{ position: absolute; inset: 0; background: @@BG@@; z-index: 0; }}
+          body {{ margin: 0; background: #050505; }}
+          #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: #050505; }}
+          #base {{ position: absolute; inset: 0; background: #050505; z-index: 0; }}
           .blk {{ position: absolute; width: 1920px; height: 1080px; z-index: 1; }}
           .blk > .clip {{ position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }}
           .scene {{ z-index: 2; }}
@@ -325,18 +325,18 @@ def build():
           #safeguide {{ position: absolute; inset: 0; z-index: 99; pointer-events: none; }}
           #safeguide div {{ position: absolute; background: rgba(255,0,60,.28); outline: 2px solid rgba(255,0,60,.9); }}
           .cap-w span {{ top: 1085px; font-size: 92px; letter-spacing: -0.05em; text-shadow: 0 4px 22px rgba(0,0,0,.7), 0 0 3px rgba(0,0,0,.6); }}
-          .cap-w.it span {{ top: 1072px; font-family: "PlayIt", serif; font-style: normal; font-weight: 500; font-size: 112px; letter-spacing: -0.04em; color: @@ACCENT@@; text-shadow: 0 4px 26px rgba(0,0,0,.8), 0 0 4px rgba(0,0,0,.7); }}
-          .cap-w.num span {{ color: @@ACCENT@@; }}
+          .cap-w.it span {{ top: 1072px; font-family: "PlayIt", serif; font-style: normal; font-weight: 500; font-size: 112px; letter-spacing: -0.04em; color: #FF7A1A; text-shadow: 0 4px 26px rgba(0,0,0,.8), 0 0 4px rgba(0,0,0,.7); }}
+          .cap-w.num span {{ color: #FF7A1A; }}
           #camFull video {{ position: absolute; left: 0; top: 0; }}
           #vFull {{ z-index: 1; }} #fBehind {{ position: absolute; inset: 0; z-index: 2; }} #vFg {{ z-index: 3; }} #fFront {{ position: absolute; inset: 0; z-index: 4; }}
           .ov-hb {{ font-family: "HelvB", Helvetica, sans-serif; font-weight: 700; letter-spacing: -0.05em; color: #fff; line-height: 1; text-shadow: 0 4px 22px rgba(0,0,0,.55), 0 0 3px rgba(0,0,0,.5); }}
-          .ov-pi {{ font-family: "PlayIt", serif; font-style: normal; font-weight: 500; color: @@ACCENT@@; letter-spacing: -0.04em; line-height: 1; text-shadow: 0 4px 22px rgba(0,0,0,.55), 0 0 3px rgba(0,0,0,.5); }}
+          .ov-pi {{ font-family: "PlayIt", serif; font-style: normal; font-weight: 500; color: #FF7A1A; letter-spacing: -0.04em; line-height: 1; text-shadow: 0 4px 22px rgba(0,0,0,.55), 0 0 3px rgba(0,0,0,.5); }}
           .ov-line {{ position: absolute; left: 0; width: 1080px; text-align: center; opacity: 0; white-space: nowrap; }}
           .ov-cm {{ position: absolute; width: 580px; padding: 20px 78px 16px 30px; border-radius: 28px; background: #fff; box-shadow: 0 22px 60px rgba(0,0,0,.45); opacity: 0; box-sizing: border-box; }}
           .ov-cm b {{ display: block; font-family: "HelvR", Helvetica, sans-serif; font-weight: 400; font-size: 36px; letter-spacing: -0.02em; color: #111; line-height: 1.12; }}
           .ov-cm i {{ display: block; margin-top: 8px; font-family: "HelvR", Helvetica, sans-serif; font-style: normal; font-size: 22px; color: #8e8e8e; }}
           .ov-cm svg {{ position: absolute; right: 26px; top: 22px; }}
-          .ov-pill {{ position: absolute; left: 0; top: 0; width: 168px; height: 82px; margin: -41px 0 0 -84px; border-radius: 41px; background: rgba(12,10,9,.88); border: 2px solid @@ACCENT@@; box-shadow: 0 0 34px rgba(@@ACCENT_RGB@@,.45), 0 12px 30px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; font-family: "HelvB", Helvetica, sans-serif; font-weight: 700; font-size: 46px; letter-spacing: -0.04em; color: #fff; opacity: 0; }}
+          .ov-pill {{ position: absolute; left: 0; top: 0; width: 168px; height: 82px; margin: -41px 0 0 -84px; border-radius: 41px; background: rgba(12,10,9,.88); border: 2px solid #FF7A1A; box-shadow: 0 0 34px rgba(255,122,26,.45), 0 12px 30px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; font-family: "HelvB", Helvetica, sans-serif; font-weight: 700; font-size: 46px; letter-spacing: -0.04em; color: #fff; opacity: 0; }}
           {ov_css}
           {chr(10).join(t["css"] for t in TOP)}
         </style>

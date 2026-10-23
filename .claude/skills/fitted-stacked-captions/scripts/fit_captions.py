@@ -22,11 +22,11 @@ import json, subprocess, os, sys, glob, argparse, re, shutil
 SKILL=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDIR=os.path.expanduser(os.environ.get('CREATOR_PROFILE_DIR','~/.claude/creator-profile'))
 # Filled from the creator's profile by setup/apply_profile.py (a plan.json can override each per video).
-ACCENT='@@ACCENT@@'
-ANCHOR_SRC=r'''@@FONT_ACCENT_SRC@@'''      # emphasis font: the big anchor word
-SMALL_SRC=r'''@@FONT_CAPTION_SRC@@'''      # caption font (the main bold when no separate caption font was chosen)
-ANCHOR_NAME='@@FONT_ACCENT_NAME@@'; SMALL_NAME='@@FONT_CAPTION_NAME@@'
-DEF=dict(lead='@@LEAD_SECONDS@@',em='@@ANCHOR_PX@@',small='@@SMALL_PX@@',maxBottom='@@BOTTOM_LIMIT@@')
+ACCENT='#FF7A1A'
+ANCHOR_SRC=r'''url("assets/fonts/PlayfairDisplay-Italic.ttf")'''      # emphasis font: the big anchor word
+SMALL_SRC=r'''url("assets/fonts/Inter-Bold.otf")'''      # caption font (the main bold when no separate caption font was chosen)
+ANCHOR_NAME='Playfair Display Italic'; SMALL_NAME='Inter'
+DEF=dict(lead='0.22',em='195',small='48',maxBottom='1250')
 def num(v,fallback):
     try: return float(v)
     except (TypeError,ValueError): return float(fallback)

@@ -27,19 +27,19 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ on @@PLATFORM@@ |
-| What they teach, and to whom | @@NICHE@@ |
-| Accent colour | @@ACCENT@@ (@@ACCENT_NAME@@) · panel / card background @@BG@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ · captions: @@FONT_CAPTION_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ (set @@EMPHASIS_SCALE@@x the caption size) |
-| Heading line 2 | @@HEADING_BLOCK@@ (on a block of the accent colour, or plain with an underline) |
-| Head above the panel edge | @@POPOUT@@ · slow zoom on close-ups: @@CLOSE_UP_ZOOM@@ |
-| Handle watermark | @@WATERMARK@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Finished videos go | @@OUTPUT_RULE@@ (raw footage drive: @@MEDIA_DRIVE@@) |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` |
-| Real material (proof) | @@PROOF_DIR@@ · also search: @@ASSET_DIRS@@ |
-| Music | @@MUSIC_RULE@@ (this skill adds no music or sound effects unless asked) |
-| How to work | @@WORK_RULE@@ |
+| Creator | Nahuel · Nahuel · not set on instagram |
+| What they teach, and to whom | not set |
+| Accent colour | #FF7A1A (orange) · panel / card background #050505 |
+| Fonts | main: Inter · captions: Inter · emphasis: Playfair Display Italic (set 1.12x the caption size) |
+| Heading line 2 | block (on a block of the accent colour, or plain with an underline) |
+| Head above the panel edge | on · slow zoom on close-ups: off |
+| Handle watermark | no |
+| Transcriber | elevenlabs |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) (raw footage drive: none) |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` |
+| Real material (proof) | none yet · also search: none |
+| Music | ask (this skill adds no music or sound effects unless asked) |
+| How to work | show the plan before building and the draft before the final render |
 
 One raw talking-head file goes in. A 1080x1920 video comes out that alternates between two layouts:
 
@@ -52,8 +52,8 @@ The look comes from a study of two reference reels. Read `references/reference-s
 session: it holds the measurements for layout, pacing and motion. Nothing from those reels is reused (no accent
 colour, logos, handles or examples). Everything on screen is the creator's content in the creator's brand.
 
-`S=~/.claude/skills/explainer-panel-reel/scripts` · work dir `W=@@WORK_ROOT@@/<slug>` (small files) · HyperFrames
-project `@@PROJECTS_ROOT@@/<slug>-panel` · outputs per the output rule (`@@OUTPUT_RULE@@`; the scripts default to
+`S=~/.claude/skills/explainer-panel-reel/scripts` · work dir `W=~/reel-work/<slug>` (small files) · HyperFrames
+project `~/videos/<slug>-panel` · outputs per the output rule (`/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`; the scripts default to
 `"<video folder>/<video name> - Edit/"`, and `01_prep.py` takes another folder as its third argument). Video files are
 large: keep the cut, crops and renders beside the source, and render one video at a time. Long steps run in the
 background. Every script prints its own usage.
@@ -65,18 +65,18 @@ background. Every script prints its own usage.
 | Raw video | yes | One talking-head file, any resolution, 16:9 or 9:16, constant frame rate. If the creator gives a folder and two files could be it, ask once. |
 | Supporting footage / images | no | Screenshots, clips, photos, documents they want shown. Copy into the project's `assets/media/`. A screenshot dragged in is meant to be animated in, but ask where it goes. |
 | Brand values | yes, set at setup | The accent colour, fonts, emphasis size and heading style are in "Your setup" and are written into every project's `assets/brand.json` by `08_new_project.py`. If one video needs different values (a client's video), write `W/brand.json` with the values **read from the client's brand files** (never eyeball a colour: take the hex from the token file or sample the logo). It overrides the setup for that video. |
-| Handle | optional | Drawn as a small watermark only when the creator chose that at setup (`@@WATERMARK@@`). Never guess a handle. |
+| Handle | optional | Drawn as a small watermark only when the creator chose that at setup (`no`). Never guess a handle. |
 | Logo | optional | The engine does not draw a logo by itself. If the creator wants one on screen, drop the file into `assets/media/` and place it with `s.img(...)` where a graphic calls for it. |
 
 Real assets beat invented ones. When the speaker mentions a person, a post, a page or a number, look for the real thing
-(the proof folder `@@PROOF_DIR@@`, the other asset folders `@@ASSET_DIRS@@`, what the creator supplied) before drawing
+(the proof folder `none yet`, the other asset folders `none`, what the creator supplied) before drawing
 a stand-in. Where something had to be invented (a name in a mock-up, a sample line of text), list it in the report.
 
 `python3 $S/01_prep.py "<video>" <slug>` and act on its warnings (variable frame rate needs a constant-rate copy first).
 
 ## 2. Transcribe, then check it against the audio
 
-`python3 $S/02_transcribe.py <slug>`: runs the transcriber chosen at setup (`@@TRANSCRIBER@@`) through `scripts/stt.py`.
+`python3 $S/02_transcribe.py <slug>`: runs the transcriber chosen at setup (`elevenlabs`) through `scripts/stt.py`.
 With ElevenLabs the key is read from the environment or the shell profile, never printed and never asked for in chat.
 Do not use any connector's transcribe tool (it costs many times more). Read the whole printed script and
 `W/words.txt`. With local transcription the word edges are looser: expect to look harder at the cut in step 3.
@@ -119,7 +119,7 @@ From here on every time is **cut-timeline seconds**: `W/edit.txt` (script plus e
 1. `python3 $S/frames.py <slug> <t> <t> ...`: gridded stills at several moments (include one where they lean or
    gesture high). Read off, in source pixels, the centre of the face, the top of the head (hair or hat) and the chin.
 2. Write `W/layout.json`: `{"face": {"cx": .., "top": .., "chin": ..}, "popout": true}` (`popout` defaults to the setup
-   answer, `@@POPOUT@@`).
+   answer, `on`).
 3. `python3 $S/06_crops.py <slug> --preview <t> <t> ...` and open each still. Left = close-up, right = panel.
    Check: the caption line sits under the chin on the left and clears the head on the right; the whole head is in
    view; nothing important is cut by the panel's sides. Nudge with `full_dx`, `panel_dx`, `panel_dy`, or the scales.
@@ -138,11 +138,11 @@ re-run rather than shipping a bad edge.
   does not match the verified cut word for word, so captions cannot drift from what is said.
 - **One short line, 1-3 words** (the reference reels average about two), changing on the word. Break at the natural
   phrase; never split a number from its unit or a first name from a surname.
-- **Type**: the caption font (`@@FONT_CAPTION_NAME@@`), bold, tracking -50 (`letter-spacing: -0.05em`), white, soft
+- **Type**: the caption font (`Inter`), bold, tracking -50 (`letter-spacing: -0.05em`), white, soft
   shadow.
 - **Emphasis**: mark the word `*like this*`. It switches to the **emphasis font in the accent colour**
-  (`@@FONT_ACCENT_NAME@@`, `@@ACCENT@@`), on the same line, same baseline, inside the normal caption, set
-  `@@EMPHASIS_SCALE@@x` larger so it reads the same size. Nothing else about the caption changes. A figure
+  (`Playfair Display Italic`, `#FF7A1A`), on the same line, same baseline, inside the normal caption, set
+  `1.12x` larger so it reads the same size. Nothing else about the caption changes. A figure
   (`*400,000*`) stays in the caption font and takes the accent colour: the emphasis font is only for whole words. Use
   it for the word that carries the point: about 3-6 a minute, never two captions running.
 - **No stacked captions.** One line only: no multi-line blocks, no enlarged word, no line-by-line reveals. If a
@@ -178,7 +178,7 @@ card). One idea per scene; each element lands on the word that names it; when th
 do not repeat: graphics illustrate (a mock-up of the thing, a real interface, a real post) rather than restating the
 spoken sentence as text.
 
-Working rule at setup: `@@WORK_RULE@@`. When the rule is to show the plan, give it as a short table (time, mode,
+Working rule at setup: `show the plan before building and the draft before the final render`. When the rule is to show the plan, give it as a short table (time, mode,
 heading, graphic, assets needed) and ask the open questions with `AskUserQuestion` before building: which assets to
 use, any wording in headings, and music (never assume a track).
 
@@ -220,7 +220,7 @@ Animation rules:
 - **Safe zone**: on a phone the platform's own interface covers the top and bottom of the frame. Keep animations
   inside y 270-1500 (the graphics area, y 380-1190, already is).
 - **Headings**: the caption font, bold, tracking -50. Line 2 sits on a block of the accent colour (or carries a thin
-  accent underline, per the setup answer `@@HEADING_BLOCK@@`); when it holds an emphasised word (`*word*`), the word is
+  accent underline, per the setup answer `block`); when it holds an emphasised word (`*word*`), the word is
   in the emphasis font and the line gets the underline instead (an accent word cannot sit on an accent block; the
   engine switches automatically).
 - **Figures and money are always set in the main font**, never in the emphasis font.
@@ -249,7 +249,7 @@ working rule says to run to the end. Then `python3 $S/09_render.py <slug> [--tag
 | Phone copy | `"... (phone).mp4"`, two-pass H.264 under 30 MB, AAC 160k, faststart: the one to hand over for a quick look |
 
 Music, if the creator asks for it, is a separate step after the render: pick the track per the music rule
-(`@@MUSIC_RULE@@`), mix it well under the voice (the voice stays untouched), and keep the version without music.
+(`ask`), mix it well under the voice (the voice stays untouched), and keep the version without music.
 
 ## 9. Final visual and audio review (every render, draft and final)
 
@@ -289,10 +289,10 @@ For notes after review: copy `build.py` to `build_vN.py`, edit, re-render with `
 ## Default style choices (change when the creator asks)
 
 Panel at x 70-1010, top y 1407, radius 36, running off the bottom · head pops out above the panel edge (setup:
-`@@POPOUT@@`) · caption 62 px, panel caption just above the head, close-up caption 150 px under the chin · heading at
-y 190, 54 px · line 2 of a heading per the setup answer (`@@HEADING_BLOCK@@`; `block=False` gives the underline for
-one heading) · emphasis words `@@EMPHASIS_SCALE@@x` larger than the caption font so they read the same size · slow
-zoom on close-ups: `@@CLOSE_UP_ZOOM@@` (`E.ZOOM_FULL = 1.04` turns it on for one video) · no watermark unless the
+`on`) · caption 62 px, panel caption just above the head, close-up caption 150 px under the chin · heading at
+y 190, 54 px · line 2 of a heading per the setup answer (`block`; `block=False` gives the underline for
+one heading) · emphasis words `1.12x` larger than the caption font so they read the same size · slow
+zoom on close-ups: `off` (`E.ZOOM_FULL = 1.04` turns it on for one video) · no watermark unless the
 creator chose it · no music, no sound effects.
 
 Defaults this style avoids: stacked or enlarged captions, 3D, bounces and slides across the frame, an accent fill

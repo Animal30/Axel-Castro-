@@ -27,7 +27,7 @@ Filled in by the setup interview. If a line still shows a placeholder in double 
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ (the person in the footage unless clearly someone else) |
+| Creator | Nahuel (the person in the footage unless clearly someone else) |
 | What they do | @@NICHE@@ |
 | Footage folder (first folder to scan) | `@@FOOTAGE_DIR@@` |
 | Footage is stored on | @@FOOTAGE_DRIVE@@ |

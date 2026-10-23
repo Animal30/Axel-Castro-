@@ -56,10 +56,10 @@ K.ac(18.85, "pop")
 cw = "".join('<span class="cp" id="{ID}-p%d" style="left:%dpx;top:%dpx">%s</span>' % (i, 150 + (i % 5) * 160, 420 + (i // 5) * 180, P_) for i in range(15))
 K.raw("s05-c2", 20.8939, 27.48, True, cw + '<i id="{ID}-ring" class="ring"></i>',
     """.cp{position:absolute;width:130px;height:130px;color:rgba(242,240,236,.4);filter:blur(7px);z-index:4}
-    .ring{position:absolute;left:0;top:0;width:210px;height:210px;margin:-105px 0 0 -105px;border-radius:50%;border:8px solid @@ACCENT@@;box-shadow:0 0 50px rgba(@@ACCENT_RGB@@,.6), inset 0 0 40px rgba(@@ACCENT_RGB@@,.2);z-index:6;opacity:0}""",
+    .ring{position:absolute;left:0;top:0;width:210px;height:210px;margin:-105px 0 0 -105px;border-radius:50%;border:8px solid #FF7A1A;box-shadow:0 0 50px rgba(255,122,26,.6), inset 0 0 40px rgba(255,122,26,.2);z-index:6;opacity:0}""",
     """__ft(q("ring"), {opacity:0, x:230, y:500, scale:1.5}, {opacity:1, x:860, y:560, scale:1.2, duration:0.7, ease:"power2.inOut"}, T(20.9));
     __tt(q("ring"), {x:535, y:665, scale:1, duration:0.6, ease:"power3.inOut"}, T(21.7));
-    __tt(q("p7"), {filter:"blur(0px)", color:"@@ACCENT@@", scale:1.2, duration:0.4, ease:"power2.out"}, T(22.25));
+    __tt(q("p7"), {filter:"blur(0px)", color:"#FF7A1A", scale:1.2, duration:0.4, ease:"power2.out"}, T(22.25));
     [0,1,2,3,4,5,6,8,9,10,11,12,13,14].forEach(function(i){ __tt(q("p"+i), {opacity:0.35, duration:0.4}, T(22.25)); });""")
 K.ac(21.7, "swish", -23); K.ac(22.25, "shine")
 
@@ -78,7 +78,7 @@ K.raw("s10-c3", 37.95, 45.5018, False, """<svg class="ek" width="940" height="43
       <polyline id="{ID}-dd" points="0,320 150,320 185,320 205,250 235,390 260,320 420,320 940,320" fill="none" stroke="#B3261E" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/></svg>
     <div id="{ID}-q" class="qm">?</div>""",
     """.ek{position:absolute;left:70px;top:60px;z-index:5;overflow:visible;filter:drop-shadow(0 0 16px rgba(47,166,90,.35))}
-    .qm{position:absolute;left:465px;top:175px;width:150px;height:150px;border-radius:75px;background:@@ACCENT@@;color:@@ON_ACCENT@@;display:flex;align-items:center;justify-content:center;font-family:"HelvB";font-size:104px;box-shadow:0 0 80px rgba(@@ACCENT_RGB@@,.7);opacity:0;z-index:7}""",
+    .qm{position:absolute;left:465px;top:175px;width:150px;height:150px;border-radius:75px;background:#FF7A1A;color:#120C08;display:flex;align-items:center;justify-content:center;font-family:"HelvB";font-size:104px;box-shadow:0 0 80px rgba(255,122,26,.7);opacity:0;z-index:7}""",
     """__ft(q("lv"), {strokeDashoffset:1000}, {strokeDashoffset:0, duration:3.0, ease:"none"}, T(38.3)); __ft(q("dd"), {strokeDashoffset:1000}, {strokeDashoffset:0, duration:2.2, ease:"none"}, T(39.3));
     __ft(q("q"), {opacity:0, scale:0.5}, {opacity:1, scale:1, duration:0.45, ease:"back.out(1.6)"}, T(42.3)); __tt("#"+ID+"-in2 .ek", {opacity:0.35, duration:0.3}, T(42.3));""")
 K.ac(38.3, "slide", -22); K.ac(42.3, "shine2", -22)
@@ -86,9 +86,9 @@ K.ac(38.3, "slide", -22); K.ac(42.3, "shine2", -22)
 # 12 Open a loop, close it (FULL): the ring opens, then closes green
 K.raw("s12-loop", 45.5018, 56.22, True, """
     <svg class="lp1" width="560" height="560" viewBox="0 0 560 560"><circle cx="280" cy="280" r="240" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="14" stroke-dasharray="6 22" stroke-linecap="round"/>
-      <circle id="{ID}-ring" cx="280" cy="280" r="240" fill="none" stroke="@@ACCENT@@" stroke-width="26" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" transform="rotate(-90 280 280)"/></svg>
+      <circle id="{ID}-ring" cx="280" cy="280" r="240" fill="none" stroke="#FF7A1A" stroke-width="26" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" transform="rotate(-90 280 280)"/></svg>
     <div id="{ID}-o" class="lw">OPEN</div><div id="{ID}-c" class="lw" style="color:#2FA65A">CLOSED</div><div class="de-label ll">LOOP</div>""",
-    """.lp1{position:absolute;left:260px;top:440px;z-index:5;overflow:visible;filter:drop-shadow(0 0 30px rgba(@@ACCENT_RGB@@,.45))}
+    """.lp1{position:absolute;left:260px;top:440px;z-index:5;overflow:visible;filter:drop-shadow(0 0 30px rgba(255,122,26,.45))}
     .lw{position:absolute;left:0;width:1080px;top:676px;text-align:center;font-family:"HelvB";font-size:70px;letter-spacing:-.05em;opacity:0;z-index:6} .ll{position:absolute;left:0;width:1080px;top:768px;text-align:center;font-size:24px}""",
     """__ft(q("ring"), {strokeDashoffset:1000}, {strokeDashoffset:260, duration:1.0, ease:"power2.inOut"}, T(46.6));
     __ft(q("o"), {opacity:0, scale:0.9}, {opacity:1, scale:1, duration:0.35, ease:"power3.out"}, T(46.85));
@@ -116,8 +116,8 @@ K.lps("gl", 16.1, [("GAIN", "green", 13.75), ("LOSE", "red", 14.3)]); K.ac(13.75
 K.scriptcard("av", "Reel script", [("HOOK &middot; NAMES THE AVATAR", "&ldquo;Hey coaches, listen up&hellip;&rdquo;", 24.9, "strike", 26.9)], 27.4, 24.1)
 K.lps("fm", 37.9, [("THIS IS FOR ME", "green", 36.9)]); K.ac(36.9, "pop")
 # the secret: loops opening and closing along the whole video - a timeline with arcs, each one closing green as the playhead passes
-arcs = "".join('<path id="lpa%d" d="M%d,120 C%d,%d %d,%d %d,120" fill="none" stroke="@@ACCENT@@" stroke-width="9" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/>' % (i, 30 + i * 175, 60 + i * 175, 10 + (i % 2) * 22, 150 + i * 175, 10 + (i % 2) * 22, 180 + i * 175) for i in range(4))
-K.OF.append('<div id="lpg" style="position:absolute;left:170px;top:1200px;width:740px;height:170px;opacity:0"><svg width="740" height="170" viewBox="0 0 740 170" style="overflow:visible"><rect x="0" y="114" width="740" height="14" rx="7" fill="rgba(255,255,255,.3)"/><rect id="lpf" x="0" y="114" width="0" height="14" rx="7" fill="@@PAPER@@"/>' + arcs + '<circle id="lph" cx="0" cy="121" r="18" fill="#fff"/></svg></div>')
+arcs = "".join('<path id="lpa%d" d="M%d,120 C%d,%d %d,%d %d,120" fill="none" stroke="#FF7A1A" stroke-width="9" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/>' % (i, 30 + i * 175, 60 + i * 175, 10 + (i % 2) * 22, 150 + i * 175, 10 + (i % 2) * 22, 180 + i * 175) for i in range(4))
+K.OF.append('<div id="lpg" style="position:absolute;left:170px;top:1200px;width:740px;height:170px;opacity:0"><svg width="740" height="170" viewBox="0 0 740 170" style="overflow:visible"><rect x="0" y="114" width="740" height="14" rx="7" fill="rgba(255,255,255,.3)"/><rect id="lpf" x="0" y="114" width="0" height="14" rx="7" fill="#F2F0EC"/>' + arcs + '<circle id="lph" cx="0" cy="121" r="18" fill="#fff"/></svg></div>')
 K.ojs("opop('#lpg', 50.4); oout('#lpg', 56.15); (function(){ const H = {x:0}, f = $o('#lpf'), h = $o('#lph'); tl.fromTo(H, {x:0}, {x:740, duration:5.2, ease:'none', onUpdate:function(){ f.setAttribute('width', H.x.toFixed(1)); h.setAttribute('cx', H.x.toFixed(1)); }}, 50.7);"
       " [0,1,2,3].forEach(function(i){ const t0 = 50.9 + i*1.22; tl.fromTo('#lpa'+i, {strokeDashoffset:1000}, {strokeDashoffset:0, duration:1.0, ease:'none'}, t0); tl.to('#lpa'+i, {stroke:'#2FA65A', duration:0.2}, t0 + 1.0); }); })();")
 K.ac(50.9, "slide", -23); [K.ac(51.9 + i * 1.22, "pop", -24) for i in range(4)]

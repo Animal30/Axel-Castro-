@@ -20,7 +20,7 @@ if os.path.lexists(f"{PJ}/assets/cam.mp4"): os.remove(f"{PJ}/assets/cam.mp4")
 os.symlink(cut, f"{PJ}/assets/cam.mp4")
 for f in ("coach_engine.py", "coach_kit.py"): shutil.copy(f"{SK}/engine/{f}", f"{PJ}/{f}")
 for f in ("cuts.json", "cut_words.json"): shutil.copy(f"{W}/{f}", f"{PJ}/{f}")
-STAR = "@@SWEAR_CAPTIONS@@".strip().lower().startswith("star")     # setup answer: starred | as spoken
+STAR = "starred".strip().lower().startswith("star")     # setup answer: starred | as spoken
 SWEAR = {"fuck": "f***", "fucking": "f***ing", "fucked": "f***ed", "shit": "s***", "bullshit": "bulls***"}
 caps = json.load(open(f"{W}/captions.json"))
 if STAR:

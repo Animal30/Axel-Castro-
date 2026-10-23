@@ -27,23 +27,23 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ (@@PLATFORM@@) |
-| What they do, and for whom | @@NICHE@@ |
-| Accent colour | @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ · captions: @@FONT_CAPTION_NAME@@ |
-| Watermark | @@WATERMARK@@ (handle on the video) |
-| Glass finish | @@GLASS_LOOK@@ (full / soft / off) |
-| Sound effects | @@SOUND_EFFECTS@@ · sound pack folder: @@SFX_DIR@@ |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Finished reels go | @@OUTPUT_RULE@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` |
-| Real material (proof) | @@PROOF_DIR@@ |
-| Other folders to search for real assets | @@ASSET_DIRS@@ |
-| Real assets from the web | @@WEB_ASSETS@@ |
-| Never show | @@NEVER_SHOW@@ |
-| How far to go alone | @@WORK_RULE@@ |
+| Creator | Nahuel · Nahuel · not set (instagram) |
+| What they do, and for whom | not set |
+| Accent colour | #FF7A1A (orange) · background #050505 |
+| Fonts | main: Inter · emphasis: Playfair Display Italic · captions: same as the main font |
+| Watermark | off (handle on the video) |
+| Glass finish | full (full / soft / off) |
+| Sound effects | on · sound pack folder: /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
+| Music | ask · music folder: none yet |
+| Transcriber | elevenlabs |
+| Finished reels go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Footage drive | none |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` |
+| Real material (proof) | none yet |
+| Other folders to search for real assets | none |
+| Real assets from the web | yes: real over drawn, every source listed in the report |
+| Never show | nothing listed |
+| How far to go alone | finish the best version, then report |
 
 ## What it makes
 
@@ -60,8 +60,8 @@ reel's, redesigned to live inside the panel's graphic area.** When the two disag
 `references/reference-study.md` (the layout and pacing numbers), before the first build of a session.
 `examples/validation/*.py` are structure references only.
 
-`S=~/.claude/skills/glass-explainer-reel/scripts` · work dir `W=@@WORK_ROOT@@/<slug>` (small files) · HyperFrames
-project `@@PROJECTS_ROOT@@/<slug>-glass` · outputs `"<video folder>/<video name> - Edit/"` (the output rule above).
+`S=~/.claude/skills/glass-explainer-reel/scripts` · work dir `W=~/reel-work/<slug>` (small files) · HyperFrames
+project `~/videos/<slug>-glass` · outputs `"<video folder>/<video name> - Edit/"` (the output rule above).
 Big files stay beside the source, on the drive that holds it. Long steps run in the background, one render at a time
 when the output is on an external drive. Every script prints its own usage.
 

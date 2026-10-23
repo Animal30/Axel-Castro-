@@ -23,7 +23,7 @@ E, stem, PJ = sys.argv[1], sys.argv[2], os.path.expanduser(sys.argv[3])
 def _num(v, d):
     try: return float(v)
     except ValueError: return d     # the setup answer was not a number: the default stands
-TARGET = float(opt("--target", _num("@@VOICE_TARGET_LUFS@@", -19.8))); CEIL = float(opt("--ceiling", -6.0)); NR = float(opt("--denoise", _num("@@VOICE_DENOISE_DB@@", 6))); SUF = opt("--suffix", " - YouTube Edit v2")
+TARGET = float(opt("--target", _num("-19.8", -19.8))); CEIL = float(opt("--ceiling", -6.0)); NR = float(opt("--denoise", _num("6", 6))); SUF = opt("--suffix", " - YouTube Edit v2")
 final = f"{E}/{stem}{SUF}.mp4"; dry = f"{E}/{stem}{SUF} (no SFX).mp4"; W = f"{PJ}/renders"; raw = f"{W}/voice-raw.wav"
 if not os.path.exists(raw):
     subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", dry, "-vn", "-c:a", "pcm_s24le", raw], check=True)

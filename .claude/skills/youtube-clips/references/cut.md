@@ -1,7 +1,7 @@
 # The tight cut and the caption file (one clip at a time)
 
 The scripts are in `scripts/cut/`. They work on ONE clip's `<id> - source.mov` (written by `03_clips.py --extract`),
-under the clip's own slug: work dir `@@WORK_ROOT@@/<clip slug>`. The reordering was already done when the source was
+under the clip's own slug: work dir `~/reel-work/<clip slug>`. The reordering was already done when the source was
 cut, so nothing here ever reorders.
 
 ```bash
@@ -38,7 +38,7 @@ EXTRA / CHANGED line, and listen to `edit.wav` at any join you are unsure of bef
 
 ## 3. The decision file: `drops.json`
 
-Write `@@WORK_ROOT@@/<clip slug>/drops.json`:
+Write `~/reel-work/<clip slug>/drops.json`:
 
 ```json
 {"words": [[i, j], ...], "secs": [[a, b], ...]}

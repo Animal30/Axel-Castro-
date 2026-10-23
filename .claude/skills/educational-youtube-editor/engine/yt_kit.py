@@ -80,7 +80,7 @@ BR_CSS = """.br{position:absolute;border-radius:22px;overflow:hidden;box-shadow:
 .brb b{width:14px;height:14px;border-radius:50%;background:#FF5F57}.brb b+b{background:#FEBC2E}.brb b+b+b{background:#28C840}
 .brb span{margin-left:18px;flex:1;height:34px;border-radius:17px;background:#fff;display:flex;align-items:center;padding:0 18px;font-family:var(--sf);font-size:19px;color:#4a4744;max-width:620px}
 .brv{position:relative;overflow:hidden;background:#fff}.brv img{display:block;width:100%}
-.hlb{position:absolute;border:5px solid var(--o);border-radius:14px;box-shadow:0 0 0 6px rgba(@@ACCENT_RGB@@,.22)}"""
+.hlb{position:absolute;border:5px solid var(--o);border-radius:14px;box-shadow:0 0 0 6px rgba(255,122,26,.22)}"""
 
 
 def browser(sid, a, b, src, url, variant="auto", scroll=0, scroll_t=None, hl=None, w=1100, vh=620):
@@ -205,7 +205,7 @@ def preview(sid, a, b, n, variant="auto", labels=None, reveal=1, t_split=None, t
 FL_CSS = """.nd{position:absolute;display:flex;align-items:center;justify-content:center;gap:16px;border-radius:999px;background:rgba(18,15,13,.92);border:2px solid rgba(242,240,236,.2);font-family:"HelvB";font-size:38px;letter-spacing:-.035em;color:var(--paper);box-shadow:0 18px 44px rgba(0,0,0,.45)}
 .nd.cardv{border-radius:var(--r);flex-direction:column;gap:12px;font-size:30px;text-align:center;padding:0 16px}
 .fsv{position:absolute;inset:0;overflow:visible}.fsv path,.fsv line{fill:none;stroke:var(--o);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000}"""
-_ON = {"borderColor": "@@ACCENT@@", "backgroundColor": "rgba(@@ACCENT_RGB@@,.2)", "scale": 1.06}
+_ON = {"borderColor": "#FF7A1A", "backgroundColor": "rgba(255,122,26,.2)", "scale": 1.06}
 _OFF = {"borderColor": "rgba(242,240,236,.2)", "backgroundColor": "rgba(18,15,13,.92)", "scale": 1}
 
 
@@ -245,7 +245,7 @@ FW_CSS = """.fwl{position:absolute;height:5px;border-radius:3px;background:rgba(
 .fwc{position:absolute;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;justify-content:space-between;font-family:"HelvB";color:var(--paper)}.fwc i{font-style:normal;font-size:44px;letter-spacing:-.05em}.fwc span{font-size:27px;letter-spacing:-.03em;line-height:1.1}
 .trk{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;font-family:"HelvB"}
 .trk i{font-style:normal;width:46px;height:46px;border-radius:50%;background:rgba(10,9,8,.78);border:1.5px solid rgba(242,240,236,.24);display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--grey)}
-.trk i.on{background:var(--o);border-color:var(--o);color:@@ON_ACCENT@@}.trk span{margin-left:10px;padding:10px 22px;border-radius:999px;background:rgba(10,9,8,.78);border:1.5px solid rgba(242,240,236,.2);font-size:25px;letter-spacing:-.02em;color:var(--paper)}"""
+.trk i.on{background:var(--o);border-color:var(--o);color:#120C08}.trk span{margin-left:10px;padding:10px 22px;border-radius:999px;background:rgba(10,9,8,.78);border:1.5px solid rgba(242,240,236,.2);font-size:25px;letter-spacing:-.02em;color:var(--paper)}"""
 
 
 def framework(sid, a, b, steps, active=None, times=None, variant="rail"):
@@ -266,7 +266,7 @@ def framework(sid, a, b, steps, active=None, times=None, variant="rail"):
         tgt = f"#{sid}-s{i} i" if v != "cards" else f"#{sid}-s{i}"
         if on:
             t_on = (times[-1] + 0.5) if times else a + 0.5
-            E.tw(tgt, t_on, 0.45, {"backgroundColor": "@@ACCENT@@", "borderColor": "@@ACCENT@@", "color": "@@ON_ACCENT@@", "scale": 1.14}, None, "power2.out"); E.sfx(t_on, "shine", -25)
+            E.tw(tgt, t_on, 0.45, {"backgroundColor": "#FF7A1A", "borderColor": "#FF7A1A", "color": "#120C08", "scale": 1.14}, None, "power2.out"); E.sfx(t_on, "shine", -25)
         elif active is not None: E.tw(f"#{sid}-s{i}", (times[-1] + 0.5) if times else a + 0.5, 0.4, {"opacity": 0.42}, None, "power2.out")
     line = ""
     if v == "rail":
@@ -289,7 +289,7 @@ def timeline(sid, a, b, items, times, variant="auto"):
     """Dates / stages in order. items = [(label, sub)]. line = a rail drawn left to right with dots | steps = vertical ladder."""
     v = pick("timeline", variant, a); n = len(items); out = ""
     E.css(FW_CSS + """.tli{position:absolute;width:260px;margin-left:-130px;text-align:center}.tli b{display:block;font-family:"HelvB";font-size:40px;letter-spacing:-.04em;color:var(--paper)}.tli span{display:block;font-size:24px;color:var(--grey);margin-top:8px;line-height:1.2}
-.tld{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--o);box-shadow:0 0 0 8px rgba(@@ACCENT_RGB@@,.2)}.tls{position:absolute;left:60px;text-align:left}.tls b{font-family:"HelvB";font-size:38px;letter-spacing:-.04em;display:block}.tls span{font-size:24px;color:var(--grey)}""")
+.tld{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--o);box-shadow:0 0 0 8px rgba(255,122,26,.2)}.tls{position:absolute;left:60px;text-align:left}.tls b{font-family:"HelvB";font-size:38px;letter-spacing:-.04em;display:block}.tls span{font-size:24px;color:var(--grey)}""")
     if v == "line":
         Wd, Hd = max(1000, n * 290), 340; out = f'<div class="fwl" style="left:100px;top:90px;width:{Wd - 200}px"><b id="{sid}-ln"></b></div>'
         for i, (lab, sub) in enumerate(items):
@@ -310,7 +310,7 @@ ST_CSS = """.stn{font-family:"HelvB";font-size:210px;letter-spacing:-.06em;line-
 .stl{font-family:"HelvR";font-size:34px;color:var(--grey);letter-spacing:-.01em;text-align:center;margin-top:18px}
 .stw{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .stb{width:100%;height:30px;border-radius:15px;background:rgba(242,240,236,.12);overflow:hidden;margin-top:30px}.stb b{display:block;height:100%;border-radius:15px;transform-origin:0 50%;transform:scaleX(0)}"""
-TONE = {"o": "@@ACCENT@@", "good": "#2FA65A", "bad": "#B3261E", "paper": "@@PAPER@@"}
+TONE = {"o": "#FF7A1A", "good": "#2FA65A", "bad": "#B3261E", "paper": "#F2F0EC"}
 
 
 def stat(sid, a, b, value, label, t=None, frm=0, pre="", suf="", dec=0, variant="auto", tone="o", pct=None):
@@ -508,7 +508,7 @@ def crowd(sid, a, b, t_hot, n=28, label=""):
         x, y = 40 + (i % cols) * 150, 40 + (i // cols) * 140
         out += f'<div id="{sid}-b{i}" class="blk h" style="left:{x}px;top:{y}px;width:120px;height:100px"></div>'
         E.tw(f"#{sid}-b{i}", a - 0.2 + 0.018 * i, 0.45, {"opacity": 1, "scale": 1}, {"opacity": 0, "scale": 0.7}, "power3.out")
-        if i == hot: E.tw(f"#{sid}-b{i}", t_hot, 0.6, {"backgroundColor": "@@ACCENT@@", "borderColor": "@@ACCENT@@", "scale": 1.5, "z": 160, "zIndex": 5}, None, "back.out(1.3)")
+        if i == hot: E.tw(f"#{sid}-b{i}", t_hot, 0.6, {"backgroundColor": "#FF7A1A", "borderColor": "#FF7A1A", "scale": 1.5, "z": 160, "zIndex": 5}, None, "back.out(1.3)")
         else: E.tw(f"#{sid}-b{i}", t_hot, 0.5, {"opacity": 0.28}, None, "power2.out")
     E.sfx(a - 0.2, "woosh"); E.sfx(t_hot, "shine", -23)
     lab = f'<div class="mlab" style="left:0;right:0;bottom:-6px">{label}</div>' if label else ""
@@ -565,7 +565,7 @@ def grow(sid, a, b, times, start=3, per=4, label=""):
         if k < start: E.enter(f"#{did}", a, "fade", lead=0)
         else:
             ti = times[(k - start) // per] + 0.55 + 0.05 * ((k - start) % per)
-            E.tw(f"#{did}", ti, 0.4, {"opacity": 1, "scale": 1, "color": "@@ACCENT@@"}, {"opacity": 0, "scale": 0.4}, "back.out(1.4)"); E.tw(f"#{did}", ti + 0.5, 0.5, {"color": "rgba(242,240,236,.75)"}, None, "power2.out")
+            E.tw(f"#{did}", ti, 0.4, {"opacity": 1, "scale": 1, "color": "#FF7A1A"}, {"opacity": 0, "scale": 0.4}, "back.out(1.4)"); E.tw(f"#{did}", ti + 0.5, 0.5, {"color": "rgba(242,240,236,.75)"}, None, "power2.out")
     for i, t in enumerate(times):
         did = f"{sid}-c{i}"; out += f'<div id="{did}" class="blk o h" style="left:60px;top:{Hd / 2 - 90}px;width:130px;height:180px;border-radius:16px"></div>'
         E.tw(f"#{did}", t - 0.2, 0.3, {"opacity": 1, "scale": 1}, {"opacity": 0, "scale": 0.7}); E.tw(f"#{did}", t + 0.1, 0.6, {"x": 520, "scale": 0.3, "opacity": 0}, None, "power2.in"); E.sfx(t, "swish", -25)

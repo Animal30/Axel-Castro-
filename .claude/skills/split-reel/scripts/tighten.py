@@ -13,7 +13,7 @@ from fractions import Fraction
 src, out = sys.argv[1], sys.argv[2]
 def _default_gap():
     try:
-        return float("@@TIGHTEN_GAP@@")          # filled from the creator's setup answer
+        return float("0.32")          # filled from the creator's setup answer
     except ValueError:
         return 0.32
 GAP = float(sys.argv[sys.argv.index("--gap") + 1]) if "--gap" in sys.argv else _default_gap()

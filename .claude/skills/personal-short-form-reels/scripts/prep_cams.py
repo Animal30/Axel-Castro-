@@ -5,7 +5,7 @@
 A VERTICAL source (phone clips are often stored as 3840x2160 with a rotation flag = really 2160x3840) is simply scaled; cam_top is a 1080x960 window of it
 starting --top-y px down the 1080x1920 frame (default 330: the head near the top of the half, chin and chest below).
 A HORIZONTAL 16:9 source needs crops in SOURCE pixels: --full (9:16 window) and --top (9:8 window). The defaults are the crops saved
-at setup for the creator's usual camera set-up (@@CROP_FULL@@ and @@CROP_TOP@@). ALWAYS open the two stills this writes (cam_full.jpg, cam_top.jpg): the whole head in frame, face centred, head not cut."""
+at setup for the creator's usual camera set-up (1215 2160 1312 0 and 1800 1600 1020 280). ALWAYS open the two stills this writes (cam_full.jpg, cam_top.jpg): the whole head in frame, face centred, head not cut."""
 import subprocess, sys, json, os
 a = sys.argv[1:]; cut, out = a[0], a[1]; os.makedirs(out, exist_ok=True)
 def opt(k, n, d):
@@ -20,7 +20,7 @@ if h > w:
     full = "scale=1080:1920:flags=lanczos,setsar=1"; top = f"scale=1080:1920:flags=lanczos,crop=1080:960:0:{ty},setsar=1"
     print(f"vertical source {w}x{h}: scaled; cam_top = y {ty}-{ty + 960} of the frame")
 else:
-    fw, fh, fx, fy = opt("--full", 4, [int(x) for x in "@@CROP_FULL@@".split()]); tw, th, tx, ty = opt("--top", 4, [int(x) for x in "@@CROP_TOP@@".split()])
+    fw, fh, fx, fy = opt("--full", 4, [int(x) for x in "1215 2160 1312 0".split()]); tw, th, tx, ty = opt("--top", 4, [int(x) for x in "1800 1600 1020 280".split()])
     full = f"crop={fw}:{fh}:{fx}:{fy},scale=1080:1920:flags=lanczos,setsar=1"; top = f"crop={tw}:{th}:{tx}:{ty},scale=1080:960:flags=lanczos,setsar=1"
     print(f"horizontal source {w}x{h}: full crop {fw}x{fh}+{fx}+{fy}, top crop {tw}x{th}+{tx}+{ty}")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", cut, "-an", "-vf", full, "-crf", "15"] + V + [f"{out}/cam_full.mp4"], check=True)

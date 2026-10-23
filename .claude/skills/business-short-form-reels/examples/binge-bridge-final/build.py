@@ -32,7 +32,7 @@ def bridge(sid, a, b, full, js, hide_icons=False, extra=""):
     css = """.bw{position:absolute;left:0;width:1080px;height:420px;z-index:5}
     .tw{position:absolute;top:120px;width:150px;height:150px;border-radius:38px;background:#1B1917;border:3px solid rgba(255,255,255,.3);box-shadow:0 24px 50px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;box-sizing:border-box}
     .tw span{display:flex} .tw b{position:absolute;font-family:"HelvB";font-size:92px;color:rgba(255,255,255,.3)} .tn{position:absolute;top:286px;width:240px;text-align:center;font-family:"HelvB";font-size:22px;letter-spacing:.1em;color:var(--grey)}
-    .cb{fill:none;stroke:rgba(242,240,236,.55);stroke-width:5} .hg{stroke:rgba(242,240,236,.4);stroke-width:4} .dk{fill:none;stroke:@@PAPER@@;stroke-width:14;stroke-linecap:round}
+    .cb{fill:none;stroke:rgba(242,240,236,.55);stroke-width:5} .hg{stroke:rgba(242,240,236,.4);stroke-width:4} .dk{fill:none;stroke:#F2F0EC;stroke-width:14;stroke-linecap:round}
     .wv{fill:none;stroke:rgba(255,255,255,.12);stroke-width:5} .pp{fill:#fff;opacity:0}"""
     return K.raw(sid, a, b, full, body, css, """function cross(p, k, g, d, col){ const x0 = [%d,%d][k], x1 = [%d,%d][k], el = document.getElementById(ID+"-p"+p), o = {x:x0};
       tl.set(el, {opacity:1, attr:{fill:col || "#fff"}}, T(g)); __ft(o, {x:x0}, {x:x1, duration:d, ease:"power1.inOut", onUpdate:function(){ el.setAttribute("cx", o.x.toFixed(1)); }}, T(g)); tl.set(el, {opacity:0}, T(g) + d); }
@@ -46,7 +46,7 @@ K.ac(5.0, "pop", -23); K.ac(7.5, "pop", -23)
 bridge("s02-name", 9.4241, 18.1411 - 0.25, True, """draw(tl, "d0", 9.9, 0.7); draw(tl, "d1", 10.3, 0.7);
     tl.fromTo(q("sg"), {opacity:0, y:-24}, {opacity:1, y:0, duration:0.5}, T(10.2));
     [11.5, 11.9, 12.3].forEach(function(g, i){ __tt(q("q"+i), {opacity:0, duration:0.15}, T(g)); __ft(q("i"+i), {opacity:0, scale:0.6}, {opacity:1, scale:1, duration:0.35, ease:"back.out(1.6)"}, T(g)); __tt(q("n"+i), {opacity:1, duration:0.3}, T(g)); });""",
-    hide_icons=True, extra='<div id="{ID}-sg" class="sg">BINGE BRIDGE</div><style>.sg{position:absolute;left:350px;top:-20px;width:380px;height:80px;border-radius:12px;background:@@ACCENT@@;color:@@ON_ACCENT@@;display:flex;align-items:center;justify-content:center;font-family:"HelvB";font-size:40px;letter-spacing:-.03em;box-shadow:0 0 50px rgba(@@ACCENT_RGB@@,.55);opacity:0}</style>')
+    hide_icons=True, extra='<div id="{ID}-sg" class="sg">BINGE BRIDGE</div><style>.sg{position:absolute;left:350px;top:-20px;width:380px;height:80px;border-radius:12px;background:#FF7A1A;color:#120C08;display:flex;align-items:center;justify-content:center;font-family:"HelvB";font-size:40px;letter-spacing:-.03em;box-shadow:0 0 50px rgba(255,122,26,.55);opacity:0}</style>')
 K.ac(9.9, "slide", -22); K.ac(10.2, "shine2", -22); [K.ac(t, "pop", -22) for t in (11.5, 11.9, 12.3)]
 
 # 04 Your bridge is weak (split): someone sets off across, the deck cracks red and they never arrive
@@ -82,7 +82,7 @@ K.raw("s10-toyt", 42.7490 - 0.25, 46.5445, False, """
     <svg class="ar" width="1080" height="560" viewBox="0 0 1080 560"><path id="{ID}-a0" d="M452,161 C520,161 510,250 566,256" fill="none" stroke="#2FA65A" stroke-width="10" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/>
       <path id="{ID}-a1" d="M452,365 C520,365 510,300 566,292" fill="none" stroke="#2FA65A" stroke-width="10" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/></svg>
     <div id="{ID}-yt" class="ytc"><div class="yth"><img src="assets/proof/aj-yt.jpg"/><span class="ytd">24:16</span><i></i></div>
-      <div class="ytm"><span class="yta"></span><div><div class="ytt">The Binge Bridge: full breakdown</div><div class="yts">@@CREATOR_NAME@@ &middot; Free training</div></div></div></div>""" % (K.ig(58, "{ID}s"), K.mail(58)),
+      <div class="ytm"><span class="yta"></span><div><div class="ytt">The Binge Bridge: full breakdown</div><div class="yts">Nahuel &middot; Free training</div></div></div></div>""" % (K.ig(58, "{ID}s"), K.mail(58)),
     """.mc{position:absolute;display:flex;align-items:center;justify-content:center;gap:18px;box-sizing:border-box;z-index:5;opacity:0} .src{left:56px;width:392px;height:130px;border-radius:65px} .mw{font-family:"HelvB";font-size:34px;letter-spacing:-.04em;white-space:nowrap}
     .ar{position:absolute;left:0;top:0;z-index:6}
     .ytc{position:absolute;left:574px;top:40px;width:456px;height:470px;border-radius:26px;background:#0F0F0F;border:2px solid rgba(255,255,255,.16);box-shadow:0 30px 70px rgba(0,0,0,.6);overflow:hidden;z-index:5;font-family:-apple-system,"SF Pro Text","HelvR",Helvetica,sans-serif;opacity:0}

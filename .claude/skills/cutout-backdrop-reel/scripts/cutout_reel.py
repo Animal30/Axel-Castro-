@@ -25,8 +25,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); SKILL = os.path.dirname(HERE); sys.path.insert(0, HERE)
 import stt  # the creator profile is read through it (shared by every skill in the pack)
 # the creator's answers for this skill (setup/SETUP.md). Change the answer and re-run setup/apply_profile.py, never this text.
-ACCENT = "@@ACCENT@@"; ON_ACCENT = "@@ON_ACCENT@@"
-SET = {"caption_size": "@@CAPTION_SIZE@@", "caption_y": "@@CAPTION_Y@@", "rim": "@@RIM@@", "hook_label": "@@HOOK_LABEL@@"}
+ACCENT = "#FF7A1A"; ON_ACCENT = "#120C08"
+SET = {"caption_size": "58", "caption_y": "885", "rim": "0.5", "hook_label": "white"}
 if "@" * 2 in ACCENT + ON_ACCENT + "".join(SET.values()):
     sys.exit("This skill has not been set up yet. Run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")
 def setnum(key, default):

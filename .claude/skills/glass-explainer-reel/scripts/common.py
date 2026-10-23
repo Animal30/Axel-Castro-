@@ -10,11 +10,11 @@ import stt  # noqa: E402
 
 HOME = os.path.expanduser("~")
 PDIR = os.path.dirname(stt.PROFILE)                         # the creator profile folder (shared by every skill in the pack)
-WORK_ROOT = os.path.expanduser("@@WORK_ROOT@@")             # small working files, one folder per slug
-PROJECTS_ROOT = os.path.expanduser("@@PROJECTS_ROOT@@")     # HyperFrames projects, one folder per video
-ACCENT = "@@ACCENT@@"                                       # the brand accent colour
+WORK_ROOT = os.path.expanduser("~/reel-work")             # small working files, one folder per slug
+PROJECTS_ROOT = os.path.expanduser("~/videos")     # HyperFrames projects, one folder per video
+ACCENT = "#FF7A1A"                                       # the brand accent colour
 # the creator's answers for this skill (setup/SETUP.md). Change the answer and re-run setup/apply_profile.py, never this text.
-SET = {"watermark": "@@WATERMARK@@", "handle": "@@HANDLE@@", "platform": "@@PLATFORM@@", "brand_name": "@@BRAND_NAME@@"}
+SET = {"watermark": "off", "handle": "not set", "platform": "instagram", "brand_name": "Nahuel"}
 VIDEO_EXT = (".mp4", ".mov", ".m4v", ".mxf", ".mkv", ".avi", ".webm")
 if "@" * 2 in WORK_ROOT + PROJECTS_ROOT + ACCENT + "".join(SET.values()):
     sys.exit("This skill has not been set up yet. Run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")

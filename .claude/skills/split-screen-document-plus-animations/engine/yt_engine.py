@@ -41,8 +41,8 @@ def _num(v, d):
     except ValueError: return d
 
 
-PUNCH = _num("@@PUNCH_PERCENT@@", 112) / 100     # default punch-in scale on the speaker (a hard cut-in, used rarely and only with a reason); a setup answer
-DEPTH = "@@DEPTH_3D@@".strip().lower() not in ("off", "no", "none", "flat", "false")   # setup answer. Off = every graphic stays flat: no Z movement, no 3D tilt
+PUNCH = _num("112", 112) / 100     # default punch-in scale on the speaker (a hard cut-in, used rarely and only with a reason); a setup answer
+DEPTH = "on".strip().lower() not in ("off", "no", "none", "flat", "false")   # setup answer. Off = every graphic stays flat: no Z movement, no 3D tilt
 RET = 30                             # the opening: something meaningful changes within 3 s, then every 2-5 s until here
 PANEL_W, PANEL_SHIFT = 800, 400
 REGION = {"full": (160, 90, 1600, 900), "panel": (70, 60, 660, 960)}
@@ -130,7 +130,7 @@ def vid(src, t, dur, media_start=0, style=""):
 
 
 # ---------------------------------------------------------------- people in pictures: find the faces, crop around them, never through them
-FACES_BIN = os.path.expanduser("@@WORK_ROOT@@/.bin/faces")
+FACES_BIN = os.path.expanduser("~/reel-work/.bin/faces")
 FACES_SRC = os.path.expanduser("~/.claude/skills/educational-youtube-editor/scripts/faces.swift")
 
 
@@ -291,15 +291,15 @@ def chunks(target=None):
 
 # ---------------------------------------------------------------- build
 BASE_CSS = r"""
-@font-face{font-family:"HelvB";src:@@FONT_MAIN_BOLD_SRC@@;font-weight:700}
-@font-face{font-family:"HelvR";src:@@FONT_MAIN_REGULAR_SRC@@;font-weight:400}
-@font-face{font-family:"Ivy";src:@@FONT_ACCENT_SRC@@;font-style:italic;font-weight:400 700}
-:root{--o:__ACCENT__;--ink:@@BG@@;--paper:@@PAPER@@;--grey:@@GREY@@;--line:rgba(242,240,236,.14);--good:#2FA65A;--bad:#B3261E;--r:__R__px;--rs:__RS__px;
+@font-face{font-family:"HelvB";src:url("assets/fonts/Inter-Bold.otf");font-weight:700}
+@font-face{font-family:"HelvR";src:url("assets/fonts/Inter-Regular.otf");font-weight:400}
+@font-face{font-family:"Ivy";src:url("assets/fonts/PlayfairDisplay-Italic.ttf");font-style:italic;font-weight:400 700}
+:root{--o:__ACCENT__;--ink:#050505;--paper:#F2F0EC;--grey:#9A928A;--line:rgba(242,240,236,.14);--good:#2FA65A;--bad:#B3261E;--r:__R__px;--rs:__RS__px;
 --sh:0 34px 90px rgba(0,0,0,.55),0 8px 24px rgba(0,0,0,.35);--sf:-apple-system,"SF Pro Display","SF Pro Text","HelvR",Helvetica,sans-serif}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;font-family:"HelvR",Helvetica,Arial,sans-serif;color:var(--paper)}
 #stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
-#bg,#fgbg{position:absolute;inset:0;background:radial-gradient(90% 70% at 22% 118%,rgba(@@ACCENT_RGB@@,.42) 0%,rgba(@@ACCENT_RGB@@,.15) 36%,rgba(@@BG_RGB@@,0) 72%),radial-gradient(60% 50% at 96% -8%,rgba(@@ACCENT_RGB@@,.16),rgba(@@BG_RGB@@,0) 70%),@@BG@@}
+#bg,#fgbg{position:absolute;inset:0;background:radial-gradient(90% 70% at 22% 118%,rgba(255,122,26,.42) 0%,rgba(255,122,26,.15) 36%,rgba(5,5,5,0) 72%),radial-gradient(60% 50% at 96% -8%,rgba(255,122,26,.16),rgba(5,5,5,0) 70%),#050505}
 #bg::after,#fgbg::after{content:"";position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>")}
 #fgbg{opacity:0}
 #cam{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:#000}
@@ -307,17 +307,17 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
 #camp{width:1920px;height:1080px;transform-origin:__FX__px __FY__px}
 #camz{width:1920px;height:1080px;transform-origin:__FX__px __FY__px}
 #camz video{display:block;width:1920px;height:1080px;object-fit:cover}
-#dim{position:absolute;inset:0;background:@@BG@@;opacity:0}
+#dim{position:absolute;inset:0;background:#050505;opacity:0}
 #panelL,#panelR{position:absolute;top:0;width:800px;height:1080px;background:var(--ink);overflow:hidden;box-shadow:0 0 90px rgba(0,0,0,.5)}
 #panelL{left:0;transform:translateX(-860px)}#panelR{right:0;transform:translateX(860px)}
-#panelL::before,#panelR::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 60% at 30% 112%,rgba(@@ACCENT_RGB@@,.46) 0%,rgba(@@ACCENT_RGB@@,.16) 36%,rgba(@@BG_RGB@@,0) 78%)}
+#panelL::before,#panelR::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 60% at 30% 112%,rgba(255,122,26,.46) 0%,rgba(255,122,26,.16) 36%,rgba(5,5,5,0) 78%)}
 .sc{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
 .sc .in{position:absolute;inset:0;opacity:0}
 .pc{position:absolute;transform-origin:50% 50%}
 .pc>.box{position:relative;width:100%;height:100%}
 .h{opacity:0}
 .p3{perspective:1700px;transform-style:preserve-3d}.p3 *{transform-style:preserve-3d}
-.btgrad{position:absolute;left:0;right:0;bottom:0;height:520px;background:linear-gradient(to top,rgba(@@BG_RGB@@,.92) 0%,rgba(@@BG_RGB@@,.66) 36%,rgba(@@BG_RGB@@,.22) 70%,rgba(@@BG_RGB@@,0) 100%)}
+.btgrad{position:absolute;left:0;right:0;bottom:0;height:520px;background:linear-gradient(to top,rgba(5,5,5,.92) 0%,rgba(5,5,5,.66) 36%,rgba(5,5,5,.22) 70%,rgba(5,5,5,0) 100%)}
 .B{font-family:"HelvB";letter-spacing:-.04em}
 i.a{font-family:"Ivy",serif;font-style:italic;font-weight:400;color:var(--o);letter-spacing:-.02em}
 .lbl{font-family:"HelvB";font-size:21px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey)}
@@ -462,7 +462,7 @@ def build(chunk=None, quiet=False):
     T += sorted([[sel, round(max(0, t - off), 3), (dd if t >= off else round(max(0.001, dd - (off - t)), 3)), to, (frm if t >= off else None), ease] for sel, t, dd, to, frm, ease in TW if t + dd > off and t < a1], key=lambda x: x[1])
     C = [[sel, round(t - off, 3), *rest] for sel, t, *rest in CN if off <= t < a1]
     cid = f"{P.get('slug', 'yt')}-{ci}"
-    cssx = (BASE_CSS.replace("__ACCENT__", P.get("accent", "@@ACCENT@@")).replace("__R__", str(RADIUS)).replace("__RS__", str(RADIUS_S))
+    cssx = (BASE_CSS.replace("__ACCENT__", P.get("accent", "#FF7A1A")).replace("__R__", str(RADIUS)).replace("__RS__", str(RADIUS_S))
             .replace("__FX__", str(FACE[0])).replace("__FY__", str(FACE[1])) + "\n".join(dict.fromkeys(XCSS)))
     js = RUNTIME.replace("__TW__", json.dumps(T)).replace("__CN__", json.dumps(C)).replace("__ID__", cid).replace("__PRE__", f"{pre:.4f}").replace("__D__", f"{d:.4f}")
     wm = ""

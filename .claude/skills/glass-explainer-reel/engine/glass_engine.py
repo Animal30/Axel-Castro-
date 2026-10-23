@@ -32,9 +32,9 @@ import html as _html, json, os, re
 ROOT = None; P = {}; BR = {}; CAPS = []; CUTS = []; FULL = []
 _H, _C, _J, BEATS, WARN = [], [], [], [], []
 SFX, ASSETS, WORDS, KCSS = [], [], [], set()      # sound cues [t, name, level]; asset / wording records for the report; kit CSS already added
-_LOOK = "@@GLASS_LOOK@@".strip().lower()        # the creator's answer at setup: full / soft / off (a build.py can still override E.GLASS / E.LIGHT)
+_LOOK = "full".strip().lower()        # the creator's answer at setup: full / soft / off (a build.py can still override E.GLASS / E.LIGHT)
 GLASS = _LOOK != "off"  # Liquid Glass finish on cards (False = the plain hairline look of the panel skill)
-SOUND = "@@SOUND_EFFECTS@@".strip().lower() not in ("off", "no", "false")   # record quiet sound cues for key reveals (False = the speaker's voice only)
+SOUND = "on".strip().lower() not in ("off", "no", "false")   # record quiet sound cues for key reveals (False = the speaker's voice only)
 LIGHT = 0.6 if _LOOK == "soft" else 1.0         # strength of the soft light the glass refracts (0 = none)
 _n = [0]
 HEAD_TOP = 190          # top of the heading / section bar
@@ -392,11 +392,11 @@ def build():
     head = pn["head"]
     fg = f'<div id="panelFg"><video id="vFg" src="assets/cam_panel_fg.webm" muted playsinline data-start="0" data-duration="{D}" data-track-index="2"></video></div>' if has_fg else ""
     fonts = f"""
-      @font-face {{ font-family: "SFB"; src: @@FONT_CAPTION_SRC@@; font-weight: 700; }}
-      @font-face {{ font-family: "SFS"; src: @@FONT_CAPTION_SRC@@; font-weight: 600; }}
-      @font-face {{ font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }}
-      @font-face {{ font-family: "HelvR"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 400; }}
-      @font-face {{ font-family: "Ivy"; src: @@FONT_ACCENT_SRC@@; font-style: normal; font-weight: 400; }}"""
+      @font-face {{ font-family: "SFB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }}
+      @font-face {{ font-family: "SFS"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 600; }}
+      @font-face {{ font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }}
+      @font-face {{ font-family: "HelvR"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 400; }}
+      @font-face {{ font-family: "Ivy"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-style: normal; font-weight: 400; }}"""
     index = f"""<!doctype html>
 <html lang="en">
   <head>
@@ -406,8 +406,8 @@ def build():
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>{fonts}
       :root {{ --o: {O}; }}
-      body {{ margin: 0; background: @@BG@@; }}
-      #root {{ position: relative; width: 1080px; height: 1920px; overflow: hidden; background: @@BG@@; font-family: "{sans}", "HelvB", Helvetica, sans-serif; color: #fff; letter-spacing: -0.05em; }}
+      body {{ margin: 0; background: #050505; }}
+      #root {{ position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #050505; font-family: "{sans}", "HelvB", Helvetica, sans-serif; color: #fff; letter-spacing: -0.05em; }}
       #dots {{ position: absolute; inset: 0; z-index: 0; background-image: radial-gradient(rgba(255,255,255,.085) 1.6px, transparent 2px); background-size: 34px 34px; }}
       #gfx {{ position: absolute; inset: 0; z-index: 2; }}
       .w {{ position: absolute; width: 1080px; display: flex; justify-content: center; pointer-events: none; }}
@@ -416,17 +416,17 @@ def build():
       .hd {{ position: absolute; left: 0; width: 1080px; text-align: center; opacity: 0; line-height: 1.12; }}
       .hl span {{ display: inline-block; padding: 1px 16px 3px; white-space: nowrap; }}
       .hl .blk {{ background: var(--o); box-shadow: 0 0 34px color-mix(in srgb, var(--o) 55%, transparent); }}
-      .hl .blk {{ color: @@ON_ACCENT@@; }}
-      .hl .blk em.iv, .hl .blk em.nu {{ color: @@ON_ACCENT@@; }}
+      .hl .blk {{ color: #120C08; }}
+      .hl .blk em.iv, .hl .blk em.nu {{ color: #120C08; }}
       .hl .und {{ border-bottom: 4px solid var(--o); }}
       .sbar {{ height: 108px; display: flex; align-items: center; gap: 0; box-sizing: border-box; border: 2px solid rgba(255,255,255,.55); border-left: 16px solid var(--o); background: linear-gradient(90deg, #0b0b0b, #3a3a3a); font-size: 46px; opacity: 0; }}
       .sbar b {{ width: 120px; text-align: center; font-weight: 700; }} .sbar span {{ flex: 1; text-align: center; padding-right: 60px; white-space: nowrap; }}
-      .gcard {{ position: relative; box-sizing: border-box; opacity: 0; border: 2px solid rgba(255,255,255,.8); background: @@BG@@; }}
-      .box {{ --hot: 0; position: relative; border: 3px solid color-mix(in srgb, var(--o) calc(var(--hot) * 100%), #fff); background: @@BG@@; text-align: center; line-height: 1.02; white-space: nowrap; opacity: 0; box-shadow: 0 0 calc(var(--hot) * 40px) var(--o); }}
-      .box.fill {{ background: var(--o); border-color: var(--o); color: @@ON_ACCENT@@; }}
-      .chip {{ background: var(--o); color: @@ON_ACCENT@@; padding: 5px 16px 7px; line-height: 1; white-space: nowrap; opacity: 0; box-shadow: 0 0 24px color-mix(in srgb, var(--o) 50%, transparent); }}
+      .gcard {{ position: relative; box-sizing: border-box; opacity: 0; border: 2px solid rgba(255,255,255,.8); background: #050505; }}
+      .box {{ --hot: 0; position: relative; border: 3px solid color-mix(in srgb, var(--o) calc(var(--hot) * 100%), #fff); background: #050505; text-align: center; line-height: 1.02; white-space: nowrap; opacity: 0; box-shadow: 0 0 calc(var(--hot) * 40px) var(--o); }}
+      .box.fill {{ background: var(--o); border-color: var(--o); color: #120C08; }}
+      .chip {{ background: var(--o); color: #120C08; padding: 5px 16px 7px; line-height: 1; white-space: nowrap; opacity: 0; box-shadow: 0 0 24px color-mix(in srgb, var(--o) 50%, transparent); }}
       .shot .chip {{ opacity: 1; }}
-      .term {{ height: 88px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 2px solid rgba(255,255,255,.75); background: linear-gradient(90deg, color-mix(in srgb, var(--o) 55%, #000), var(--o) 50%, color-mix(in srgb, var(--o) 55%, #000)); box-shadow: 0 0 30px color-mix(in srgb, var(--o) 45%, transparent); white-space: nowrap; opacity: 0; color: @@ON_ACCENT@@; }}
+      .term {{ height: 88px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 2px solid rgba(255,255,255,.75); background: linear-gradient(90deg, color-mix(in srgb, var(--o) 55%, #000), var(--o) 50%, color-mix(in srgb, var(--o) 55%, #000)); box-shadow: 0 0 30px color-mix(in srgb, var(--o) 45%, transparent); white-space: nowrap; opacity: 0; color: #120C08; }}
       .txt {{ text-align: center; line-height: 1.08; opacity: 0; }}
       .node {{ --hot: 1; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; border: 3px solid rgba(255,255,255,.85); background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--o) 55%, #000), #0a0a0a 75%); color: var(--o); box-shadow: 0 0 calc(var(--hot) * 46px) color-mix(in srgb, var(--o) 70%, transparent); opacity: 0; }}
       .shot {{ --hot: 0; position: relative; box-sizing: border-box; border: 2px solid color-mix(in srgb, var(--o) calc(var(--hot) * 100%), rgba(255,255,255,.8)); background: #0a0a0a; box-shadow: 0 0 calc(18px + var(--hot) * 30px) color-mix(in srgb, var(--o) calc(var(--hot) * 80%), rgba(255,255,255,.14)); opacity: 0; }}

@@ -27,29 +27,29 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they teach, and to whom | @@NICHE@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ · text @@PAPER@@ · small labels @@GREY@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ |
-| Logo · wordmark | @@LOGO@@ · @@WORDMARK@@ |
-| Where the logo appears | @@LOGO_USE@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Raw long-form files live in | @@RAW_DIR@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` |
-| Real material (proof) | @@PROOF_DIR@@ |
-| Other folders to search for real assets | @@ASSET_DIRS@@ |
-| Real assets from the web | @@WEB_ASSETS@@ |
-| Dialogue edit | pauses over @@PAUSE_OVER@@ s are shortened to @@PAUSE_TO@@ s · breaths: @@BREATHS@@ |
-| Punch-in strength | @@PUNCH_PERCENT@@% |
-| Depth and 3D in graphics | @@DEPTH_3D@@ |
-| Captions | @@CAPTIONS@@ |
-| Master resolution | @@MASTER_RESOLUTION@@ |
-| How far to go alone | @@WORK_RULE@@ |
-| Music | @@MUSIC_RULE@@ · music folder: @@MUSIC_DIR@@ |
-| Sound effects | @@SFX_DIR@@ |
-| Never show | @@NEVER_SHOW@@ |
+| Creator | Nahuel · Nahuel · not set |
+| What they teach, and to whom | not set |
+| Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC · small labels #9A928A |
+| Fonts | main: Inter · emphasis: Playfair Display Italic |
+| Logo · wordmark | none · none |
+| Where the logo appears | only where a graphic calls for it, never a constant watermark |
+| Transcriber | elevenlabs |
+| Raw long-form files live in | none: ask each time |
+| Footage drive | none |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` |
+| Real material (proof) | none yet |
+| Other folders to search for real assets | none |
+| Real assets from the web | yes: real over drawn, every source listed in the report |
+| Dialogue edit | pauses over 0.5 s are shortened to 0.25 s · breaths: keep |
+| Punch-in strength | 112% |
+| Depth and 3D in graphics | on |
+| Captions | none |
+| Master resolution | 1080p |
+| How far to go alone | run to the end, then report |
+| Music | ask · music folder: none yet |
+| Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
+| Never show | nothing listed |
 
 ## What this skill is for
 
@@ -99,7 +99,7 @@ The creator's face is the default and should stay on screen roughly 70% or more 
 
 ## Workflow
 
-`S=~/.claude/skills/educational-youtube-editor/scripts` · work dir `@@WORK_ROOT@@/<slug>` (small files) · project `@@PROJECTS_ROOT@@/<slug>-yt` · output: the output folder (`@@OUTPUT_RULE@@`); by default `"<video folder>/<video name> - Edit"`, on the drive the video is on. Video files are large: the cut, the working copy and the rendered chunks stay on the drive that holds the raw file. Run long steps in the background. One render at a time when writing to an external drive.
+`S=~/.claude/skills/educational-youtube-editor/scripts` · work dir `~/reel-work/<slug>` (small files) · project `~/videos/<slug>-yt` · output: the output folder (`/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`); by default `"<video folder>/<video name> - Edit"`, on the drive the video is on. Video files are large: the cut, the working copy and the rendered chunks stay on the drive that holds the raw file. Run long steps in the background. One render at a time when writing to an external drive.
 
 If the creator names a video without a path, look in the raw folder from **Your setup** first; if it is not there, ask.
 
@@ -107,7 +107,7 @@ If the creator names a video without a path, look in the raw folder from **Your 
 2. **Transcribe the whole video.** `python3 $S/02_transcribe.py <slug>`. It uses the transcriber chosen at setup through `scripts/stt.py` (ElevenLabs, or free on this computer). If it reports that the ElevenLabs key is missing, tell the creator how to add it to their shell profile themselves (`setup/SHARED-SETUP.md`, A5), or offer to switch to local transcription. **Never ask for the key in chat.**
 3. **Understand the entire video.** Read the full script for the argument, teaching points, stories and examples (`references/analysis.md`) before marking a single cut.
 4. **Identify mistakes, repetition, dead space and content that does not serve the point.** Write `drops.json` with a reason on every entry (`references/dialogue-edit.md`).
-5. **Create the clean dialogue edit.** `python3 $S/03_cut.py <slug> && python3 $S/04_verify.py <slug>` until clean; read `edit.txt` as a script and check every cut preserves the meaning; then `python3 $S/05_render_cut.py <slug>`. Tight, confident, natural: pauses over @@PAUSE_OVER@@ s are shortened to @@PAUSE_TO@@ s, not removed (the script reads these from setup), and not every filler goes. **The voice is never processed** beyond the cuts. With local transcription the word edges are looser: listen to `edit.wav` around the joins before rendering the cut.
+5. **Create the clean dialogue edit.** `python3 $S/03_cut.py <slug> && python3 $S/04_verify.py <slug>` until clean; read `edit.txt` as a script and check every cut preserves the meaning; then `python3 $S/05_render_cut.py <slug>`. Tight, confident, natural: pauses over 0.5 s are shortened to 0.25 s, not removed (the script reads these from setup), and not every filler goes. **The voice is never processed** beyond the cuts. With local transcription the word edges are looser: listen to `edit.wav` around the joins before rendering the cut.
 6. **Analyse where visuals improve comprehension or retention.** `python3 $S/06_new_project.py <slug> "<Title>"` (open `face-check.jpg`; re-run with `--refresh --face X,Y` if the ring is not on the nose: the split crops around it). It prints which brand images and fonts it found: a font reported as not found must be fixed before anything is rendered. Fill in `content_map.json`, then write `edit_plan.json` following `references/decision-engine.md`: one entry per moment with what is being communicated, the `why`, a 1-5 score, the state, the component and the asset wanted, plus the stretches deliberately left alone. `python3 $S/plan_check.py <slug>`.
 7. **Build the visual edit.** Get the real assets first (`references/asset-retrieval.md`: `find_assets.py`, then `get_asset.py`; look at every image with Read). Write `build.py` with `yt_engine` (E) and `yt_kit` (K); time everything from the words with `E.w("exact words", after)`. Look as you go: `python3 $S/snap.py <slug> --scene <id> ...`. `python3 build.py` prints the audit each time.
 8. **A meaningful visual change inside the first 3 seconds.** Talking head, then a motion graphic or visual explanation of what is being said, then back to the creator or a split, then the next visual. It must support the narration, not interrupt it. The video also opens on a very subtle zoom in or out (`E.OPEN`).
@@ -131,7 +131,7 @@ Full version in `references/decision-engine.md`. Before adding any edit, answer:
 - **Frameworks get one map, reused.** Introduce it once (`K.framework` with `times`), come back to the same map with the current stage lit, and pin `K.tracker` (1 2 [3] 4 5) at the top while the creator talks through a stage.
 - **Stories get less, not more.** Photos, places, dates, a slow drift. If the delivery carries it, leave the creator on screen.
 - **Do not force graphics. Meaningful visual change beats random visual change.** When no graphic genuinely helps, use a punch-in, subtle reframing, the slow drift, a composition change or a word of emphasis. That is always better than an irrelevant image or animation, including in the opening.
-- **Punch-ins are motivated and occasional** (`E.punch(a, b, "reason")`): an important statement, a strong opinion, a reveal, a change of thought, an emotional moment, a key takeaway. Start one on a cut where you can. The audit flags them when they bunch up or pass about 1.5 a minute. The strength is a setup answer (@@PUNCH_PERCENT@@%).
+- **Punch-ins are motivated and occasional** (`E.punch(a, b, "reason")`): an important statement, a strong opinion, a reveal, a change of thought, an emotional moment, a key takeaway. Start one on a cut where you can. The audit flags them when they bunch up or pass about 1.5 a minute. The strength is a setup answer (112%).
 - **Long stretches of just the creator get simulated camera movement**: one slow move from 100% towards 103-106% (or the reverse) over the stretch, alternating direction between stretches. Felt, not noticed. Never in and out.
 
 ## The default style
@@ -144,10 +144,10 @@ These are the pack's defaults. The creator's own values are in **Your setup**; r
 - **No headline, kicker or sub-line explaining a graphic.** Only text that is part of the graphic (labels, UI text, numbers, list items, name tags). A bottom-centre title over the creator is fine (`K.title`).
 - **No em dashes in any on-screen text** (it reads as machine-written). Commas, full stops, or a middle dot.
 - **When YouTube is named, show YouTube; a comment or DM is the real notification; a document is the real document.** A real interface beats a text card.
-- **A person is named: their real photo or footage, with their name on it.** Look in the proof folder (`@@PROOF_DIR@@`) and the other asset folders from **Your setup** first.
+- **A person is named: their real photo or footage, with their name on it.** Look in the proof folder (`none yet`) and the other asset folders from **Your setup** first.
 - **Never crop through a face.** Frames take the image's own shape by default. When a layout needs another shape, faces are detected and the crop is placed around the subject; if they cannot fit, the layout changes (smaller, repositioned, another aspect, the whole image on a blurred extension of itself) or a better image is found. Protecting the subject beats fitting the template.
 - **Nothing runs off the frame.** Full-screen graphics sit at about 84% (the engine does this). After any size change, pull frames and check the edges.
-- **Depth and 3D** follow the setup answer (`@@DEPTH_3D@@`). On (the pack default): cards separating through depth, a frame resting at a slight angle, layers at different distances, always to mean something. Off: the engine keeps every graphic flat (it drops the 3D part of each move and never picks the tilted look), so build custom graphics flat as well.
+- **Depth and 3D** follow the setup answer (`on`). On (the pack default): cards separating through depth, a frame resting at a slight angle, layers at different distances, always to mean something. Off: the engine keeps every graphic flat (it drops the 3D part of each move and never picks the tilted look), so build custom graphics flat as well.
 - **The logo** follows "Where the logo appears" in **Your setup**. The pack default is no watermark: the logo or wordmark appears only where a graphic calls for it (the creator's own channel card, an end card, a "from the brand" moment). In `build.py`, `E.brand_asset("logo")`, `E.brand_asset("wordmark")` and `E.brand_asset("avatar")` return the file to use, or `None` when the creator did not give one: always handle `None` (use the brand name set in the main font, or leave the mark out). Never draw a stand-in logo. If their answer asks for a constant watermark, call `E.watermark()` once in `build.py` (a small mark in one corner for the whole video; it does nothing when no logo was given).
 - **Sound: key moments only, far under the voice.** A soft whoosh as a graphic arrives, a pop or tick on a small element landing. Never a sound on every element. Sounds come from the creator's own pack through `sfx_map.json` (made at setup with `scripts/sfx_probe.py`). No pack = the video is delivered without sound effects: say so in the report, do not invent sounds.
 - **Music** follows the setup answer: `ask` means ask every time whether, and which track; `pick` means choose from their music folder or favourites and say which. Either way deliver a with-music and a without-music file.

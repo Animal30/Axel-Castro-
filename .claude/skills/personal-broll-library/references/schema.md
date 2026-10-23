@@ -48,7 +48,7 @@ actions, camera_angle, subject_movement, lighting, colour, mood, avoid_for, issu
   "clip_id": "c_39cdd491d2c2",
   "summary": "string",
   "description": "string",
-  "people": ["@@CREATOR_FIRST_NAME@@ (subject, upper body)"],
+  "people": ["Nahuel (subject, upper body)"],
   "speaking": "none | talking to camera | talking off camera | on a call | background voices",
   "location": "string", "environment": "indoor | outdoor | vehicle | screen", "time_of_day": "string",
   "setting_details": "string",

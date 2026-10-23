@@ -13,7 +13,7 @@ GL, AC = [], []          # sound: glide-in times, accents [(t, name, level)]
 OB, OF, OC, OJ = [], [], [], []
 R = lambda i: f"assets/reels/r{i:02d}.jpg"
 PERSON = '<svg viewBox="0 0 24 24" width="100%" height="100%"><circle cx="12" cy="7.6" r="4.3" fill="currentColor"/><path d="M3.2,22 C4.2,15.2 19.8,15.2 20.8,22 Z" fill="currentColor"/></svg>'
-CHK = '<svg viewBox="0 0 40 40" width="54" height="54"><circle cx="20" cy="20" r="19" fill="@@ACCENT@@"/><path d="M11,21 L17.5,27 L29,14" fill="none" stroke="@@ON_ACCENT@@" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+CHK = '<svg viewBox="0 0 40 40" width="54" height="54"><circle cx="20" cy="20" r="19" fill="#FF7A1A"/><path d="M11,21 L17.5,27 L29,14" fill="none" stroke="#120C08" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 def ac(t, name, lv=-21): AC.append((round(t, 3), name, lv))
 
 def scene(sid, a, b, full, body, css, js):
@@ -31,7 +31,7 @@ def igicon(u): return ('<svg viewBox="0 0 48 48" width="50" height="50"><defs><r
     '<rect x="11" y="11" width="26" height="26" rx="8" fill="none" stroke="#fff" stroke-width="3"/><circle cx="24" cy="24" r="6.5" fill="none" stroke="#fff" stroke-width="3"/><circle cx="32.2" cy="15.8" r="1.9" fill="#fff"/></svg>') % (u, u)
 def ig(sz=64, u="x"): return igicon(u).replace('width="50" height="50"', 'width="%d" height="%d"' % (sz, sz))
 def yt(sz=64): return '<svg viewBox="0 0 48 48" width="%d" height="%d"><rect x="2" y="9" width="44" height="30" rx="9" fill="#FF0000"/><path d="M20,17 L32,24 L20,31 Z" fill="#fff"/></svg>' % (sz, sz)
-def mail(sz=64): return '<svg viewBox="0 0 48 48" width="%d" height="%d"><rect x="3" y="9" width="42" height="30" rx="6" fill="@@PAPER@@"/><path d="M6,13 L24,27 L42,13" fill="none" stroke="@@ON_ACCENT@@" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' % (sz, sz)
+def mail(sz=64): return '<svg viewBox="0 0 48 48" width="%d" height="%d"><rect x="3" y="9" width="42" height="30" rx="6" fill="#F2F0EC"/><path d="M6,13 L24,27 L42,13" fill="none" stroke="#120C08" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' % (sz, sz)
 DOCI = '<svg viewBox="0 0 48 64" width="38" height="50"><path d="M4,0 H30 L48,18 V60 a4,4 0 0 1 -4,4 H4 a4,4 0 0 1 -4,-4 V4 a4,4 0 0 1 4,-4 Z" fill="#4285F4"/><path d="M30,0 L48,18 H34 a4,4 0 0 1 -4,-4 Z" fill="#A1C2FA"/><path d="M11,30 H37 M11,38 H37 M11,46 H29" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/></svg>'
 ANON = '<svg viewBox="0 0 24 24" width="112" height="112"><rect width="24" height="24" fill="#3A3A3C"/><circle cx="12" cy="9.4" r="4.2" fill="#8E8E93"/><path d="M3.4,24 C4.2,16.4 19.8,16.4 20.6,24 Z" fill="#8E8E93"/></svg>'
 
@@ -55,10 +55,10 @@ def stack(sid, a, b, full, items, times, light=(), dim=(), strike=(), reveal=(),
     js = "".join('tl.fromTo(q("m%d"), {opacity:0, y:30}, {opacity:1, y:0, duration:0.5, ease:"power2.inOut"}, T(%s));' % (i, t) for i, t in enumerate(times))
     if solid:
         css += """ #root .mc.solid{background:#1B1917;-webkit-backdrop-filter:none;backdrop-filter:none;border:3px solid rgba(255,255,255,.34);box-shadow:0 14px 34px rgba(0,0,0,.5)}"""
-        for i, t in light: js += 'tl.to(q("m%d"), {backgroundColor:"@@ACCENT@@", borderColor:"@@ACCENT_LIGHT@@", color:"@@ON_ACCENT@@", boxShadow:"0 0 50px rgba(@@ACCENT_RGB@@,.55)", duration:0.3}, T(%s));' % (i, t)
+        for i, t in light: js += 'tl.to(q("m%d"), {backgroundColor:"#FF7A1A", borderColor:"#FFB27A", color:"#120C08", boxShadow:"0 0 50px rgba(255,122,26,.55)", duration:0.3}, T(%s));' % (i, t)
         light = ()
     for i, t in light:
-        js += 'tl.to(q("m%d"), {borderColor:"@@ACCENT@@", boxShadow:"0 0 50px rgba(@@ACCENT_RGB@@,.5)", duration:0.25}, T(%s)); tl.to("#"+ID+"-m%d .mn", {color:"@@ACCENT@@", duration:0.25}, T(%s)); sweep(tl, "m%d", %s);' % (i, t, i, t, i, t)
+        js += 'tl.to(q("m%d"), {borderColor:"#FF7A1A", boxShadow:"0 0 50px rgba(255,122,26,.5)", duration:0.25}, T(%s)); tl.to("#"+ID+"-m%d .mn", {color:"#FF7A1A", duration:0.25}, T(%s)); sweep(tl, "m%d", %s);' % (i, t, i, t, i, t)
     for ids, t in dim: js += 'tl.to([%s], {opacity:0.35, duration:0.4, ease:"power2.inOut"}, T(%s));' % (",".join('q("m%d")' % i for i in ids), t)
     for lst, col, rgb in ((good, "#2FA65A", "47,166,90"), (bad, "#B3261E", "179,38,30")):
         for i, t in lst: js += 'tl.to(q("m%d"), {borderColor:"%s", boxShadow:"0 0 50px rgba(%s,.55)", duration:0.25}, T(%s)); tl.to(["#"+ID+"-m%d .mn", "#"+ID+"-m%d .mw"], {color:"%s", duration:0.25}, T(%s)); sweep(tl, "m%d", %s);' % (i, col, rgb, t, i, i, "#7BE0A0" if col == "#2FA65A" else "#FF8A80", t, i, t)
@@ -70,7 +70,7 @@ def stack(sid, a, b, full, items, times, light=(), dim=(), strike=(), reveal=(),
     return scene(sid, a, b, full, html + extra, css, js + xjs)
 
 # ------------------------------------------------------------------ counter (plain ticking number, accent colour on landing), optional real image above it
-def count(sid, a, b, full, frm, to, t, label, dur=1.25, img=None, img_t=None, pre="", suf="", tone="@@ACCENT@@", xbody="", xcss="", xjs=""):
+def count(sid, a, b, full, frm, to, t, label, dur=1.25, img=None, img_t=None, pre="", suf="", tone="#FF7A1A", xbody="", xcss="", xjs=""):
     if full: nt, lt, fs, ih = (880 if img else 590), (1040 if img else 750), 136, 500
     else: nt, lt, fs, ih = (180 if not img else 340), (330 if not img else 470), (130 if not img else 108), 300
     body = (('<div id="{ID}-plq" class="plq" style="background-image:url(%s)"></div>' % img) if img else "") + '<div id="{ID}-num" class="num de-num">%s%s%s</div><div id="{ID}-lab" class="de-label lab">%s</div>' % (pre, f"{frm:,}", suf, label) + xbody
@@ -80,7 +80,7 @@ def count(sid, a, b, full, frm, to, t, label, dur=1.25, img=None, img_t=None, pr
     js = ('tl.fromTo(q("plq"), {opacity:0, scale:0.9}, {opacity:1, scale:1, duration:0.5, ease:"power2.inOut"}, T(%s));' % (img_t if img_t is not None else t - 0.9) if img else "") + """
     tl.fromTo(q("num"), {opacity:0, y:30}, {opacity:1, y:0, duration:0.5, ease:"power2.inOut"}, T(%s)); tl.fromTo(q("lab"), {opacity:0}, {opacity:1, duration:0.5, ease:"power2.inOut"}, T(%s));
     const n = {v:%d}, el = document.getElementById(ID+"-num");
-    __ft(n, {v:%d}, {v:%d, duration:%s, ease:"power2.inOut", onUpdate:function(){ el.textContent = "%s" + Math.round(n.v).toLocaleString("en-US") + "%s"; el.style.color = Math.abs(n.v - %d) < 1 ? "%s" : "@@PAPER@@"; }}, T(%s));""" % (t - 0.1, t, frm, frm, to, dur, pre, suf, to, tone, t)
+    __ft(n, {v:%d}, {v:%d, duration:%s, ease:"power2.inOut", onUpdate:function(){ el.textContent = "%s" + Math.round(n.v).toLocaleString("en-US") + "%s"; el.style.color = Math.abs(n.v - %d) < 1 ? "%s" : "#F2F0EC"; }}, T(%s));""" % (t - 0.1, t, frm, frm, to, dur, pre, suf, to, tone, t)
     ac(t, "data", -24); ac(t + dur, "shine", -21)
     return scene(sid, a, b, full, body, css, js + xjs)
 
@@ -103,7 +103,7 @@ def versus(sid, a, b, tagA, txA, tagB, txB, tA, tB, tHot, full=True):
     body = """<div id="{ID}-a" class="sc" style="top:%dpx"><div class="tg">%s</div><div class="tx">%s</div></div><div id="{ID}-ln" class="ln"></div>
     <div id="{ID}-b" class="sc good" style="top:%dpx;opacity:0"><div class="tg to">%s</div><div class="tx">%s</div></div>""" % (top[0], tagA, txA, top[1], tagB, txB)
     css = """.sc{position:absolute;left:90px;width:900px;height:%dpx;border-radius:%dpx;padding:34px 80px;box-sizing:border-box;z-index:5}
-    .tg{display:inline-block;padding:8px 16px;border-radius:12px;background:rgba(255,255,255,.08);font-family:"HelvB";font-size:22px;letter-spacing:.14em;color:var(--grey)} .to{background:rgba(@@ACCENT_RGB@@,.18);color:#FFC58F}
+    .tg{display:inline-block;padding:8px 16px;border-radius:12px;background:rgba(255,255,255,.08);font-family:"HelvB";font-size:22px;letter-spacing:.14em;color:var(--grey)} .to{background:rgba(255,122,26,.18);color:#FFC58F}
     .tx{font-family:"HelvB";font-size:50px;letter-spacing:-.04em;margin-top:30px;white-space:nowrap} .tx b{display:inline-block;color:#5FD08A;text-shadow:0 0 30px rgba(47,166,90,.6)} .sc:not(.good) .tx b{color:#FF8A80;text-shadow:none}
     #root .sc.good{border-color:#2FA65A;box-shadow:inset 0 2px 1px rgba(220,255,230,.5), 0 0 46px rgba(47,166,90,.45), 0 22px 54px rgba(0,0,0,.45)} .sc.good .to{background:rgba(47,166,90,.2);color:#9BE8B8} .sc:not(.good) .tg{background:rgba(179,38,30,.22);color:#FFB0A8}
     .ln{position:absolute;left:538px;top:%dpx;width:4px;height:%dpx;background:#2FA65A;transform-origin:50%% 0;transform:scaleY(0);z-index:4}""" % (H, H // 2, top[0] + H + 4, top[1] - top[0] - H - 8)
@@ -188,13 +188,13 @@ def chat(sid, a, b, full, skill, user, lines, t_user, t_lines, r3d=False):
     return scene(sid, a, b, full, body, css, js)
 
 # ------------------------------------------------------------------ drawn line graph with a dot riding the front
-def graph(sid, a, b, full, pts, t, dur, label="", ghost=None, marks=(), tags=(), col="@@ACCENT@@"):
+def graph(sid, a, b, full, pts, t, dur, label="", ghost=None, marks=(), tags=(), col="#FF7A1A"):
     """pts/ghost in a 900 x 380 box. marks=[(x, y, t)] dots popping on the line. tags=[(text, right?, top, hot, t)]"""
     P = " ".join("%d,%d" % p for p in pts)
     body = """<div class="chart"><div class="de-label" style="position:absolute;right:0;top:400px;font-size:24px">%s</div>
       <svg width="900" height="380" viewBox="0 0 900 380" style="overflow:visible"><line x1="0" y1="380" x2="900" y2="380" stroke="rgba(255,255,255,.3)" stroke-width="3"/><line x1="0" y1="0" x2="0" y2="380" stroke="rgba(255,255,255,.3)" stroke-width="3"/>%s
         <polyline id="{ID}-ret" points="%s" fill="none" stroke="GCOL" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/>%s
-        <circle id="{ID}-fr" cx="%d" cy="%d" r="13" fill="@@PAPER@@"/></svg>%s</div>""" % (label,
+        <circle id="{ID}-fr" cx="%d" cy="%d" r="13" fill="#F2F0EC"/></svg>%s</div>""" % (label,
         ('<polyline points="%s" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="6" stroke-dasharray="12 14"/>' % " ".join("%d,%d" % p for p in ghost)) if ghost else "", P,
         "".join('<circle id="{ID}-d%d" cx="%d" cy="%d" r="12" fill="GCOL"/>' % (i, x, y) for i, (x, y, tt) in enumerate(marks)), pts[0][0], pts[0][1],
         "".join('<div id="{ID}-t%d" class="tag" style="%s:0;top:%dpx;%s">%s</div>' % (i, "right" if r else "left", tp, "color:#fff;border-color:GCOL" if hot else "", tx) for i, (tx, r, tp, hot, tt) in enumerate(tags)))
@@ -215,7 +215,7 @@ OVCSS = """
     .hk2w{position:absolute;left:0;width:1080px;top:300px;text-align:center} #hk2{display:inline-block;background:#fff;color:#0A0A0A;padding:10px 28px 13px;font-family:"HelvB",Helvetica,sans-serif;font-weight:700;font-size:80px;letter-spacing:-.045em;line-height:1}
     .lp{position:absolute;left:270px;width:540px;height:88px;border-radius:44px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:"HelvB",Helvetica,sans-serif;font-weight:700;font-size:40px;letter-spacing:-.04em;color:#fff;background:rgba(12,10,9,.9);border:3px solid rgba(255,255,255,.45);box-shadow:0 14px 34px rgba(0,0,0,.5);opacity:0;box-sizing:border-box;white-space:nowrap}
     .bp{font-size:48px;position:absolute;left:28px;width:480px;height:118px;border-radius:59px;display:flex;align-items:center;justify-content:flex-start;padding-left:30px;gap:14px;font-family:"HelvB",Helvetica,sans-serif;font-weight:700;letter-spacing:-.04em;color:#fff;background:rgba(12,10,9,.9);border:3px solid rgba(255,255,255,.45);box-shadow:0 14px 34px rgba(0,0,0,.5);opacity:0;box-sizing:border-box;white-space:nowrap}
-    .bph{border:3px solid @@ACCENT@@;background:@@ACCENT@@;color:@@ON_ACCENT@@;box-shadow:0 0 46px rgba(@@ACCENT_RGB@@,.6),0 14px 34px rgba(0,0,0,.5)}
+    .bph{border:3px solid #FF7A1A;background:#FF7A1A;color:#120C08;box-shadow:0 0 46px rgba(255,122,26,.6),0 14px 34px rgba(0,0,0,.5)}
     .bpg{border:3px solid #2FA65A;background:#2FA65A;color:#06140B;box-shadow:0 0 46px rgba(47,166,90,.55),0 14px 34px rgba(0,0,0,.5)}
     .bpr{border:3px solid #B3261E;background:#B3261E;color:#fff;box-shadow:0 0 46px rgba(179,38,30,.6),0 14px 34px rgba(0,0,0,.5)}
     .bn{position:absolute;top:286px;width:190px;height:190px;border-radius:95px;display:flex;align-items:center;justify-content:center;font-family:"HelvB",Helvetica,sans-serif;font-weight:700;font-size:118px;letter-spacing:-.05em;color:#fff;background:rgba(12,10,9,.9);border:4px solid rgba(255,255,255,.5);box-shadow:0 18px 40px rgba(0,0,0,.5);opacity:0;box-sizing:border-box}
@@ -242,7 +242,7 @@ def nums(pre, labels, t, out, hot=None, hot_t=None, step=0.1):
     for i, lab in enumerate(labels):
         OB.append('<div id="%s%d" class="bn" style="left:%dpx">%s</div>' % (pre, i, x0 + i * (190 + gap), lab)); OJ.append("opop('#%s%d', %s); oout('#%s%d', %s);" % (pre, i, t + i * step, pre, i, out))
     if hot is not None:
-        OJ.append("tl.to('#%s%d', {background:'@@ACCENT@@', color:'@@ON_ACCENT@@', borderColor:'@@ACCENT@@', scale:1.12, boxShadow:'0 0 60px rgba(@@ACCENT_RGB@@,.75)', duration:0.5, ease:'power2.inOut'}, %s);" % (pre, hot, hot_t))
+        OJ.append("tl.to('#%s%d', {background:'#FF7A1A', color:'#120C08', borderColor:'#FF7A1A', scale:1.12, boxShadow:'0 0 60px rgba(255,122,26,.75)', duration:0.5, ease:'power2.inOut'}, %s);" % (pre, hot, hot_t))
         others = ",".join("'#%s%d'" % (pre, i) for i in range(n) if i != hot)
         if others: OJ.append("tl.to([%s], {opacity:0.4, duration:0.5, ease:'power2.inOut'}, %s);" % (others, hot_t))
 def tiles(pre, items, out):
@@ -366,10 +366,10 @@ def agenda(rows, t_in, t_out, top=44):
     .agr i{position:absolute;right:22px;font-style:normal;font-size:28px;color:#2FA65A;opacity:0}"""
     js = "tl.fromTo('#agd', {opacity:0, y:-20, filter:'blur(10px)'}, {opacity:1, y:0, filter:'blur(0px)', duration:0.5, ease:'power3.out'}, %s); tl.to('#agd', {opacity:0, duration:0.3, ease:'power2.inOut'}, %s);" % (t_in, t_out)
     for i, (ld, lb, t) in enumerate(rows):
-        js += "tl.to('#agr%d', {color:'#FFFFFF', backgroundColor:'rgba(@@ACCENT_RGB@@,.22)', duration:0.3}, %s); tl.to('#agr%d b', {color:'@@ACCENT@@', duration:0.3}, %s); tl.to('#agr%d .agq', {opacity:0, duration:0.15}, %s); tl.to('#agl%d', {opacity:1, duration:0.3}, %s);" % (i, t, i, t, i, t, i, t)
+        js += "tl.to('#agr%d', {color:'#FFFFFF', backgroundColor:'rgba(255,122,26,.22)', duration:0.3}, %s); tl.to('#agr%d b', {color:'#FF7A1A', duration:0.3}, %s); tl.to('#agr%d .agq', {opacity:0, duration:0.15}, %s); tl.to('#agl%d', {opacity:1, duration:0.3}, %s);" % (i, t, i, t, i, t, i, t)
         if i + 1 < n:
             t2 = rows[i + 1][2]
-            js += "tl.to('#agr%d', {color:'rgba(255,255,255,.6)', backgroundColor:'rgba(@@ACCENT_RGB@@,0)', duration:0.3}, %s); tl.to('#agr%d b', {color:'rgba(255,255,255,.6)', duration:0.3}, %s); tl.to('#agc%d', {opacity:1, duration:0.3}, %s);" % (i, t2, i, t2, i, t2)
+            js += "tl.to('#agr%d', {color:'rgba(255,255,255,.6)', backgroundColor:'rgba(255,122,26,0)', duration:0.3}, %s); tl.to('#agr%d b', {color:'rgba(255,255,255,.6)', duration:0.3}, %s); tl.to('#agc%d', {opacity:1, duration:0.3}, %s);" % (i, t2, i, t2, i, t2)
     E.top(html, css, js)
 
 # ================================================================== real footage: a muted clip of the person being talked about (cut it to length first)

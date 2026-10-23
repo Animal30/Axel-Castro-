@@ -27,17 +27,17 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| Anchor word colour | accent @@ACCENT@@ (@@ACCENT_NAME@@) |
-| Anchor word font (emphasis font) | @@FONT_ACCENT_NAME@@ |
-| Fitted words font (caption font, bold) | @@FONT_CAPTION_NAME@@ |
-| Sizes on a 1080-wide frame | anchor @@ANCHOR_PX@@ px · fitted words @@SMALL_PX@@ px (plain captions +4 px) |
-| Words appear | @@LEAD_SECONDS@@ s before they are spoken |
-| Lowest line the captions may reach | y @@BOTTOM_LIMIT@@ on a 1920-tall frame |
-| Review | @@REVIEW_RULE@@ |
-| Transcriber | @@TRANSCRIBER@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` |
+| Creator | Nahuel · Nahuel · not set |
+| Anchor word colour | accent #FF7A1A (orange) |
+| Anchor word font (emphasis font) | Playfair Display Italic |
+| Fitted words font (caption font, bold) | Inter |
+| Sizes on a 1080-wide frame | anchor 195 px · fitted words 48 px (plain captions +4 px) |
+| Words appear | 0.22 s before they are spoken |
+| Lowest line the captions may reach | y 1250 on a 1920-tall frame |
+| Review | preview first, wait for approval |
+| Transcriber | elevenlabs |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` |
 
 Script: `S=~/.claude/skills/fitted-stacked-captions/scripts/fit_captions.py`. Example plan: `examples/example.plan.json`
 (structure only: never reuse its wording).

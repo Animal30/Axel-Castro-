@@ -14,7 +14,7 @@ terms = [a.lower() for a in sys.argv[1:] if not a.startswith("--")]; terms or sy
 ext = (VID if "--video" in sys.argv else ()) + (IMG if "--image" in sys.argv else ()) or IMG + VID + (".pdf",)
 SKILL = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); H = os.path.expanduser("~")
 # the proof folder and any other asset folders the creator named at setup (comma-separated, filled in by setup/apply_profile.py)
-CREATOR_DIRS = [os.path.expanduser(d.strip()) for d in r"@@PROOF_DIR@@,@@ASSET_DIRS@@".split(",") if d.strip() and d.strip().lower() not in ("none", "none yet", "not set")]
+CREATOR_DIRS = [os.path.expanduser(d.strip()) for d in r"none yet,none".split(",") if d.strip() and d.strip().lower() not in ("none", "none yet", "not set")]
 ROOTS = [f"{SKILL}/assets", *CREATOR_DIRS, f"{PROJECTS_ROOT}/*/assets", f"{H}/Desktop", f"{H}/Downloads", f"{H}/Pictures"]
 hits, seen = [], set()
 

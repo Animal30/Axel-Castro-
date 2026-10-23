@@ -7,9 +7,9 @@ NO head sticker, NO cursor. Numbers are always in the main font, never the empha
 Brand values are filled into this file by setup/apply_profile.py (the @-tokens below). Missing real images (thumbnails, reel covers, the
 avatar) degrade to plain placeholder tiles and are listed in placeholders.txt, so a build never breaks for want of a picture."""
 import json, re, os, sys
-ACCENT, ACCENT_RGB, ACCENT_LIGHT, ON_ACCENT = "@@ACCENT@@", "@@ACCENT_RGB@@", "@@ACCENT_LIGHT@@", "@@ON_ACCENT@@"
-BG_RGB, PAPER, BRAND = "@@BG_RGB@@", "@@PAPER@@", "@@BRAND_NAME@@"
-DIM_LEVEL, PUNCH_MAX = "@@DIM_LEVEL@@", "@@PUNCH_MAX@@"
+ACCENT, ACCENT_RGB, ACCENT_LIGHT, ON_ACCENT = "#FF7A1A", "255,122,26", "#FFB27A", "#120C08"
+BG_RGB, PAPER, BRAND = "5,5,5", "#F2F0EC", "Nahuel"
+DIM_LEVEL, PUNCH_MAX = "0.40", "1.10"
 if ACCENT.startswith("@") or PUNCH_MAX.startswith("@"):
     sys.exit("depth_engine: setup has not been run. In the skill folder: python3 setup/apply_profile.py (see setup/SETUP.md)")
 DIM_LEVEL, PUNCH_MAX = float(DIM_LEVEL), float(PUNCH_MAX)
@@ -110,19 +110,19 @@ def people(i, points, label=None, chosen=None):
 def light_up(sel, t): js(f"tl.to('{sel}', {{color:'{ON_ACCENT}', background:'{ACCENT}', borderColor:'{ACCENT_LIGHT}', scale:1.28, boxShadow:'0 0 60px rgba({ACCENT_RGB},.9)', duration:0.25, ease:'back.out(2)'}}, {t});")
 
 BASE_CSS = """
-@font-face { font-family: "SFD"; src: @@FONT_CAPTION_SRC@@; font-weight: 600; }
-@font-face { font-family: "SFD"; src: @@FONT_MAIN_REGULAR_SRC@@; font-weight: 500; }
-@font-face { font-family: "HelvB"; src: @@FONT_MAIN_BOLD_SRC@@; font-weight: 700; }
-@font-face { font-family: "Ivy"; src: @@FONT_ACCENT_SRC@@; }
-body { margin: 0; background: @@BG@@; }
-#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: @@BG@@; font-family: "SFD", -apple-system, sans-serif; color: #fff; }
+@font-face { font-family: "SFD"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 600; }
+@font-face { font-family: "SFD"; src: url("assets/fonts/Inter-Regular.otf"); font-weight: 500; }
+@font-face { font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+@font-face { font-family: "Ivy"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); }
+body { margin: 0; background: #050505; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #050505; font-family: "SFD", -apple-system, sans-serif; color: #fff; }
 #root video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; display: block; }
 #vFull { z-index: 1; } #dim { position: absolute; inset: 0; z-index: 2; }
 #fBehind { position: absolute; inset: 0; z-index: 3; } #vFg { z-index: 4; } #fFront { position: absolute; inset: 0; z-index: 5; }
 #fBehind > *, #fFront > * { position: absolute; }
 .cap { position: absolute; inset: 0; z-index: 20; pointer-events: none; }
-.cap span { position: absolute; left: 60px; right: 60px; top: @@CAPTION_Y@@px; display: block; text-align: center; font-weight: 600; font-size: @@CAPTION_SIZE@@px; letter-spacing: -0.055em; line-height: 1; color: #fff; text-shadow: 0 3px 16px rgba(0,0,0,.75), 0 0 3px rgba(0,0,0,.6); }
-.cap.em span { top: calc(@@CAPTION_Y@@px - 34px); font-family: "Ivy", serif; font-weight: 400; font-size: @@EMPH_SIZE@@px; letter-spacing: -0.04em; color: @@ACCENT@@; text-shadow: 0 6px 30px rgba(0,0,0,.8), 0 0 40px rgba(@@ACCENT_RGB@@,.35); }
+.cap span { position: absolute; left: 60px; right: 60px; top: 1146px; display: block; text-align: center; font-weight: 600; font-size: 64px; letter-spacing: -0.055em; line-height: 1; color: #fff; text-shadow: 0 3px 16px rgba(0,0,0,.75), 0 0 3px rgba(0,0,0,.6); }
+.cap.em span { top: calc(1146px - 34px); font-family: "Ivy", serif; font-weight: 400; font-size: 132px; letter-spacing: -0.04em; color: #FF7A1A; text-shadow: 0 6px 30px rgba(0,0,0,.8), 0 0 40px rgba(255,122,26,.35); }
 .panel { left: 80px; width: 920px; height: 800px; border-radius: 30px; background: #0f0f0f; box-shadow: 0 30px 80px rgba(0,0,0,.6); overflow: hidden; opacity: 0; }
 .panel.ig { background: #0b0d10; }
 .tabs { height: 84px; display: flex; align-items: center; gap: 44px; padding: 0 30px; font-size: 30px; font-weight: 500; color: #9a9a9a; border-bottom: 2px solid #262626; position: relative; z-index: 2; background: inherit; }
@@ -132,9 +132,9 @@ body { margin: 0; background: @@BG@@; }
 .grid3.r { gap: 6px; padding: 6px; } .cv { aspect-ratio: 9/14; overflow: hidden; background: #222; }
 .redwash { position: absolute; inset: 84px 0 0 0; background: rgba(229,55,43,.34); opacity: 0; }
 .bigx { position: absolute; right: 26px; top: 110px; width: 110px; height: 110px; border-radius: 50%; background: #E5372B; color: #fff; font-size: 62px; font-weight: 600; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 50px rgba(229,55,43,.8); opacity: 0; }
-.awn { height: 74px; background: repeating-linear-gradient(90deg, @@ACCENT@@ 0 76.66px, @@PAPER@@ 76.66px 153.33px); clip-path: polygon(0 0, 100% 0, 100% 72%, 95.83% 100%, 91.66% 72%, 87.5% 100%, 83.33% 72%, 79.16% 100%, 75% 72%, 70.83% 100%, 66.66% 72%, 62.5% 100%, 58.33% 72%, 54.16% 100%, 50% 72%, 45.83% 100%, 41.66% 72%, 37.5% 100%, 33.33% 72%, 29.16% 100%, 25% 72%, 20.83% 100%, 16.66% 72%, 12.5% 100%, 8.33% 72%, 4.16% 100%, 0 72%); }
+.awn { height: 74px; background: repeating-linear-gradient(90deg, #FF7A1A 0 76.66px, #F2F0EC 76.66px 153.33px); clip-path: polygon(0 0, 100% 0, 100% 72%, 95.83% 100%, 91.66% 72%, 87.5% 100%, 83.33% 72%, 79.16% 100%, 75% 72%, 70.83% 100%, 66.66% 72%, 62.5% 100%, 58.33% 72%, 54.16% 100%, 50% 72%, 45.83% 100%, 41.66% 72%, 37.5% 100%, 33.33% 72%, 29.16% 100%, 25% 72%, 20.83% 100%, 16.66% 72%, 12.5% 100%, 8.33% 72%, 4.16% 100%, 0 72%); }
 .shelf { padding: 14px 18px 0; } .shelf h5 { margin: 0 0 12px 4px; font-size: 30px; font-weight: 600; letter-spacing: -0.03em; } .shelf .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.ring { width: 240px; height: 240px; opacity: 0; filter: drop-shadow(0 0 34px rgba(@@ACCENT_RGB@@,.75)); } .ring svg { position: absolute; inset: 0; }
+.ring { width: 240px; height: 240px; opacity: 0; filter: drop-shadow(0 0 34px rgba(255,122,26,.75)); } .ring svg { position: absolute; inset: 0; }
 .ring b { position: absolute; left: 0; right: 0; top: 58px; text-align: center; font-family: "HelvB", sans-serif; font-size: 96px; letter-spacing: -0.05em; line-height: 1; }
 .th.ph, .cv.ph, .chan .av.ph { background: linear-gradient(135deg, #2a2a2a, #1b1b1b); } .chan .av.ph { display: flex; align-items: center; justify-content: center; font-size: 44px; font-weight: 600; color: #bdbdbd; }
 .ring em { position: absolute; left: 0; right: 0; top: 156px; text-align: center; font-style: normal; font-size: 26px; font-weight: 500; color: #d8d2cb; }

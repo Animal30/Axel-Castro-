@@ -5,7 +5,7 @@ dialogue cut (<work root>/<slug>/edl.json) and writes <work root>/<slug>/windows
   {"full": [[a, b], ...], "doc": [[a, b], ...], "short": [...]}   seconds on the CUT timeline, on the frame grid.
 This is a PREDICTION. Always run snap_windows.py next: the real switch in the base video sits a frame either side."""
 import json, math, os, sys
-slug = sys.argv[1]; W = f"{os.path.expanduser('@@WORK_ROOT@@')}/{slug}"       # the educational-youtube-editor work folder for this video
+slug = sys.argv[1]; W = f"{os.path.expanduser('~/reel-work')}/{slug}"       # the educational-youtube-editor work folder for this video
 E = json.load(open(f"{W}/edl.json")); FPS = E["fps"]; keeps = E["keeps"]
 segs = json.load(open(os.path.expanduser(sys.argv[2]) if len(sys.argv) > 2 else f"{W}/split/segs.json"))
 starts = []; t = 0

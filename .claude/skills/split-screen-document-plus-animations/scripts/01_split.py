@@ -18,9 +18,9 @@ import json, os, subprocess, sys
 import numpy as np
 raw, slug, out = os.path.abspath(os.path.expanduser(sys.argv[1])), sys.argv[2], os.path.abspath(os.path.expanduser(sys.argv[3]))
 opt = lambda k, d: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
-WORK_ROOT = os.path.expanduser("@@WORK_ROOT@@")     # the same working folder the educational-youtube-editor scripts use
+WORK_ROOT = os.path.expanduser("~/reel-work")     # the same working folder the educational-youtube-editor scripts use
 if "@" * 2 in WORK_ROOT: sys.exit("This skill has not been set up yet: run the setup interview (setup/SETUP.md), then python3 setup/apply_profile.py")
-try: MINFULL = float(opt("--min-full", "@@MIN_FULL_SECONDS@@"))
+try: MINFULL = float(opt("--min-full", "5"))
 except ValueError: MINFULL = 5.0
 PUPIL = float(opt("--pupil", 0.03)); EYEOPEN = float(opt("--eye-open", 0.17)); HERE = os.path.dirname(os.path.abspath(__file__))
 D = f"{WORK_ROOT}/{slug}/split"; os.makedirs(D, exist_ok=True); cam, scr = f"{raw}/camera.mp4", f"{raw}/screen.mp4"
@@ -97,7 +97,7 @@ for k in range(nch):
     ov = f"[full][sp]overlay=0:0:enable='{'+'.join(terms) or '0'}':eof_action=pass,format=yuv420p[v]"
     if LAND:
         dh = round(DW * chgt / cwid) // 2 * 2
-        pc = "@@DOC_PAGE_COLOR@@".strip().lstrip("#")
+        pc = "auto".strip().lstrip("#")
         if len(pc) != 6 or any(c not in "0123456789abcdefABCDEF" for c in pc):        # "auto": the page colour is read from the document itself
             px = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-ss", "1", "-i", scr, "-frames:v", "1", "-vf", f"crop={crop},crop=8:8:0:0,scale=1:1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
             pc = "%02X%02X%02X" % tuple(px[:3]) if len(px) >= 3 else "FFFFFF"

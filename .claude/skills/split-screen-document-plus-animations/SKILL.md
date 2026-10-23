@@ -31,27 +31,27 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | @@CREATOR_NAME@@ · @@BRAND_NAME@@ · @@HANDLE@@ |
-| What they teach, and to whom | @@NICHE@@ |
-| Colours | accent @@ACCENT@@ (@@ACCENT_NAME@@) · background @@BG@@ · text @@PAPER@@ · small labels @@GREY@@ |
-| Fonts | main: @@FONT_MAIN_NAME@@ · emphasis: @@FONT_ACCENT_NAME@@ |
-| Recorder | @@RECORDER@@ |
-| Document page colour | @@DOC_PAGE_COLOR@@ |
-| Shortest full-screen moment | @@MIN_FULL_SECONDS@@ s |
-| Transcriber | @@TRANSCRIBER@@ |
-| Raw lesson recordings live in | @@RAW_DIR@@ |
-| Footage drive | @@MEDIA_DRIVE@@ |
-| Finished videos go | @@OUTPUT_RULE@@ |
-| Folders | working files `@@WORK_ROOT@@` · HyperFrames projects `@@PROJECTS_ROOT@@` |
-| Real material (proof) | @@PROOF_DIR@@ |
-| Other folders to search for real assets | @@ASSET_DIRS@@ |
-| Real assets from the web | @@WEB_ASSETS@@ |
-| Never show | @@NEVER_SHOW@@ |
-| Sound effects | @@SFX_DIR@@ · copy without sound effects: @@NO_SFX_COPY@@ |
-| Quiet recordings | @@QUIET_AUDIO_FIX@@ · target @@VOICE_TARGET_LUFS@@ LUFS · de-noise @@VOICE_DENOISE_DB@@ dB |
-| Punch-in strength | @@PUNCH_PERCENT@@% |
-| Depth and 3D in graphics | @@DEPTH_3D@@ |
-| How far to go alone | @@WORK_RULE@@ |
+| Creator | Nahuel · Nahuel · not set |
+| What they teach, and to whom | not set |
+| Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC · small labels #9A928A |
+| Fonts | main: Inter · emphasis: Playfair Display Italic |
+| Recorder | Tella: a camera track and a screen track per recording |
+| Document page colour | auto |
+| Shortest full-screen moment | 5 s |
+| Transcriber | elevenlabs |
+| Raw lesson recordings live in | none: ask each time |
+| Footage drive | none |
+| Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
+| Folders | working files `~/reel-work` · HyperFrames projects `~/videos` |
+| Real material (proof) | none yet |
+| Other folders to search for real assets | none |
+| Real assets from the web | yes: real over drawn, every source listed in the report |
+| Never show | nothing listed |
+| Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx · copy without sound effects: yes |
+| Quiet recordings | ask · target -19.8 LUFS · de-noise 6 dB |
+| Punch-in strength | 112% |
+| Depth and 3D in graphics | on |
+| How far to go alone | show the plan as a short table, then run to the end and report |
 
 ## What this skill is for
 
@@ -107,7 +107,7 @@ Brief each subagent with the file paths, the references to read, what to leave f
 
 ## Workflow
 
-`S=~/.claude/skills/split-screen-document-plus-animations/scripts` · `ED=~/.claude/skills/educational-youtube-editor/scripts` · work `@@WORK_ROOT@@/<slug>` · project `@@PROJECTS_ROOT@@/<slug>-yt` · finished videos: the output folder (`@@OUTPUT_RULE@@`). Run long steps with the Bash tool's background mode. One render at a time when writing to an external drive.
+`S=~/.claude/skills/split-screen-document-plus-animations/scripts` · `ED=~/.claude/skills/educational-youtube-editor/scripts` · work `~/reel-work/<slug>` · project `~/videos/<slug>-yt` · finished videos: the output folder (`/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`). Run long steps with the Bash tool's background mode. One render at a time when writing to an external drive.
 
 ### 1. Get the raw tracks and organise them
 - With Tella (the supported recorder): the Tella connector's `list_videos` (newest first), `list_clips`, then `list_sources` gives two signed HLS URLs per video, a camera track (`CameraMic`, 3840x2160, the creator's mic) and a `Screen` track (the document, portrait or landscape). `"$S/tella_dl.sh" "<url>" "<out.mp4>"` for each.
@@ -116,7 +116,7 @@ Brief each subagent with the file paths, the references to read, what to leave f
 - Titles may contain apostrophes ("You're"): always pass paths as double-quoted arguments, never inside `sh -c '...'`.
 
 ### 2. Check the audio level now
-`python3 $S/louder.py --measure "<Raw>/camera.mp4"`. A dynamic microphone into a screen recorder often comes in at about -37 LUFS, far too quiet. The fix (step 9) is only for quiet recordings. What happens next follows the setup answer (`@@QUIET_AUDIO_FIX@@`):
+`python3 $S/louder.py --measure "<Raw>/camera.mp4"`. A dynamic microphone into a screen recorder often comes in at about -37 LUFS, far too quiet. The fix (step 9) is only for quiet recordings. What happens next follows the setup answer (`ask`):
 
 - `ask` (default): tell the creator the number and, if it is borderline or you are unsure, cut a 40-second sample both ways before deciding. A recording already near -20 LUFS or louder is left alone.
 - `auto`: apply the fix when the measurement says quiet, and report the before and after numbers.
@@ -160,7 +160,7 @@ Figures inside illustrations are invented for the picture; real people and chann
 ### 8. Deliver
 - Say plainly what you checked (frames, sheets) and what you did not (watching end to end, listening).
 - List: what was cut and why, what is real and what is mocked, invented figures, slips left in.
-- Finished files go to the output folder (`@@OUTPUT_RULE@@`) as `<Title>.mp4` and, when setup says so, `<Title> (no SFX).mp4`. If copies are already there, replace them when the edit changes.
+- Finished files go to the output folder (`/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)`) as `<Title>.mp4` and, when setup says so, `<Title> (no SFX).mp4`. If copies are already there, replace them when the edit changes.
 
 ### 9. The quiet-audio fix (only when needed, and per the setup answer)
 `python3 $S/louder.py "<Edit folder>" "<Title>" <project folder>`
