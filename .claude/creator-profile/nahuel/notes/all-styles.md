@@ -4,3 +4,4 @@
 
 - Nunca poner marca de agua, logo, nombre, empresa ni @usuario de Nahuel en pantalla. Los videos salen limpios, sin firma. (2026-10-23)
 - creator_name/brand_name = "Nahuel" son solo internos, no se muestran.
+- Efectos de sonido: generarlos con ElevenLabs (sound-generation), no usar packs. Pendiente: la clave aún no tiene permiso sound_generation (401 el 2026-10-23).
