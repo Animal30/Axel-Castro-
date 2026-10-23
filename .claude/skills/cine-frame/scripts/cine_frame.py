@@ -27,9 +27,22 @@ GRADES = {
     "warm": "eq=contrast=1.06:saturation=0.88:gamma=0.98,"
             "colorbalance=rs=0.02:bs=-0.03:rm=0.03:bm=-0.03:rh=0.04:bh=-0.04,"
             "curves=all='0/0.02 0.25/0.22 0.5/0.5 0.8/0.82 1/0.95'",
+    # for bright, flat, yellowish phone footage (sunny wall, overexposed): pull exposure down, neutralise the
+    # yellow toward cool, keep skin warm, deep contrast. "Inside the scene" look.
+    "moody": "eq=contrast=1.16:saturation=0.55:gamma=0.90,"
+             "colortemperature=temperature=8200:mix=0.5,"
+             "colorbalance=rm=0.03:gm=-0.01:bm=-0.01:rs=-0.03:bs=0.05:bh=-0.02,"
+             "curves=r='0/0 0.5/0.49 1/0.92':g='0/0.01 0.5/0.48 1/0.91':b='0/0.05 0.5/0.47 1/0.88'"
+             ":all='0/0 0.2/0.13 0.6/0.55 1/0.94'",
     "mono": "hue=s=0,eq=contrast=1.12:gamma=0.96,curves=all='0/0.02 0.5/0.48 1/0.95'",
     "none": "null",
 }
+
+
+def vignette(plan):
+    """vignette: true = soft (PI/5); a number = strength, e.g. 4.2 -> PI/4.2 (smaller = darker edges)."""
+    v = plan.get("vignette")
+    return f"vignette=angle=PI/{5 if v is True else float(v)}"
 
 
 def run(cmd, **kw):
@@ -67,6 +80,18 @@ def font_path(prof):
         cands += [os.path.join(parent, d, "assets/fonts", f) for d in sorted(os.listdir(parent))]
     cands.append(os.path.join(SKILL, "assets/fonts/Inter-Bold.otf"))
     return next(c for c in cands if os.path.exists(c))
+
+
+def named_font(name, prof):
+    """A font file by name: absolute path, the skill's assets/fonts, then the profile's fonts. None = brand bold."""
+    if not name:
+        return font_path(prof)
+    if os.path.isabs(name) and os.path.exists(name):
+        return name
+    for d in (os.path.join(SKILL, "assets/fonts"), os.path.join(profile_dir(), "assets/fonts")):
+        if os.path.exists(os.path.join(d, name)):
+            return os.path.join(d, name)
+    sys.exit(f"font not found: {name}")
 
 
 def colour(v, prof):
@@ -251,19 +276,26 @@ def draw_layers(plan, prof, outdir):
     from PIL import Image, ImageDraw, ImageFilter, ImageFont
     os.makedirs(outdir, exist_ok=True)
     fp = font_path(prof)
+    hfont = named_font(plan.get("headline_font"), prof)
+    cfont = named_font(plan.get("caption_font"), prof)
     bh, top = band_geom(plan)
     accent = colour(plan.get("accent") or "accent", prof)
     hcol, ccol = colour(plan.get("headline_color"), prof), colour(plan.get("caption_color"), prof)
 
-    def text_layer(img, runs_lines, size, y_top, align_bottom=None, shadow=0.55, maxw=960):
-        """runs_lines: list of lines, each a list of (text, colour). Draws centred lines."""
+    def text_layer(img, runs_lines, size, y_top, align_bottom=None, shadow=0.55, maxw=960, font_file=None,
+                   tracking=0.0, line_h=1.05):
+        """runs_lines: list of lines, each a list of (text, colour). Draws centred lines.
+        tracking = extra letter spacing as a fraction of the font size."""
+        def tlen(font, t):
+            return font.getlength(t) + tracking * font.size * len(t)
+
         while True:
-            font = ImageFont.truetype(fp, size)
-            widths = [sum(font.getlength(t) for t, _ in ln) for ln in runs_lines]
+            font = ImageFont.truetype(font_file or fp, size)
+            widths = [sum(tlen(font, t) for t, _ in ln) for ln in runs_lines]
             if max(widths or [0]) <= maxw or size < 24:
                 break
             size -= 2
-        lh = round(size * 1.05)
+        lh = round(size * line_h)
         total = lh * len(runs_lines)
         y0 = align_bottom - total if align_bottom is not None else y_top
         sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
@@ -273,10 +305,20 @@ def draw_layers(plan, prof, outdir):
             x = (W - widths[i]) / 2
             y = y0 + i * lh
             for t, c in ln:
-                ds.text((x, y + 3), t, font=font, fill=(0, 0, 0, int(255 * shadow)))
-                df.text((x, y), t, font=font, fill=c)
-                x += font.getlength(t)
-        img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(size * 0.12)))
+                if tracking:
+                    for ch in t:
+                        ds.text((x, y + 3), ch, font=font, fill=(0, 0, 0, int(255 * shadow)))
+                        df.text((x, y), ch, font=font, fill=c)
+                        x += tlen(font, ch)
+                else:
+                    ds.text((x, y + 3), t, font=font, fill=(0, 0, 0, int(255 * shadow)))
+                    df.text((x, y), t, font=font, fill=c)
+                    x += font.getlength(t)
+        if shadow:
+            blurred = sh.filter(ImageFilter.GaussianBlur(size * 0.12))
+            img.alpha_composite(blurred)
+            if shadow > 0.6:                                          # deep shadow: a second, wider pass
+                img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(size * 0.35)))
         img.alpha_composite(fg)
 
     def runs(text, base):
@@ -290,7 +332,8 @@ def draw_layers(plan, prof, outdir):
     hl = plan.get("headline") or {}
     if hl.get("lines"):
         text_layer(base, [runs(l, hcol) for l in hl["lines"]], hl.get("size", 58), None,
-                   align_bottom=top - 34, shadow=0.0)
+                   align_bottom=top - 34, shadow=plan.get("headline_shadow", 0.0), font_file=hfont,
+                   tracking=plan.get("headline_tracking", 0.0), line_h=hl.get("line_height", 1.05))
     m, total = seg_map(plan)
     caps = []
     for c in plan.get("captions", []):
@@ -309,7 +352,9 @@ def draw_layers(plan, prof, outdir):
             states.append((blank, t, s))
         img = base.copy()
         cy = top + bh * plan.get("caption_y", 0.64)
-        text_layer(img, [runs(text, ccol)], plan.get("caption_size", 60), cy - plan.get("caption_size", 60) * 0.6)
+        text_layer(img, [runs(text, ccol)], plan.get("caption_size", 60), cy - plan.get("caption_size", 60) * 0.6,
+                   shadow=plan.get("caption_shadow", 0.55), font_file=cfont,
+                   tracking=plan.get("caption_tracking", 0.0))
         p = os.path.join(outdir, f"c{n:04d}.png")
         img.save(p)
         n += 1
@@ -338,9 +383,9 @@ def build_graph(plan, prof, work, layers_list, sw, sh, total):
         al.append(f"[a{i}]")
     n = len(plan["segments"])
     f.append("".join(v + a for v, a in zip(vl, al)) + f"concat=n={n}:v=1:a=1[vc][ac]")
-    look = [GRADES.get(plan.get("grade", "cine"), GRADES["cine"])]
+    look = [GRADES.get(plan.get("grade", "cine"), GRADES["cine"])] + ([plan["grade_extra"]] if plan.get("grade_extra") else [])
     if plan.get("vignette"):
-        look.append("vignette=angle=PI/5")
+        look.append(vignette(plan))
     if plan.get("grain"):
         look.append(f"noise=alls={int(plan['grain'])}:allf=t")
     f.append(f"[vc]{','.join(look)},pad={W}:{H}:0:{top}:color=0x{bg},fps={fps},format=yuv420p[vb]")
@@ -435,7 +480,8 @@ def cmd_stills(a):
     ats = [float(x) for x in a.at.split(",")] if a.at else [total * k / 6 for k in range(1, 6)]
     od = os.path.join(a.work, "stills")
     os.makedirs(od, exist_ok=True)
-    look = GRADES.get(plan.get("grade", "cine"), GRADES["cine"]) + (",vignette=angle=PI/5" if plan.get("vignette") else "")
+    look = GRADES.get(plan.get("grade", "cine"), GRADES["cine"]) + ("," + plan["grade_extra"] if plan.get("grade_extra") else "") \
+        + ("," + vignette(plan) if plan.get("vignette") else "")
     for t in ats:
         k = next(i for i, (s, e, off) in enumerate(m) if off <= t <= off + (e - s) or i == len(m) - 1)
         s, e, off = m[k]
