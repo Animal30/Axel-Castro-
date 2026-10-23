@@ -1,0 +1,404 @@
+[
+{
+"text": "Si tu anuncio",
+"start": 0,
+"wend": 0.872,
+"end": 1.132
+},
+{
+"text": "tiene clics",
+"start": 1.132,
+"wend": 1.752,
+"end": 1.992
+},
+{
+"text": "pero nadie compra,",
+"start": 1.992,
+"wend": 2.852,
+"end": 3.252
+},
+{
+"text": "dej\u00e1 de cambiar",
+"start": 3.252,
+"wend": 3.952,
+"end": 3.992
+},
+{
+"text": "el anuncio",
+"start": 3.992,
+"wend": 4.512,
+"end": 4.903
+},
+{
+"text": "Una venta online",
+"start": 4.903,
+"wend": 5.643,
+"end": 5.823
+},
+{
+"text": "no se pierde",
+"start": 5.823,
+"wend": 6.363,
+"end": 6.403
+},
+{
+"text": "en cualquier lado,",
+"start": 6.403,
+"wend": 7.083,
+"end": 7.263
+},
+{
+"text": "se pierde en uno",
+"start": 7.263,
+"wend": 8.143,
+"end": 8.443
+},
+{
+"text": "de tres pasos",
+"start": 8.443,
+"wend": 9.203,
+"end": 9.38
+},
+{
+"text": "y cada paso",
+"start": 9.38,
+"wend": 10.1,
+"end": 10.24
+},
+{
+"text": "tiene su n\u00famero",
+"start": 10.24,
+"wend": 10.9,
+"end": 11.223
+},
+{
+"text": "Paso n\u00famero uno:",
+"start": 11.223,
+"wend": 12.123,
+"end": 12.573
+},
+{
+"text": "si menos del 1%",
+"start": 12.573,
+"wend": 14.253,
+"end": 14.313
+},
+{
+"text": "de la gente",
+"start": 14.313,
+"wend": 14.993,
+"end": 15.122
+},
+{
+"text": "que ve tu anuncio",
+"start": 15.122,
+"wend": 15.862,
+"end": 15.922
+},
+{
+"text": "hace clic,",
+"start": 15.922,
+"wend": 16.582,
+"end": 16.782
+},
+{
+"text": "ah\u00ed s\u00ed,",
+"start": 16.782,
+"wend": 17.142,
+"end": 17.382
+},
+{
+"text": "el problema",
+"start": 17.382,
+"wend": 17.762,
+"end": 17.762
+},
+{
+"text": "es el creativo",
+"start": 17.762,
+"wend": 18.322,
+"end": 18.687
+},
+{
+"text": "Paso dos:",
+"start": 18.687,
+"wend": 19.187,
+"end": 19.447
+},
+{
+"text": "la p\u00e1gina del producto.",
+"start": 19.447,
+"wend": 20.607,
+"end": 20.907
+},
+{
+"text": "Si entra mucha gente,",
+"start": 20.907,
+"wend": 21.867,
+"end": 22.007
+},
+{
+"text": "pero nadie agrega",
+"start": 22.007,
+"wend": 22.867,
+"end": 22.907
+},
+{
+"text": "al carrito,",
+"start": 22.907,
+"wend": 23.487,
+"end": 23.842
+},
+{
+"text": "el anuncio",
+"start": 23.842,
+"wend": 24.242,
+"end": 24.282
+},
+{
+"text": "hizo su trabajo,",
+"start": 24.282,
+"wend": 24.962,
+"end": 25.022
+},
+{
+"text": "lo que falla",
+"start": 25.022,
+"wend": 25.382,
+"end": 25.402
+},
+{
+"text": "es la p\u00e1gina,",
+"start": 25.402,
+"wend": 25.962,
+"end": 26.157
+},
+{
+"text": "la imagen,",
+"start": 26.157,
+"wend": 26.657,
+"end": 26.697
+},
+{
+"text": "la rese\u00f1a,",
+"start": 26.697,
+"wend": 27.537,
+"end": 27.617
+},
+{
+"text": "el precio",
+"start": 27.617,
+"wend": 28.197,
+"end": 28.697
+},
+{
+"text": "Paso tres:",
+"start": 28.73,
+"wend": 29.27,
+"end": 29.47
+},
+{
+"text": "el pago.",
+"start": 29.47,
+"wend": 30.09,
+"end": 30.15
+},
+{
+"text": "Si agregan al carrito",
+"start": 30.15,
+"wend": 31.25,
+"end": 31.31
+},
+{
+"text": "y no compran,",
+"start": 31.31,
+"wend": 31.95,
+"end": 32.03
+},
+{
+"text": "casi siempre hay",
+"start": 32.03,
+"wend": 32.55,
+"end": 32.57
+},
+{
+"text": "una sorpresa al final.",
+"start": 32.57,
+"wend": 33.73,
+"end": 33.943
+},
+{
+"text": "Un env\u00edo m\u00e1s caro",
+"start": 33.943,
+"wend": 34.703,
+"end": 34.743
+},
+{
+"text": "de lo esperado",
+"start": 34.743,
+"wend": 35.483,
+"end": 35.543
+},
+{
+"text": "es la raz\u00f3n n\u00famero uno",
+"start": 35.543,
+"wend": 36.603,
+"end": 36.643
+},
+{
+"text": "por la que la gente",
+"start": 36.643,
+"wend": 37.322,
+"end": 37.363
+},
+{
+"text": "decide no comprar",
+"start": 37.363,
+"wend": 38.423,
+"end": 38.748
+},
+{
+"text": "Encontr\u00e1 el paso",
+"start": 38.748,
+"wend": 39.428,
+"end": 39.468
+},
+{
+"text": "donde se cae la venta",
+"start": 39.468,
+"wend": 40.588,
+"end": 40.628
+},
+{
+"text": "y solucion\u00e1",
+"start": 40.628,
+"wend": 41.148,
+"end": 41.188
+},
+{
+"text": "solo ese punto.",
+"start": 41.188,
+"wend": 42.068,
+"end": 42.222
+},
+{
+"text": "Cambiar el anuncio",
+"start": 42.222,
+"wend": 43.162,
+"end": 43.202
+},
+{
+"text": "cuando el problema",
+"start": 43.202,
+"wend": 43.822,
+"end": 43.862
+},
+{
+"text": "est\u00e1 en el checkout",
+"start": 43.862,
+"wend": 45.142,
+"end": 45.222
+},
+{
+"text": "es pagar de m\u00e1s",
+"start": 45.222,
+"wend": 45.982,
+"end": 46.042
+},
+{
+"text": "por m\u00e1s tr\u00e1fico",
+"start": 46.042,
+"wend": 46.862,
+"end": 47.122
+},
+{
+"text": "cuando el problema",
+"start": 47.122,
+"wend": 47.722,
+"end": 47.762
+},
+{
+"text": "est\u00e1 en otro lugar",
+"start": 47.762,
+"wend": 48.622,
+"end": 49.07
+},
+{
+"text": "En Maison Enterprises,",
+"start": 49.07,
+"wend": 50.13,
+"end": 50.27
+},
+{
+"text": "esto es lo primero",
+"start": 50.27,
+"wend": 50.989,
+"end": 51.03
+},
+{
+"text": "que revisamos",
+"start": 51.03,
+"wend": 51.73,
+"end": 51.81
+},
+{
+"text": "antes de tocar",
+"start": 51.81,
+"wend": 52.47,
+"end": 52.57
+},
+{
+"text": "un solo d\u00f3lar",
+"start": 52.57,
+"wend": 53.25,
+"end": 53.29
+},
+{
+"text": "de tu presupuesto",
+"start": 53.29,
+"wend": 54.07,
+"end": 54.566
+},
+{
+"text": "Escribinos la palabra",
+"start": 54.566,
+"wend": 55.366,
+"end": 55.406
+},
+{
+"text": "embudo",
+"start": 55.406,
+"wend": 55.766,
+"end": 55.826
+},
+{
+"text": "por mensaje directo",
+"start": 55.826,
+"wend": 56.966,
+"end": 57.006
+},
+{
+"text": "y te enviamos",
+"start": 57.006,
+"wend": 57.446,
+"end": 57.486
+},
+{
+"text": "la plantilla",
+"start": 57.486,
+"wend": 58.166,
+"end": 58.226
+},
+{
+"text": "con los n\u00fameros",
+"start": 58.226,
+"wend": 58.826,
+"end": 58.866
+},
+{
+"text": "para cada paso.",
+"start": 58.866,
+"wend": 59.866,
+"end": 60.266
+}
+]
