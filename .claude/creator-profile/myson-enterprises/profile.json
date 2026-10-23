@@ -1,8 +1,8 @@
 {
- "brand_note": "PENDIENTE: definir con Nahuel",
- "accent": "PENDING",
- "accent_name": "PENDING",
- "bg": "PENDING",
+ "brand_note": "Same editing style as Nate Velazquez: orange on black",
+ "accent": "#FF7A1A",
+ "accent_name": "orange",
+ "bg": "#050505",
  "creator_name": "Myson Enterprises",
  "brand_name": "Myson Enterprises",
  "font_main_name": "Inter",
