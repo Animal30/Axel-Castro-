@@ -31,7 +31,7 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 | Accent colour (the key word in a stack) | #FF7A1A (orange) |
 | Fonts | captions and small lines: Inter · large line: Inter bold · key word: Playfair Display Italic |
 | Transcriber | elevenlabs |
-| B-roll folders | @@BROLL_DIRS@@ |
+| B-roll folders | /mnt/project-files/nahuel-pruebas/broll |
 | Never use as B-roll | nothing listed |
 | Footage drive | none |
 | Finished videos go | /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
@@ -232,7 +232,10 @@ hard cuts into and out of B-roll · no music, no sound effects, no zooms. Ask be
 - B-roll with a different frame rate is conformed to the video's; slow motion is `"speed": 0.5` (uses half the
   clip time). HDR B-roll over an SDR video looks washed out: flag it.
 - One render at a time when writing to an external drive.
-- The encoders used are Apple VideoToolbox (HEVC and H.264): the render scripts need a Mac.
+- Encoders: Apple VideoToolbox on a Mac; anywhere else `scripts/enc.py` switches to libx265/libx264 automatically.
+- Cloud (Linux, root): `pip install soundfile`; Chromium needs `--no-sandbox`, so point `CHROME_PATH` at a wrapper:
+  `printf '#!/bin/sh\nexec /opt/pw-browsers/chromium-*/chrome-linux64/chrome --no-sandbox "$@"\n' > ~/chrome-nosandbox`.
+  iPhone clips are often variable frame rate: make a CFR copy (`-fps_mode cfr -r 30 -c:v libx264 -crf 14`) first.
 
 ## Related
 `personal-broll-library` (indexing and searching the footage) · `business-short-form-reels` (the animated 9:16
