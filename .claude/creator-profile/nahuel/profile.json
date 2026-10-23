@@ -4,5 +4,19 @@
  "accent_name": "orange",
  "bg": "#050505",
  "creator_name": "Nahuel",
- "brand_name": "Nahuel"
+ "brand_name": "Nahuel",
+ "font_main_name": "Inter",
+ "font_main_bold": {
+  "file": "Inter-Bold.otf"
+ },
+ "font_main_regular": {
+  "file": "Inter-Regular.otf"
+ },
+ "font_accent_name": "Playfair Display Italic",
+ "font_accent": {
+  "file": "PlayfairDisplay-Italic.ttf"
+ },
+ "transcriber": "elevenlabs",
+ "output_rule": "/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)",
+ "proof_dir": "none yet"
 }
