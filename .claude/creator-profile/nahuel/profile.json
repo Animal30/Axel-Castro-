@@ -1,0 +1,65 @@
+{
+ "brand_note": "Azul marino: confianza, transparencia, elegancia",
+ "accent": "#FF7A1A",
+ "accent_name": "orange",
+ "bg": "#050505",
+ "creator_name": "Nahuel",
+ "brand_name": "Nahuel",
+ "font_main_name": "Inter",
+ "font_main_bold": {
+  "file": "Inter-Bold.otf"
+ },
+ "font_main_regular": {
+  "file": "Inter-Regular.otf"
+ },
+ "font_accent_name": "Playfair Display Italic",
+ "font_accent": {
+  "file": "PlayfairDisplay-Italic.ttf"
+ },
+ "transcriber": "elevenlabs",
+ "output_rule": "/mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente)",
+ "proof_dir": "none yet",
+ "sfx_dir": "/home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx",
+ "music_rule": "ask",
+ "skills": {
+  "creator-setup": {
+   "configured": "2026-10-23"
+  },
+  "cutout-backdrop-reel": {
+   "configured": "2026-10-23"
+  },
+  "cutout-grid-reel": {
+   "configured": "2026-10-23"
+  },
+  "depth-ui-reel": {
+   "configured": "2026-10-23"
+  },
+  "educational-youtube-editor": {
+   "configured": "2026-10-23"
+  },
+  "explainer-panel-reel": {
+   "configured": "2026-10-23"
+  },
+  "fitted-stacked-captions": {
+   "configured": "2026-10-23"
+  },
+  "glass-explainer-reel": {
+   "configured": "2026-10-23"
+  },
+  "image-cluster-reel": {
+   "configured": "2026-10-23"
+  },
+  "ranking-format": {
+   "configured": "2026-10-23"
+  },
+  "split-reel": {
+   "configured": "2026-10-23"
+  },
+  "split-screen-document-plus-animations": {
+   "configured": "2026-10-23"
+  },
+  "visual-essay-reel": {
+   "configured": "2026-10-23"
+  }
+ }
+}
