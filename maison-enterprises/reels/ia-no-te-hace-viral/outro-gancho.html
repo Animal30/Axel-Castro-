@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Maison Outro</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "HelvB"; src: url("assets/fonts/Inter-Bold.otf"); font-weight: 700; }
+  @font-face { font-family: "PlayIt"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-weight: 400 900; }
+  body { margin: 0; background: #000; }
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+  #glow { position: absolute; left: 90px; top: 200px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(255,122,26,.45), rgba(255,122,26,0) 65%); opacity: 0; filter: blur(30px); }
+  .em { position: absolute; left: 0; width: 1080px; height: 1920px; z-index: 3; }
+  .ember { position: absolute; border-radius: 50%; background: #FFB066; box-shadow: 0 0 12px #FF7A1A, 0 0 24px rgba(255,122,26,.6); }
+  #cam { position: absolute; inset: 0; z-index: 5; }
+  #emb { position: absolute; left: 345px; top: 485px; width: 390px; opacity: 0; filter: drop-shadow(0 0 30px rgba(255,122,26,.55)); }
+  #wrd { position: absolute; left: 230px; top: 925px; width: 620px; opacity: 0; }
+  #glint { position: absolute; left: 0; top: 400px; width: 1080px; height: 900px; z-index: 6; opacity: 0; mix-blend-mode: screen;
+           background: linear-gradient(110deg, rgba(255,255,255,0) 42%, rgba(255,220,180,.55) 50%, rgba(255,255,255,0) 58%); background-size: 300% 100%; background-position: 130% 0; }
+  #flare { position: absolute; left: -900px; top: 640px; width: 900px; height: 24px; z-index: 8; border-radius: 12px; background: linear-gradient(90deg, rgba(255,122,26,0), #FF7A1A 40%, #fff 50%, #FF7A1A 60%, rgba(255,122,26,0)); filter: blur(4px); box-shadow: 0 0 60px #FF7A1A; }
+  #flash { position: absolute; inset: 0; z-index: 9; background: #FF7A1A; opacity: 0; mix-blend-mode: screen; }
+  #tag { position: absolute; left: 0; width: 1080px; top: 300px; text-align: center; font-family: "HelvB"; font-size: 78px; letter-spacing: -.045em; color: #F2F0EC; opacity: 0; z-index: 7; }
+  #tag em { font-family: "PlayIt"; font-style: normal; font-weight: 400; color: #FF7A1A; }
+  #cta { position: absolute; left: 210px; top: 1240px; width: 660px; height: 110px; border-radius: 55px; background: #FF7A1A; color: #120C08; display: flex; align-items: center; justify-content: center; font-family: "HelvB"; font-size: 46px; letter-spacing: -.01em; z-index: 7; opacity: 0; box-shadow: 0 0 70px rgba(255,122,26,.6); }
+  #vig { position: absolute; inset: 0; z-index: 10; background: radial-gradient(110% 75% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.7) 100%); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="5.5" data-fps="24">
+  <div id="glow"></div>
+  <div id="emb-wrap" class="em"></div>
+  <div id="cam">
+    <img id="emb" src="assets/emblem.png">
+    <img id="wrd" src="assets/words.png">
+    <div id="glint"></div>
+  </div>
+  <div id="tag">Tu visión, <em>lanzada.</em></div>
+  <div id="cta">ESCRIBINOS «GANCHO»</div>
+  <div id="flare"></div><div id="flash"></div><div id="vig"></div>
+</div>
+<script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  (function () { const box = document.getElementById("emb-wrap"); let s = 11;
+    const r = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    for (let i = 0; i < 40; i++) { const d = document.createElement("i"); d.className = "ember"; const sz = 3 + r() * 7;
+      d.style.cssText = "left:" + (r() * 1080) + "px;top:" + (900 + r() * 1100) + "px;width:" + sz + "px;height:" + sz + "px;opacity:" + (0.25 + r() * 0.6);
+      box.appendChild(d); tl.fromTo(d, { y: 0, x: 0 }, { y: -(500 + r() * 700), x: (r() - 0.5) * 160, duration: 5.5, ease: "none" }, 0); } })();
+  tl.fromTo("#flash", { opacity: 0.9 }, { opacity: 0, duration: 0.35, ease: "power2.out" }, 0);
+  tl.fromTo("#flare", { x: 0 }, { x: 2100, duration: 0.6, ease: "power2.inOut" }, 0.25);
+  tl.fromTo("#emb", { opacity: 0, scale: 1.35, filter: "blur(24px) brightness(2.2)", clipPath: "circle(0% at 50% 50%)" },
+                    { opacity: 1, scale: 1, filter: "blur(0px) brightness(1) drop-shadow(0 0 30px rgba(255,122,26,.55))", clipPath: "circle(75% at 50% 50%)", duration: 1.1, ease: "expo.out" }, 0.45);
+  tl.fromTo("#glow", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, 0.5);
+  tl.to("#glow", { opacity: 0.6, scale: 1.08, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.5);
+  tl.fromTo("#wrd", { opacity: 0, y: 30, clipPath: "inset(0 50% 0 50%)" }, { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0%)", duration: 0.7, ease: "power3.out" }, 1.25);
+  tl.fromTo("#glint", { opacity: 1, backgroundPosition: "130% 0" }, { opacity: 1, backgroundPosition: "-30% 0", duration: 1.0, ease: "power2.inOut" }, 1.9);
+  tl.fromTo("#cam", { scale: 1 }, { scale: 1.06, duration: 5.5, ease: "sine.out" }, 0);
+  tl.fromTo("#tag", { opacity: 0, y: 30, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 2.4);
+  tl.fromTo("#cta", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(2)" }, 2.9);
+  tl.fromTo("#cta", { scale: 1 }, { scale: 1.05, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 3.5);
+  window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

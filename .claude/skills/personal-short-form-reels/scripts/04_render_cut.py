@@ -13,7 +13,7 @@ sf.write(f"{tmp}/t.wav", np.concatenate(parts), sr, subtype="PCM_24"); lst = f"{
 with open(lst, "w") as L:                       # ffmpeg select dies past ~100 between() terms -> chunks of 50
     for k in range(0, len(keeps), 50):
         sel = "+".join(f"between(n,{s},{e - 1})" for s, e in keeps[k: k + 50]); p = f"{tmp}/p{k}.mp4"
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-an", "-vf", f"select='{sel}',setpts=N/({FR})/TB", "-r", FR, "-c:v", "hevc_videotoolbox", "-b:v", "45M", "-tag:v", "hvc1", p], check=True)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-an", "-vf", f"select='{sel}',setpts=N/({FR})/TB", "-r", FR, "-c:v", "libx264", "-crf", "14", "-preset", "fast", "-pix_fmt", "yuv420p", p], check=True)
         L.write(f"file '{p}'\n")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-i", f"{tmp}/t.wav", "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "320k", "-shortest", out], check=True)
 print("wrote", out, f"{sum(e - s for s, e in keeps) / FPS:.2f}s")

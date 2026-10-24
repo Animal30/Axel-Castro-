@@ -60,6 +60,14 @@
   },
   "visual-essay-reel": {
    "configured": "2026-10-23"
+  },
+  "personal-short-form-reels": {
+   "configured": "2026-10-24"
   }
- }
+ },
+ "handle": "@maisonenterprises (pendiente)",
+ "niche": "marketing, contenido y lanzamientos para marcas y autores",
+ "camera_setup": "phone, vertical 1080x1920",
+ "broll_source": "generado con Higgsfield por Claude (sin biblioteca propia)",
+ "working_style": "build-first"
 }
