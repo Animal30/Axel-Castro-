@@ -1,0 +1,53 @@
+{
+  "name": "nahuel-agency",
+  "owner": {
+    "name": "Nahuel Casartelli"
+  },
+  "description": "Skills de la agencia: edición de reels y YouTube, Instagram y contenido escrito.",
+  "plugins": [
+    {
+      "name": "creator-pack",
+      "source": "./",
+      "strict": false,
+      "description": "Todas las skills de la agencia (edición de video, Instagram, contenido) en un solo plugin.",
+      "skills": [
+        "./.claude/skills/broll-stacked-text-edit",
+        "./.claude/skills/business-short-form-reels",
+        "./.claude/skills/cine-frame",
+        "./.claude/skills/coaching-call-clips",
+        "./.claude/skills/creator-setup",
+        "./.claude/skills/cutout-backdrop-reel",
+        "./.claude/skills/cutout-grid-reel",
+        "./.claude/skills/depth-ui-reel",
+        "./.claude/skills/educational-youtube-editor",
+        "./.claude/skills/explainer-panel-reel",
+        "./.claude/skills/fitted-stacked-captions",
+        "./.claude/skills/glass-explainer-reel",
+        "./.claude/skills/ig-audit",
+        "./.claude/skills/ig-caption",
+        "./.claude/skills/ig-carousel",
+        "./.claude/skills/ig-comment",
+        "./.claude/skills/ig-dm",
+        "./.claude/skills/ig-human",
+        "./.claude/skills/ig-plan",
+        "./.claude/skills/ig-profile",
+        "./.claude/skills/ig-reel",
+        "./.claude/skills/ig-reply",
+        "./.claude/skills/ig-repurpose",
+        "./.claude/skills/ig-story",
+        "./.claude/skills/ig-viral",
+        "./.claude/skills/image-cluster-reel",
+        "./.claude/skills/lesson-doc-builder",
+        "./.claude/skills/personal-broll-library",
+        "./.claude/skills/personal-short-form-reels",
+        "./.claude/skills/ranking-format",
+        "./.claude/skills/split-reel",
+        "./.claude/skills/split-screen-document-plus-animations",
+        "./.claude/skills/video-to-written-content",
+        "./.claude/skills/visual-essay-reel",
+        "./.claude/skills/watch",
+        "./.claude/skills/youtube-clips"
+      ]
+    }
+  ]
+}
