@@ -41,14 +41,17 @@ SR = 48000
 
 # Per role: allowed length in seconds after trimming, and whether the sound must start at once (attack check).
 ROLE_RULES = {
-    "whoosh": (0.25, 2.5, False), "riser": (1.0, 8.0, False), "impact": (0.15, 6.0, True),
+    "whoosh": (0.25, 3.0, False), "riser": (1.0, 8.0, False), "impact": (0.15, 9.0, True),
     "sub_drop": (0.4, 6.0, True), "pop": (0.03, 0.8, True), "click": (0.02, 0.6, True),
     "typing": (0.8, 12.0, True), "ui": (0.05, 2.5, True), "chime": (0.15, 4.0, True),
     "camera": (0.05, 2.0, True), "coin": (0.1, 4.0, True), "glitch": (0.1, 3.0, False),
     "foley": (0.1, 6.0, False), "paper": (0.2, 4.0, False), "error": (0.1, 2.0, True),
+    "scratch": (0.2, 4.0, True), "tick": (0.5, 6.0, False), "braam": (0.8, 12.0, True),
+    "heartbeat": (0.3, 6.0, True),
 }
 # real-sfx reads the catalog "type" as its pack type; roles it has no pack type for go by the words of the source
-PACK_TYPE = {"impact": "impact", "sub_drop": "impact", "coin": "other"}
+PACK_TYPE = {"impact": "impact", "sub_drop": "impact", "coin": "other", "scratch": "other", "tick": "foley",
+             "braam": "impact", "heartbeat": "foley"}
 
 
 def run(cmd):

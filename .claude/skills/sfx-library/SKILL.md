@@ -1,6 +1,6 @@
 ---
 name: sfx-library
-description: The agency's own curated library of real sound effects (CC0, found through Openverse / Freesound) for reels, ads and short-form edits - whooshes, risers, impacts, sub drops, pops, clicks, typing, UI dings, camera shutters, coins, glitches, paper - chosen for the sound of current short-form marketing, measured and cleaned, with credits. Use whenever an edit needs sound effects (with real-sfx, which reads this library as its main one), when the user asks to add, rebuild, update or extend the SFX library, asks which sounds the agency has, or says "biblioteca de sonidos", "mis efectos", "sonidos de la agencia".
+description: The agency's own curated library of real sound effects (CC0, found through Openverse / Freesound) for reels, ads and short-form edits - whooshes, risers, impacts, braams, sub drops, pops, clicks, typing, UI dings, camera shutters, coins / cash, glitches, record scratches, paper, clock ticks, heartbeats - chosen for the sound of current short-form marketing, measured and cleaned, with credits. Use whenever an edit needs sound effects (with real-sfx, which reads this library as its main one), when the user asks to add, rebuild, update or extend the SFX library, asks which sounds the agency has, or says "biblioteca de sonidos", "mis efectos", "sonidos de la agencia".
 ---
 
 # sfx-library: the agency's sound effects
@@ -37,7 +37,9 @@ Then follow real-sfx as usual. Rules for this agency's reels (the voice carries 
 `manifest.json` holds the candidates: per role several CC0 sounds chosen from Openverse search results by title,
 tags, length and author (what is used in short-form marketing now: short air whooshes and swipes, soft pops and
 clicks for text, sub drops and cinematic hits for the hook, risers into reveals, typing for on-screen text, UI dings
-for results, camera shutters, coins / cash for money, glitches for transitions, paper for documents). `build.py`
+for results, camera shutters, coins / cash for money, glitches for transitions, a record scratch for the "wait, what?" moment, paper for documents, a clock tick for
+deadlines, a heartbeat for tension). They are free CC0 sounds, not paid exclusives: what makes them work is the choice
+and the placement, not the price. `build.py`
 downloads every candidate, converts it, measures it, drops the bad ones (clipped, wrong length for its role, noisy
 tail, slow start on a sound that must start at once) and keeps the best 3 per role.
 
