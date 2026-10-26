@@ -2,7 +2,8 @@
 """Build the agency's curated SFX library from manifest.json (CC0 sounds found through Openverse).
 
   python build.py                 # download what is missing, measure, keep the best per role, write the library
-  python build.py --keep 3        # sounds kept per role (default: the manifest's "keep", else 3)
+  python build.py --keep 3        # sounds kept per role (default: the manifest's "keep", else 3; "keep_roles"
+                                  # in the manifest sets it per role)
   python build.py --dry-run       # list what would be downloaded
 
 Each manifest entry is a candidate. Every candidate is downloaded, converted to 48 kHz WAV, its leading silence
@@ -204,7 +205,7 @@ def main():
     for role, items in sorted(per_role.items()):
         order = [c for c in cands if c["role"] == role]
         ranked = sorted(items, key=lambda t: -score(role, t[1], order.index(t[0])))
-        for n, (c, row, wav) in enumerate(ranked[:keep], 1):
+        for n, (c, row, wav) in enumerate(ranked[:man.get("keep_roles", {}).get(role, keep)], 1):
             rel = f"{role}/{role}_{n:02d}_{slug(c['title'])}.wav"
             finish(wav, LIB / rel, row["end"])
             row["kept_as"] = rel
