@@ -1,0 +1,356 @@
+[
+{
+"text": "El <b class=\"nm\">90%</b>",
+"start": 0,
+"wend": 0.88,
+"end": 0.92
+},
+{
+"text": "de los sitios web",
+"start": 0.92,
+"wend": 1.5,
+"end": 1.54
+},
+{
+"text": "que veo",
+"start": 1.54,
+"wend": 1.76,
+"end": 1.78
+},
+{
+"text": "tienen el mismo",
+"start": 1.78,
+"wend": 2.48,
+"end": 2.56
+},
+{
+"text": "<i class=\"em\">problema</i>",
+"start": 2.56,
+"wend": 3.04,
+"end": 3.22
+},
+{
+"text": "y probablemente",
+"start": 3.22,
+"wend": 3.88,
+"end": 3.92
+},
+{
+"text": "el tuyo también",
+"start": 3.92,
+"wend": 4.68,
+"end": 4.74
+},
+{
+"text": "¿Qué hace",
+"start": 4.74,
+"wend": 5.68,
+"end": 5.7
+},
+{
+"text": "la mayoría?",
+"start": 5.7,
+"wend": 6.3,
+"end": 6.54
+},
+{
+"text": "Abren con",
+"start": 6.54,
+"wend": 6.88,
+"end": 6.9
+},
+{
+"text": "«Bienvenidos",
+"start": 6.9,
+"wend": 7.36,
+"end": 7.38
+},
+{
+"text": "a nuestra empresa»",
+"start": 7.38,
+"wend": 8.119,
+"end": 8.32
+},
+{
+"text": "y una foto",
+"start": 8.32,
+"wend": 8.74,
+"end": 8.76
+},
+{
+"text": "del equipo",
+"start": 8.76,
+"wend": 9.28,
+"end": 9.28
+},
+{
+"text": "¿Cuál es",
+"start": 9.28,
+"wend": 10.06,
+"end": 10.08
+},
+{
+"text": "el problema?",
+"start": 10.08,
+"wend": 10.58,
+"end": 10.68
+},
+{
+"text": "Que al lector",
+"start": 10.68,
+"wend": 11.3,
+"end": 11.46
+},
+{
+"text": "no le interesa",
+"start": 11.46,
+"wend": 12.08,
+"end": 12.14
+},
+{
+"text": "tu empresa",
+"start": 12.14,
+"wend": 12.68,
+"end": 12.84
+},
+{
+"text": "le interesa",
+"start": 12.84,
+"wend": 13.4,
+"end": 13.44
+},
+{
+"text": "tu <i class=\"em\">contenido</i>",
+"start": 13.44,
+"wend": 14.06,
+"end": 14.12
+},
+{
+"text": "lo que vos",
+"start": 14.12,
+"wend": 14.4,
+"end": 14.42
+},
+{
+"text": "podés ofrecer",
+"start": 14.42,
+"wend": 15.1,
+"end": 15.399
+},
+{
+"text": "Una web",
+"start": 15.399,
+"wend": 15.779,
+"end": 15.859
+},
+{
+"text": "que <i class=\"em\">vende</i>",
+"start": 15.859,
+"wend": 16.359,
+"end": 16.379
+},
+{
+"text": "hace estas",
+"start": 16.379,
+"wend": 16.759,
+"end": 16.799
+},
+{
+"text": "primeras <b class=\"nm\">3</b> cosas",
+"start": 16.799,
+"wend": 17.759,
+"end": 17.779
+},
+{
+"text": "en los primeros",
+"start": 17.779,
+"wend": 18.279,
+"end": 18.319
+},
+{
+"text": "<b class=\"nm\">5</b> segundos",
+"start": 18.319,
+"wend": 19.039,
+"end": 19.204
+},
+{
+"text": "muestra",
+"start": 19.204,
+"wend": 19.524,
+"end": 19.624
+},
+{
+"text": "qué problema",
+"start": 19.624,
+"wend": 20.084,
+"end": 20.144
+},
+{
+"text": "resuelve",
+"start": 20.144,
+"wend": 20.724,
+"end": 21.11
+},
+{
+"text": "te dice",
+"start": 21.11,
+"wend": 21.57,
+"end": 21.69
+},
+{
+"text": "cómo lo resolvió",
+"start": 21.69,
+"wend": 22.37,
+"end": 22.39
+},
+{
+"text": "en otras personas",
+"start": 22.39,
+"wend": 23.31,
+"end": 23.45
+},
+{
+"text": "y te muestra",
+"start": 23.45,
+"wend": 24.09,
+"end": 24.21
+},
+{
+"text": "cómo lo tenés",
+"start": 24.21,
+"wend": 24.69,
+"end": 24.73
+},
+{
+"text": "que hacer ahora",
+"start": 24.73,
+"wend": 25.53,
+"end": 25.766
+},
+{
+"text": "Un solo <i class=\"em\">botón</i>",
+"start": 25.766,
+"wend": 26.526,
+"end": 26.726
+},
+{
+"text": "no cinco",
+"start": 26.726,
+"wend": 27.266,
+"end": 27.519
+},
+{
+"text": "Cuando cambiamos",
+"start": 27.519,
+"wend": 28.119,
+"end": 28.219
+},
+{
+"text": "esto",
+"start": 28.219,
+"wend": 28.439,
+"end": 28.479
+},
+{
+"text": "en la web",
+"start": 28.479,
+"wend": 28.839,
+"end": 28.879
+},
+{
+"text": "de un cliente",
+"start": 28.879,
+"wend": 29.559,
+"end": 29.659
+},
+{
+"text": "las consultas",
+"start": 29.659,
+"wend": 30.199,
+"end": 30.239
+},
+{
+"text": "se dispararon",
+"start": 30.239,
+"wend": 30.999,
+"end": 31.039
+},
+{
+"text": "hasta <b class=\"nm\">5</b>",
+"start": 31.039,
+"wend": 31.479,
+"end": 31.539
+},
+{
+"text": "veces más",
+"start": 31.539,
+"wend": 32.119,
+"end": 32.312
+},
+{
+"text": "y sin invertir",
+"start": 32.312,
+"wend": 33.132,
+"end": 33.172
+},
+{
+"text": "ni un peso más",
+"start": 33.172,
+"wend": 33.992,
+"end": 34.012
+},
+{
+"text": "en publicidad",
+"start": 34.012,
+"wend": 34.592,
+"end": 35.055
+},
+{
+"text": "Si querés",
+"start": 35.055,
+"wend": 35.315,
+"end": 35.355
+},
+{
+"text": "que revise",
+"start": 35.355,
+"wend": 35.755,
+"end": 35.775
+},
+{
+"text": "la tuya",
+"start": 35.775,
+"wend": 36.195,
+"end": 36.455
+},
+{
+"text": "escribime",
+"start": 36.455,
+"wend": 36.915,
+"end": 36.955
+},
+{
+"text": "<i class=\"em\">WEB</i>",
+"start": 36.955,
+"wend": 37.195,
+"end": 37.375
+},
+{
+"text": "y te digo",
+"start": 37.375,
+"wend": 37.795,
+"end": 37.835
+},
+{
+"text": "qué cambiaría",
+"start": 37.835,
+"wend": 38.415,
+"end": 38.455
+},
+{
+"text": "primero",
+"start": 38.455,
+"wend": 38.855,
+"end": 39.255
+}
+]
