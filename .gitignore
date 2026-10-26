@@ -1,1 +1,7 @@
 __pycache__/
+
+# real-sfx: local installs and machine-specific config
+.claude/skills/real-sfx/vendor/
+.claude/skills/real-sfx/config.json
+.claude/skills/real-sfx/work/
+.claude/skills/real-sfx/result/

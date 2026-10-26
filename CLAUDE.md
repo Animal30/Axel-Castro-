@@ -39,6 +39,7 @@ Nahuel no conoce los nombres de las más de 100 skills de este proyecto, y no ti
 | **Comunidad, influencers, referidos** | `community-marketing`, `influencer-marketing`, `referrals` |
 | **Medición, píxel, conversiones** | `analytics`, `conversion-tracking`, `attribution` |
 | **Corregir un texto o que no suene a IA** | `copy-editing`, `ig-human` |
+| **Efectos de sonido (SFX) para un video** | `real-sfx` (sonidos reales; sin biblioteca propia solo tiene los 78 de interfaz de uisfx: la primera vez correr `python scripts/setup.py init --uisfx` desde la carpeta de la skill), `earshot` (sonidos hechos con código y para medir el audio; instalarlo si falta: `git clone https://github.com/Leonxlnx/earshot` y `pip install numpy scipy soundfile soxr` + `pip install --no-deps .`). Efectos bajos, solo en los cambios de escena importantes, no en cada corte. Mostrar siempre la versión sin y con efectos |
 | **Documento, PDF, presentación, planilla** | `anthropic-skills:pdf`, `anthropic-skills:docx`, `anthropic-skills:pptx`, `anthropic-skills:xlsx`; página para compartir: Artifact |
 
 ## Clientes y marcas
