@@ -62,6 +62,7 @@
         "./.claude/skills/fitted-stacked-captions",
         "./.claude/skills/free-tools",
         "./.claude/skills/glass-explainer-reel",
+        "./.claude/skills/google-maps-scraper",
         "./.claude/skills/higgsfield-image-auto",
         "./.claude/skills/ig-audit",
         "./.claude/skills/ig-caption",
