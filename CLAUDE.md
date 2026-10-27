@@ -31,6 +31,7 @@ Nahuel no conoce los nombres de las más de 100 skills de este proyecto, y no ti
 | **Oferta, precios, propuesta para un cliente** | `offers`, `pricing`, `product-marketing`, `sales-enablement` |
 | **Guiones de venta, setter, objeciones** | `sales-enablement`, `copywriting`, `cold-email`, `prospecting` |
 | **Imán de leads o PDF gratis** | `lead-magnets`, `copywriting`, `anthropic-skills:pdf` |
+| **Buscar negocios locales o armar listas de leads** (Google Maps: nombre, teléfono, email, web, rating) | `google-maps-scraper` (comandos `/scrape`, `/scrape-batch`, `/scrape-setup`, `/scrape-jobs`; el kit está en `google-maps-scraper/`, necesita Docker; `--lang es` para Argentina), después `prospecting` y `cold-email` para el contacto |
 | **Emails o secuencias** | `emails` |
 | **Landing page o web** | `copywriting`, `cro`, `signup`, `seo-audit`, `ai-seo`, `schema` |
 | **Plan de marketing completo** | `marketing-plan`, `customer-research`, `competitor-profiling` |
