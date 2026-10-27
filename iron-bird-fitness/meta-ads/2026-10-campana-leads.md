@@ -34,7 +34,7 @@ Ningún video menciona Navidad. Los de fiestas son los de Año Nuevo.
   1. `01_WINNER_IfYouLiveInFresno_41s`: copia del ganador (mismo post, copy y formulario).
   2. `02_Give30Seconds_46s`: V2 editado.
   3. `03_StopStartingOver_27s`: 661CAF7F con subtítulos.
-  4. `04_Static_Private1on1`: estático estilo anuncio deportivo, en 4:5 y 9:16. Foto real de Sam haciendo peso muerto (primer segundo del video Jan 1), Anton + Oswald, rojo Iron Bird y logo real. Texto: "PRIVATE 1-ON-1 COACHING · FRESNO, CA · ADULTS 30+ · 12-WEEK PROGRAM · APPLY BELOW". Sin "free": Sam cobra USD 50 de depósito para filtrar a quien solo quiere entrenar gratis. La primera versión (negro y dorado, con su cara) se descartó porque parecía hecha con IA.
+  4. `04_Static_Private1on1` (v3): 4:5 y 9:16. Foto luminosa de Sam frente al mural (video ganador, segundo 9,3), con panel de valor: "PRIVATE 1-ON-1 COACHING · 12-week program · built around your life" + 1-on-1 Training, Custom Nutrition, Accountability y 3D Body Scan, el sello "Coached by Sam · 10+ years in Fresno" y la franja roja "Applications open · Apply below". Sin "free": Sam cobra USD 50 de depósito. Se descartaron la v1 (muy básica y "free") y la v2 (oscura, sin valor agregado).
 - Campaña vieja: la pausa Nahuel. La nueva queda con los USD 70.
 
 ## Copy de los anuncios nuevos
