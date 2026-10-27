@@ -39,7 +39,7 @@ Ningún video menciona Navidad. Los de fiestas son los de Año Nuevo.
 
 ## Copy de los anuncios nuevos
 
-**02 · Give me 30 seconds** · Título: "Free Session + 3D Body Scan"
+**02 · Give me 30 seconds** · Título: "12-Week 1-on-1 Coaching" · Portada: primer cuadro del video
 
 > Fresno, give Sam 30 seconds.
 >
@@ -49,14 +49,11 @@ Ningún video menciona Navidad. Los de fiestas son los de Año Nuevo.
 > ✅ Workouts matched to your fitness level
 > ✅ A nutrition plan that fits your day-to-day life
 > ✅ 1-on-1 coaching and direct accountability
+> ✅ A 3D body scan to track body fat %, muscle mass and metabolic data
 >
-> When you apply, you'll receive:
-> ✅ A FREE 1-on-1 training & assessment session
-> ✅ A FREE 3D body scan (body fat %, muscle mass, metabolic data)
->
-> Tap Apply Now and someone from Sam's team will reach out.
+> Applications are open. Tap Apply Now and someone from Sam's team will reach out.
 
-**03 · Stop starting over** · Título: "12-Week 1-on-1 Coaching, Fresno"
+**03 · Stop starting over** · Título: "1-on-1 Coaching in Fresno" · Portada: primer cuadro del video
 
 > Tired of starting over every few months?
 >
@@ -66,13 +63,11 @@ Ningún video menciona Navidad. Los de fiestas son los de Año Nuevo.
 > ✅ 1-on-1 coaching
 > ✅ Accountability that keeps you consistent
 > ✅ Nutrition planning built for real life
->
-> When you apply, you'll receive:
-> ✅ A FREE 1-on-1 training & assessment session
-> ✅ A FREE 3D body scan (body fat %, muscle mass, metabolic data)
-> ✅ A personalized strategy based on your goals
+> ✅ A 3D body scan (body fat %, muscle mass, metabolic data)
 >
 > If you've tried before and nothing stuck, apply below.
+
+Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304398130200`), con el formulario 4716288931989784 y las mejoras de Meta AI y multi-advertiser apagadas. El copy ya no dice "free". El video 02 todavía dice "free session" en el audio.
 
 **04 · Estático Private 1-on-1 Coaching** · Título: "Private 1-on-1 Coaching in Fresno"
 
