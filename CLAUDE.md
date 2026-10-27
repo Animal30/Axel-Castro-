@@ -48,3 +48,18 @@ Nahuel no conoce los nombres de las más de 100 skills de este proyecto, y no ti
 - Perfiles de marca para la edición: `.claude/creator-profile/<cliente>/` (`nahuel`, `nahuel-espanol` = @iamaegene, `nate`). Antes de editar para un cliente, leé su `profile.json` y su `NOTES.md`.
 - Carpetas por cliente en la raíz: `nate-velazquez/`, `rey-la-tinta/`, `iron-bird-fitness/`, `latonnya/`, `nahuel-espanol/`.
 - Los guiones y documentos para clientes se generan como PDF con un `build.py` en la carpeta del cliente (mirá `nate-velazquez/nutrition-tips/build.py` como modelo).
+
+## Campañas de Meta (MCP de Facebook)
+
+Las campañas se corren con el conector Meta (`mcp__Meta_MCP__*`). Cuentas de cada cliente (verificadas el 27/10/2026):
+
+| Cliente | Cuenta publicitaria | Página | Notas |
+|---|---|---|---|
+| Nate Velázquez | `732002165155392` "Add account 1" (negocio NATE_THE_GREAT) | Macro Nutrition Coach `106996395596094` | USD |
+| Sam, Iron Bird Fitness | `293967619659455` "Six Week Transformation" (negocio Iron Bird Fit) | Iron Bird Fit `369420839595109` | USD. Es la cuenta que gasta. La otra, `571585381286863`, no gastó nada en 90 días |
+| Michael Lenis, List with Liaison | `10151730642962474` (sin negocio, sin nombre) | Michael Lenis `1678485429113459` | USD |
+
+Reglas:
+- Todo lo nuevo (campaña, conjunto, anuncio) se crea **pausado**. Se activa, se cambia presupuesto o se apaga algo solo cuando Nahuel lo confirma en el chat.
+- Antes de crear, decile a Nahuel cuenta, objetivo, presupuesto diario, público y creativo, y esperá el sí.
+- Skills: `ads` (estrategia, segmentación, presupuesto), `ad-creative` (copy y variantes), `marketing-psychology` (ángulos), `ig-human` (que el copy no suene a IA), `analytics` / `conversion-tracking` (píxel y conversiones).
