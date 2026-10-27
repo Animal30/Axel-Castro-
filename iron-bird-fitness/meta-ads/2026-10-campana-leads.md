@@ -85,3 +85,13 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 - Anuncio 04 armado con personalización por ubicación: 4:5 en Feed/Explore y 9:16 en Stories/Reels. Formulario 4716288931989784.
 - El ganador (01) conserva las mejoras de Meta AI del anuncio original, por decisión de Nahuel. Los anuncios 02, 03 y 04 las tienen apagadas.
 - El video 02 sigue diciendo "free session" en el audio: Nahuel decidió dejarlo.
+
+### Corrección de la publicación
+
+- En la primera publicación salió solo la campaña. Dos errores trabaron el conjunto y los anuncios:
+  1. La copia del ganador (`source_ad_id`) heredó un `link_title` en el CTA que Meta ya no acepta, y además el Ads Manager la mostraba sin copy.
+  2. La ubicación `explore` de Instagram ya no se acepta por API. Se dejó `explore_home`.
+- El ganador se rehízo desde cero: video 1450490446887272, mismo copy y título, formulario 4716288931989784 y mejoras de Meta AI prendidas. Al ser un post nuevo, no conserva los likes y comentarios del original.
+- IDs en vivo: conjunto `120252304173820200`. Anuncios: 01 `120252312551660200`, 02 `120252304395460200`, 03 `120252304398130200`, 04 `120252312590120200`.
+- Quedaron dos borradores para descartar en el Ads Manager: "ZZ_NO_USAR_copia_rota_ganador" y "ZZ_NO_USAR_static_v1_explore".
+- Para próximas campañas: no duplicar anuncios viejos con `source_ad_id`; crear el creativo de cero. Y no usar `explore` en las ubicaciones.
