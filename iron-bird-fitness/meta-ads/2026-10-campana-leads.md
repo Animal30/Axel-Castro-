@@ -34,7 +34,7 @@ Ningún video menciona Navidad. Los de fiestas son los de Año Nuevo.
   1. `01_WINNER_IfYouLiveInFresno_41s`: copia del ganador (mismo post, copy y formulario).
   2. `02_Give30Seconds_46s`: V2 editado.
   3. `03_StopStartingOver_27s`: 661CAF7F con subtítulos.
-  4. `04_Static_FreeBodyScan`: estático 1080×1350 con la oferta (escaneo 3D + sesión 1 a 1 gratis).
+  4. `04_Static_Private1on1`: estático premium (negro y dorado, serif) en 4:5 y 9:16. "Private 1-on-1 Coaching · Fresno · 12-Week Coaching · For adults 30+ · Applications now open · Apply below". Nahuel pidió sacar "free": Sam cobra USD 50 de depósito para filtrar a quien solo quiere entrenar gratis.
 
 ## Copy de los anuncios nuevos
 
@@ -73,12 +73,12 @@ Ningún video menciona Navidad. Los de fiestas son los de Año Nuevo.
 >
 > If you've tried before and nothing stuck, apply below.
 
-**04 · Estático Free 3D Body Scan** · Título: "Free 3D Body Scan in Fresno"
+**04 · Estático Private 1-on-1 Coaching** · Título: "Private 1-on-1 Coaching in Fresno"
 
-> Find out exactly where you're starting from.
+> Private 1-on-1 coaching in Fresno, for adults 30+.
 >
-> Apply for Iron Bird Fit's 12-Week Coaching Program and you'll get a FREE 3D body scan (body fat %, muscle mass, metabolic data) plus a FREE 1-on-1 training & assessment session with Sam.
+> Iron Bird Fit's 12-Week Coaching Program pairs you with Sam, who has been coaching in Fresno for over 10 years. You get training matched to your fitness level, a nutrition plan that fits your real schedule, and direct accountability so you actually stick with it.
 >
-> You'll leave with a personalized strategy based on your goals.
+> Every new client starts with a 1-on-1 training & assessment session and a 3D body scan (body fat %, muscle mass, metabolic data), so your plan is built around where you are today.
 >
-> Tap Apply Now to claim your spot.
+> Applications are open. Apply below.
