@@ -78,3 +78,10 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 > Every new client starts with a 1-on-1 training & assessment session and a 3D body scan (body fat %, muscle mass, metabolic data), so your plan is built around where you are today.
 >
 > Applications are open. Apply below.
+
+## Publicación (27/10/2026)
+
+- Campaña `120252304173230200` publicada: ACTIVE, USD 70/día. La campaña vieja la pausa Nahuel.
+- Anuncio 04 armado con personalización por ubicación: 4:5 en Feed/Explore y 9:16 en Stories/Reels. Formulario 4716288931989784.
+- El ganador (01) conserva las mejoras de Meta AI del anuncio original, por decisión de Nahuel. Los anuncios 02, 03 y 04 las tienen apagadas.
+- El video 02 sigue diciendo "free session" en el audio: Nahuel decidió dejarlo.
