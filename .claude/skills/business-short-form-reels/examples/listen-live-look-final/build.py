@@ -95,7 +95,7 @@ K.chat("s13-chat", 54.1771, 57.9309, True, "Idea Extractor", "Run my weekly idea
 K.ac(57.3, "shine")
 
 # 14 CTA (split 57.93-end): Instagram notifications
-K.notifs("s14-cta", 57.9309, DUR, False, [("Instagram", "<b>jess.creates</b> commented: IDEA", False, None), ("@@HANDLE@@".lstrip("@"), "Your Idea Extractor skill is here", True, 60.9)])
+K.notifs("s14-cta", 57.9309, DUR, False, [("Instagram", "<b>jess.creates</b> commented: IDEA", False, None), ("@_natevelazquez".lstrip("@"), "Your Idea Extractor skill is here", True, 60.9)])
 
 
 K.agenda([("1", "LISTEN", 12.5), ("2", "LIVE", 23.9), ("3", "LOOK", 38.2)], 11.95, 50.3)

@@ -27,7 +27,7 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
 | Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC · small labels #9A928A |
 | Fonts | main: Inter · emphasis: Playfair Display Italic · captions: Inter |
 | Transcriber | elevenlabs |

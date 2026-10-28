@@ -20,7 +20,8 @@ with open(lst, "w") as L:                       # ffmpeg select dies past ~100 b
     for k in range(0, len(keeps), 50):
         sel = "+".join(f"between(n,{s},{e - 1})" for s, e in keeps[k: k + 50]); p = f"{tmp}/p{k}.mp4"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-an", "-vf", f"select='{sel}',setpts=N/({FR})/TB", "-r", FR,
-                        "-c:v", "hevc_videotoolbox", "-b:v", rate, "-tag:v", "hvc1", p], check=True)
+                        *(["-c:v", "hevc_videotoolbox", "-b:v", rate, "-tag:v", "hvc1"] if sys.platform == "darwin"   # Linux / cloud: no VideoToolbox
+                          else ["-c:v", "libx264", "-crf", "14", "-preset", "fast", "-pix_fmt", "yuv420p"]), p], check=True)
         L.write(f"file '{p}'\n")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-i", f"{tmp}/t.wav", "-map", "0:v", "-map", "1:a",
                 "-c:v", "copy", "-c:a", "aac", "-b:a", "320k", "-shortest", out], check=True)

@@ -26,18 +26,18 @@ dated, the moment it is said.
 
 | | |
 |---|---|
-| Creator | Nahuel (@@HANDLE@@, Instagram) |
-| Brand | Nahuel: @@NICHE@@ |
+| Creator | Nahuel (@_natevelazquez, Instagram) |
+| Brand | Nahuel: Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Accent colour | #FF7A1A (orange) |
 | Caption font | Inter, bold |
 | Emphasis font | Playfair Display Italic (key words only) |
 | Transcriber | elevenlabs |
-| Working style | @@WORKING_STYLE@@ |
+| Working style | build first and report |
 | B-roll | @@BROLL_SOURCE@@ |
 | Music | ask (library: none yet; favourites in `assets/music.json`) |
 | Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
 | Folders | work `~/reel-work/<slug>` · projects `~/videos/<slug>-psf` · finals: /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
-| Usual camera | @@CAMERA_SETUP@@ (horizontal default crops: full `1215 2160 1312 0`, top `1800 1600 1020 280`) |
+| Usual camera | iPhone, vertical 9:16, talking head, HDR (convert to SDR bt709 23.976) (horizontal default crops: full `1215 2160 1312 0`, top `1800 1600 1020 280`) |
 
 One raw talking-head file in, one finished 1080x1920 reel out. Before designing, read
 `examples/fear-of-failure/build.py`: a worked reel in this style, kept as a structure reference (another creator's
@@ -52,7 +52,7 @@ raw file. Long steps run in the background; render one reel at a time.
 
 ## How to work with the creator
 
-- **Working style: @@WORKING_STYLE@@.**
+- **Working style: build first and report.**
   - `build-first` (the default for this format): build the whole reel, then report. Do not stop to ask about every
     graphic. Ask only what cannot be guessed (which of two files is the take, whether a screen recording exists for a
     software video).

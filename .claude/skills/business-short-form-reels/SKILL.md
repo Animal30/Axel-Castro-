@@ -26,18 +26,18 @@ written into the notes file, dated, the moment it is said.
 
 | | |
 |---|---|
-| Creator | Nahuel (@@HANDLE@@, Instagram) |
-| Brand | Nahuel: @@NICHE@@ |
+| Creator | Nahuel (@_natevelazquez, Instagram) |
+| Brand | Nahuel: Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Accent colour | #FF7A1A (orange) on background #050505 |
 | Main font | Inter (bold for hooks, captions, labels, numbers) |
 | Emphasis font | Playfair Display Italic (key words only, never numbers) |
 | Transcriber | elevenlabs |
-| Working style | @@WORKING_STYLE@@ |
+| Working style | build first and report |
 | Music | ask (library: none yet) |
 | Sound effects | /home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx |
 | Real assets | none yet |
 | Folders | work `~/reel-work/<slug>` · projects `~/videos/<slug>-hf` · finals: /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
-| Usual camera | @@CAMERA_SETUP@@ (default crops: full `1215 2160 1312 0`, top `1800 1600 1020 280`) |
+| Usual camera | iPhone, vertical 9:16, talking head, HDR (convert to SDR bt709 23.976) (default crops: full `1215 2160 1312 0`, top `1800 1600 1020 280`) |
 | CTA style | comment a keyword to get the resource |
 
 **Worked examples:** the three `examples/*-final/build.py` reels. Read one before building; they use `engine/kit.py`.
@@ -49,7 +49,7 @@ motion-graphics tool part-way.
 
 ## How to work with the creator (as important as the look)
 
-- **Working style: @@WORKING_STYLE@@.**
+- **Working style: build first and report.**
   - `consult` (the default): ask about design choices before building. Sizing, motion, easing, wording, which graphic,
     which catalog effect: ask with `AskUserQuestion`, offer 2-4 concrete options, then build. Do not decide alone and
     report afterwards.

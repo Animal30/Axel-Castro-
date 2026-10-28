@@ -27,8 +27,8 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
-| What they make, and for whom | not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
+| What they make, and for whom | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Accent colour | #FF7A1A (orange), text on it #120C08 |
 | Fonts | hook and sub-line: Inter · captions: Inter |
 | Hook label | white (white label with dark text, or an accent-colour label) |

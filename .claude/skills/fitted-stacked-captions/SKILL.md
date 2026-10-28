@@ -27,7 +27,7 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
 | Anchor word colour | accent #FF7A1A (orange) |
 | Anchor word font (emphasis font) | Playfair Display Italic |
 | Fitted words font (caption font, bold) | Inter |

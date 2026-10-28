@@ -427,7 +427,7 @@ scene("s12-skill", 55.80, 60.50, False, f"""
 scene("s13-cta", 60.50, DUR, True, f"""
     <div id="{{ID}}-sk" class="sk de-glass"><span class="sq2"></span><div><div class="t1">3C Hook Matrix</div><div class="t2">Claude skill · analyze + rewrite</div></div><span id="{{ID}}-free" class="free">100% FREE</span></div>
     <div id="{{ID}}-cm" class="cm de-glass"><div class="av"></div><div class="inp"><span id="{{ID}}-ty" class="ty"></span></div><div id="{{ID}}-send" class="send">Post</div></div>
-    <div id="{{ID}}-dm" class="dm de-glass de-hot"><div class="dav">@</div><div><div class="d1">@@HANDLE@@</div><div class="d2">Here’s your 3C Hook skill 🔥</div></div></div>
+    <div id="{{ID}}-dm" class="dm de-glass de-hot"><div class="dav">@</div><div><div class="d1">@_natevelazquez</div><div class="d2">Here’s your 3C Hook skill 🔥</div></div></div>
 """,
     """.sk{position:absolute;left:90px;top:560px;width:900px;padding:34px 38px;box-sizing:border-box;display:flex;align-items:center;gap:24px;z-index:5;background:rgba(20,20,20,.94)}
     .sq2{width:84px;height:84px;border-radius:20px;background:var(--o);flex:none}
