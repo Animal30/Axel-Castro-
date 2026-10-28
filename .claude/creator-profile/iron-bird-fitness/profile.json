@@ -1,0 +1,63 @@
+{
+ "creator_name": "Sam",
+ "brand_name": "Iron Bird Fitness",
+ "handle": "@IRONBIRDFIT",
+ "platform": "Instagram",
+ "accent": "#EC272E",
+ "accent_name": "Iron Bird red",
+ "bg": "#120607",
+ "paper": "#FFFFFF",
+ "font_main_bold": {
+  "local": [
+   "Inter Bold",
+   "Inter-Bold"
+  ]
+ },
+ "font_main_name": "Inter",
+ "font_accent_name": "Playfair Display Italic",
+ "transcriber": "elevenlabs",
+ "music_rule": "ask",
+ "niche": "Personal trainer helping busy adults get in shape with short, planned strength sessions",
+ "output_rule": "/mnt/project-files/sam/<reel name>/",
+ "skills": {
+  "creator-setup": {
+   "configured": "2026-10-23"
+  },
+  "cutout-backdrop-reel": {
+   "configured": "2026-10-23"
+  },
+  "cutout-grid-reel": {
+   "configured": "2026-10-23"
+  },
+  "depth-ui-reel": {
+   "configured": "2026-10-23"
+  },
+  "educational-youtube-editor": {
+   "configured": "2026-10-23"
+  },
+  "explainer-panel-reel": {
+   "configured": "2026-10-23"
+  },
+  "fitted-stacked-captions": {
+   "configured": "2026-10-23"
+  },
+  "glass-explainer-reel": {
+   "configured": "2026-10-23"
+  },
+  "image-cluster-reel": {
+   "configured": "2026-10-23"
+  },
+  "ranking-format": {
+   "configured": "2026-10-23"
+  },
+  "split-reel": {
+   "configured": "2026-10-23"
+  },
+  "split-screen-document-plus-animations": {
+   "configured": "2026-10-23"
+  },
+  "visual-essay-reel": {
+   "configured": "2026-10-23"
+  }
+ }
+}
