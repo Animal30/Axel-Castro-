@@ -1,0 +1,49 @@
+{
+ "title": "Ranking de publicidad",
+ "duration": 57.33,
+ "table_in": 0,
+ "table_out": 52.2,
+ "items": [
+  {
+   "label": "Promocionar publicación",
+   "image": "assets/items/promocionar.jpg",
+   "t_in": 2.49,
+   "t_name_end": 4.1,
+   "t_rank": 9.27,
+   "tier": "F"
+  },
+  {
+   "label": "Segmentar por intereses",
+   "image": "assets/items/intereses.jpg",
+   "t_in": 9.67,
+   "t_name_end": 11.7,
+   "t_rank": 19.27,
+   "tier": "D"
+  },
+  {
+   "label": "Anuncio a tu perfil",
+   "image": "assets/items/perfil.jpg",
+   "t_in": 19.83,
+   "t_name_end": 21.8,
+   "t_rank": 30.27,
+   "tier": "C"
+  },
+  {
+   "label": "Probar varios anuncios",
+   "image": "assets/items/varios-anuncios.jpg",
+   "t_in": 30.49,
+   "t_name_end": 32.0,
+   "t_rank": 39.81,
+   "tier": "A"
+  },
+  {
+   "label": "Anuncios con el celular",
+   "image": "assets/items/celular.jpg",
+   "t_in": 40.31,
+   "t_name_end": 41.85,
+   "t_rank": 51.81,
+   "tier": "S"
+  }
+ ],
+ "card_char_w": 0.7
+}
