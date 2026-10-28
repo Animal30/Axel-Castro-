@@ -90,7 +90,8 @@ def build():
 body {{ margin: 0; background: #050505; }}
 #root {{ position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #050505; font-family: "CapF", -apple-system, sans-serif; color: #F2F0EC; }}
 #vFull {{ position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; display: block; z-index: 1; }}
-#title {{ position: absolute; left: 0; width: 1080px; top: {plan.get('title_y', 286)}px; text-align: center; font-family: "MainF", -apple-system, sans-serif; font-weight: 800; font-style: {TITLE_STYLE}; font-size: 58px; letter-spacing: -0.01em; line-height: 1; color: {ACCENT}; text-transform: {TITLE_CASE}; text-shadow: 0 0 2px #1a0b02, 0 2px 0 #1a0b02, 0 4px 18px rgba(0,0,0,.85); z-index: 10; opacity: 0; }}
+#title {{ position: absolute; left: 0; width: 1080px; top: {plan.get('title_y', 286)}px; text-align: center; font-family: "MainF", -apple-system, sans-serif; font-weight: 800; font-style: {TITLE_STYLE}; font-size: 58px; letter-spacing: -0.01em; line-height: 1; color: {ACCENT}; text-transform: {TITLE_CASE}; z-index: 10; opacity: 0; }}
+#title b {{ display: inline-block; font-weight: inherit; background: #050505; padding: 16px 30px 14px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.45); }}
 #rank {{ position: absolute; left: {left:.1f}px; top: {top:.1f}px; width: {TW}px; height: {TH}px; transform: scale({s}); transform-origin: 0 0; z-index: 12; opacity: 0; }}
 #table {{ position: absolute; inset: 0; background: #000; box-shadow: 0 0 0 6px #000, 0 24px 60px rgba(0,0,0,.55); }}
 .row {{ position: absolute; left: 0; width: {TW}px; height: {ROW}px; background: #1b1a1d; }}
@@ -101,13 +102,13 @@ body {{ margin: 0; background: #050505; }}
 .item .sh {{ position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.55) 100%); }}
 .item .nm {{ position: absolute; left: 10px; right: 10px; bottom: 20px; text-align: center; font-family: "MainF", Impact, sans-serif; font-weight: 800; line-height: .92; letter-spacing: -0.01em; color: {CARD_NAME}; -webkit-text-stroke: 5px #111; paint-order: stroke fill; text-shadow: 0 5px 0 rgba(0,0,0,.55); }}
 .cap {{ position: absolute; inset: 0; z-index: 20; pointer-events: none; }}
-.cap span {{ position: absolute; left: 40px; right: 40px; top: {cap_top:.0f}px; display: block; text-align: center; white-space: nowrap; font-weight: 500; font-size: 46px; letter-spacing: -0.045em; line-height: 1.2; color: #F2F0EC; text-shadow: 0 3px 14px rgba(0,0,0,.85), 0 0 4px rgba(0,0,0,.7); }}
-.cap.nm span {{ color: {ACCENT}; font-weight: 600; }}
+.cap span {{ position: absolute; left: 40px; right: 40px; top: {cap_top:.0f}px; display: block; text-align: center; white-space: nowrap; font-weight: 800; font-size: 52px; letter-spacing: -0.03em; word-spacing: 0.12em; line-height: 1.2; color: #FFFFFF; -webkit-text-stroke: 11px #000; paint-order: stroke fill; text-shadow: 0 4px 16px rgba(0,0,0,.9); }}
+.cap.nm span {{ color: {ACCENT}; font-weight: 800; }}
 </style></head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="{D}" data-fps="30">
   <video id="vFull" src="assets/cam_full.mp4" muted playsinline data-start="0" data-duration="{D}" data-track-index="1"></video>
-  <div id="title">{esc(plan['title'])}</div>
+  <div id="title"><b>{esc(plan['title'])}</b></div>
   <div id="rank"><div id="table">{rows}</div>{cards}</div>
   {caps}
 </div>
