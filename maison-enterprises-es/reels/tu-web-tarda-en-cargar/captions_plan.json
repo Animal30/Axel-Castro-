@@ -1,0 +1,193 @@
+{
+ "cy": 1150,
+ "maxBottom": 1260,
+ "em": 140,
+ "small": 48,
+ "captions": [
+  {
+   "id": "cap00",
+   "pre": "Este sitio web que no",
+   "cy": 870,
+   "em": "carga."
+  },
+  {
+   "id": "cap01",
+   "pre": "Para, para, para,",
+   "cy": 1150,
+   "em": "para."
+  },
+  {
+   "id": "cap02",
+   "pre": "Si tu web tarda",
+   "cy": 1150
+  },
+  {
+   "id": "cap03",
+   "pre": "más de",
+   "cy": 1150,
+   "em": "3 segundos",
+   "post": "en cargar,"
+  },
+  {
+   "id": "cap04",
+   "pre": "ya perdiste la",
+   "cy": 1150,
+   "em": "mitad",
+   "post": "de tu tráfico."
+  },
+  {
+   "id": "cap05",
+   "pre": "Tenés",
+   "cy": 870,
+   "em": "5 segundos"
+  },
+  {
+   "id": "cap06",
+   "pre": "antes de que alguien",
+   "cy": 870
+  },
+  {
+   "id": "cap06b",
+   "pre": "cierre tu web",
+   "cy": 870
+  },
+  {
+   "id": "cap07",
+   "pre": "y la mayoría lo desperdicia",
+   "cy": 870
+  },
+  {
+   "id": "cap08",
+   "pre": "en estas",
+   "cy": 870,
+   "em": "3 cosas:"
+  },
+  {
+   "id": "cap09",
+   "pre": "una web que",
+   "cy": 870,
+   "em": "tarda",
+   "post": "en cargar,"
+  },
+  {
+   "id": "cap10",
+   "pre": "un texto que no se",
+   "cy": 870,
+   "em": "entiende,"
+  },
+  {
+   "id": "cap11",
+   "pre": "un celular donde",
+   "cy": 870
+  },
+  {
+   "id": "cap12",
+   "pre": "se ve todo",
+   "cy": 870,
+   "em": "roto."
+  },
+  {
+   "id": "cap13",
+   "pre": "Hoy casi todo tu tráfico",
+   "cy": 870
+  },
+  {
+   "id": "cap14",
+   "pre": "viene de",
+   "cy": 870,
+   "em": "celular."
+  },
+  {
+   "id": "cap15",
+   "pre": "Si tu web está pensada",
+   "cy": 870
+  },
+  {
+   "id": "cap16",
+   "pre": "para una",
+   "cy": 870,
+   "em": "computadora,"
+  },
+  {
+   "id": "cap17",
+   "pre": "está diseñada para un cliente",
+   "cy": 870
+  },
+  {
+   "id": "cap18",
+   "pre": "que ya no",
+   "cy": 870,
+   "em": "existe."
+  },
+  {
+   "id": "cap19",
+   "pre": "Hacé esta",
+   "cy": 1150,
+   "em": "prueba:"
+  },
+  {
+   "id": "cap20",
+   "pre": "abrí tu web",
+   "cy": 1150
+  },
+  {
+   "id": "cap20b",
+   "pre": "desde el celular",
+   "cy": 1150
+  },
+  {
+   "id": "cap21",
+   "pre": "con datos móviles",
+   "cy": 1150
+  },
+  {
+   "id": "cap22",
+   "pre": "y contá hasta",
+   "cy": 1150,
+   "em": "5."
+  },
+  {
+   "id": "cap23",
+   "pre": "Si en esos 5 segundos",
+   "cy": 870
+  },
+  {
+   "id": "cap24",
+   "pre": "no entendés qué vendés",
+   "cy": 870
+  },
+  {
+   "id": "cap25",
+   "pre": "ni cómo comprarlo,",
+   "cy": 870
+  },
+  {
+   "id": "cap26",
+   "pre": "tu cliente",
+   "cy": 870,
+   "em": "tampoco."
+  },
+  {
+   "id": "cap27",
+   "pre": "Escribime",
+   "cy": 1150,
+   "em": "CINCO"
+  },
+  {
+   "id": "cap28",
+   "pre": "y te mando el",
+   "cy": 1150,
+   "em": "checklist"
+  },
+  {
+   "id": "cap29",
+   "pre": "que usamos para",
+   "cy": 1150
+  },
+  {
+   "id": "cap30",
+   "pre": "revisar estas webs",
+   "cy": 1150
+  }
+ ]
+}
