@@ -60,7 +60,7 @@ SPOTS = {
                             (str(HERE.parent / "video/raw-01.mp4"), 2.0, 2.8, "Full set.", "BOX & PAPERS · JUBILEE"),
                             (str(MACRO), 1.2, 3.0, "Datejust 41", "REF. 126334 · BLUE DIAMOND")],
 }
-END = 2.6
+END = 3.4
 
 end_png = png("end", END_CARD)
 for name, shots in SPOTS.items():
@@ -68,7 +68,7 @@ for name, shots in SPOTS.items():
     ins, f = [], []
     for k, (src, ss, d, big, small) in enumerate(seq):
         if src == "END":
-            ins += ["-loop", "1", "-t", str(d), "-i", str(end_png)]
+            ins += ["-i", str(OUT / "_endcard.mp4")]  # placa final animada (endcard.py)
             f.append(f"[{k}:v]scale={W}:{H},fps=24,format=yuv420p,setsar=1[s{k}]")
         else:
             p = pathlib.Path(src) if "/" in src else CLIPS / src
