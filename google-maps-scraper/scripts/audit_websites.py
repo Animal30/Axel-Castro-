@@ -10,7 +10,7 @@ Reads a lead CSV from scrape.py (needs a `website` column), visits every site on
 Usage:   python3 scripts/audit_websites.py results-<id>.csv [--out prospectos.csv] [--min-score 30]
 Plain HTTP and regex only: no LLM tokens, no dependencies.
 """
-import argparse, csv, datetime, re, ssl, sys, time, urllib.error, urllib.parse, urllib.request
+import argparse, csv, datetime, os, re, ssl, sys, time, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
@@ -20,7 +20,8 @@ SOCIAL_HOSTS = ("facebook.com", "instagram.com", "wa.me", "whatsapp.com", "linkt
 FREE_BUILDERS = (".wixsite.com", ".blogspot.", ".wordpress.com", ".webnode.", ".jimdosite.com",
                  ".jimdo.com", ".site123.me", ".negocio.site", ".business.site", ".godaddysites.com",
                  ".weebly.com", ".mitiendanube.com")
-PARKED = re.compile(r"en construcci[oó]n|under construction|coming soon|pr[oó]ximamente|"
+PARKED = re.compile(r"(sitio|p[aá]gina|web|sitio web)( web)? (est[aá] )?en construcci[oó]n|"
+                    r"under construction|coming soon|website coming|"
                     r"domain (is )?for sale|dominio (est[aá] )?en venta|buy this domain|"
                     r"this domain (has expired|is parked)|parked (free|domain)|sitio en mantenimiento", re.I)
 COPYRIGHT = re.compile(r"(?:©|&copy;|copyright)\s*(?:\d{4}\s*[-–]\s*)?((?:19|20)\d{2})", re.I)
@@ -46,6 +47,16 @@ def fetch(url, verify=True, timeout=12):
         return r.status, r.geturl(), html, time.time() - t
 
 
+def fetch_first(url):
+    """Try the https:// version first: modern sites redirect anyway, and some proxies block plain HTTP."""
+    if url.startswith("http://"):
+        try:
+            return fetch("https://" + url[7:])
+        except Exception:
+            pass
+    return fetch(url)
+
+
 def audit(row):
     url = norm(row.get("website"))
     out = {"web_estado": "", "web_puntaje": 0, "web_motivos": "", "web_https": "", "web_mobile": "",
@@ -68,13 +79,18 @@ def audit(row):
 
     cert_ok = True
     try:
-        status, final, html, secs = fetch(url)
+        status, final, html, secs = fetch_first(url)
     except Exception as e:
+        if getattr(e, "code", None) == 405 and url.startswith("http://") and os.environ.get("HTTPS_PROXY"):
+            # The proxy refuses plain-HTTP requests (405), so this says nothing about the site itself.
+            reasons.append("solo figura con http:// y no se pudo abrir desde acá (revisar a mano)")
+            score = 40
+            return done("sin verificar")
         err = getattr(e, "reason", e)
         if isinstance(err, ssl.SSLError) or "CERTIFICATE" in str(err).upper():
             cert_ok = False
             try:
-                status, final, html, secs = fetch(url, verify=False)
+                status, final, html, secs = fetch("https://" + url.split("://", 1)[1], verify=False)
             except Exception as e2:
                 reasons.append(f"la web no carga ({short(e2)})")
                 score = 95
@@ -95,10 +111,15 @@ def audit(row):
         return done("solo redes")
 
     text = re.sub(r"\s+", " ", TAG_TEXT.sub(" ", html)).strip()
-    if PARKED.search(text[:5000]) or len(text) < 150:
-        reasons.append("la web está en construcción, vacía o el dominio está estacionado")
+    if PARKED.search(text[:5000]):
+        reasons.append("la web está en construcción o el dominio está estacionado")
         score = 90
         return done("en construcción")
+    if len(text) < 150 and len(re.findall(r"<script", html, re.I)) < 2:
+        reasons.append("la web está vacía")
+        score = 90
+        return done("en construcción")
+    # Little text but several scripts: a JavaScript-rendered site; judge it on the checks below.
 
     https = final.startswith("https://") and cert_ok
     out["web_https"] = "sí" if https else "no"
@@ -133,6 +154,7 @@ def audit(row):
     if not re.search(r"wa\.me/|api\.whatsapp\.com|whatsapp", html, re.I):
         reasons.append("no tiene botón de WhatsApp"); score += 5
 
+    out["_html"] = html
     out["web_segundos"] = round(secs, 1)
     if secs > 6:
         reasons.append(f"tarda {secs:.0f} s en cargar"); score += 15
@@ -171,6 +193,7 @@ def main():
     print(f"▶ Auditing {len(rows)} websites…")
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         for i, (r, res) in enumerate(zip(rows, ex.map(audit, rows)), 1):
+            res.pop("_html", None)
             r.update(res)
             print(f"\r  {i}/{len(rows)}", end="", flush=True)
     print()
