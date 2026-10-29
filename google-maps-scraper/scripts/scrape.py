@@ -315,6 +315,9 @@ def main():
     ap.add_argument("--grid", type=int, metavar="N",
                     help="split the --city area into N x N map tiles, one job each, deduped "
                          "(breaks Google's ~120 per search cap; max 10)")
+    ap.add_argument("--fast", action="store_true",
+                    help="fast mode: data from the results list only, up to ~20 per keyword. "
+                         "Use it when full place pages come back empty (e.g. from cloud IPs)")
     ap.add_argument("--proxy", action="append", default=[],
                     help="proxy URL for the engine, repeatable (e.g. http://user:pass@host:port). "
                          "The engine requires user:pass; any value works for a proxy without auth")
@@ -376,7 +379,7 @@ def main():
         sys.exit(f"✗ Scraper not reachable at {BASE} — run 'docker compose up -d' first.\n  ({e})")
 
     body = {"name": "scrape-py", "keywords": keywords, "lang": a.lang, "zoom": 15,
-            "lat": str(lat), "lon": str(lon), "fast_mode": False, "radius": 10000,
+            "lat": str(lat), "lon": str(lon), "fast_mode": a.fast, "radius": 10000,
             "depth": a.depth, "email": a.email, "max_time": a.max_time}
     if a.proxy:
         body["proxies"] = a.proxy
