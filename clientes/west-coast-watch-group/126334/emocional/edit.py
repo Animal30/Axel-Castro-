@@ -43,21 +43,21 @@ END_CARD = ('<div class="end"><div class="mark">EST. SAN DIEGO</div><div class="
 # (archivo, inicio dentro del clip, duración, texto grande, texto chico)
 SPOTS = {
     "03-the-drive": [("A1.mp4", 0.3, 3.0, "The road.", ""),
-                     ("A2.mp4", 0.0, 2.4, "The details.", ""),
-                     ("A3.mp4", 0.3, 3.2, "The arrival.", ""),
+                     ("A2v2.mp4", 0.3, 3.0, "The details.", ""),
+                     ("A3v2.mp4", 0.3, 3.2, "The arrival.", ""),
                      (str(MACRO), 1.2, 3.0, "Datejust 41", "REF. 126334 · BLUE DIAMOND")],
-    "04-the-milestone": [("B1.mp4", 0.2, 3.2, "The deal.", ""),
-                         ("B2.mp4", 0.3, 3.0, "The toast.", ""),
-                         ("B3.mp4", 1.4, 3.6, "The moment you keep.", ""),
+    "04-the-milestone": [("B1v2.mp4", 0.3, 3.2, "The deal.", ""),
+                         ("B2v2.mp4", 0.3, 3.2, "The toast.", ""),
+                         ("B3v2.mp4", 0.6, 3.6, "The moment you keep.", ""),
                          (str(MACRO), 1.2, 3.0, "Datejust 41", "REF. 126334 · BLUE DIAMOND")],
     # anuncio completo: las dos historias, el full set (confianza) y la macro, en un solo spot
     "05-anuncio-completo": [("A1.mp4", 0.3, 3.0, "The road.", ""),
-                            ("A2.mp4", 0.0, 2.4, "The details.", ""),
-                            ("A3.mp4", 0.3, 3.2, "The arrival.", ""),
-                            ("B1.mp4", 0.2, 3.2, "The deal.", ""),
-                            ("B2.mp4", 0.3, 3.0, "The toast.", ""),
-                            ("B3.mp4", 1.4, 3.6, "The moment you keep.", ""),
-                            (str(HERE.parent / "video/raw-01.mp4"), 2.0, 2.8, "Full set.", "BOX & PAPERS · JUBILEE"),
+                            ("A2v2.mp4", 0.3, 3.0, "The details.", ""),
+                            ("A3v2.mp4", 0.3, 3.2, "The arrival.", ""),
+                            ("B1v2.mp4", 0.3, 3.2, "The deal.", ""),
+                            ("B2v2.mp4", 0.3, 3.2, "The toast.", ""),
+                            ("B3v2.mp4", 0.6, 3.6, "The moment you keep.", ""),
+                            ("FSv2.mp4", 0.4, 3.0, "Full set.", "BOX & PAPERS · JUBILEE"),
                             (str(MACRO), 1.2, 3.0, "Datejust 41", "REF. 126334 · BLUE DIAMOND")],
 }
 END = 3.4
