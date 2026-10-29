@@ -50,6 +50,15 @@ SPOTS = {
                          ("B2.mp4", 0.3, 3.0, "The toast.", ""),
                          ("B3.mp4", 1.4, 3.6, "The moment you keep.", ""),
                          (str(MACRO), 1.2, 3.0, "Datejust 41", "REF. 126334 · BLUE DIAMOND")],
+    # anuncio completo: las dos historias, el full set (confianza) y la macro, en un solo spot
+    "05-anuncio-completo": [("A1.mp4", 0.3, 3.0, "The road.", ""),
+                            ("A2.mp4", 0.0, 2.4, "The details.", ""),
+                            ("A3.mp4", 0.3, 3.2, "The arrival.", ""),
+                            ("B1.mp4", 0.2, 3.2, "The deal.", ""),
+                            ("B2.mp4", 0.3, 3.0, "The toast.", ""),
+                            ("B3.mp4", 1.4, 3.6, "The moment you keep.", ""),
+                            (str(HERE.parent / "video/raw-01.mp4"), 2.0, 2.8, "Full set.", "BOX & PAPERS · JUBILEE"),
+                            (str(MACRO), 1.2, 3.0, "Datejust 41", "REF. 126334 · BLUE DIAMOND")],
 }
 END = 2.6
 
