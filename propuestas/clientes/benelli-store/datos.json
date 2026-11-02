@@ -1,0 +1,211 @@
+{
+  "archivo": "BenelliStore_Propuesta",
+  "titulo_pdf": "Propuesta de Crecimiento · Benelli Store Runner 66",
+
+  "cliente": {
+    "nombre": "Benelli Store Runner 66",
+    "contacto": "Adrián",
+    "direccion": "Humberto Primo 166, Córdoba",
+    "instagram": "@benellistorerunner66",
+    "nombre_corto": "Benelli Store"
+  },
+  "fecha": "Noviembre 2026",
+
+  "portada": {
+    "titulo": "Publicidad en Meta, sitio web,",
+    "titulo_color": "CRM y contenido audiovisual.",
+    "servicios": [
+      { "color": "orange", "icono": "meta", "titulo": "Publicidad en Meta", "texto": "Gestión de campañas en Instagram y Facebook, organizadas por segmento de moto.", "etiqueta": "META ADS" },
+      { "color": "blue", "icono": "web", "titulo": "Sitio Web", "texto": "Catálogo completo con formularios que registran modelo, contacto y forma de pago.", "etiqueta": "WEB · CATÁLOGO" },
+      { "color": "slate", "icono": "crm", "titulo": "CRM", "texto": "Registro y seguimiento de cada consulta por vendedor, con notificaciones al celular.", "etiqueta": "SEGUIMIENTO" },
+      { "color": "blue", "icono": "video", "titulo": "Contenido", "texto": "20 piezas audiovisuales por mes, de lunes a viernes, e historias diarias.", "etiqueta": "INSTAGRAM · FACEBOOK" }
+    ]
+  },
+
+  "paginas": [
+    {
+      "indice": "Situación actual y objetivo",
+      "kicker": "Situación actual y objetivo",
+      "color": "blue",
+      "titulo": "Punto de partida y<br>objetivo del trabajo.",
+      "subtitulo": "Datos relevados en la reunión con Adrián y en el perfil de Instagram",
+      "bloques": [
+        { "tipo": "kpis", "items": [
+          { "label": "Pauta actual en Meta", "valor": "$200.000 por mes" },
+          { "label": "Consultas actuales", "valor": "15 a 20 por día" },
+          { "label": "Publicaciones", "valor": "Cerca de 3 por mes" },
+          { "label": "Equipo comercial", "valor": "2 vendedores + 1 en incorporación" }
+        ]},
+        { "tipo": "texto", "titulo": "Situación actual", "parrafos": [
+          "Hoy invierten $200.000 por mes en Meta y reciben entre 15 y 20 consultas por día. La cuenta responde bien a la inversión actual, lo que permite aumentar el presupuesto y el volumen de consultas.",
+          "Las consultas llegan principalmente por mensaje, sin un registro centralizado del modelo de interés, la forma de pago ni el estado de cada conversación.",
+          "El perfil de Instagram tiene 44.500 seguidores, pero según lo publicado en los últimos meses, <b>la frecuencia es de cerca de 3 posteos por mes</b>. Con ese ritmo, el perfil no acompaña a quien llega desde un anuncio ni le da a las campañas material nuevo para probar."
+        ]},
+        { "tipo": "checks", "titulo": "Objetivo", "items": [
+          "<b>Aumentar el volumen de consultas</b> mediante una mayor inversión en pauta y campañas organizadas por segmento.",
+          "<b>Recibir consultas con información</b> sobre modelo, contacto y forma de pago, a través del sitio web.",
+          "<b>Registrar y dar seguimiento a cada consulta</b> por vendedor, con avisos cuando una queda sin respuesta.",
+          "<b>Publicar contenido de lunes a viernes</b>, que además se usa como material para los anuncios."
+        ]}
+      ]
+    },
+    {
+      "indice": "Publicidad en Meta y resultados estimados",
+      "kicker": "01 · Publicidad en Meta",
+      "color": "orange",
+      "titulo": "Publicidad en Meta:<br>qué vamos a hacer y qué esperar.",
+      "bloques": [
+        { "tipo": "texto", "titulo": "Estructura de campañas", "parrafos": [
+          "Vamos a organizar las campañas por segmento de moto: <b>Naked, Touring, Scrambler y Classic</b>, cada una con anuncios y públicos propios. Sumamos anuncios de catálogo con los modelos disponibles y campañas de retargeting para quienes ya visitaron el sitio o consultaron sin comprar.",
+          "Las campañas dirigen al sitio web o a WhatsApp. Cada semana revisamos el costo por consulta y la calidad de los contactos por campaña, y movemos el presupuesto hacia las que mejor funcionan."
+        ]},
+        { "tipo": "tabla", "titulo": "Inversión en pauta y consultas estimadas",
+          "columnas": ["Pauta mensual en Meta", "Consultas por día", "Referencia"],
+          "filas": [
+            ["$200.000", "15 a 20", "Situación actual"],
+            ["$500.000", "29 a 35", "Estimación"],
+            ["$1.000.000", "44 a 58", "Estimación · inversión recomendada"]
+          ],
+          "destacada": 2,
+          "nota": "Estimación basada en el rendimiento actual de la cuenta. Al aumentar la inversión, el costo de cada consulta tiende a subir, por eso el crecimiento no es proporcional. Los resultados reales se informan cada semana."
+        },
+        { "tipo": "texto", "titulo": "Impacto en el equipo comercial", "parrafos": [
+          "Con mayor inversión en pauta, el objetivo es que <b>los vendedores trabajen su jornada completa atendiendo consultas</b>, con un flujo constante durante todo el horario comercial. El equipo funciona como un centro de ventas: responde, separa a los interesados reales de los curiosos y avanza activamente con cada venta.",
+          "La venta es una cuestión de volumen: <b>más consultas calificadas, atendidas a tiempo y con seguimiento, dan como resultado más ventas</b>. Por eso la pauta, el sitio web y el CRM se plantean juntos."
+        ]},
+        { "tipo": "texto", "titulo": "Medición y reportes", "parrafos": [
+          "Reporte semanal con inversión, consultas recibidas y resultados por campaña. Con el CRM funcionando, el reporte suma las ventas concretadas según el origen de cada consulta, para medir el retorno real de la pauta."
+        ]}
+      ]
+    },
+    {
+      "indice": "Sitio web",
+      "kicker": "02 · Sitio web",
+      "color": "blue",
+      "titulo": "Sitio web para recibir<br>consultas 100% calificadas.",
+      "subtitulo": "El sitio ya está desarrollado. Se publica con el dominio de Benelli Store.",
+      "bloques": [
+        { "tipo": "texto", "titulo": "Toda la información en un solo lugar", "parrafos": [
+          "Hoy, antes de decidir, el interesado necesita preguntar por mensaje el precio, la financiación, los plazos de entrega y las características de cada moto. Cada una de esas preguntas consume tiempo del vendedor.",
+          "El sitio reúne esa información de forma ordenada: <b>el modelo, la ficha técnica, las opciones de financiación y los plazos de entrega</b>. Quien consulta desde el sitio ya conoce el vehículo y las condiciones, y llega al vendedor con la decisión avanzada."
+        ]},
+        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
+          "Catálogo completo ordenado por segmento",
+          "Ficha técnica y fotos de cada modelo",
+          "Opciones de financiación y medios de pago",
+          "Plazos de entrega por modelo",
+          "Sucursales y datos de contacto",
+          "Botón de consulta en cada modelo",
+          "Diseño adaptado a celular",
+          "Conexión directa con el CRM"
+        ]},
+        { "tipo": "texto", "titulo": "Cómo llega cada consulta", "parrafos": [
+          "Antes de enviar la consulta, el interesado indica el modelo, su nombre y teléfono, y la forma de pago que evalúa: contado, financiación o usado como parte de pago.",
+          "El vendedor recibe una consulta calificada: sabe qué moto busca la persona, cómo piensa pagarla y que ya revisó las condiciones. En lugar de responder preguntas básicas, <b>empieza la conversación desde la venta</b>."
+        ]}
+      ]
+    },
+    {
+      "indice": "CRM",
+      "kicker": "03 · CRM",
+      "color": "slate",
+      "titulo": "CRM para el registro y seguimiento<br>de cada consulta.",
+      "subtitulo": "Desarrollo a medida para el equipo comercial de Benelli Store",
+      "bloques": [
+        { "tipo": "texto", "titulo": "Funcionamiento", "parrafos": [
+          "Cada consulta que llega desde el sitio web o los anuncios entra al CRM con el modelo de interés, la forma de pago y el origen. Se asigna a un vendedor de forma ordenada. El sistema queda configurado para los dos vendedores actuales y para el que se incorpora.",
+          "Cada vendedor trabaja su lista de consultas por etapas, desde el primer contacto hasta la venta, y puede escribir por WhatsApp desde el mismo sistema."
+        ]},
+        { "tipo": "checks2", "titulo": "Funcionalidades", "items": [
+          "Usuario y acceso para cada vendedor",
+          "Notificación push al celular por cada consulta nueva",
+          "Aviso cuando una consulta queda sin respuesta",
+          "Tareas y recordatorios de llamadas",
+          "Etapas de venta por consulta",
+          "Acceso directo a WhatsApp",
+          "Vista general para Adrián",
+          "Reportes de tiempo de respuesta y ventas"
+        ]},
+        { "tipo": "texto", "titulo": "Reportes", "parrafos": [
+          "El CRM muestra cuántas consultas ingresan por día y por origen, cuánto tarda cada vendedor en responder y cuántas consultas terminan en venta. Con estos datos se mide qué campañas generan ventas y no solo consultas."
+        ]}
+      ]
+    },
+    {
+      "indice": "Contenido audiovisual",
+      "kicker": "04 · Contenido audiovisual",
+      "color": "blue",
+      "titulo": "20 piezas audiovisuales por mes<br>e historias diarias.",
+      "bloques": [
+        { "tipo": "comparacion",
+          "antes": { "label": "Hoy", "texto": "Cerca de 3 posteos por mes, sin una frecuencia fija." },
+          "despues": { "label": "Con el plan", "texto": "20 piezas por mes, una por día de lunes a viernes, más historias todos los días." }
+        },
+        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
+          "20 videos por mes, uno por día de lunes a viernes",
+          "Historias diarias en Instagram y Facebook",
+          "Guion y planificación mensual",
+          "Filmación en el local",
+          "Edición y publicación",
+          "Calendario aprobado antes de publicar"
+        ]},
+        { "tipo": "texto", "titulo": "Tipos de piezas", "parrafos": [
+          "Presentación de modelos, comparativas entre motos, entregas a clientes, novedades y promociones del local, y videos del equipo de ventas respondiendo las preguntas más frecuentes."
+        ]},
+        { "tipo": "texto", "titulo": "Uso en publicidad", "parrafos": [
+          "Las piezas también se usan como anuncios. Con material nuevo cada semana, probamos distintos formatos y mensajes en las campañas y dejamos activos los que consiguen consultas a menor costo."
+        ]}
+      ]
+    },
+    {
+      "indice": "Inversión",
+      "kicker": "Inversión",
+      "color": "blue",
+      "titulo": "Precio de nuestros servicios.",
+      "subtitulo": "Precios en dólares estadounidenses",
+      "bloques": [
+        { "tipo": "precios",
+          "arranque": { "label": "Arranque · pago único", "monto": "$1.100", "moneda": "USD", "texto": "Sitio web + CRM + <b>primer mes</b> de contenido y publicidad en Meta" },
+          "mensual": { "badge": "Desde el segundo mes", "label": "Plan mensual", "monto": "$600", "moneda": "USD / mes", "texto": "Contenido audiovisual + gestión de publicidad en Meta" }
+        },
+        { "tipo": "checks", "titulo": "Incluido en el arranque · USD 1.100", "items": [
+          "Publicación del sitio web con el dominio de Benelli Store",
+          "CRM configurado con usuarios para todo el equipo comercial",
+          "Primer mes de contenido: 20 piezas audiovisuales e historias diarias",
+          "Primer mes de gestión de publicidad en Meta, sin costo adicional"
+        ]},
+        { "tipo": "checks", "titulo": "Plan mensual · USD 600 desde el segundo mes", "items": [
+          "20 piezas audiovisuales por mes e historias diarias",
+          "Gestión y optimización de campañas en Meta, con reporte semanal",
+          "Hosting, mantenimiento y soporte del sitio web y el CRM"
+        ], "notas": [
+          "Al continuar desde el segundo mes, el sitio, el CRM y las campañas ya están configurados. No hay costos de implementación adicionales.",
+          "La inversión en pauta se abona aparte, directo a Meta. Inversión recomendada: $1.000.000 de pesos por mes."
+        ]}
+      ]
+    },
+    {
+      "indice": "Implementación",
+      "kicker": "Implementación",
+      "color": "blue",
+      "titulo": "Etapas y plazos.",
+      "subtitulo": "Desde la aprobación de la propuesta",
+      "confidencial": true,
+      "bloques": [
+        { "tipo": "etapas", "items": [
+          { "cuando": "Días 1 a 3", "texto": "Aprobación, pago del arranque y acceso a dominio, cuenta publicitaria y catálogo actualizado." },
+          { "cuando": "Días 3 a 7", "texto": "Publicación del sitio web y alta del CRM con los usuarios del equipo comercial." },
+          { "cuando": "Semana 2", "texto": "Lanzamiento de las campañas en Meta y primer reporte semanal." },
+          { "cuando": "Semana 2 en adelante", "texto": "Calendario de contenido: 20 piezas por mes e historias diarias." }
+        ]},
+        { "tipo": "checks", "numero": "•", "titulo": "Qué necesitamos de Benelli Store", "items": [
+          "Acceso de administrador a la cuenta publicitaria de Meta y a las páginas de Instagram y Facebook",
+          "Catálogo vigente con precios y condiciones de financiación",
+          "Nombre, correo y celular de cada vendedor para crear sus usuarios",
+          "Disponibilidad del local para las jornadas de filmación"
+        ]},
+        { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Nahuel Casartelli</b> · Maison Enterprises · maison.enterprises" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>{{ d.titulo_pdf }}</title>
+<style>{{ fonts }}</style>
+<style>
+:root {
+  --bg: #0a0c11; --ink: #f3f5f8; --muted: #909aac; --dim: #5b6577; --faint: #3d4453;
+  --blue: #2f8fd1; --orange: #d98b3d; --slate: #5b82b8; --accent: #4fb8ff;
+  --line: rgba(255,255,255,.075); --box: rgba(255,255,255,.012);
+}
+@page { size: 720pt 900pt; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { background: var(--bg); font-family: "Inter", sans-serif; color: var(--muted); -webkit-font-smoothing: antialiased; }
+b, strong { color: var(--ink); font-weight: 600; }
+
+.c-blue   { --c: var(--blue);   --c-rgb: 47,143,209; }
+.c-orange { --c: var(--orange); --c-rgb: 217,139,61; }
+.c-slate  { --c: var(--slate);  --c-rgb: 91,130,184; }
+
+.page {
+  position: relative; width: 960px; height: 1200px; padding: 0 64px; overflow: hidden;
+  break-after: page; page-break-after: always;
+  background:
+    radial-gradient(1000px 520px at 100% 0%, rgba(47,143,209,.075), transparent 70%),
+    radial-gradient(420px 260px at 0% 100%, rgba(217,139,61,.05), transparent 70%),
+    linear-gradient(180deg, #0c0f16 0%, #0a0c11 75%);
+}
+.page:last-child { break-after: auto; page-break-after: auto; }
+
+/* ---------- cabecera ---------- */
+.top { position: absolute; left: 64px; right: 64px; top: 56px; height: 27px; display: flex; align-items: center; justify-content: space-between; }
+.kicker { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); }
+.kicker::before { content: ""; width: 14px; height: 2px; border-radius: 1px; background: var(--c); }
+.handle { height: 27px; padding: 0 14px; display: flex; align-items: center; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.035); font-size: 10.5px; font-weight: 600; letter-spacing: .42px; color: var(--muted); }
+.brand { display: flex; align-items: center; gap: 9px; font-size: 10.5px; font-weight: 600; letter-spacing: 1.4px; color: var(--dim); }
+.logo { width: 23px; height: 23px; border-radius: 5px; background: linear-gradient(135deg, #4a9be0, #2f7fc0); color: #0a0c11; display: grid; place-items: center; font-size: 12px; font-weight: 800; letter-spacing: 0; }
+
+/* ---------- títulos ---------- */
+.head { padding-top: 117px; }
+h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); letter-spacing: -.015em; }
+.sub { font-family: "Newsreader", serif; font-style: italic; font-size: 14px; line-height: 20px; color: var(--dim); margin-top: 13.5px; }
+.head + .blocks { margin-top: 26px; }
+.head.has-sub + .blocks { margin-top: 24px; }
+.head.has-sub + .blocks > .first-texto, .head.has-sub + .blocks > .first-checks, .head.has-sub + .blocks > .first-checks2 { margin-top: -3px; }
+.head.has-sub + .blocks > .first-precios { margin-top: -1px; }
+.blocks > .price + * { margin-top: 28px; }
+.head.has-sub + .blocks > .first-etapas { margin-top: -4px; }
+
+/* ---------- portada ---------- */
+.cover-head { padding-top: 138px; }
+.page.cover .top { top: 53px; }
+.cover-head h1 { font-size: 46px; line-height: 55px; letter-spacing: -.02em; }
+.cover-head h1 .acc { color: var(--accent); }
+.lead { margin-top: 22px; font-size: 15.5px; line-height: 26px; color: var(--muted); }
+.svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 38px; }
+.svc > div { border: 1px solid #1f232c; border-top-color: #2a2e37; border-radius: 14px; padding: 16px 18px 20px; background: linear-gradient(180deg, #161a23, #12161e); }
+.svc .row { display: flex; justify-content: space-between; align-items: center; }
+.svc .n { width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(var(--c-rgb), .5); color: var(--c); display: grid; place-items: center; font-size: 10.5px; font-weight: 700; }
+.svc .ic { width: 26px; height: 26px; border-radius: 6px; background: rgba(var(--c-rgb), .16); display: grid; place-items: center; }
+.svc .ic svg { width: 13px; height: 13px; stroke: var(--c); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.svc h3 { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.svc p { margin-top: 8px; font-size: 11.2px; line-height: 17px; color: var(--muted); }
+.pill { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; padding: 5px 12px; white-space: nowrap; border-radius: 999px; border: 1px solid rgba(255,255,255,.1); font-size: 8.5px; font-weight: 700; letter-spacing: .68px; color: var(--muted); }
+.pill::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--c); }
+.toc-wrap { margin-top: 34px; }
+.toc { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; padding: 12px 24px; }
+.toc li { list-style: none; font-size: 12.8px; line-height: 31px; color: var(--muted); }
+.toc li span { display: inline-block; margin-right: 10px; color: var(--blue); }
+
+/* ---------- secciones ---------- */
+.blocks > * + * { margin-top: 28px; }
+.sh { display: flex; align-items: center; gap: 10px; height: 24px; margin-bottom: 14px; font-size: 10.5px; font-weight: 700; letter-spacing: 1.37px; text-transform: uppercase; color: var(--muted); }
+.sh .b { width: 24px; height: 24px; border-radius: 50%; background: rgba(var(--c-rgb), .14); color: var(--c); display: grid; place-items: center; font-size: 10.5px; font-weight: 700; letter-spacing: 0; }
+.sh .b.dot { font-size: 9px; }
+.box { border: 1px solid var(--line); border-radius: 12px; background: var(--box); }
+.box.txt { padding: 20px 24px; font-size: 13.3px; line-height: 22px; }
+.box.txt p + p { margin-top: 12px; }
+.box.chk { padding: 16px 24px; }
+.box.chk:has(ul.two) { padding-bottom: 17px; }
+.chk b { font-weight: 700; }
+.chk ul { list-style: none; }
+.chk li { position: relative; padding-left: 21.3px; font-size: 12.8px; line-height: 22px; color: var(--muted); }
+.chk li + li { margin-top: 9.3px; }
+.chk li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--blue); }
+.chk ul.two { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; row-gap: 9.3px; }
+.chk ul.two li + li { margin-top: 0; }
+.chk .notes { margin-top: 9.3px; }
+.chk .notes li { padding-left: 16.6px; font-style: italic; font-size: 11.8px; line-height: 17px; color: var(--dim); }
+.chk .notes li + li { margin-top: 11px; }
+.chk .notes li::before { content: "•"; color: var(--dim); font-style: normal; }
+
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.kpis > div { min-height: 90px; padding: 18px 13px 14px 17px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.012); }
+.kpis .l { font-size: 9px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--dim); }
+.kpis .v { margin-top: 7px; font-size: 17px; line-height: 20px; font-weight: 700; letter-spacing: .1px; color: var(--ink); }
+.blocks > .kpis + * { margin-top: 31px; }
+.blocks > .cmp + * { margin-top: 23px; }
+
+.tbl { border-radius: 12px; overflow: hidden; }
+.tbl table { width: 100%; border-collapse: collapse; }
+.tbl th { height: 35px; padding: 0 19px; text-align: left; background: #0e1015; font-size: 9px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--dim); }
+.tbl td { height: 40px; padding: 0 19px; border-top: 1px solid #16181d; font-size: 12.8px; color: var(--muted); }
+.tbl td.k { color: var(--ink); font-weight: 700; }
+.tbl tr.hl td { background: rgba(217,139,61,.14); border-top-color: transparent; }
+.tbl col.c1 { width: 254px; } .tbl col.c2 { width: 212px; }
+.tnote { margin-top: 8px; font-style: italic; font-size: 12px; letter-spacing: -.22px; line-height: 18px; color: var(--dim); }
+
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cmp > div { min-height: 91px; padding: 18px 20px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--box); }
+.cmp .l { font-size: 9px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; color: var(--dim); }
+.cmp .on .l { color: var(--blue); }
+.cmp p { margin-top: 10px; font-size: 12.5px; line-height: 19px; color: var(--muted); }
+
+.price { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.price > div { position: relative; height: 132px; padding-top: 22px; text-align: center; border: 1px solid var(--line); border-radius: 14px; background: var(--box); }
+.price .on { border-color: rgba(47,143,209,.45); background: linear-gradient(180deg, #0f1e2d, #0a0f15); }
+.price .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 4px 13px; border-radius: 999px; background: var(--blue); color: #0a0c11; font-size: 8px; font-weight: 800; letter-spacing: .81px; text-transform: uppercase; }
+.price .l { font-size: 9.5px; font-weight: 600; letter-spacing: 1.02px; text-transform: uppercase; color: var(--dim); }
+.price .m { margin-top: 12.5px; display: flex; align-items: baseline; justify-content: center; gap: 13px; }
+.price .m b { font-size: 34px; line-height: 40px; font-weight: 800; letter-spacing: 0; }
+.price .m span { font-size: 11px; color: var(--dim); }
+.price p { margin-top: 9.2px; font-size: 11.5px; color: var(--muted); }
+.price p b { font-weight: 600; }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.steps > div { padding: 19px 15px 16px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--box); }
+.steps .n { font-size: 20px; line-height: 24px; font-weight: 800; color: var(--blue); }
+.steps h4 { margin-top: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.steps p { margin-top: 6px; font-size: 11.2px; line-height: 17px; color: var(--muted); }
+
+.box.contact { padding: 22px 24px 23px; font-size: 13.3px; line-height: 22px; }
+.box.contact b { font-weight: 600; }
+
+/* ---------- pie ---------- */
+.foot { position: absolute; left: 0; right: 0; top: 1142px; height: 48px; padding: 0 64px; border-top: 1px solid rgba(255,255,255,.045); display: flex; align-items: center; justify-content: space-between; font-size: 9px; font-weight: 700; letter-spacing: 1.16px; color: var(--dim); text-transform: uppercase; }
+.dots { display: flex; align-items: center; gap: 6px; }
+.dots i { width: 5px; height: 5px; border-radius: 50%; background: #1d1f23; }
+.dots i.on { width: 14px; border-radius: 3px; background: var(--blue); }
+.pg { display: flex; gap: 16.5px; font-size: 9.5px; letter-spacing: .3px; }
+.pg em { font-style: normal; font-weight: 600; letter-spacing: .72px; color: var(--faint); }
+</style>
+</head>
+<body>
+{%- set total = d.paginas|length + 1 %}
+{%- macro foot(n, confidencial=False, maison=False) %}
+  <div class="foot">
+    <span>{{ d.cliente.nombre }} · Propuesta {{ 'Maison Enterprises' if maison else 'comercial' }}</span>
+    <span class="dots">{% for i in range(1, total + 1) %}<i{% if i == n %} class="on"{% endif %}></i>{% endfor %}</span>
+    <span class="pg">{{ '%02d' % n }} / {{ '%02d' % total }}{% if confidencial %}<em>Confidencial</em>{% endif %}</span>
+  </div>
+{%- endmacro %}
+{%- macro sh(num, titulo) %}<div class="sh"><span class="b{% if num == '•' %} dot{% endif %}">{{ num }}</span>{{ titulo }}</div>{% endmacro %}
+
+<!-- ===================== PORTADA ===================== -->
+<section class="page cover c-blue">
+  <div class="top">
+    <span class="kicker">Propuesta comercial</span>
+    <span class="brand"><span class="logo">M</span>MAISON ENTERPRISES</span>
+  </div>
+  <div class="cover-head">
+    <h1>{{ d.portada.titulo }}<br><span class="acc">{{ d.portada.titulo_color }}</span></h1>
+    <p class="lead">Propuesta preparada para <b>{{ d.cliente.contacto }}, {{ d.cliente.nombre }}</b>. {{ d.cliente.direccion }}.<br>{{ d.fecha }}.</p>
+  </div>
+  <div class="svc">
+    {%- for s in d.portada.servicios %}
+    <div class="c-{{ s.color }}">
+      <div class="row"><span class="n">{{ '%02d' % loop.index }}</span><span class="ic">{{ icons[s.icono]|safe }}</span></div>
+      <h3>{{ s.titulo }}</h3>
+      <p>{{ s.texto|safe }}</p>
+      <span class="pill">{{ s.etiqueta }}</span>
+    </div>
+    {%- endfor %}
+  </div>
+  <div class="toc-wrap">
+    {{ sh('•', 'Contenido de la propuesta') }}
+    {%- set half = d.paginas|length // 2 %}
+    <div class="box"><ul class="toc">
+      <div>{% for p in d.paginas[:half] %}<li><span>{{ '%02d' % (loop.index + 1) }}</span>{{ p.indice }}</li>{% endfor %}</div>
+      <div>{% for p in d.paginas[half:] %}<li><span>{{ '%02d' % (loop.index + half + 1) }}</span>{{ p.indice }}</li>{% endfor %}</div>
+    </ul></div>
+  </div>
+  {{ foot(1, maison=True) }}
+</section>
+
+<!-- ===================== PÁGINAS ===================== -->
+{%- for p in d.paginas %}
+{%- set n = loop.index + 1 %}
+<section class="page c-{{ p.color or 'blue' }}">
+  <div class="top">
+    <span class="kicker">{{ p.kicker }}</span>
+    <span class="handle">{{ d.cliente.instagram }}</span>
+  </div>
+  <div class="head{% if p.subtitulo %} has-sub{% endif %}">
+    <h1>{{ p.titulo|safe }}</h1>
+    {%- if p.subtitulo %}<p class="sub">{{ p.subtitulo|safe }}</p>{% endif %}
+  </div>
+  <div class="blocks">
+  {%- set ns = namespace(k=0) %}
+  {%- for b in p.bloques %}
+    {%- if b.titulo is defined and b.tipo not in ['kpis', 'comparacion', 'precios', 'etapas'] %}
+      {%- if b.numero is not defined %}{% set ns.k = ns.k + 1 %}{% endif %}
+      {%- set num = b.numero if b.numero is defined else '%02d' % ns.k %}
+    {%- endif %}
+    {%- set fc = ' first-' ~ b.tipo if loop.first else '' %}
+    {%- if b.tipo == 'kpis' %}
+    <div class="kpis{{ fc }}">{% for k in b['items'] %}<div><div class="l">{{ k.label }}</div><div class="v">{{ k.valor|safe }}</div></div>{% endfor %}</div>
+    {%- elif b.tipo == 'texto' %}
+    <div class="{{ fc }}">{{ sh(num, b.titulo) }}<div class="box txt">{% for t in b.parrafos %}<p>{{ t|safe }}</p>{% endfor %}</div></div>
+    {%- elif b.tipo in ['checks', 'checks2'] %}
+    <div class="{{ fc }}">{{ sh(num, b.titulo) }}<div class="box chk"><ul{% if b.tipo == 'checks2' %} class="two"{% endif %}>{% for t in b['items'] %}<li>{{ t|safe }}</li>{% endfor %}</ul>
+      {%- if b.notas %}<ul class="notes">{% for t in b.notas %}<li>{{ t|safe }}</li>{% endfor %}</ul>{% endif %}</div></div>
+    {%- elif b.tipo == 'tabla' %}
+    <div>{{ sh(num, b.titulo) }}
+      <div class="tbl"><table><colgroup><col class="c1"><col class="c2"><col></colgroup>
+        <tr>{% for c in b.columnas %}<th>{{ c }}</th>{% endfor %}</tr>
+        {%- for f in b.filas %}<tr{% if b.destacada is defined and loop.index0 == b.destacada %} class="hl"{% endif %}>{% for c in f %}<td{% if loop.index0 < 2 %} class="k"{% endif %}>{{ c|safe }}</td>{% endfor %}</tr>{% endfor %}
+      </table></div>
+      {%- if b.nota %}<p class="tnote">{{ b.nota|safe }}</p>{% endif %}
+    </div>
+    {%- elif b.tipo == 'comparacion' %}
+    <div class="cmp{{ fc }}"><div><div class="l">{{ b.antes.label }}</div><p>{{ b.antes.texto|safe }}</p></div><div class="on"><div class="l">{{ b.despues.label }}</div><p>{{ b.despues.texto|safe }}</p></div></div>
+    {%- elif b.tipo == 'precios' %}
+    <div class="price{{ fc }}">
+      <div><div class="l">{{ b.arranque.label }}</div><div class="m"><b>{{ b.arranque.monto }}</b><span>{{ b.arranque.moneda }}</span></div><p>{{ b.arranque.texto|safe }}</p></div>
+      <div class="on">{% if b.mensual.badge %}<span class="badge">{{ b.mensual.badge }}</span>{% endif %}<div class="l">{{ b.mensual.label }}</div><div class="m"><b>{{ b.mensual.monto }}</b><span>{{ b.mensual.moneda }}</span></div><p>{{ b.mensual.texto|safe }}</p></div>
+    </div>
+    {%- elif b.tipo == 'etapas' %}
+    <div class="steps{{ fc }}">{% for s in b['items'] %}<div><div class="n">{{ '%02d' % loop.index }}</div><h4>{{ s.cuando }}</h4><p>{{ s.texto|safe }}</p></div>{% endfor %}</div>
+    {%- elif b.tipo == 'contacto' %}
+    <div>{{ sh(num, b.titulo) }}<div class="box contact">{{ b.texto|safe }}</div></div>
+    {%- endif %}
+  {%- endfor %}
+  </div>
+  {{ foot(n, confidencial=p.confidencial) }}
+</section>
+{%- endfor %}
+</body>
+</html>

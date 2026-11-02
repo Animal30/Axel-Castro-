@@ -28,6 +28,7 @@ Nahuel no conoce los nombres de las más de 100 skills de este proyecto, y no ti
 | **Auditar cuentas de anuncios o plata desperdiciada** | plugin `claude-ads` (`ads-audit`, `ads-meta`, `ads-google`, `ads-tiktok`, `ads-budget`, `ads-report`…) |
 | **Imagen o video con IA** | Conector Higgsfield (`generate_image`, `generate_video`) + skills de prompts: `01-cinematic` … `15-real-estate`, `11-social-hook`, `07-ecommerce-ad`, `12-brand-story`; también `image`, `video` |
 | **Flujo UGC completo en higgsfield.ai** | `ugc-video-auto`, `higgsfield-image-auto`, `seedance-auto-generate` (necesitan Playwright y una sesión abierta en Higgsfield; solo andan en la compu de Nahuel) |
+| **Propuesta comercial para un cliente o prospecto** (PDF para mandar) | **Siempre** con la plantilla de `propuestas/` (modelo: Benelli Store). Copiar `propuestas/clientes/benelli-store/` a una carpeta nueva, cambiar solo `datos.json` (cliente, textos, servicios, precios) y correr `python propuestas/build.py propuestas/clientes/<cliente>/datos.json`. No cambiar el diseño. Para los textos y precios: `offers`, `pricing`, `copywriting`. Ver `propuestas/README.md` |
 | **Oferta, precios, propuesta para un cliente** | `offers`, `pricing`, `product-marketing`, `sales-enablement` |
 | **Guiones de venta, setter, objeciones** | `sales-enablement`, `copywriting`, `cold-email`, `prospecting` |
 | **Imán de leads o PDF gratis** | `lead-magnets`, `copywriting`, `anthropic-skills:pdf` |
