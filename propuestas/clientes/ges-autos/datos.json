@@ -1,0 +1,158 @@
+{
+  "archivo": "GESAutos_Propuesta",
+  "titulo_pdf": "Propuesta de Publicidad · GES Autos Seleccionados",
+
+  "cliente": {
+    "nombre": "GES Autos Seleccionados",
+    "contacto": "",
+    "direccion": "Córdoba",
+    "instagram": "@ges_autos_seleccionados",
+    "nombre_corto": "GES"
+  },
+  "fecha": "Noviembre 2026",
+
+  "portada": {
+    "titulo": "Publicidad en Meta para vender",
+    "titulo_color": "más autos 0km y usados.",
+    "servicios": [
+      { "color": "orange", "icono": "meta", "titulo": "Campañas en Meta", "texto": "Anuncios en Instagram y Facebook organizados por 0km, usados y financiación.", "etiqueta": "META ADS" },
+      { "color": "blue", "icono": "users", "titulo": "Públicos", "texto": "Compradores de Córdoba y personas que ya mostraron interés en una unidad.", "etiqueta": "SEGMENTACIÓN" },
+      { "color": "slate", "icono": "search", "titulo": "Reporte semanal", "texto": "Inversión, consultas y costo por consulta de cada campaña, todas las semanas.", "etiqueta": "MEDICIÓN" },
+      { "color": "blue", "icono": "video", "titulo": "Contenido", "texto": "Opcional: 20 piezas audiovisuales por mes para el perfil y los anuncios.", "etiqueta": "OPCIONAL" }
+    ]
+  },
+
+  "paginas": [
+    {
+      "indice": "Situación actual y objetivo",
+      "kicker": "Situación actual y objetivo",
+      "color": "blue",
+      "titulo": "Punto de partida y<br>objetivo del trabajo.",
+      "subtitulo": "Datos tomados del perfil de Instagram de GES Autos Seleccionados",
+      "bloques": [
+        { "tipo": "kpis", "items": [
+          { "label": "Seguidores en Instagram", "valor": "180" },
+          { "label": "Publicaciones", "valor": "246" },
+          { "label": "Trayectoria", "valor": "20 años" },
+          { "label": "Oferta", "valor": "0km, usados y financiación" }
+        ]},
+        { "tipo": "texto", "titulo": "Situación actual", "parrafos": [
+          "GES tiene 20 años de trayectoria y vende autos 0km y usados con amplia financiación. El perfil de Instagram ya tiene 246 publicaciones: unidades disponibles, entregas a clientes y servicios como el polarizado.",
+          "El material existe, pero el perfil tiene 180 seguidores. <b>Cada publicación llega a muy poca gente</b>, y casi nadie de la que hoy está buscando auto en Córdoba ve las unidades de GES.",
+          "La publicidad en Meta resuelve eso: muestra las unidades todos los días a personas de la zona que están en proceso de compra, y las lleva directo al WhatsApp de ventas."
+        ]},
+        { "tipo": "checks", "titulo": "Objetivo", "items": [
+          "<b>Llegar a compradores de Córdoba</b> que hoy no conocen a GES, con anuncios por tipo de unidad.",
+          "<b>Recibir consultas por WhatsApp</b> con la unidad de interés ya identificada.",
+          "<b>Mostrar el stock disponible</b> a quienes ya vieron un anuncio o escribieron sin cerrar.",
+          "<b>Medir cada semana el costo por consulta</b> y mover la inversión hacia lo que funciona."
+        ]}
+      ]
+    },
+    {
+      "indice": "Publicidad en Meta",
+      "kicker": "01 · Publicidad en Meta",
+      "color": "orange",
+      "titulo": "Publicidad en Meta:<br>qué vamos a hacer y qué esperar.",
+      "bloques": [
+        { "tipo": "texto", "titulo": "Estructura de campañas", "parrafos": [
+          "Vamos a organizar las campañas por tipo de unidad: <b>0km, usados y financiación</b>, cada una con anuncios y públicos propios en Córdoba y alrededores. Sumamos campañas de retargeting para quienes ya vieron un anuncio, visitaron el perfil o escribieron sin cerrar.",
+          "Las campañas dirigen al WhatsApp de ventas. Cada semana revisamos el costo por consulta y la calidad de los contactos por campaña, y movemos el presupuesto hacia las que mejor funcionan."
+        ]},
+        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
+          "Estrategia y estructura de campañas",
+          "Segmentación por zona e intereses",
+          "Anuncios de 0km, usados y financiación",
+          "Retargeting a interesados",
+          "Redacción de todos los anuncios",
+          "Pruebas de formatos y mensajes",
+          "Optimización semanal del presupuesto",
+          "Reporte semanal de resultados"
+        ]},
+        { "tipo": "texto", "titulo": "Cómo llega cada consulta", "parrafos": [
+          "Cada anuncio lleva a WhatsApp con un mensaje inicial que indica la unidad que vio la persona. El vendedor sabe desde el primer mensaje qué auto le interesa y <b>empieza la conversación desde la unidad</b>, con precio, condiciones y financiación."
+        ]},
+        { "tipo": "texto", "titulo": "Medición y reportes", "parrafos": [
+          "Reporte semanal con inversión, consultas recibidas y costo por consulta, por campaña y por tipo de unidad. Con esos datos decidimos juntos dónde conviene aumentar la inversión."
+        ]}
+      ]
+    },
+    {
+      "indice": "Contenido audiovisual (opcional)",
+      "kicker": "02 · Contenido audiovisual",
+      "color": "blue",
+      "titulo": "Contenido audiovisual:<br>20 piezas por mes, opcional.",
+      "subtitulo": "Se suma a la publicidad si GES lo decide, por USD 300 por mes",
+      "bloques": [
+        { "tipo": "comparacion",
+          "antes": { "label": "Solo publicidad", "texto": "Los anuncios se arman con el material que GES ya tiene publicado." },
+          "despues": { "label": "Con contenido", "texto": "20 piezas nuevas por mes, pensadas para el perfil y para los anuncios." }
+        },
+        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
+          "20 piezas audiovisuales por mes",
+          "Guion y planificación mensual",
+          "Filmación de unidades y entregas",
+          "Edición y publicación",
+          "Calendario aprobado antes de publicar",
+          "Material listo para usar en anuncios"
+        ]},
+        { "tipo": "texto", "titulo": "Tipos de piezas", "parrafos": [
+          "Presentación de unidades 0km y usadas, entregas a clientes, comparativas entre modelos, explicación de los planes de financiación y videos del equipo respondiendo las preguntas más frecuentes."
+        ]},
+        { "tipo": "texto", "titulo": "Uso en publicidad", "parrafos": [
+          "Un anuncio que se muestra muchas veces pierde rendimiento. Con material nuevo cada semana probamos distintos formatos y mensajes en las campañas, y dejamos activos los que consiguen consultas a menor costo."
+        ]}
+      ]
+    },
+    {
+      "indice": "Inversión",
+      "kicker": "Inversión",
+      "color": "blue",
+      "titulo": "Precio de nuestros servicios.",
+      "subtitulo": "Precios en dólares estadounidenses",
+      "bloques": [
+        { "tipo": "precios",
+          "arranque": { "label": "Publicidad en Meta", "monto": "$400", "moneda": "USD / mes", "texto": "Campañas, anuncios y <b>reporte semanal</b>" },
+          "mensual": { "badge": "Opcional", "label": "Publicidad + contenido", "monto": "$700", "moneda": "USD / mes", "texto": "Publicidad en Meta + 20 piezas audiovisuales por mes" }
+        },
+        { "tipo": "checks", "titulo": "Publicidad en Meta · USD 400 por mes", "items": [
+          "Campañas organizadas por tipo de unidad: 0km, usados y financiación",
+          "Anuncios dirigidos a WhatsApp, con la unidad identificada",
+          "Retargeting a quienes ya mostraron interés",
+          "Optimización del presupuesto y reporte semanal"
+        ]},
+        { "tipo": "checks", "titulo": "Contenido audiovisual · USD 300 por mes, opcional", "items": [
+          "20 piezas audiovisuales por mes",
+          "Guion, filmación, edición y publicación",
+          "Material nuevo para los anuncios todas las semanas"
+        ], "notas": [
+          "El contenido es opcional: se puede sumar desde el primer mes o más adelante.",
+          "La inversión en pauta se abona aparte, directo a Meta. El monto lo definimos juntos según el stock y el objetivo de ventas."
+        ]}
+      ]
+    },
+    {
+      "indice": "Implementación",
+      "kicker": "Implementación",
+      "color": "blue",
+      "titulo": "Etapas y plazos.",
+      "subtitulo": "Desde la aprobación de la propuesta",
+      "confidencial": true,
+      "bloques": [
+        { "tipo": "etapas", "items": [
+          { "cuando": "Días 1 a 3", "texto": "Aprobación, acceso a la cuenta publicitaria y listado de unidades disponibles." },
+          { "cuando": "Días 3 a 7", "texto": "Armado de campañas, públicos y anuncios con el material disponible." },
+          { "cuando": "Semana 2", "texto": "Lanzamiento de las campañas en Meta y primer reporte semanal." },
+          { "cuando": "Semana 2 en adelante", "texto": "Optimización semanal. Con contenido: calendario de 20 piezas por mes." }
+        ]},
+        { "tipo": "checks", "numero": "•", "titulo": "Qué necesitamos de GES", "items": [
+          "Acceso de administrador a la cuenta publicitaria de Meta y a las páginas de Instagram y Facebook",
+          "Listado de unidades disponibles con precios y condiciones de financiación",
+          "Fotos y videos actuales de las unidades",
+          "Número de WhatsApp de ventas y quién responde las consultas"
+        ]},
+        { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Nahuel Casartelli</b> · Maison Enterprises · maison.enterprises" }
+      ]
+    }
+  ]
+}

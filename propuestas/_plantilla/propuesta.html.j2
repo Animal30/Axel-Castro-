@@ -162,7 +162,7 @@ h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); le
   </div>
   <div class="cover-head">
     <h1>{{ d.portada.titulo }}<br><span class="acc">{{ d.portada.titulo_color }}</span></h1>
-    <p class="lead">Propuesta preparada para <b>{{ d.cliente.contacto }}, {{ d.cliente.nombre }}</b>. {{ d.cliente.direccion }}.<br>{{ d.fecha }}.</p>
+    <p class="lead">Propuesta preparada para <b>{% if d.cliente.contacto %}{{ d.cliente.contacto }}, {% endif %}{{ d.cliente.nombre }}</b>.{% if d.cliente.direccion %} {{ d.cliente.direccion }}.{% endif %}<br>{{ d.fecha }}.</p>
   </div>
   <div class="svc">
     {%- for s in d.portada.servicios %}
