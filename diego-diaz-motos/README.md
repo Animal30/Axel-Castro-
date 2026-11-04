@@ -34,3 +34,10 @@ python3 diego-diaz-motos/meta-ad-scripts/build.py
 ```
 
 Antes hay que completar la lista `ADS` en el script con los guiones aprobados.
+
+## Registro de campañas
+
+- **4/11/2026: "Tornado 300 Sorteo / Website / 2 Copies"** (campaña `120250612194220753`). Objetivo Tráfico, optimiza visitas a la página de destino. ARS 7.000 por día, toda Argentina, 18+, Advantage+ Audience y ubicaciones automáticas. Un anuncio con el mismo video y la misma web que el original (`https://diegodiazmotos.com/`, botón "Ver detalles") y 2 textos, 2 títulos y 2 descripciones que Meta combina:
+  - Copy A (precio): "Con $10.000 podés llevarte esta Honda XR 300 Tornado 0km". Título: "Tu Tornado 0km puede salirte $10.000". Descripción: "Sorteo 24/12 ante escribano".
+  - Copy B (Navidad): "Este 24 de diciembre, tu regalo de Navidad puede ser una Honda XR 300 Tornado 0km". Título: "Ganate una Tornado 0km esta Navidad". Descripción: "En vivo y ante escribano".
+- Borrador sin publicar en la campaña original: "Tornado 300 Sorteo / Website / Copy B" (anuncio `120250611863710753`), con el copy de precio.
