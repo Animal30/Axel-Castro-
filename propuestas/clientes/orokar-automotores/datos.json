@@ -1,0 +1,236 @@
+{
+  "archivo": "OROKAR_AsociacionComercial",
+  "titulo_pdf": "Asociación Comercial · OROKAR Automotores",
+  "pie": "Asociación comercial",
+  "cliente": {
+    "nombre": "OROKAR Automotores",
+    "contacto": "",
+    "direccion": "Córdoba",
+    "instagram": "@orokarautomotores",
+    "nombre_corto": "OROKAR"
+  },
+  "fecha": "Noviembre 2026",
+  "portada": {
+    "kicker": "Asociación comercial",
+    "titulo": "Nosotros ponemos el trabajo.",
+    "titulo_color": "Cobramos cuando vendemos.",
+    "indice_estilo": "items",
+    "servicios": [
+      {
+        "color": "orange",
+        "icono": "meta",
+        "titulo": "Publicidad",
+        "texto": "Gestión de campañas en Meta y Google para traer compradores de Córdoba.",
+        "etiqueta": "META · GOOGLE"
+      },
+      {
+        "color": "blue",
+        "icono": "video",
+        "titulo": "Redes y contenido",
+        "texto": "Nos hacemos cargo de Instagram y Facebook, con contenido nuevo todas las semanas.",
+        "etiqueta": "INSTAGRAM · FACEBOOK"
+      },
+      {
+        "color": "blue",
+        "icono": "web",
+        "titulo": "Sitio Web",
+        "texto": "Todo el stock online, con fichas completas y consulta directa por WhatsApp.",
+        "etiqueta": "WEB · CATÁLOGO"
+      },
+      {
+        "color": "slate",
+        "icono": "crm",
+        "titulo": "CRM",
+        "texto": "Cada consulta registrada, con la unidad, la forma de pago y su seguimiento.",
+        "etiqueta": "SEGUIMIENTO"
+      }
+    ],
+    "preparada": "Asociación comercial preparada para"
+  },
+  "paginas": [
+    {
+      "indice": "Cómo funciona la asociación",
+      "indice_desc": "Qué pone cada parte y cuándo empieza el plan",
+      "kicker": "La asociación",
+      "color": "blue",
+      "titulo": "Una asociación simple:<br>ganamos cuando OROKAR vende.",
+      "subtitulo": "Sin costo inicial para OROKAR Automotores",
+      "bloques": [
+        {
+          "tipo": "kpis",
+          "items": [
+            {
+              "label": "Trayectoria",
+              "valor": "Más de 50 años"
+            },
+            {
+              "label": "Seguidores en Instagram",
+              "valor": "573"
+            },
+            {
+              "label": "Publicaciones",
+              "valor": "88"
+            },
+            {
+              "label": "Canales actuales",
+              "valor": "Marketplace y Mercado Libre"
+            }
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Punto de partida",
+          "parrafos": [
+            "OROKAR tiene algo que no se compra: <b>más de 50 años en el mercado</b> y un stock que incluye unidades de alta gama. En redes, esa trayectoria todavía no se ve: 573 seguidores y 88 publicaciones. Ahí está la oportunidad, y por eso proponemos asociarnos en lugar de cobrar un plan desde el primer día."
+          ]
+        },
+        {
+          "tipo": "comparacion",
+          "antes": {
+            "label": "Maison Enterprises pone",
+            "texto": "Redes, contenido, sitio web, CRM y gestión de campañas, sin costo inicial."
+          },
+          "despues": {
+            "label": "OROKAR pone",
+            "texto": "La inversión en anuncios. Sugerimos alrededor de $1.000.000 de pesos por mes en Meta y Google."
+          }
+        },
+        {
+          "tipo": "etapas",
+          "items": [
+            {
+              "cuando": "Arrancamos",
+              "texto": "Armamos sitio web, CRM, redes y campañas. OROKAR no paga nada por nuestro trabajo."
+            },
+            {
+              "cuando": "Llegan consultas",
+              "texto": "Por Instagram, Facebook y el sitio web, con la unidad y la forma de pago."
+            },
+            {
+              "cuando": "Primera venta",
+              "texto": "Se vende una unidad de alta gama que llegó por nuestras campañas."
+            },
+            {
+              "cuando": "Empieza el plan",
+              "texto": "Recién ahí, USD 1.000 por mes con todo incluido."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "indice": "Qué hacemos por OROKAR",
+      "indice_desc": "Redes, contenido, publicidad, sitio web y CRM",
+      "kicker": "Qué hacemos",
+      "color": "orange",
+      "titulo": "Todo lo que hacemos<br>por OROKAR Automotores.",
+      "bloques": [
+        {
+          "tipo": "checks2",
+          "titulo": "Redes y contenido",
+          "items": [
+            "Manejo completo de Instagram y Facebook",
+            "Contenido nuevo todas las semanas",
+            "Guion, filmación y edición",
+            "Presentación de unidades y entregas",
+            "Historias de promociones y nuevos ingresos",
+            "Calendario aprobado antes de publicar"
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Publicidad en Meta y Google",
+          "items": [
+            "Campañas en Instagram y Facebook",
+            "Campañas de búsqueda en Google",
+            "Anuncios de las unidades de alta gama",
+            "Retargeting a interesados",
+            "Optimización semanal de la inversión",
+            "Reporte semanal de resultados"
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Sitio web",
+          "items": [
+            "Catálogo de todo el stock",
+            "Ficha de cada unidad con fotos y datos",
+            "Opciones de financiación",
+            "Botón de WhatsApp en cada unidad",
+            "Diseño adaptado a celular",
+            "Dominio propio de OROKAR"
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "CRM",
+          "items": [
+            "Registro de cada consulta",
+            "Unidad de interés y forma de pago",
+            "Aviso al celular por consulta nueva",
+            "Seguimiento hasta la venta",
+            "Origen de cada consulta",
+            "Ventas por campaña"
+          ]
+        }
+      ]
+    },
+    {
+      "indice": "Inversión y próximos pasos",
+      "indice_desc": "Cuándo empieza el plan y cómo arrancamos",
+      "kicker": "Inversión",
+      "color": "blue",
+      "titulo": "Primero vendemos.<br>Después cobramos.",
+      "subtitulo": "Precios en dólares estadounidenses",
+      "confidencial": true,
+      "bloques": [
+        {
+          "tipo": "precios",
+          "arranque": {
+            "label": "Hasta la primera venta",
+            "monto": "$0",
+            "moneda": "USD",
+            "texto": "Redes, contenido, sitio web, CRM y <b>gestión de campañas</b>"
+          },
+          "mensual": {
+            "badge": "Desde la primera venta de alta gama",
+            "label": "Plan mensual",
+            "monto": "$1.000",
+            "moneda": "USD / mes",
+            "texto": "Todo incluido: contenido, publicidad, sitio web y CRM"
+          }
+        },
+        {
+          "tipo": "checks",
+          "titulo": "Por qué le conviene a OROKAR",
+          "items": [
+            "<b>Sin costo inicial</b>: el plan empieza cuando nuestro trabajo ya trajo una venta.",
+            "<b>Riesgo compartido</b>: si no vendemos, no cobramos.",
+            "<b>Una sola venta de alta gama</b> deja una ganancia que cubre el plan con margen.",
+            "<b>Un plus, no un reemplazo</b>: Marketplace y Mercado Libre siguen funcionando igual que hoy."
+          ],
+          "notas": [
+            "La inversión en anuncios va aparte, directo a Meta y Google. Como referencia, sugerimos alrededor de $1.000.000 de pesos por mes.",
+            "Qué unidades cuentan como alta gama lo definimos juntos antes de arrancar."
+          ]
+        },
+        {
+          "tipo": "checks",
+          "numero": "•",
+          "titulo": "Próximos pasos",
+          "items": [
+            "Reunión para definir las unidades de alta gama y firmar el acuerdo",
+            "Acceso a las cuentas de Meta, Google, Instagram y Facebook",
+            "Listado de unidades disponibles con fotos, precios y financiación"
+          ]
+        },
+        {
+          "tipo": "contacto",
+          "numero": "•",
+          "titulo": "Contacto",
+          "texto": "<b>Axel Castro</b> · Maison Enterprises"
+        }
+      ]
+    }
+  ]
+}
