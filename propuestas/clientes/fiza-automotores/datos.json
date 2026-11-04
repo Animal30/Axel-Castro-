@@ -16,7 +16,7 @@
     "titulo_color": "para vender más autos.",
     "indice_estilo": "items",
     "servicios": [
-      { "color": "orange", "icono": "meta", "titulo": "Publicidad", "texto": "Gestionamos campañas en Meta y Google para llegar a compradores de Córdoba y conseguir autos en consignación.", "etiqueta": "META · GOOGLE" },
+      { "color": "orange", "icono": "meta", "titulo": "Publicidad", "texto": "Gestionamos campañas en Meta y Google para llegar a compradores de Córdoba.", "etiqueta": "META · GOOGLE" },
       { "color": "blue", "icono": "web", "titulo": "Sitio Web", "texto": "Publicamos todo su stock con fichas completas y formularios de consulta.", "etiqueta": "WEB · DE POR VIDA" },
       { "color": "blue", "icono": "video", "titulo": "Contenido", "texto": "Producimos 20 piezas audiovisuales por mes para su perfil y sus anuncios.", "etiqueta": "INSTAGRAM · FACEBOOK" },
       { "color": "slate", "icono": "crm", "titulo": "CRM", "texto": "Les damos un registro simple de cada consulta, de regalo con el plan mensual.", "etiqueta": "DE REGALO" }
@@ -39,124 +39,47 @@
           { "label": "Equipo comercial", "valor": "Pablo + 2 vendedores" }
         ]},
         { "tipo": "texto", "titulo": "Situación actual", "parrafos": [
-          "Hoy tienen 7.727 seguidores, más de 1.100 publicaciones y destacadas con entregas a clientes. Es una buena base: hay material y hay prueba de que venden. Lo que buscamos es que ese contenido llegue a gente de Córdoba que todavía no los sigue.",
-          "Su equipo comercial es chico: Pablo y dos vendedores. Por eso no nos interesa solo que lleguen más mensajes, sino que lleguen con la información necesaria para avanzar: <b>qué unidad buscan y cómo piensan pagar</b>."
+          "Hoy tienen 7.727 seguidores y más de 1.100 publicaciones: hay material y hay prueba de que venden.",
+          "Con un equipo de tres personas, lo importante no es recibir más mensajes, sino <b>recibir consultas de gente que ya sabe qué auto busca y cómo lo va a pagar</b>. Ese es el foco de esta propuesta."
         ]},
         { "tipo": "checks", "titulo": "Objetivo", "items": [
-          "<b>Aumentar las consultas calificadas</b> con campañas en Meta y Google dirigidas a Córdoba.",
-          "<b>Que cada consulta llegue con datos</b>: unidad, forma de pago y contacto.",
-          "<b>Conseguir autos en consignación</b> con campañas para quienes quieren vender su vehículo.",
-          "<b>Medir cada semana el costo por consulta</b> y ajustar la inversión según los resultados."
+          "<b>Más consultas calificadas</b>, con campañas en Meta y Google dirigidas a compradores de Córdoba.",
+          "<b>Consultas con datos</b>: cada una llega con la unidad, la forma de pago y el contacto.",
+          "<b>Autos en consignación</b>, con campañas para quienes quieren vender su vehículo.",
+          "<b>Resultados medidos</b>: un reporte semanal con el costo por consulta de cada campaña."
         ]}
       ]
     },
     {
-      "indice": "Publicidad en Meta y Google",
-      "indice_desc": "Campañas, inversión sugerida y reportes",
-      "kicker": "01 · Publicidad en Meta y Google",
+      "indice": "Qué vamos a hacer",
+      "indice_desc": "Publicidad, sitio web, contenido y CRM",
+      "kicker": "Qué vamos a hacer",
       "color": "orange",
-      "titulo": "Publicidad en Meta y Google:<br>qué vamos a hacer.",
+      "titulo": "Qué vamos a hacer<br>por FIZA Automotores.",
       "bloques": [
-        { "tipo": "texto", "titulo": "Estructura de campañas", "parrafos": [
-          "En Meta vamos a armar campañas en tres frentes: <b>venta de unidades, financiación y consignación</b>, cada uno con sus anuncios y públicos en Córdoba y alrededores.",
-          "En Google vamos a aparecer cuando alguien busca, por ejemplo, \"autos usados en Córdoba\" o un modelo que ustedes tienen en stock. En las dos plataformas sumamos retargeting para quienes ya vieron una unidad, entraron al sitio o escribieron sin cerrar."
-        ]},
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
+        { "tipo": "checks2", "titulo": "Publicidad en Meta y Google", "items": [
           "Campañas en Instagram y Facebook",
           "Campañas de búsqueda en Google",
-          "Anuncios de las unidades disponibles",
           "Campañas para conseguir consignaciones",
-          "Retargeting en Meta y Google",
-          "Redacción de todos los anuncios",
-          "Ajuste semanal del presupuesto",
           "Reporte semanal de resultados"
         ]},
-        { "tipo": "texto", "titulo": "Inversión en anuncios", "parrafos": [
-          "La inversión en anuncios la pagan ustedes directo a Meta y Google. Como referencia, sugerimos arrancar con alrededor de <b>$1.000.000 de pesos por mes</b>, y lo vamos ajustando juntos según los resultados."
+        { "tipo": "checks2", "titulo": "Sitio web · de por vida, con dominio incluido", "items": [
+          "Catálogo con todo el stock",
+          "Ficha de cada unidad con fotos y precio",
+          "Formularios de consulta y de consignación",
+          "Botón de WhatsApp en cada unidad"
         ]},
-        { "tipo": "texto", "titulo": "Medición y reportes", "parrafos": [
-          "Cada semana les mandamos un reporte con la inversión, las consultas recibidas, el costo por consulta y los resultados de cada campaña. Con esos datos decidimos juntos dónde conviene poner más presupuesto."
-        ]}
-      ]
-    },
-    {
-      "indice": "Consultas calificadas",
-      "indice_desc": "Cómo vamos a filtrar cada consulta",
-      "kicker": "02 · Consultas calificadas",
-      "color": "slate",
-      "titulo": "Consultas calificadas:<br>cómo las vamos a filtrar.",
-      "subtitulo": "El objetivo principal de esta propuesta",
-      "bloques": [
-        { "tipo": "etapas", "items": [
-          { "cuando": "El anuncio", "texto": "Mostramos la unidad, el precio y las opciones de financiación desde el primer momento." },
-          { "cuando": "El sitio", "texto": "Cada unidad tiene su ficha y un formulario que pide forma de pago y teléfono." },
-          { "cuando": "El WhatsApp", "texto": "La consulta llega con un mensaje que indica qué unidad vio la persona." },
-          { "cuando": "El seguimiento", "texto": "Volvemos a mostrar la unidad a quien no cerró, con campañas de retargeting." }
-        ]},
-        { "tipo": "checks2", "titulo": "Qué datos trae cada consulta", "items": [
-          "Unidad o tipo de auto que busca",
-          "Forma de pago: contado, financiación o usado",
-          "Nombre y teléfono",
-          "Cuándo piensa comprar",
-          "Zona desde donde consulta",
-          "Anuncio o campaña que la trajo"
-        ]},
-        { "tipo": "texto", "titulo": "Por qué lo medimos así", "parrafos": [
-          "Con un equipo de tres personas, no sirve recibir muchos mensajes si la mayoría no avanza. Por eso, además del costo por mensaje, vamos a medir <b>cuántas consultas llegan con unidad y forma de pago</b>, y les vamos a mostrar ese número en cada reporte."
-        ]}
-      ]
-    },
-    {
-      "indice": "Sitio web y CRM",
-      "indice_desc": "Su stock online, de por vida, con dominio incluido",
-      "kicker": "03 · Sitio web y CRM",
-      "color": "blue",
-      "titulo": "Sitio web con todo su stock,<br>de por vida.",
-      "subtitulo": "Con el dominio de FIZA Automotores incluido",
-      "bloques": [
-        { "tipo": "texto", "titulo": "Todo el stock en un solo lugar", "parrafos": [
-          "Hoy, para ver qué tienen disponible, una persona tiene que recorrer el perfil o preguntar por mensaje el precio, el año, los kilómetros y si se puede financiar.",
-          "En el sitio vamos a cargar <b>cada unidad con fotos, año, kilómetros, precio y opciones de financiación</b>. Así, quien consulta ya conoce el auto y las condiciones."
-        ]},
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "Catálogo de unidades con filtros",
-          "Ficha de cada unidad con fotos y datos",
-          "Opciones de financiación y medios de pago",
-          "Formulario para dejar un auto en consignación",
-          "Botón de WhatsApp en cada unidad",
-          "Ubicación, horarios y datos de contacto",
-          "Diseño adaptado a celular",
-          "Dominio incluido, de por vida"
-        ]},
-        { "tipo": "texto", "titulo": "CRM, de regalo con el plan mensual", "parrafos": [
-          "Las consultas del sitio y de los anuncios quedan registradas en un CRM simple, para Pablo y los dos vendedores. Cada uno ve sus consultas con la unidad y la forma de pago, recibe un aviso en el celular y sabe cuáles quedaron sin respuesta. Se lo damos de regalo al contratar el plan mensual, y queda para ustedes de por vida."
-        ]}
-      ]
-    },
-    {
-      "indice": "Contenido audiovisual",
-      "indice_desc": "20 piezas por mes para su perfil y sus anuncios",
-      "kicker": "04 · Contenido audiovisual",
-      "color": "blue",
-      "titulo": "20 piezas audiovisuales por mes<br>para su perfil y sus anuncios.",
-      "bloques": [
-        { "tipo": "comparacion",
-          "antes": { "label": "Hoy", "texto": "Más de 1.100 publicaciones y destacadas con entregas a clientes." },
-          "despues": { "label": "Con el plan", "texto": "20 piezas por mes con guion, que usamos en el perfil y en los anuncios." }
-        },
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
+        { "tipo": "checks2", "titulo": "Contenido audiovisual", "items": [
           "20 piezas audiovisuales por mes",
-          "Guion y planificación mensual",
-          "Filmación de unidades y entregas",
-          "Edición y publicación",
-          "Calendario aprobado antes de publicar",
-          "Material listo para usar en anuncios"
+          "Guion, filmación y edición",
+          "Publicación en Instagram y Facebook",
+          "Material para usar en los anuncios"
         ]},
-        { "tipo": "texto", "titulo": "Tipos de piezas", "parrafos": [
-          "Presentación de unidades con precio y condiciones, entregas a clientes, comparativas entre modelos, cómo funcionan la financiación y la consignación, y videos de Pablo y el equipo respondiendo preguntas frecuentes."
-        ]},
-        { "tipo": "texto", "titulo": "Uso en publicidad", "parrafos": [
-          "Usamos las piezas también como anuncios. Con material nuevo cada semana podemos probar distintos formatos y mensajes, y dejar activos los que consiguen consultas a menor costo."
+        { "tipo": "checks2", "titulo": "CRM · de regalo con el plan mensual", "items": [
+          "Registro de cada consulta",
+          "Unidad de interés y forma de pago",
+          "Aviso al celular por consulta nueva",
+          "Acceso para Pablo y los dos vendedores"
         ]}
       ]
     },
@@ -167,6 +90,7 @@
       "color": "blue",
       "titulo": "Precio de nuestros servicios.",
       "subtitulo": "Precios en dólares estadounidenses",
+      "confidencial": true,
       "bloques": [
         { "tipo": "precios",
           "arranque": { "label": "Arranque · precio promocional", "monto": "$750", "moneda": "USD", "texto": "Sitio web + dominio + primer mes · <b>o 2 pagos de USD 375</b>" },
@@ -179,40 +103,16 @@
             ["Primer mes: contenido y anuncios", "USD 650", "USD 250 · precio de lanzamiento"],
             ["Total del arranque", "USD 1.150", "USD 750 · ahorro de USD 400"]
           ],
-          "destacada": 2,
-          "nota": "Precio promocional por ser el primer trabajo juntos. Pueden abonarlo en un pago de USD 750 o en dos pagos de USD 375. El sitio web es suyo de por vida y el dominio está incluido."
+          "destacada": 2
         },
         { "tipo": "checks", "titulo": "Plan mensual · USD 650 desde el segundo mes", "items": [
           "20 piezas audiovisuales por mes",
           "Gestión de campañas en Meta y Google, con reporte semanal",
-          "<b>CRM de por vida, de regalo</b>, para Pablo y los dos vendedores",
+          "<b>CRM de regalo</b>, que queda para ustedes de por vida",
           "Soporte del sitio web y el CRM"
         ], "notas": [
           "Sin permanencia: el plan mensual empieza solo si deciden continuar después del primer mes.",
           "La inversión en anuncios va aparte, directo a Meta y Google. Como referencia, sugerimos alrededor de $1.000.000 de pesos por mes."
-        ]}
-      ]
-    },
-    {
-      "indice": "Implementación",
-      "indice_desc": "Etapas, plazos y qué necesitamos de ustedes",
-      "kicker": "Implementación",
-      "color": "blue",
-      "titulo": "Etapas y plazos.",
-      "subtitulo": "Desde la aprobación de la propuesta",
-      "confidencial": true,
-      "bloques": [
-        { "tipo": "etapas", "items": [
-          { "cuando": "Días 1 a 3", "texto": "Aprobación, pago del arranque o de la primera cuota, y acceso a sus cuentas de Meta y Google." },
-          { "cuando": "Semana 1", "texto": "Publicamos el sitio web con dominio incluido y lanzamos las campañas." },
-          { "cuando": "Semanas 2 y 3", "texto": "Primer calendario de contenido y primeros ajustes de campañas con los resultados." },
-          { "cuando": "Desde el mes 2", "texto": "Plan mensual y alta del CRM de regalo para Pablo y los vendedores." }
-        ]},
-        { "tipo": "checks", "numero": "•", "titulo": "Qué necesitamos de ustedes", "items": [
-          "Acceso de administrador a su cuenta publicitaria de Meta, a Instagram y Facebook, y a su cuenta de Google",
-          "Listado de unidades disponibles con fotos, precios y condiciones de financiación",
-          "Nombre, correo y celular de Pablo y los dos vendedores",
-          "Disponibilidad de la agencia para las jornadas de filmación"
         ]},
         { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Axel Castro</b> · Maison Enterprises" }
       ]
