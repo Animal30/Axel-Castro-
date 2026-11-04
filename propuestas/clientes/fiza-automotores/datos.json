@@ -1,7 +1,6 @@
 {
   "archivo": "FIZAAutomotores_Propuesta",
   "titulo_pdf": "Propuesta de Crecimiento · FIZA Automotores",
-
   "cliente": {
     "nombre": "FIZA Automotores",
     "contacto": "Pablo",
@@ -10,19 +9,41 @@
     "nombre_corto": "FIZA"
   },
   "fecha": "Noviembre 2026",
-
   "portada": {
     "titulo": "Más consultas calificadas",
     "titulo_color": "para vender más autos.",
     "indice_estilo": "items",
     "servicios": [
-      { "color": "orange", "icono": "meta", "titulo": "Publicidad", "texto": "Campañas en Meta y Google para llegar a compradores de Córdoba y sumar autos en consignación.", "etiqueta": "META · GOOGLE" },
-      { "color": "blue", "icono": "web", "titulo": "Sitio Web", "texto": "Todo el stock con fichas completas y formularios que filtran cada consulta.", "etiqueta": "WEB · DE POR VIDA" },
-      { "color": "blue", "icono": "video", "titulo": "Contenido", "texto": "20 piezas audiovisuales por mes para el perfil y para los anuncios.", "etiqueta": "INSTAGRAM · FACEBOOK" },
-      { "color": "slate", "icono": "crm", "titulo": "CRM", "texto": "Registro simple de cada consulta para Pablo y los vendedores. De regalo con el plan mensual.", "etiqueta": "DE REGALO" }
+      {
+        "color": "orange",
+        "icono": "meta",
+        "titulo": "Publicidad",
+        "texto": "Campañas en Meta y Google para llegar a compradores de Córdoba y sumar autos en consignación.",
+        "etiqueta": "META · GOOGLE"
+      },
+      {
+        "color": "blue",
+        "icono": "web",
+        "titulo": "Sitio Web",
+        "texto": "Todo el stock con fichas completas y formularios que filtran cada consulta.",
+        "etiqueta": "WEB · DE POR VIDA"
+      },
+      {
+        "color": "blue",
+        "icono": "video",
+        "titulo": "Contenido",
+        "texto": "20 piezas audiovisuales por mes para el perfil y para los anuncios.",
+        "etiqueta": "INSTAGRAM · FACEBOOK"
+      },
+      {
+        "color": "slate",
+        "icono": "crm",
+        "titulo": "CRM",
+        "texto": "Registro simple de cada consulta para Pablo y los vendedores. De regalo con el plan mensual.",
+        "etiqueta": "DE REGALO"
+      }
     ]
   },
-
   "paginas": [
     {
       "indice": "Situación actual y objetivo",
@@ -32,23 +53,46 @@
       "titulo": "Punto de partida y<br>objetivo del trabajo.",
       "subtitulo": "Datos tomados del perfil de Instagram de FIZA Automotores",
       "bloques": [
-        { "tipo": "kpis", "items": [
-          { "label": "Seguidores en Instagram", "valor": "7.727" },
-          { "label": "Publicaciones", "valor": "Más de 1.100" },
-          { "label": "Servicios", "valor": "Compra, venta y consignación" },
-          { "label": "Equipo comercial", "valor": "Pablo + 2 vendedores" }
-        ]},
-        { "tipo": "texto", "titulo": "Situación actual", "parrafos": [
-          "FIZA tiene una base que pocas agencias de autos tienen: <b>7.727 seguidores, más de 1.100 publicaciones</b> y destacadas llenas de entregas a clientes. Esa prueba social es el mejor argumento de venta, y hoy la ve sobre todo quien ya sigue la cuenta.",
-          "El equipo comercial es chico: Pablo y dos vendedores. Con un equipo así, el límite no es cuántos mensajes llegan, sino cuántos se pueden atender bien. Cada hora respondiendo precio, año o financiación a alguien que no va a comprar es una hora menos para cerrar ventas.",
-          "Por eso el objetivo de esta propuesta es <b>más consultas calificadas</b>: personas que ya vieron la unidad, el precio y las condiciones, y llegan listas para avanzar."
-        ]},
-        { "tipo": "checks", "titulo": "Objetivo", "items": [
-          "<b>Aumentar el volumen de consultas calificadas</b> con publicidad en Meta y Google dirigida a compradores de Córdoba.",
-          "<b>Filtrar antes del WhatsApp</b>: que cada consulta llegue con unidad, forma de pago y datos de contacto.",
-          "<b>Sumar autos en consignación</b> con campañas dirigidas a quienes quieren vender su vehículo.",
-          "<b>Medir cada semana el costo por consulta calificada</b> y mover la inversión hacia lo que trae compradores."
-        ]}
+        {
+          "tipo": "kpis",
+          "items": [
+            {
+              "label": "Seguidores en Instagram",
+              "valor": "7.727"
+            },
+            {
+              "label": "Publicaciones",
+              "valor": "Más de 1.100"
+            },
+            {
+              "label": "Servicios",
+              "valor": "Compra, venta y consignación"
+            },
+            {
+              "label": "Equipo comercial",
+              "valor": "Pablo + 2 vendedores"
+            }
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Situación actual",
+          "parrafos": [
+            "FIZA tiene una base que pocas agencias de autos tienen: <b>7.727 seguidores, más de 1.100 publicaciones</b> y destacadas llenas de entregas a clientes. Esa prueba social es el mejor argumento de venta, y hoy la ve sobre todo quien ya sigue la cuenta.",
+            "El equipo comercial es chico: Pablo y dos vendedores. Con un equipo así, el límite no es cuántos mensajes llegan, sino cuántos se pueden atender bien. Cada hora respondiendo precio, año o financiación a alguien que no va a comprar es una hora menos para cerrar ventas.",
+            "Por eso el objetivo de esta propuesta es <b>más consultas calificadas</b>: personas que ya vieron la unidad, el precio y las condiciones, y llegan listas para avanzar."
+          ]
+        },
+        {
+          "tipo": "checks",
+          "titulo": "Objetivo",
+          "items": [
+            "<b>Aumentar el volumen de consultas calificadas</b> con publicidad en Meta y Google dirigida a compradores de Córdoba.",
+            "<b>Filtrar antes del WhatsApp</b>: que cada consulta llegue con unidad, forma de pago y datos de contacto.",
+            "<b>Sumar autos en consignación</b> con campañas dirigidas a quienes quieren vender su vehículo.",
+            "<b>Medir cada semana el costo por consulta calificada</b> y mover la inversión hacia lo que trae compradores."
+          ]
+        }
       ]
     },
     {
@@ -58,27 +102,42 @@
       "color": "orange",
       "titulo": "Publicidad en Meta y Google:<br>más consultas, mejor calificadas.",
       "bloques": [
-        { "tipo": "texto", "titulo": "Estructura de campañas", "parrafos": [
-          "En Meta, las campañas se organizan en tres frentes: <b>venta de unidades, financiación y consignación</b>, cada uno con anuncios y públicos propios en Córdoba y alrededores.",
-          "En Google aparecemos cuando alguien busca activamente, por ejemplo \"autos usados en Córdoba\" o el modelo que FIZA tiene en stock: <b>es la persona más cerca de comprar</b>. En las dos plataformas sumamos retargeting para quienes ya vieron una unidad, visitaron el sitio o escribieron sin cerrar."
-        ]},
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "Campañas en Instagram y Facebook",
-          "Campañas de búsqueda en Google",
-          "Anuncios de las unidades disponibles",
-          "Captación de autos en consignación",
-          "Retargeting en Meta y Google",
-          "Redacción de todos los anuncios",
-          "Optimización semanal del presupuesto",
-          "Reporte semanal de resultados"
-        ]},
-        { "tipo": "texto", "titulo": "Inversión recomendada en pauta", "parrafos": [
-          "La inversión en pauta <b>no está incluida en nuestro presupuesto</b>: se abona aparte, directo a Meta y a Google. Recomendamos un <b>mínimo de $1.000.000 de pesos por mes</b>.",
-          "Ese monto se reparte entre las dos plataformas según el costo por consulta calificada de cada una, y se ajusta cada semana. Con menos inversión, las campañas tardan más en optimizarse y el volumen de consultas no alcanza para medir bien."
-        ]},
-        { "tipo": "texto", "titulo": "Medición y reportes", "parrafos": [
-          "Reporte semanal con inversión, consultas recibidas, costo por consulta calificada y resultados por campaña y por plataforma. Con esos datos movemos el presupuesto entre Meta y Google hacia lo que trae compradores."
-        ]}
+        {
+          "tipo": "texto",
+          "titulo": "Estructura de campañas",
+          "parrafos": [
+            "En Meta, las campañas se organizan en tres frentes: <b>venta de unidades, financiación y consignación</b>, cada uno con anuncios y públicos propios en Córdoba y alrededores.",
+            "En Google aparecemos cuando alguien busca activamente, por ejemplo \"autos usados en Córdoba\" o el modelo que FIZA tiene en stock: <b>es la persona más cerca de comprar</b>. En las dos plataformas sumamos retargeting para quienes ya vieron una unidad, visitaron el sitio o escribieron sin cerrar."
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Qué incluye",
+          "items": [
+            "Campañas en Instagram y Facebook",
+            "Campañas de búsqueda en Google",
+            "Anuncios de las unidades disponibles",
+            "Captación de autos en consignación",
+            "Retargeting en Meta y Google",
+            "Redacción de todos los anuncios",
+            "Optimización semanal del presupuesto",
+            "Reporte semanal de resultados"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Inversión en anuncios",
+          "parrafos": [
+            "La inversión en anuncios se paga directo a Meta y a Google. Como referencia, sugerimos arrancar con alrededor de <b>$1.000.000 de pesos por mes</b>, y lo vamos ajustando juntos según los resultados de cada semana."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Medición y reportes",
+          "parrafos": [
+            "Reporte semanal con inversión, consultas recibidas, costo por consulta calificada y resultados por campaña y por plataforma. Con esos datos movemos el presupuesto entre Meta y Google hacia lo que trae compradores."
+          ]
+        }
       ]
     },
     {
@@ -89,26 +148,53 @@
       "titulo": "Consultas calificadas:<br>menos curiosos, más compradores.",
       "subtitulo": "El objetivo principal de la propuesta",
       "bloques": [
-        { "tipo": "etapas", "items": [
-          { "cuando": "El anuncio", "texto": "Muestra la unidad, el precio y si se puede financiar. Quien no puede pagarla no escribe." },
-          { "cuando": "El sitio", "texto": "Ficha completa de la unidad y formulario con forma de pago y teléfono." },
-          { "cuando": "El WhatsApp", "texto": "Mensaje armado que indica la unidad. El vendedor sabe desde el primer mensaje qué responder." },
-          { "cuando": "El seguimiento", "texto": "Retargeting a quien no cerró y aviso cuando una consulta queda sin respuesta." }
-        ]},
-        { "tipo": "checks2", "titulo": "Qué trae cada consulta calificada", "items": [
-          "Unidad o tipo de auto que busca",
-          "Forma de pago: contado, financiación o usado",
-          "Nombre y teléfono",
-          "Cuándo piensa comprar",
-          "Zona desde donde consulta",
-          "Anuncio o campaña que la trajo"
-        ]},
-        { "tipo": "texto", "titulo": "Por qué importa con un equipo de tres", "parrafos": [
-          "Cada consulta que llega filtrada ahorra preguntas repetidas y deja más tiempo para mostrar autos y cerrar. Por eso medimos el <b>costo por consulta calificada</b> y no solo el costo por mensaje: una campaña barata que trae curiosos le cuesta más a FIZA que una que trae compradores."
-        ]},
-        { "tipo": "texto", "titulo": "Respuesta en minutos", "parrafos": [
-          "Dejamos armados mensajes de respuesta rápida en WhatsApp Business para las preguntas más frecuentes: precio, financiación, permuta y horarios. Responder en minutos, y no en horas, aumenta la probabilidad de cerrar una consulta que llega desde un anuncio."
-        ]}
+        {
+          "tipo": "etapas",
+          "items": [
+            {
+              "cuando": "El anuncio",
+              "texto": "Muestra la unidad, el precio y si se puede financiar. Quien no puede pagarla no escribe."
+            },
+            {
+              "cuando": "El sitio",
+              "texto": "Ficha completa de la unidad y formulario con forma de pago y teléfono."
+            },
+            {
+              "cuando": "El WhatsApp",
+              "texto": "Mensaje armado que indica la unidad. El vendedor sabe desde el primer mensaje qué responder."
+            },
+            {
+              "cuando": "El seguimiento",
+              "texto": "Retargeting a quien no cerró y aviso cuando una consulta queda sin respuesta."
+            }
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Qué trae cada consulta calificada",
+          "items": [
+            "Unidad o tipo de auto que busca",
+            "Forma de pago: contado, financiación o usado",
+            "Nombre y teléfono",
+            "Cuándo piensa comprar",
+            "Zona desde donde consulta",
+            "Anuncio o campaña que la trajo"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Por qué importa con un equipo de tres",
+          "parrafos": [
+            "Cada consulta que llega filtrada ahorra preguntas repetidas y deja más tiempo para mostrar autos y cerrar. Por eso medimos el <b>costo por consulta calificada</b> y no solo el costo por mensaje: una campaña barata que trae curiosos le cuesta más a FIZA que una que trae compradores."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Respuesta en minutos",
+          "parrafos": [
+            "Dejamos armados mensajes de respuesta rápida en WhatsApp Business para las preguntas más frecuentes: precio, financiación, permuta y horarios. Responder en minutos, y no en horas, aumenta la probabilidad de cerrar una consulta que llega desde un anuncio."
+          ]
+        }
       ]
     },
     {
@@ -119,23 +205,35 @@
       "titulo": "Sitio web para recibir<br>consultas 100% calificadas.",
       "subtitulo": "Sitio de por vida, con el dominio de FIZA Automotores incluido",
       "bloques": [
-        { "tipo": "texto", "titulo": "Todo el stock en un solo lugar", "parrafos": [
-          "Hoy, para saber qué hay disponible, el interesado tiene que recorrer más de mil publicaciones o preguntar por mensaje el precio, el año, los kilómetros y si se puede financiar. Cada una de esas preguntas consume tiempo del equipo.",
-          "El sitio reúne esa información de forma ordenada: <b>cada unidad con fotos, año, kilómetros, precio y opciones de financiación</b>. Quien consulta desde el sitio ya conoce el auto y las condiciones, y llega con la decisión avanzada."
-        ]},
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "Catálogo de unidades con filtros",
-          "Ficha de cada unidad con fotos y datos",
-          "Opciones de financiación y medios de pago",
-          "Formulario para dejar un auto en consignación",
-          "Botón de WhatsApp en cada unidad",
-          "Ubicación, horarios y datos de contacto",
-          "Diseño adaptado a celular",
-          "Dominio incluido, de por vida"
-        ]},
-        { "tipo": "texto", "titulo": "CRM simple, de regalo", "parrafos": [
-          "Las consultas del sitio y de los anuncios quedan registradas en un CRM pensado para un equipo de tres: <b>Pablo y los dos vendedores</b>. Cada uno ve sus consultas con la unidad y la forma de pago, recibe un aviso en el celular y sabe cuáles quedaron sin respuesta. Viene de regalo con el plan mensual y queda para FIZA de por vida."
-        ]}
+        {
+          "tipo": "texto",
+          "titulo": "Todo el stock en un solo lugar",
+          "parrafos": [
+            "Hoy, para saber qué hay disponible, el interesado tiene que recorrer más de mil publicaciones o preguntar por mensaje el precio, el año, los kilómetros y si se puede financiar. Cada una de esas preguntas consume tiempo del equipo.",
+            "El sitio reúne esa información de forma ordenada: <b>cada unidad con fotos, año, kilómetros, precio y opciones de financiación</b>. Quien consulta desde el sitio ya conoce el auto y las condiciones, y llega con la decisión avanzada."
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Qué incluye",
+          "items": [
+            "Catálogo de unidades con filtros",
+            "Ficha de cada unidad con fotos y datos",
+            "Opciones de financiación y medios de pago",
+            "Formulario para dejar un auto en consignación",
+            "Botón de WhatsApp en cada unidad",
+            "Ubicación, horarios y datos de contacto",
+            "Diseño adaptado a celular",
+            "Dominio incluido, de por vida"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "CRM simple, de regalo",
+          "parrafos": [
+            "Las consultas del sitio y de los anuncios quedan registradas en un CRM pensado para un equipo de tres: <b>Pablo y los dos vendedores</b>. Cada uno ve sus consultas con la unidad y la forma de pago, recibe un aviso en el celular y sabe cuáles quedaron sin respuesta. Viene de regalo con el plan mensual y queda para FIZA de por vida."
+          ]
+        }
       ]
     },
     {
@@ -145,24 +243,43 @@
       "color": "blue",
       "titulo": "20 piezas audiovisuales por mes,<br>pensadas para vender.",
       "bloques": [
-        { "tipo": "comparacion",
-          "antes": { "label": "Hoy", "texto": "Más de 1.100 publicaciones y destacadas con entregas a clientes." },
-          "despues": { "label": "Con el plan", "texto": "20 piezas por mes con guion, pensadas para el perfil y para los anuncios." }
+        {
+          "tipo": "comparacion",
+          "antes": {
+            "label": "Hoy",
+            "texto": "Más de 1.100 publicaciones y destacadas con entregas a clientes."
+          },
+          "despues": {
+            "label": "Con el plan",
+            "texto": "20 piezas por mes con guion, pensadas para el perfil y para los anuncios."
+          }
         },
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "20 piezas audiovisuales por mes",
-          "Guion y planificación mensual",
-          "Filmación de unidades y entregas",
-          "Edición y publicación",
-          "Calendario aprobado antes de publicar",
-          "Material listo para usar en anuncios"
-        ]},
-        { "tipo": "texto", "titulo": "Tipos de piezas", "parrafos": [
-          "Presentación de unidades con precio y condiciones, entregas a clientes, comparativas entre modelos, explicación de los planes de financiación, cómo funciona la consignación y videos de Pablo y el equipo respondiendo las preguntas más frecuentes."
-        ]},
-        { "tipo": "texto", "titulo": "Contenido que califica", "parrafos": [
-          "Un video que muestra el precio, el año y la forma de pago responde las preguntas antes de que lleguen. Quien escribe después de verlo ya sabe lo que busca. Con material nuevo cada semana, además, <b>los anuncios se renuevan</b> y dejamos activos los que consiguen consultas a menor costo."
-        ]}
+        {
+          "tipo": "checks2",
+          "titulo": "Qué incluye",
+          "items": [
+            "20 piezas audiovisuales por mes",
+            "Guion y planificación mensual",
+            "Filmación de unidades y entregas",
+            "Edición y publicación",
+            "Calendario aprobado antes de publicar",
+            "Material listo para usar en anuncios"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Tipos de piezas",
+          "parrafos": [
+            "Presentación de unidades con precio y condiciones, entregas a clientes, comparativas entre modelos, explicación de los planes de financiación, cómo funciona la consignación y videos de Pablo y el equipo respondiendo las preguntas más frecuentes."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Contenido que califica",
+          "parrafos": [
+            "Un video que muestra el precio, el año y la forma de pago responde las preguntas antes de que lleguen. Quien escribe después de verlo ya sabe lo que busca. Con material nuevo cada semana, además, <b>los anuncios se renuevan</b> y dejamos activos los que consiguen consultas a menor costo."
+          ]
+        }
       ]
     },
     {
@@ -173,18 +290,26 @@
       "titulo": "Valor agregado incluido,<br>sin costo adicional.",
       "subtitulo": "Todo esto entra en la propuesta, además de los servicios principales",
       "bloques": [
-        { "tipo": "checks", "titulo": "Qué suma la propuesta", "items": [
-          "<b>Ficha de Google optimizada</b>: fotos, horarios y ubicación en Buchardo 1367, para aparecer en Google Maps.",
-          "<b>Sistema de reseñas</b>: un mensaje listo para pedir una reseña en Google a cada cliente que retira su auto.",
-          "<b>Respuestas rápidas en WhatsApp Business</b> para precio, financiación, permuta y horarios.",
-          "<b>Medición en el sitio</b>: píxel de Meta y etiqueta de Google, para saber qué anuncio trae cada consulta.",
-          "<b>Formulario de consignación con fotos</b>, conectado a las campañas de captación.",
-          "<b>Reunión mensual de resultados con Pablo</b>: qué funcionó, qué cambiamos y cuánto costó cada consulta calificada."
-        ]},
-        { "tipo": "texto", "titulo": "Por qué lo incluimos", "parrafos": [
-          "Cada una de estas piezas apunta al mismo objetivo: que lleguen más consultas, mejor calificadas, y que se puedan medir.",
-          "Una ficha de Google con buenas reseñas hace que quien vio un anuncio confíe antes de escribir. La respuesta rápida evita que esa consulta se enfríe. Y la medición permite saber qué parte de la inversión trae compradores."
-        ]}
+        {
+          "tipo": "checks",
+          "titulo": "Qué suma la propuesta",
+          "items": [
+            "<b>Ficha de Google optimizada</b>: fotos, horarios y ubicación en Buchardo 1367, para aparecer en Google Maps.",
+            "<b>Sistema de reseñas</b>: un mensaje listo para pedir una reseña en Google a cada cliente que retira su auto.",
+            "<b>Respuestas rápidas en WhatsApp Business</b> para precio, financiación, permuta y horarios.",
+            "<b>Medición en el sitio</b>: píxel de Meta y etiqueta de Google, para saber qué anuncio trae cada consulta.",
+            "<b>Formulario de consignación con fotos</b>, conectado a las campañas de captación.",
+            "<b>Reunión mensual de resultados con Pablo</b>: qué funcionó, qué cambiamos y cuánto costó cada consulta calificada."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Por qué lo incluimos",
+          "parrafos": [
+            "Cada una de estas piezas apunta al mismo objetivo: que lleguen más consultas, mejor calificadas, y que se puedan medir.",
+            "Una ficha de Google con buenas reseñas hace que quien vio un anuncio confíe antes de escribir. La respuesta rápida evita que esa consulta se enfríe. Y la medición permite saber qué parte de la inversión trae compradores."
+          ]
+        }
       ]
     },
     {
@@ -193,31 +318,66 @@
       "kicker": "Inversión",
       "color": "blue",
       "titulo": "Precio de nuestros servicios.",
-      "subtitulo": "Precios en dólares estadounidenses. La pauta publicitaria no está incluida",
+      "subtitulo": "Precios en dólares estadounidenses",
       "bloques": [
-        { "tipo": "precios",
-          "arranque": { "label": "Arranque · precio promocional", "monto": "$750", "moneda": "USD", "texto": "Sitio web + dominio + primer mes · <b>o 2 pagos de USD 375</b>" },
-          "mensual": { "badge": "Desde el segundo mes", "label": "Plan mensual", "monto": "$650", "moneda": "USD / mes", "texto": "Contenido + publicidad en Meta y Google + <b>CRM de regalo</b>" }
+        {
+          "tipo": "precios",
+          "arranque": {
+            "label": "Arranque · precio promocional",
+            "monto": "$750",
+            "moneda": "USD",
+            "texto": "Sitio web + dominio + primer mes · <b>o 2 pagos de USD 375</b>"
+          },
+          "mensual": {
+            "badge": "Desde el segundo mes",
+            "label": "Plan mensual",
+            "monto": "$650",
+            "moneda": "USD / mes",
+            "texto": "Contenido + publicidad en Meta y Google + <b>CRM de regalo</b>"
+          }
         },
-        { "tipo": "tabla", "titulo": "Detalle del arranque · USD 750",
-          "columnas": ["Servicio", "Precio regular", "En esta propuesta"],
+        {
+          "tipo": "tabla",
+          "titulo": "Detalle del arranque · USD 750",
+          "columnas": [
+            "Servicio",
+            "Precio regular",
+            "En esta propuesta"
+          ],
           "filas": [
-            ["Sitio web de por vida + dominio", "USD 500", "USD 500"],
-            ["Primer mes: contenido y anuncios", "USD 650", "USD 250 · precio de lanzamiento"],
-            ["Total del arranque", "USD 1.150", "USD 750 · ahorro de USD 400"]
+            [
+              "Sitio web de por vida + dominio",
+              "USD 500",
+              "USD 500"
+            ],
+            [
+              "Primer mes: contenido y anuncios",
+              "USD 650",
+              "USD 250 · precio de lanzamiento"
+            ],
+            [
+              "Total del arranque",
+              "USD 1.150",
+              "USD 750 · ahorro de USD 400"
+            ]
           ],
           "destacada": 2,
           "nota": "Precio promocional por ser el primer trabajo juntos. Se puede abonar en un pago de USD 750 o en dos pagos de USD 375. El sitio web es de FIZA de por vida y el dominio está incluido."
         },
-        { "tipo": "checks", "titulo": "Plan mensual · USD 650 desde el segundo mes", "items": [
-          "20 piezas audiovisuales por mes",
-          "Gestión de campañas en Meta y Google, con reporte semanal",
-          "<b>CRM de por vida, de regalo</b>, para Pablo y los dos vendedores",
-          "Valor agregado incluido y reunión mensual de resultados"
-        ], "notas": [
-          "<b>La pauta publicitaria no está incluida en este presupuesto.</b> Se abona aparte, directo a Meta y Google. Inversión mínima recomendada: $1.000.000 de pesos por mes.",
-          "Sin permanencia: el plan mensual empieza solo si FIZA decide continuar después del primer mes."
-        ]}
+        {
+          "tipo": "checks",
+          "titulo": "Plan mensual · USD 650 desde el segundo mes",
+          "items": [
+            "20 piezas audiovisuales por mes",
+            "Gestión de campañas en Meta y Google, con reporte semanal",
+            "<b>CRM de por vida, de regalo</b>, para Pablo y los dos vendedores",
+            "Valor agregado incluido y reunión mensual de resultados"
+          ],
+          "notas": [
+            "Sin permanencia: el plan mensual empieza solo si FIZA decide continuar después del primer mes.",
+            "La inversión en anuncios va aparte, directo a Meta y Google. Como referencia, sugerimos alrededor de $1.000.000 de pesos por mes."
+          ]
+        }
       ]
     },
     {
@@ -229,19 +389,44 @@
       "subtitulo": "Desde la aprobación de la propuesta",
       "confidencial": true,
       "bloques": [
-        { "tipo": "etapas", "items": [
-          { "cuando": "Días 1 a 3", "texto": "Aprobación, pago del arranque o de la primera cuota, y acceso a las cuentas de Meta y Google." },
-          { "cuando": "Semana 1", "texto": "Lanzamiento de campañas, respuestas rápidas en WhatsApp y calendario de contenido." },
-          { "cuando": "Semanas 2 y 3", "texto": "Publicación del sitio web con dominio incluido y ficha de Google optimizada." },
-          { "cuando": "Desde el mes 2", "texto": "Plan mensual y alta del CRM de regalo para Pablo y los vendedores." }
-        ]},
-        { "tipo": "checks", "numero": "•", "titulo": "Qué necesitamos de FIZA Automotores", "items": [
-          "Acceso de administrador a la cuenta publicitaria de Meta, a Instagram y Facebook, y a la cuenta de Google",
-          "Listado de unidades disponibles con fotos, precios y condiciones de financiación",
-          "Nombre, correo y celular de Pablo y los dos vendedores",
-          "Disponibilidad de la agencia para las jornadas de filmación"
-        ]},
-        { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Axel Castro</b> · Maison Enterprises · maison.enterprises" }
+        {
+          "tipo": "etapas",
+          "items": [
+            {
+              "cuando": "Días 1 a 3",
+              "texto": "Aprobación, pago del arranque o de la primera cuota, y acceso a las cuentas de Meta y Google."
+            },
+            {
+              "cuando": "Semana 1",
+              "texto": "Publicación del sitio web con dominio incluido y lanzamiento de las campañas."
+            },
+            {
+              "cuando": "Semanas 2 y 3",
+              "texto": "Ficha de Google optimizada, respuestas rápidas en WhatsApp y calendario de contenido."
+            },
+            {
+              "cuando": "Desde el mes 2",
+              "texto": "Plan mensual y alta del CRM de regalo para Pablo y los vendedores."
+            }
+          ]
+        },
+        {
+          "tipo": "checks",
+          "numero": "•",
+          "titulo": "Qué necesitamos de FIZA Automotores",
+          "items": [
+            "Acceso de administrador a la cuenta publicitaria de Meta, a Instagram y Facebook, y a la cuenta de Google",
+            "Listado de unidades disponibles con fotos, precios y condiciones de financiación",
+            "Nombre, correo y celular de Pablo y los dos vendedores",
+            "Disponibilidad de la agencia para las jornadas de filmación"
+          ]
+        },
+        {
+          "tipo": "contacto",
+          "numero": "•",
+          "titulo": "Contacto",
+          "texto": "<b>Axel Castro</b> · Maison Enterprises · maison.enterprises"
+        }
       ]
     }
   ]
