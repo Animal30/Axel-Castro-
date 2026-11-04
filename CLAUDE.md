@@ -46,5 +46,6 @@ Nahuel no conoce los nombres de las más de 100 skills de este proyecto, y no ti
 ## Clientes y marcas
 
 - Perfiles de marca para la edición: `.claude/creator-profile/<cliente>/` (`nahuel`, `nahuel-espanol` = @iamaegene, `nate`). Antes de editar para un cliente, leé su `profile.json` y su `NOTES.md`.
-- Carpetas por cliente en la raíz: `nate-velazquez/`, `rey-la-tinta/`, `iron-bird-fitness/`, `latonnya/`, `nahuel-espanol/`.
+- Carpetas por cliente en la raíz: `nate-velazquez/`, `rey-la-tinta/`, `iron-bird-fitness/`, `latonnya/`, `nahuel-espanol/`, `isa-franco-motos/`.
 - Los guiones y documentos para clientes se generan como PDF con un `build.py` en la carpeta del cliente (mirá `nate-velazquez/nutrition-tips/build.py` como modelo).
+- Clientes de anuncios (Meta): Iron Bird Fitness, Nate Velázquez, Michael Lenny, Diego Díaz Motos e Isa Franco Motos. Todos siguen el mismo flujo de skills (auditoría con `claude-ads`, estrategia con `ads`/`offers`, copy con `ad-creative` + `ig-human`, creativos con Higgsfield, medición con `conversion-tracking`, reporte con `ads-report`). El de Isa está en `isa-franco-motos/README.md` (concesionaria de motos, ARS, español rioplatense; su cuenta de Meta todavía no está conectada).
