@@ -68,3 +68,9 @@ Cada página lleva además:
 Las secciones se numeran solas (01, 02…). Para mostrar un punto en lugar del número, se pone `"numero": "•"`. Para resaltar en blanco una parte del texto, se usa `<b>…</b>`.
 
 Íconos de la portada: `meta`, `web`, `crm`, `video`, `chat`, `mail`, `star`, `search`, `camera`, `users`.
+
+## Opciones generales del documento
+
+- `"sin_portada": true`: genera el documento sin portada, por ejemplo una hoja suelta de proceso (`clientes/orokar-automotores/proceso.json`).
+- `"pie"`: cambia el texto del pie de página ("Propuesta comercial" por defecto).
+- En `portada`: `kicker` cambia el rótulo de arriba de la portada y `preparada` cambia el "Propuesta preparada para".

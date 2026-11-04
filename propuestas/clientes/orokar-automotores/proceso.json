@@ -1,0 +1,56 @@
+{
+  "archivo": "OROKAR_ProcesoDeTrabajo",
+  "titulo_pdf": "Proceso de trabajo · OROKAR Automotores",
+  "pie": "Proceso de trabajo",
+  "sin_portada": true,
+
+  "cliente": {
+    "nombre": "OROKAR Automotores",
+    "contacto": "",
+    "direccion": "Córdoba",
+    "instagram": "@orokarautomotores",
+    "nombre_corto": "OROKAR"
+  },
+  "fecha": "Noviembre 2026",
+  "portada": {},
+
+  "paginas": [
+    {
+      "indice": "Proceso de trabajo",
+      "kicker": "Proceso de trabajo · Asociación comercial",
+      "color": "blue",
+      "titulo": "Cómo vamos a trabajar,<br>semana a semana.",
+      "subtitulo": "Desde la firma de la asociación con OROKAR Automotores",
+      "confidencial": true,
+      "bloques": [
+        { "tipo": "etapas", "items": [
+          { "cuando": "Semana 1", "texto": "Publicamos el sitio web y lanzamos las campañas en Meta y Google." },
+          { "cuando": "Semana 2", "texto": "Configuramos el CRM para registrar y seguir cada consulta." },
+          { "cuando": "Desde la semana 3", "texto": "Contenido en redes, optimización de campañas y reporte semanal." },
+          { "cuando": "Primera venta", "texto": "Con la primera venta de alta gama empieza el plan mensual." }
+        ]},
+        { "tipo": "checks2", "titulo": "Semana 1 · Sitio web y campañas", "items": [
+          "Publicación del sitio web con dominio propio",
+          "Carga del stock con fotos, precios y financiación",
+          "Botón de WhatsApp en cada unidad",
+          "Píxel de Meta y etiqueta de Google instalados",
+          "Lanzamiento de campañas en Meta y Google",
+          "Anuncios de las unidades de alta gama"
+        ]},
+        { "tipo": "checks2", "titulo": "Semana 2 · CRM", "items": [
+          "Usuarios para cada persona del equipo",
+          "Conexión con el sitio web y los anuncios",
+          "Registro de unidad, forma de pago y origen",
+          "Aviso al celular por cada consulta nueva",
+          "Etapas de seguimiento hasta la venta",
+          "Explicación del sistema al equipo"
+        ]},
+        { "tipo": "texto", "titulo": "Desde la semana 3", "parrafos": [
+          "Con el sitio, las campañas y el CRM funcionando, nos hacemos cargo de las redes: <b>contenido nuevo todas las semanas</b> en Instagram y Facebook. Cada semana revisamos los resultados, movemos la inversión hacia las campañas que traen más consultas y les enviamos un reporte claro con lo que pasó.",
+          "Marketplace y Mercado Libre siguen funcionando igual que hoy. Todo esto se suma a lo que OROKAR ya hace."
+        ]},
+        { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Axel Castro</b> · Maison Enterprises" }
+      ]
+    }
+  ]
+}

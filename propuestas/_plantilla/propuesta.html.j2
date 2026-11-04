@@ -150,17 +150,19 @@ h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); le
 </style>
 </head>
 <body>
-{%- set total = d.paginas|length + 1 %}
+{%- set off = 0 if d.sin_portada else 1 %}
+{%- set total = d.paginas|length + off %}
 {%- macro foot(n, confidencial=False, maison=False) %}
   <div class="foot">
     <span>{{ d.cliente.nombre }} · {% if d.pie %}{{ d.pie }}{% else %}Propuesta {{ 'Maison Enterprises' if maison else 'comercial' }}{% endif %}</span>
-    <span class="dots">{% for i in range(1, total + 1) %}<i{% if i == n %} class="on"{% endif %}></i>{% endfor %}</span>
+    <span class="dots">{% if total > 1 %}{% for i in range(1, total + 1) %}<i{% if i == n %} class="on"{% endif %}></i>{% endfor %}{% endif %}</span>
     <span class="pg">{{ '%02d' % n }} / {{ '%02d' % total }}{% if confidencial %}<em>Confidencial</em>{% endif %}</span>
   </div>
 {%- endmacro %}
 {%- macro sh(num, titulo) %}<div class="sh"><span class="b{% if num == '•' %} dot{% endif %}">{{ num }}</span>{{ titulo }}</div>{% endmacro %}
 
 <!-- ===================== PORTADA ===================== -->
+{%- if not d.sin_portada %}
 <section class="page cover c-blue">
   <div class="top">
     <span class="kicker">{{ d.portada.kicker or 'Propuesta comercial' }}</span>
@@ -198,9 +200,10 @@ h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); le
   {{ foot(1, maison=True) }}
 </section>
 
+{%- endif %}
 <!-- ===================== PÁGINAS ===================== -->
 {%- for p in d.paginas %}
-{%- set n = loop.index + 1 %}
+{%- set n = loop.index + off %}
 <section class="page c-{{ p.color or 'blue' }}">
   <div class="top">
     <span class="kicker">{{ p.kicker }}</span>
