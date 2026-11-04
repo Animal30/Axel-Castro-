@@ -69,6 +69,12 @@ h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); le
 .toc { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; padding: 12px 24px; }
 .toc li { list-style: none; font-size: 12.8px; line-height: 31px; color: var(--muted); }
 .toc li span { display: inline-block; margin-right: 10px; color: var(--blue); }
+.toc-items { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; padding: 4px 24px; }
+.toc-items li { position: relative; padding: 14px 0 14px 22px; border-bottom: 1px solid var(--line); }
+.toc-items li.lr { border-bottom: 0; }
+.toc-items li::before { content: ""; position: absolute; left: 1px; top: 19px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--blue); }
+.toc-items b { display: block; font-size: 13.3px; line-height: 18px; font-weight: 600; color: var(--ink); }
+.toc-items span { display: block; margin-top: 3px; font-size: 11.2px; line-height: 16px; color: var(--muted); }
 
 /* ---------- secciones ---------- */
 .blocks > * + * { margin-top: 28px; }
@@ -176,11 +182,18 @@ h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); le
   </div>
   <div class="toc-wrap">
     {{ sh('•', 'Contenido de la propuesta') }}
+    {%- if d.portada.indice_estilo == 'items' %}
+    {%- set rows = (d.paginas|length + 1) // 2 %}
+    <div class="box"><ul class="toc-items">
+      {%- for p in d.paginas %}<li{% if loop.index0 // 2 == rows - 1 %} class="lr"{% endif %}><b>{{ p.indice }}</b>{% if p.indice_desc %}<span>{{ p.indice_desc }}</span>{% endif %}</li>{% endfor %}
+    </ul></div>
+    {%- else %}
     {%- set half = d.paginas|length // 2 %}
     <div class="box"><ul class="toc">
       <div>{% for p in d.paginas[:half] %}<li><span>{{ '%02d' % (loop.index + 1) }}</span>{{ p.indice }}</li>{% endfor %}</div>
       <div>{% for p in d.paginas[half:] %}<li><span>{{ '%02d' % (loop.index + half + 1) }}</span>{{ p.indice }}</li>{% endfor %}</div>
     </ul></div>
+    {%- endif %}
   </div>
   {{ foot(1, maison=True) }}
 </section>

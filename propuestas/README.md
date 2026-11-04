@@ -58,7 +58,7 @@ Se necesita `jinja2` (`pip install jinja2`) y Chrome o Chromium. Si Chrome no ap
 | `contacto` | Caja de contacto | `titulo`, `texto` |
 
 Cada página lleva además:
-- `indice`: el texto que aparece en el índice de la portada.
+- `indice`: el texto que aparece en el índice de la portada. Con `"indice_estilo": "items"` dentro de `portada`, el índice se muestra como ítems con descripción (`indice_desc` en cada página) en lugar de números.
 - `kicker`: el rótulo chico de arriba a la izquierda.
 - `color`: `blue`, `orange` o `slate`. Pinta la rayita del rótulo y los números de las secciones.
 - `titulo`: usar `<br>` para el corte de línea.
