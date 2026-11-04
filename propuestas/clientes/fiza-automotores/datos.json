@@ -1,7 +1,6 @@
 {
   "archivo": "FIZAAutomotores_Propuesta",
   "titulo_pdf": "Propuesta de Crecimiento · FIZA Automotores",
-
   "cliente": {
     "nombre": "FIZA Automotores",
     "contacto": "",
@@ -10,18 +9,40 @@
     "nombre_corto": "FIZA"
   },
   "fecha": "Noviembre 2026",
-
   "portada": {
     "titulo": "Publicidad en Meta, sitio web,",
     "titulo_color": "CRM y contenido audiovisual.",
     "servicios": [
-      { "color": "orange", "icono": "meta", "titulo": "Publicidad en Meta", "texto": "Campañas en Instagram y Facebook para vender unidades y conseguir autos en consignación.", "etiqueta": "META ADS" },
-      { "color": "blue", "icono": "web", "titulo": "Sitio Web", "texto": "Catálogo de unidades con formularios de consulta, financiación y consignación.", "etiqueta": "WEB · CATÁLOGO" },
-      { "color": "slate", "icono": "crm", "titulo": "CRM", "texto": "Registro y seguimiento de cada consulta por vendedor, con notificaciones al celular.", "etiqueta": "SEGUIMIENTO" },
-      { "color": "blue", "icono": "video", "titulo": "Contenido", "texto": "20 piezas audiovisuales por mes para el perfil y para los anuncios.", "etiqueta": "INSTAGRAM · FACEBOOK" }
+      {
+        "color": "orange",
+        "icono": "meta",
+        "titulo": "Publicidad en Meta",
+        "texto": "Campañas en Instagram y Facebook para vender unidades y conseguir autos en consignación.",
+        "etiqueta": "META ADS"
+      },
+      {
+        "color": "blue",
+        "icono": "web",
+        "titulo": "Sitio Web",
+        "texto": "Sitio de por vida, con dominio incluido y formularios de consulta, financiación y consignación.",
+        "etiqueta": "WEB · DE POR VIDA"
+      },
+      {
+        "color": "slate",
+        "icono": "crm",
+        "titulo": "CRM",
+        "texto": "Registro y seguimiento de cada consulta por vendedor. De regalo con el plan mensual.",
+        "etiqueta": "DE REGALO"
+      },
+      {
+        "color": "blue",
+        "icono": "video",
+        "titulo": "Contenido",
+        "texto": "20 piezas audiovisuales por mes para el perfil y para los anuncios.",
+        "etiqueta": "INSTAGRAM · FACEBOOK"
+      }
     ]
   },
-
   "paginas": [
     {
       "indice": "Situación actual y objetivo",
@@ -30,23 +51,46 @@
       "titulo": "Punto de partida y<br>objetivo del trabajo.",
       "subtitulo": "Datos tomados del perfil de Instagram de FIZA Automotores",
       "bloques": [
-        { "tipo": "kpis", "items": [
-          { "label": "Seguidores en Instagram", "valor": "7.727" },
-          { "label": "Publicaciones", "valor": "Más de 1.100" },
-          { "label": "Servicios", "valor": "Compra, venta y consignación" },
-          { "label": "Ubicación", "valor": "Buchardo 1367, Córdoba" }
-        ]},
-        { "tipo": "texto", "titulo": "Situación actual", "parrafos": [
-          "FIZA tiene una base que pocas agencias de autos tienen: <b>7.727 seguidores, más de 1.100 publicaciones</b> y destacadas llenas de entregas a clientes. Esa prueba social es el mejor argumento de venta, y hoy la ve sobre todo quien ya sigue la cuenta.",
-          "Las consultas llegan por WhatsApp y por mensaje directo. Sin un sistema que las registre, se pierde el dato de qué unidad buscaba cada persona, cómo pensaba pagar y en qué quedó la conversación, y sin ese dato no se puede medir qué publicación o qué anuncio trae ventas.",
-          "Además, FIZA trabaja con consignaciones. Eso abre un segundo frente: además de buscar compradores, se pueden buscar <b>dueños que quieran vender su auto</b> y sumar stock sin inmovilizar capital."
-        ]},
-        { "tipo": "checks", "titulo": "Objetivo", "items": [
-          "<b>Llegar a compradores de Córdoba</b> que hoy no conocen a FIZA, con anuncios de las unidades disponibles.",
-          "<b>Sumar autos en consignación</b> con campañas dirigidas a quienes quieren vender su vehículo.",
-          "<b>Recibir consultas calificadas</b> desde el sitio web, con unidad, contacto y forma de pago.",
-          "<b>Registrar y dar seguimiento a cada consulta</b> por vendedor, con avisos cuando una queda sin respuesta."
-        ]}
+        {
+          "tipo": "kpis",
+          "items": [
+            {
+              "label": "Seguidores en Instagram",
+              "valor": "7.727"
+            },
+            {
+              "label": "Publicaciones",
+              "valor": "Más de 1.100"
+            },
+            {
+              "label": "Servicios",
+              "valor": "Compra, venta y consignación"
+            },
+            {
+              "label": "Ubicación",
+              "valor": "Buchardo 1367, Córdoba"
+            }
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Situación actual",
+          "parrafos": [
+            "FIZA tiene una base que pocas agencias de autos tienen: <b>7.727 seguidores, más de 1.100 publicaciones</b> y destacadas llenas de entregas a clientes. Esa prueba social es el mejor argumento de venta, y hoy la ve sobre todo quien ya sigue la cuenta.",
+            "Las consultas llegan por WhatsApp y por mensaje directo. Sin un sistema que las registre, se pierde el dato de qué unidad buscaba cada persona, cómo pensaba pagar y en qué quedó la conversación, y sin ese dato no se puede medir qué publicación o qué anuncio trae ventas.",
+            "Además, FIZA trabaja con consignaciones. Eso abre un segundo frente: además de buscar compradores, se pueden buscar <b>dueños que quieran vender su auto</b> y sumar stock sin inmovilizar capital."
+          ]
+        },
+        {
+          "tipo": "checks",
+          "titulo": "Objetivo",
+          "items": [
+            "<b>Llegar a compradores de Córdoba</b> que hoy no conocen a FIZA, con anuncios de las unidades disponibles.",
+            "<b>Sumar autos en consignación</b> con campañas dirigidas a quienes quieren vender su vehículo.",
+            "<b>Recibir consultas calificadas</b> desde el sitio web, con unidad, contacto y forma de pago.",
+            "<b>Registrar y dar seguimiento a cada consulta</b> por vendedor, con avisos cuando una queda sin respuesta."
+          ]
+        }
       ]
     },
     {
@@ -55,26 +99,42 @@
       "color": "orange",
       "titulo": "Publicidad en Meta:<br>qué vamos a hacer y qué esperar.",
       "bloques": [
-        { "tipo": "texto", "titulo": "Estructura de campañas", "parrafos": [
-          "Vamos a organizar las campañas en tres frentes: <b>venta de unidades, financiación y consignación</b>, cada uno con anuncios y públicos propios en Córdoba y alrededores. Sumamos campañas de retargeting para quienes ya vieron una unidad, visitaron el sitio o escribieron sin cerrar.",
-          "Las campañas dirigen al sitio web o a WhatsApp. Cada semana revisamos el costo por consulta y la calidad de los contactos por campaña, y movemos el presupuesto hacia las que mejor funcionan."
-        ]},
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "Estrategia y estructura de campañas",
-          "Segmentación por zona e intereses",
-          "Anuncios de las unidades disponibles",
-          "Campañas de captación de consignaciones",
-          "Retargeting a interesados",
-          "Redacción de todos los anuncios",
-          "Optimización semanal del presupuesto",
-          "Reporte semanal de resultados"
-        ]},
-        { "tipo": "texto", "titulo": "Dos negocios en una misma cuenta", "parrafos": [
-          "Las campañas de venta traen compradores. Las de consignación traen a quienes quieren vender su auto, que llegan con marca, modelo, año y kilómetros desde el formulario del sitio. <b>Cada consignación nueva es una unidad más para vender</b>, y vuelve a entrar en las campañas de venta."
-        ]},
-        { "tipo": "texto", "titulo": "Medición y reportes", "parrafos": [
-          "Reporte semanal con inversión, consultas recibidas y resultados por campaña. Con el CRM funcionando, el reporte suma las ventas y las consignaciones concretadas según el origen de cada consulta, para medir el retorno real de la pauta."
-        ]}
+        {
+          "tipo": "texto",
+          "titulo": "Estructura de campañas",
+          "parrafos": [
+            "Vamos a organizar las campañas en tres frentes: <b>venta de unidades, financiación y consignación</b>, cada uno con anuncios y públicos propios en Córdoba y alrededores. Sumamos campañas de retargeting para quienes ya vieron una unidad, visitaron el sitio o escribieron sin cerrar.",
+            "Las campañas dirigen al sitio web o a WhatsApp. Cada semana revisamos el costo por consulta y la calidad de los contactos por campaña, y movemos el presupuesto hacia las que mejor funcionan."
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Qué incluye",
+          "items": [
+            "Estrategia y estructura de campañas",
+            "Segmentación por zona e intereses",
+            "Anuncios de las unidades disponibles",
+            "Campañas de captación de consignaciones",
+            "Retargeting a interesados",
+            "Redacción de todos los anuncios",
+            "Optimización semanal del presupuesto",
+            "Reporte semanal de resultados"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Dos negocios en una misma cuenta",
+          "parrafos": [
+            "Las campañas de venta traen compradores. Las de consignación traen a quienes quieren vender su auto, que llegan con marca, modelo, año y kilómetros desde el formulario del sitio. <b>Cada consignación nueva es una unidad más para vender</b>, y vuelve a entrar en las campañas de venta."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Medición y reportes",
+          "parrafos": [
+            "Reporte semanal con inversión, consultas recibidas y resultados por campaña. Con el CRM funcionando, el reporte suma las ventas y las consignaciones concretadas según el origen de cada consulta, para medir el retorno real de la pauta."
+          ]
+        }
       ]
     },
     {
@@ -82,26 +142,38 @@
       "kicker": "02 · Sitio web",
       "color": "blue",
       "titulo": "Sitio web para recibir<br>consultas 100% calificadas.",
-      "subtitulo": "Desarrollo a medida, publicado con el dominio de FIZA Automotores",
+      "subtitulo": "Sitio de por vida, con el dominio de FIZA Automotores incluido",
       "bloques": [
-        { "tipo": "texto", "titulo": "Todo el stock en un solo lugar", "parrafos": [
-          "Hoy, para saber qué hay disponible, el interesado tiene que recorrer más de mil publicaciones o preguntar por mensaje el precio, el año, los kilómetros y si se puede financiar. Cada una de esas preguntas consume tiempo del vendedor.",
-          "El sitio reúne esa información de forma ordenada: <b>cada unidad con fotos, año, kilómetros, precio y opciones de financiación</b>. Quien consulta desde el sitio ya conoce el auto y las condiciones, y llega al vendedor con la decisión avanzada."
-        ]},
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "Catálogo de unidades con filtros",
-          "Ficha de cada unidad con fotos y datos",
-          "Opciones de financiación y medios de pago",
-          "Formulario para dejar un auto en consignación",
-          "Botón de WhatsApp en cada unidad",
-          "Ubicación, horarios y datos de contacto",
-          "Diseño adaptado a celular",
-          "Conexión directa con el CRM"
-        ]},
-        { "tipo": "texto", "titulo": "Cómo llega cada consulta", "parrafos": [
-          "Antes de enviar la consulta, el interesado indica la unidad, su nombre y teléfono, y la forma de pago que evalúa: contado, financiación o usado como parte de pago. Quien quiere consignar carga marca, modelo, año, kilómetros y fotos.",
-          "El vendedor recibe una consulta calificada: sabe qué busca la persona y cómo piensa pagar. En lugar de responder preguntas básicas, <b>empieza la conversación desde la venta</b>."
-        ]}
+        {
+          "tipo": "texto",
+          "titulo": "Todo el stock en un solo lugar",
+          "parrafos": [
+            "Hoy, para saber qué hay disponible, el interesado tiene que recorrer más de mil publicaciones o preguntar por mensaje el precio, el año, los kilómetros y si se puede financiar. Cada una de esas preguntas consume tiempo del vendedor.",
+            "El sitio reúne esa información de forma ordenada: <b>cada unidad con fotos, año, kilómetros, precio y opciones de financiación</b>. Quien consulta desde el sitio ya conoce el auto y las condiciones, y llega al vendedor con la decisión avanzada."
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Qué incluye",
+          "items": [
+            "Catálogo de unidades con filtros",
+            "Ficha de cada unidad con fotos y datos",
+            "Opciones de financiación y medios de pago",
+            "Formulario para dejar un auto en consignación",
+            "Botón de WhatsApp en cada unidad",
+            "Ubicación, horarios y datos de contacto",
+            "Diseño adaptado a celular",
+            "Conexión directa con el CRM"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Cómo llega cada consulta",
+          "parrafos": [
+            "Antes de enviar la consulta, el interesado indica la unidad, su nombre y teléfono, y la forma de pago que evalúa: contado, financiación o usado como parte de pago. Quien quiere consignar carga marca, modelo, año, kilómetros y fotos.",
+            "El vendedor recibe una consulta calificada: sabe qué busca la persona y cómo piensa pagar. En lugar de responder preguntas básicas, <b>empieza la conversación desde la venta</b>."
+          ]
+        }
       ]
     },
     {
@@ -109,25 +181,37 @@
       "kicker": "03 · CRM",
       "color": "slate",
       "titulo": "CRM para el registro y seguimiento<br>de cada consulta.",
-      "subtitulo": "Desarrollo a medida para el equipo comercial de FIZA Automotores",
+      "subtitulo": "De regalo y de por vida con el plan mensual. Desarrollo a medida para el equipo comercial",
       "bloques": [
-        { "tipo": "texto", "titulo": "Funcionamiento", "parrafos": [
-          "Cada consulta que llega desde el sitio web o los anuncios entra al CRM con la unidad de interés, la forma de pago y el origen. Se asigna a un vendedor de forma ordenada. Las consignaciones entran en una lista propia, con los datos y las fotos del auto ofrecido.",
-          "Cada vendedor trabaja su lista de consultas por etapas, desde el primer contacto hasta la venta, y puede escribir por WhatsApp desde el mismo sistema."
-        ]},
-        { "tipo": "checks2", "titulo": "Funcionalidades", "items": [
-          "Usuario y acceso para cada vendedor",
-          "Notificación push al celular por cada consulta nueva",
-          "Aviso cuando una consulta queda sin respuesta",
-          "Tareas y recordatorios de llamadas",
-          "Etapas de venta por consulta",
-          "Registro de autos ofrecidos en consignación",
-          "Acceso directo a WhatsApp",
-          "Reportes de tiempo de respuesta y ventas"
-        ]},
-        { "tipo": "texto", "titulo": "Reportes", "parrafos": [
-          "El CRM muestra cuántas consultas ingresan por día y por origen, cuánto tarda cada vendedor en responder y cuántas consultas terminan en venta o en consignación. Con estos datos se mide qué campañas generan ventas y no solo consultas."
-        ]}
+        {
+          "tipo": "texto",
+          "titulo": "Funcionamiento",
+          "parrafos": [
+            "Cada consulta que llega desde el sitio web o los anuncios entra al CRM con la unidad de interés, la forma de pago y el origen. Se asigna a un vendedor de forma ordenada. Las consignaciones entran en una lista propia, con los datos y las fotos del auto ofrecido.",
+            "Cada vendedor trabaja su lista de consultas por etapas, desde el primer contacto hasta la venta, y puede escribir por WhatsApp desde el mismo sistema."
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Funcionalidades",
+          "items": [
+            "Usuario y acceso para cada vendedor",
+            "Notificación push al celular por cada consulta nueva",
+            "Aviso cuando una consulta queda sin respuesta",
+            "Tareas y recordatorios de llamadas",
+            "Etapas de venta por consulta",
+            "Registro de autos ofrecidos en consignación",
+            "Acceso directo a WhatsApp",
+            "Reportes de tiempo de respuesta y ventas"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Reportes",
+          "parrafos": [
+            "El CRM muestra cuántas consultas ingresan por día y por origen, cuánto tarda cada vendedor en responder y cuántas consultas terminan en venta o en consignación. Con estos datos se mide qué campañas generan ventas y no solo consultas."
+          ]
+        }
       ]
     },
     {
@@ -136,24 +220,43 @@
       "color": "blue",
       "titulo": "20 piezas audiovisuales por mes,<br>pensadas para vender.",
       "bloques": [
-        { "tipo": "comparacion",
-          "antes": { "label": "Hoy", "texto": "Más de 1.100 publicaciones y destacadas con entregas a clientes." },
-          "despues": { "label": "Con el plan", "texto": "20 piezas por mes con guion, pensadas para el perfil y para los anuncios." }
+        {
+          "tipo": "comparacion",
+          "antes": {
+            "label": "Hoy",
+            "texto": "Más de 1.100 publicaciones y destacadas con entregas a clientes."
+          },
+          "despues": {
+            "label": "Con el plan",
+            "texto": "20 piezas por mes con guion, pensadas para el perfil y para los anuncios."
+          }
         },
-        { "tipo": "checks2", "titulo": "Qué incluye", "items": [
-          "20 piezas audiovisuales por mes",
-          "Guion y planificación mensual",
-          "Filmación de unidades y entregas",
-          "Edición y publicación",
-          "Calendario aprobado antes de publicar",
-          "Material listo para usar en anuncios"
-        ]},
-        { "tipo": "texto", "titulo": "Tipos de piezas", "parrafos": [
-          "Presentación de unidades, entregas a clientes, comparativas entre modelos, explicación de los planes de financiación, cómo funciona la consignación y videos del equipo respondiendo las preguntas más frecuentes."
-        ]},
-        { "tipo": "texto", "titulo": "Uso en publicidad", "parrafos": [
-          "Las piezas también se usan como anuncios. Con material nuevo cada semana, probamos distintos formatos y mensajes en las campañas y dejamos activos los que consiguen consultas a menor costo."
-        ]}
+        {
+          "tipo": "checks2",
+          "titulo": "Qué incluye",
+          "items": [
+            "20 piezas audiovisuales por mes",
+            "Guion y planificación mensual",
+            "Filmación de unidades y entregas",
+            "Edición y publicación",
+            "Calendario aprobado antes de publicar",
+            "Material listo para usar en anuncios"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Tipos de piezas",
+          "parrafos": [
+            "Presentación de unidades, entregas a clientes, comparativas entre modelos, explicación de los planes de financiación, cómo funciona la consignación y videos del equipo respondiendo las preguntas más frecuentes."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Uso en publicidad",
+          "parrafos": [
+            "Las piezas también se usan como anuncios. Con material nuevo cada semana, probamos distintos formatos y mensajes en las campañas y dejamos activos los que consiguen consultas a menor costo."
+          ]
+        }
       ]
     },
     {
@@ -163,28 +266,65 @@
       "titulo": "Precio de nuestros servicios.",
       "subtitulo": "Precios en dólares estadounidenses",
       "bloques": [
-        { "tipo": "precios",
-          "arranque": { "label": "Arranque · pago único", "monto": "$750", "moneda": "USD", "texto": "Sitio web + CRM + <b>primer mes</b> de contenido y publicidad en Meta" },
-          "mensual": { "badge": "Desde el segundo mes", "label": "Plan mensual", "monto": "$650", "moneda": "USD / mes", "texto": "Contenido audiovisual + gestión de publicidad en Meta" }
+        {
+          "tipo": "precios",
+          "arranque": {
+            "label": "Arranque · precio promocional",
+            "monto": "$750",
+            "moneda": "USD",
+            "texto": "Sitio web + dominio + primer mes · <b>o 2 pagos de USD 375</b>"
+          },
+          "mensual": {
+            "badge": "Desde el segundo mes",
+            "label": "Plan mensual",
+            "monto": "$650",
+            "moneda": "USD / mes",
+            "texto": "Contenido + publicidad en Meta + <b>CRM de regalo</b>"
+          }
         },
-        { "tipo": "tabla", "titulo": "Detalle del arranque · USD 750",
-          "columnas": ["Servicio", "Precio regular", "En esta propuesta"],
+        {
+          "tipo": "tabla",
+          "titulo": "Detalle del arranque · USD 750",
+          "columnas": [
+            "Servicio",
+            "Precio regular",
+            "En esta propuesta"
+          ],
           "filas": [
-            ["Sitio web + CRM", "USD 500", "USD 500"],
-            ["Primer mes: contenido y Meta", "USD 650", "USD 250 · precio de lanzamiento"],
-            ["Total del arranque", "USD 1.150", "USD 750 · ahorro de USD 400"]
+            [
+              "Sitio web de por vida + dominio",
+              "USD 500",
+              "USD 500"
+            ],
+            [
+              "Primer mes: contenido y Meta",
+              "USD 650",
+              "USD 250 · precio de lanzamiento"
+            ],
+            [
+              "Total del arranque",
+              "USD 1.150",
+              "USD 750 · ahorro de USD 400"
+            ]
           ],
           "destacada": 2,
-          "nota": "El primer mes de contenido y publicidad tiene precio de lanzamiento por ser el primer trabajo juntos. Incluye las 20 piezas audiovisuales y la gestión completa de las campañas en Meta."
+          "nota": "Precio promocional por ser el primer trabajo juntos. Se puede abonar en un pago de USD 750 o en dos pagos de USD 375. El sitio web es de FIZA de por vida y el dominio está incluido: no hay pagos extra por el sitio."
         },
-        { "tipo": "checks", "titulo": "Plan mensual · USD 650 desde el segundo mes", "items": [
-          "20 piezas audiovisuales por mes",
-          "Gestión y optimización de campañas en Meta, con reporte semanal",
-          "Hosting, mantenimiento y soporte del sitio web y el CRM"
-        ], "notas": [
-          "Sin permanencia: el plan mensual empieza solo si FIZA decide continuar después del primer mes.",
-          "La inversión en pauta se abona aparte, directo a Meta. El monto lo definimos juntos según el stock y el objetivo de ventas."
-        ]}
+        {
+          "tipo": "checks",
+          "titulo": "Plan mensual · USD 650 desde el segundo mes",
+          "items": [
+            "20 piezas audiovisuales por mes",
+            "Gestión y optimización de campañas en Meta, con reporte semanal",
+            "<b>CRM de por vida, de regalo</b>, configurado para todo el equipo comercial",
+            "Soporte del sitio web y el CRM"
+          ],
+          "notas": [
+            "El CRM se entrega de regalo al contratar el plan mensual y queda para FIZA de por vida.",
+            "Sin permanencia: el plan mensual empieza solo si FIZA decide continuar después del primer mes.",
+            "La inversión en pauta se abona aparte, directo a Meta. El monto lo definimos juntos según el stock y el objetivo de ventas."
+          ]
+        }
       ]
     },
     {
@@ -195,19 +335,44 @@
       "subtitulo": "Desde la aprobación de la propuesta",
       "confidencial": true,
       "bloques": [
-        { "tipo": "etapas", "items": [
-          { "cuando": "Días 1 a 3", "texto": "Aprobación, pago del arranque y acceso a dominio, cuenta publicitaria y listado de unidades." },
-          { "cuando": "Semana 1", "texto": "Lanzamiento de las campañas en Meta hacia WhatsApp y calendario de contenido del mes." },
-          { "cuando": "Semanas 2 y 3", "texto": "Publicación del sitio web y alta del CRM con los usuarios del equipo comercial." },
-          { "cuando": "Fin del primer mes", "texto": "Reporte de resultados y decisión de continuar con el plan mensual." }
-        ]},
-        { "tipo": "checks", "numero": "•", "titulo": "Qué necesitamos de FIZA Automotores", "items": [
-          "Acceso de administrador a la cuenta publicitaria de Meta y a las páginas de Instagram y Facebook",
-          "Listado de unidades disponibles con precios y condiciones de financiación",
-          "Nombre, correo y celular de cada vendedor para crear sus usuarios",
-          "Disponibilidad de la agencia para las jornadas de filmación"
-        ]},
-        { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Axel Castro</b> · Maison Enterprises · maison.enterprises" }
+        {
+          "tipo": "etapas",
+          "items": [
+            {
+              "cuando": "Días 1 a 3",
+              "texto": "Aprobación, pago del arranque o de la primera cuota, y acceso a la cuenta publicitaria."
+            },
+            {
+              "cuando": "Semana 1",
+              "texto": "Lanzamiento de las campañas en Meta hacia WhatsApp y calendario de contenido del mes."
+            },
+            {
+              "cuando": "Semanas 2 y 3",
+              "texto": "Publicación del sitio web con el dominio de FIZA Automotores incluido."
+            },
+            {
+              "cuando": "Desde el mes 2",
+              "texto": "Plan mensual y alta del CRM de regalo con los usuarios del equipo."
+            }
+          ]
+        },
+        {
+          "tipo": "checks",
+          "numero": "•",
+          "titulo": "Qué necesitamos de FIZA Automotores",
+          "items": [
+            "Acceso de administrador a la cuenta publicitaria de Meta y a las páginas de Instagram y Facebook",
+            "Listado de unidades disponibles con fotos, precios y condiciones de financiación",
+            "Nombre, correo y celular de cada vendedor para crear sus usuarios",
+            "Disponibilidad de la agencia para las jornadas de filmación"
+          ]
+        },
+        {
+          "tipo": "contacto",
+          "numero": "•",
+          "titulo": "Contacto",
+          "texto": "<b>Axel Castro</b> · Maison Enterprises · maison.enterprises"
+        }
       ]
     }
   ]
