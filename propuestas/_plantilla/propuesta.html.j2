@@ -241,7 +241,7 @@ h1 { font-size: 33px; line-height: 40px; font-weight: 800; color: var(--ink); le
     {%- elif b.tipo == 'precios' %}
     <div class="price{{ fc }}">
       <div><div class="l">{{ b.arranque.label }}</div><div class="m"><b>{{ b.arranque.monto }}</b><span>{{ b.arranque.moneda }}</span></div><p>{{ b.arranque.texto|safe }}</p></div>
-      <div class="on">{% if b.mensual.badge %}<span class="badge">{{ b.mensual.badge }}</span>{% endif %}<div class="l">{{ b.mensual.label }}</div><div class="m"><b>{{ b.mensual.monto }}</b><span>{{ b.mensual.moneda }}</span></div><p>{{ b.mensual.texto|safe }}</p></div>
+      <div{% if b.destacar is not sameas false %} class="on"{% endif %}>{% if b.mensual.badge %}<span class="badge">{{ b.mensual.badge }}</span>{% endif %}<div class="l">{{ b.mensual.label }}</div><div class="m"><b>{{ b.mensual.monto }}</b><span>{{ b.mensual.moneda }}</span></div><p>{{ b.mensual.texto|safe }}</p></div>
     </div>
     {%- elif b.tipo == 'etapas' %}
     <div class="steps{{ fc }}">{% for s in b['items'] %}<div><div class="n">{{ '%02d' % loop.index }}</div><h4>{{ s.cuando }}</h4><p>{{ s.texto|safe }}</p></div>{% endfor %}</div>
