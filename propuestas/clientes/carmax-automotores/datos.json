@@ -39,7 +39,7 @@
         "color": "blue",
         "icono": "video",
         "titulo": "Contenido",
-        "texto": "20 publicaciones por mes para Instagram, Facebook y los anuncios.",
+        "texto": "12 o 20 piezas audiovisuales por mes para Instagram, Facebook y los anuncios.",
         "etiqueta": "INSTAGRAM · FACEBOOK"
       }
     ]
@@ -137,7 +137,7 @@
         },
         {
           "tipo": "checks2",
-          "titulo": "Contenido · 20 publicaciones por mes",
+          "titulo": "Contenido audiovisual · 12 o 20 piezas por mes",
           "items": [
             "Presentación de unidades y entregas",
             "Guion, filmación y edición",
@@ -162,21 +162,21 @@
             "label": "Primer pago · promoción",
             "monto": "$900.000",
             "moneda": "ARS",
-            "texto": "Sitio web + CRM · <b>primer mes de contenido y publicidad sin cargo</b>"
+            "texto": "Sitio web + CRM · <b>primer mes sin cargo (valor $800.000)</b>"
           },
           "mensual": {
             "badge": "Desde el segundo mes",
-            "label": "Plan mensual",
+            "label": "Plan mensual · desde",
             "monto": "$650.000",
             "moneda": "ARS / mes",
-            "texto": "Contenido audiovisual + publicidad en Meta"
+            "texto": "12 piezas por mes · <b>o 20 piezas por $800.000</b>"
           }
         },
         {
           "tipo": "texto",
           "titulo": "Promoción por ser el primer proyecto juntos",
           "parrafos": [
-            "Como es el primer proyecto que hacemos juntos, <b>el primer mes no les cobramos la publicidad ni la creación de contenido</b>. El primer pago cubre la implementación de todo el sistema: el sitio web y el CRM.",
+            "Como es el primer proyecto que hacemos juntos, <b>el primer mes no les cobramos la publicidad ni la creación de contenido</b>: 20 piezas audiovisuales y la gestión de anuncios en Meta, con un valor de $800.000. El primer pago cubre la implementación de todo el sistema: el sitio web y el CRM.",
             "Desde el primer día trabajamos exclusivamente en que CarMax venda. La publicidad y el contenido se pagan recién con la mensualidad del segundo mes."
           ]
         },
@@ -186,20 +186,30 @@
           "items": [
             "Sitio web publicado con el stock de CarMax",
             "CRM configurado para el equipo comercial",
-            "<b>Sin cargo</b>: primer mes de contenido, 20 publicaciones",
-            "<b>Sin cargo</b>: primer mes de gestión de publicidad en Meta"
+            "<b>Sin cargo</b>: primer mes de contenido (20 piezas) y publicidad en Meta · valor $800.000"
           ]
         },
         {
-          "tipo": "checks",
-          "titulo": "Plan mensual · $650.000 desde el segundo mes",
-          "items": [
-            "20 publicaciones por mes",
-            "Gestión de publicidad en Meta, con reporte semanal"
+          "tipo": "tabla",
+          "titulo": "Plan mensual desde el segundo mes",
+          "columnas": [
+            "Opción",
+            "Precio mensual",
+            "Incluye"
           ],
-          "notas": [
-            "La inversión en anuncios se abona aparte, directo a Meta. El monto lo definimos juntos."
-          ]
+          "filas": [
+            [
+              "12 piezas por mes",
+              "$650.000",
+              "12 piezas audiovisuales + publicidad en Meta"
+            ],
+            [
+              "20 piezas por mes",
+              "$800.000",
+              "20 piezas audiovisuales + publicidad en Meta"
+            ]
+          ],
+          "nota": "Las dos opciones incluyen la gestión de publicidad en Meta con reporte semanal. La inversión en anuncios se abona aparte, directo a Meta."
         },
         {
           "tipo": "contacto",
