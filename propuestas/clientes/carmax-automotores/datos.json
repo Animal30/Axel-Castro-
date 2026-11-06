@@ -153,7 +153,6 @@
       "kicker": "Inversión",
       "color": "blue",
       "titulo": "Inversión.",
-      "subtitulo": "Precios en pesos argentinos",
       "confidencial": true,
       "bloques": [
         {
@@ -162,14 +161,14 @@
             "label": "Primer pago · promoción",
             "monto": "$900.000",
             "moneda": "ARS",
-            "texto": "Sitio web + CRM · <b>contenido y publicidad sin cargo hasta vender</b>"
+            "texto": "Sitio web + CRM<br><b>contenido y publicidad sin cargo hasta vender</b>"
           },
           "mensual": {
             "badge": "Después de las primeras ventas",
             "label": "Plan mensual",
             "monto": "$800.000",
             "moneda": "ARS / mes",
-            "texto": "20 piezas + publicidad en Meta · <b>o $650.000 con 12 piezas</b>"
+            "texto": "20 piezas + publicidad en Meta<br><b>o $650.000 con 12 piezas + publicidad en Meta</b>"
           }
         },
         {
