@@ -150,8 +150,7 @@
       "indice_desc": "Primer pago y plan mensual",
       "kicker": "Inversión",
       "color": "blue",
-      "titulo": "Precio de nuestros servicios.",
-      "subtitulo": "Precios en pesos argentinos",
+      "titulo": "",
       "confidencial": true,
       "bloques": [
         {
@@ -167,7 +166,7 @@
             "label": "Plan mensual",
             "monto": "$650.000",
             "moneda": "ARS / mes",
-            "texto": "Anuncios, contenido y CRM + <b>comisión por venta</b>"
+            "texto": "Anuncios, contenido y CRM + <b>comisión por venta (a convenir)</b>"
           }
         },
         {
@@ -187,7 +186,7 @@
             "Gestión de anuncios en Meta y Google, con reporte semanal",
             "20 piezas de contenido audiovisual por mes",
             "CRM y soporte del sitio web",
-            "<b>Comisión por venta cerrada</b>, a convenir"
+            "<b>Comisión por venta cerrada</b> (a convenir)"
           ],
           "notas": [
             "El sitio web se paga una sola vez, en el primer pago. Desde el segundo mes ya no tiene costo.",
