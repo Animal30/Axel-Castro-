@@ -1,7 +1,6 @@
 {
   "archivo": "CarMaxAutomotores_Propuesta",
   "titulo_pdf": "Propuesta · CarMax Automotores",
-
   "cliente": {
     "nombre": "CarMax Automotores",
     "contacto": "Gonzalo",
@@ -10,19 +9,41 @@
     "nombre_corto": "CarMax"
   },
   "fecha": "Noviembre 2026",
-
   "portada": {
-    "titulo": "Publicidad en Meta y Google,",
-    "titulo_color": "sitio web, CRM y contenido.",
+    "titulo": "Publicidad en Meta, sitio web,",
+    "titulo_color": "CRM y contenido audiovisual.",
     "indice_estilo": "items",
     "servicios": [
-      { "color": "orange", "icono": "meta", "titulo": "Publicidad", "texto": "Gestión de campañas en Meta y Google dirigidas a compradores de Córdoba.", "etiqueta": "META · GOOGLE" },
-      { "color": "blue", "icono": "web", "titulo": "Sitio Web", "texto": "Todo el stock online, ordenado por marca, con consulta directa por WhatsApp.", "etiqueta": "WEB · CATÁLOGO" },
-      { "color": "slate", "icono": "crm", "titulo": "CRM", "texto": "Registro y seguimiento de cada consulta, con aviso al celular.", "etiqueta": "SEGUIMIENTO" },
-      { "color": "blue", "icono": "video", "titulo": "Contenido", "texto": "20 publicaciones por mes para Instagram, Facebook y los anuncios.", "etiqueta": "INSTAGRAM · FACEBOOK" }
+      {
+        "color": "orange",
+        "icono": "meta",
+        "titulo": "Publicidad",
+        "texto": "Gestión de campañas en Instagram y Facebook dirigidas a compradores de Córdoba.",
+        "etiqueta": "META ADS"
+      },
+      {
+        "color": "blue",
+        "icono": "web",
+        "titulo": "Sitio Web",
+        "texto": "Todo el stock online, ordenado por marca, con consulta directa por WhatsApp.",
+        "etiqueta": "WEB · CATÁLOGO"
+      },
+      {
+        "color": "slate",
+        "icono": "crm",
+        "titulo": "CRM",
+        "texto": "Registro y seguimiento de cada consulta, con aviso al celular.",
+        "etiqueta": "SEGUIMIENTO"
+      },
+      {
+        "color": "blue",
+        "icono": "video",
+        "titulo": "Contenido",
+        "texto": "20 publicaciones por mes para Instagram, Facebook y los anuncios.",
+        "etiqueta": "INSTAGRAM · FACEBOOK"
+      }
     ]
   },
-
   "paginas": [
     {
       "indice": "Situación actual y objetivo",
@@ -32,22 +53,45 @@
       "titulo": "Punto de partida y<br>objetivo del trabajo.",
       "subtitulo": "Datos tomados de su perfil de Instagram",
       "bloques": [
-        { "tipo": "kpis", "items": [
-          { "label": "Seguidores en Instagram", "valor": "430" },
-          { "label": "Publicaciones", "valor": "119" },
-          { "label": "Oferta", "valor": "Usados y 0km, multimarca" },
-          { "label": "Ubicación", "valor": "Octavio Pinto 2585, Córdoba" }
-        ]},
-        { "tipo": "texto", "titulo": "Situación actual", "parrafos": [
-          "Hoy tienen el stock organizado por marca en las historias destacadas y un perfil con 430 seguidores. El material existe; lo que falta es que llegue a gente de Córdoba que está buscando auto y todavía no conoce CarMax.",
-          "Las consultas entran por WhatsApp y por mensaje directo. Nuestro trabajo es que lleguen más, que lleguen con datos y que ninguna quede sin seguimiento."
-        ]},
-        { "tipo": "checks", "titulo": "Objetivo", "items": [
-          "<b>Más consultas de compradores de Córdoba</b>, con campañas en Meta y Google.",
-          "<b>Consultas con datos</b>: unidad de interés, forma de pago y contacto.",
-          "<b>Seguimiento de cada consulta</b> hasta la venta, desde el CRM.",
-          "<b>Resultados medidos</b>: un reporte semanal con el costo por consulta."
-        ]}
+        {
+          "tipo": "kpis",
+          "items": [
+            {
+              "label": "Seguidores en Instagram",
+              "valor": "430"
+            },
+            {
+              "label": "Publicaciones",
+              "valor": "119"
+            },
+            {
+              "label": "Oferta",
+              "valor": "Usados y 0km, multimarca"
+            },
+            {
+              "label": "Ubicación",
+              "valor": "Octavio Pinto 2585, Córdoba"
+            }
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Situación actual",
+          "parrafos": [
+            "Hoy tienen el stock organizado por marca en las historias destacadas y un perfil con 430 seguidores. El material existe; lo que falta es que llegue a gente de Córdoba que está buscando auto y todavía no conoce CarMax.",
+            "Las consultas entran por WhatsApp y por mensaje directo. Nuestro trabajo es que lleguen más, que lleguen con datos y que ninguna quede sin seguimiento."
+          ]
+        },
+        {
+          "tipo": "checks",
+          "titulo": "Objetivo",
+          "items": [
+            "<b>Más consultas de compradores de Córdoba</b>, con campañas en Instagram y Facebook.",
+            "<b>Consultas con datos</b>: unidad de interés, forma de pago y contacto.",
+            "<b>Seguimiento de cada consulta</b> hasta la venta, desde el CRM.",
+            "<b>Resultados medidos</b>: un reporte semanal con el costo por consulta."
+          ]
+        }
       ]
     },
     {
@@ -57,65 +101,112 @@
       "color": "orange",
       "titulo": "Qué vamos a hacer<br>por CarMax Automotores.",
       "bloques": [
-        { "tipo": "checks2", "titulo": "Publicidad en Meta y Google", "items": [
-          "Campañas en Instagram y Facebook",
-          "Campañas de búsqueda en Google",
-          "Anuncios de las unidades disponibles",
-          "Retargeting a quienes ya consultaron",
-          "Ajuste semanal del presupuesto",
-          "Reporte semanal de resultados"
-        ]},
-        { "tipo": "checks2", "titulo": "Sitio web", "items": [
-          "Catálogo de todo el stock, por marca",
-          "Ficha de cada unidad con fotos y precio",
-          "Opciones de financiación",
-          "Botón de WhatsApp en cada unidad",
-          "Ubicación y horarios de atención",
-          "Diseño adaptado a celular"
-        ]},
-        { "tipo": "checks2", "titulo": "CRM", "items": [
-          "Registro de cada consulta",
-          "Unidad de interés y forma de pago",
-          "Aviso al celular por consulta nueva",
-          "Seguimiento hasta la venta"
-        ]},
-        { "tipo": "checks2", "titulo": "Contenido · 20 publicaciones por mes", "items": [
-          "Presentación de unidades y entregas",
-          "Guion, filmación y edición",
-          "Publicación en Instagram y Facebook",
-          "Material para usar en los anuncios"
-        ]}
+        {
+          "tipo": "checks2",
+          "titulo": "Publicidad en Meta",
+          "items": [
+            "Campañas en Instagram y Facebook",
+            "Anuncios dirigidos a WhatsApp",
+            "Anuncios de las unidades disponibles",
+            "Retargeting a quienes ya consultaron",
+            "Ajuste semanal del presupuesto",
+            "Reporte semanal de resultados"
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Sitio web",
+          "items": [
+            "Catálogo de todo el stock, por marca",
+            "Ficha de cada unidad con fotos y precio",
+            "Opciones de financiación",
+            "Botón de WhatsApp en cada unidad",
+            "Ubicación y horarios de atención",
+            "Diseño adaptado a celular"
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "CRM",
+          "items": [
+            "Registro de cada consulta",
+            "Unidad de interés y forma de pago",
+            "Aviso al celular por consulta nueva",
+            "Seguimiento hasta la venta"
+          ]
+        },
+        {
+          "tipo": "checks2",
+          "titulo": "Contenido · 20 publicaciones por mes",
+          "items": [
+            "Presentación de unidades y entregas",
+            "Guion, filmación y edición",
+            "Publicación en Instagram y Facebook",
+            "Material para usar en los anuncios"
+          ]
+        }
       ]
     },
     {
       "indice": "Inversión",
-      "indice_desc": "Primer pago y plan mensual",
+      "indice_desc": "Primer pago promocional y plan mensual",
       "kicker": "Inversión",
       "color": "blue",
       "titulo": "Inversión.",
       "subtitulo": "Precios en pesos argentinos",
       "confidencial": true,
       "bloques": [
-        { "tipo": "precios",
-          "arranque": { "label": "Primer pago", "monto": "$900.000", "moneda": "ARS", "texto": "Sitio web + CRM + primer mes · <b>o 2 pagos de $450.000</b>" },
-          "mensual": { "badge": "Desde el segundo mes", "label": "Plan mensual", "monto": "$650.000", "moneda": "ARS / mes", "texto": "Contenido, publicidad, sitio web y CRM" }
+        {
+          "tipo": "precios",
+          "arranque": {
+            "label": "Primer pago · promoción",
+            "monto": "$900.000",
+            "moneda": "ARS",
+            "texto": "Sitio web + CRM · <b>primer mes de contenido y publicidad sin cargo</b>"
+          },
+          "mensual": {
+            "badge": "Desde el segundo mes",
+            "label": "Plan mensual",
+            "monto": "$650.000",
+            "moneda": "ARS / mes",
+            "texto": "Contenido audiovisual + publicidad en Meta"
+          }
         },
-        { "tipo": "checks", "titulo": "Incluido en el primer pago · $900.000", "items": [
-          "Sitio web publicado con el stock de CarMax",
-          "CRM configurado para el equipo comercial",
-          "Primer mes de contenido: 20 publicaciones",
-          "Primer mes de gestión de anuncios en Meta y Google"
-        ], "notas": [
-          "Se puede abonar en dos pagos de $450.000: uno al iniciar y otro antes de fin de mes."
-        ]},
-        { "tipo": "checks", "titulo": "Plan mensual · $650.000 desde el segundo mes", "items": [
-          "20 publicaciones por mes",
-          "Gestión de anuncios en Meta y Google, con reporte semanal",
-          "Mantenimiento y soporte del sitio web y el CRM"
-        ], "notas": [
-          "La inversión en anuncios se abona aparte, directo a Meta y Google. El monto lo definimos juntos."
-        ]},
-        { "tipo": "contacto", "numero": "•", "titulo": "Contacto", "texto": "<b>Axel Castro</b> · Maison Enterprises" }
+        {
+          "tipo": "texto",
+          "titulo": "Promoción por ser el primer proyecto juntos",
+          "parrafos": [
+            "Como es el primer proyecto que hacemos juntos, <b>el primer mes no les cobramos la publicidad ni la creación de contenido</b>. El primer pago cubre la implementación de todo el sistema: el sitio web y el CRM.",
+            "Desde el primer día trabajamos exclusivamente en que CarMax venda. La publicidad y el contenido se pagan recién con la mensualidad del segundo mes."
+          ]
+        },
+        {
+          "tipo": "checks",
+          "titulo": "Incluido en el primer pago · $900.000",
+          "items": [
+            "Sitio web publicado con el stock de CarMax",
+            "CRM configurado para el equipo comercial",
+            "<b>Sin cargo</b>: primer mes de contenido, 20 publicaciones",
+            "<b>Sin cargo</b>: primer mes de gestión de publicidad en Meta"
+          ]
+        },
+        {
+          "tipo": "checks",
+          "titulo": "Plan mensual · $650.000 desde el segundo mes",
+          "items": [
+            "20 publicaciones por mes",
+            "Gestión de publicidad en Meta, con reporte semanal"
+          ],
+          "notas": [
+            "La inversión en anuncios se abona aparte, directo a Meta. El monto lo definimos juntos."
+          ]
+        },
+        {
+          "tipo": "contacto",
+          "numero": "•",
+          "titulo": "Contacto",
+          "texto": "<b>Axel Castro</b> · Maison Enterprises"
+        }
       ]
     }
   ]
