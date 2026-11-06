@@ -162,22 +162,22 @@
             "label": "Primer pago · promoción",
             "monto": "$900.000",
             "moneda": "ARS",
-            "texto": "Sitio web + CRM · <b>primer mes sin cargo (valor $800.000)</b>"
+            "texto": "Sitio web + CRM · <b>contenido y publicidad sin cargo hasta vender</b>"
           },
           "mensual": {
-            "badge": "Desde el segundo mes",
-            "label": "Plan mensual · desde",
-            "monto": "$650.000",
+            "badge": "Después de las primeras ventas",
+            "label": "Plan mensual",
+            "monto": "$800.000",
             "moneda": "ARS / mes",
-            "texto": "12 piezas por mes · <b>o 20 piezas por $800.000</b>"
+            "texto": "20 piezas + publicidad en Meta · <b>o $650.000 con 12 piezas</b>"
           }
         },
         {
           "tipo": "texto",
-          "titulo": "Promoción por ser el primer proyecto juntos",
+          "titulo": "Promoción: contenido y publicidad sin cargo hasta vender",
           "parrafos": [
-            "Como es el primer proyecto que hacemos juntos, <b>el primer mes no les cobramos la publicidad ni la creación de contenido</b>: 20 piezas audiovisuales y la gestión de anuncios en Meta, con un valor de $800.000. El primer pago cubre la implementación de todo el sistema: el sitio web y el CRM.",
-            "Desde el primer día trabajamos exclusivamente en que CarMax venda. La publicidad y el contenido se pagan recién con la mensualidad del segundo mes."
+            "Como es el primer proyecto que hacemos juntos, <b>no les cobramos la creación de contenido ni la publicidad hasta que CarMax concrete sus primeras ventas</b>: uno o dos autos. Ese trabajo tiene un valor de $800.000 por mes.",
+            "El primer pago cubre solo la implementación del sistema: el sitio web y el CRM. Todo lo que hacemos en esa etapa está enfocado en vender, y recién cuando lleguen las primeras ventas empieza la mensualidad."
           ]
         },
         {
@@ -186,12 +186,12 @@
           "items": [
             "Sitio web publicado con el stock de CarMax",
             "CRM configurado para el equipo comercial",
-            "<b>Sin cargo</b>: primer mes de contenido (20 piezas) y publicidad en Meta · valor $800.000"
+            "<b>Sin cargo hasta las primeras ventas</b>: contenido (20 piezas por mes) y publicidad en Meta"
           ]
         },
         {
           "tipo": "tabla",
-          "titulo": "Plan mensual desde el segundo mes",
+          "titulo": "Plan mensual · desde las primeras ventas",
           "columnas": [
             "Opción",
             "Precio mensual",
@@ -199,14 +199,14 @@
           ],
           "filas": [
             [
-              "12 piezas por mes",
-              "$650.000",
-              "12 piezas audiovisuales + publicidad en Meta"
-            ],
-            [
               "20 piezas por mes",
               "$800.000",
               "20 piezas audiovisuales + publicidad en Meta"
+            ],
+            [
+              "12 piezas por mes",
+              "$650.000",
+              "12 piezas audiovisuales + publicidad en Meta"
             ]
           ],
           "nota": "Las dos opciones incluyen la gestión de publicidad en Meta con reporte semanal. La inversión en anuncios se abona aparte, directo a Meta."
