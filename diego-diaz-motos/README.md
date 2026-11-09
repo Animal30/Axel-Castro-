@@ -42,3 +42,8 @@ Antes hay que completar la lista `ADS` en el script con los guiones aprobados.
   - Anuncio `120250612323720753`, "Copy B Navidad": "Este 24 de diciembre, tu regalo de Navidad puede ser una Honda XR 300 Tornado 0km". Título: "Ganate una Tornado 0km esta Navidad". Descripción: "En vivo y ante escribano".
   - Nota: el formato con varios textos en un solo anuncio (asset_feed_spec) no se publicó por el conector y en el Administrador se veía sin video. Por eso se armó como dos anuncios de video separados.
 - Borrador sin publicar en la campaña original: "Tornado 300 Sorteo / Website / Copy B" (anuncio `120250611863710753`), con el copy de precio.
+
+- **9/11/2026: rechazos y dos campañas nuevas.** Meta rechazó "Tornado 300 Sorteo / Website", "Copy A Precio" y "Copy B Navidad" (para Meta, un sorteo con números pagos es lotería, y anunciarla requiere su autorización previa). Sigue activo "Tornado 300 Sorteo / Website / Sec AD", que usa la misma pieza que el original rechazado. Se publicaron dos campañas nuevas, cada una de ARS 15.000 por día, en toda Argentina, optimizadas para visitas a la página de destino, con el mismo video y la web visible abajo:
+  - "Tornado 300 / Variación Directa / Website" (campaña `120250683395140753`, anuncio `120250683397460753`). Título: "Honda XR 300 Tornado 0km".
+  - "Tornado 300 / Variación Confianza / Website" (campaña `120250683395350753`, anuncio `120250683397510753`). Título: "En vivo y ante escribano, 24/12".
+  - Los títulos no dicen "sorteo", pero el texto lo menciona una vez, de forma clara. Para anunciar el sorteo sin rechazos, el camino es la autorización de Meta para juegos de azar, presentando el permiso de la lotería provincial.
