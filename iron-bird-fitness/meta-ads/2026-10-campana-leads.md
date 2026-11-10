@@ -100,4 +100,4 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 
 - 06/11: se pausó "Leads Campaign". En 11 días costaba USD 25,72 por lead, contra USD 20,68 de la nueva. Nahuel había pausado antes los anuncios 02 y 03 (USD 94 gastados, 1 lead).
 - 10/11: anuncio `05_10MinFatBurning_2m16` (`120252569922450200`) en borrador, en el mismo conjunto, con el mismo formulario y sin mejoras de Meta AI. Video original de 2:16 del Drive ("November Folder"). Pendiente de publicar.
-- Guion para un corte nuevo de 45 s armado con escenas de ese video: `iron-bird-fitness/fat-burning-ad/` (PDF + build.py).
+- Guion para un corte nuevo de 45 s armado con escenas de ese video: `iron-bird-fitness/fat-burning-ad/` (PDF + build.py), en el mismo formato que NateVelazquez_MetaAdScripts_v4.pdf (una página por anuncio: gancho y ganchos alternativos, mensaje central y llamado a la acción).
