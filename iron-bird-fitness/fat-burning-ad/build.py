@@ -1,6 +1,6 @@
 # Genera el guion del anuncio "10 Minutes. No Gym." (HTML -> PDF), con el mismo formato que
 # NateVelazquez_MetaAdScripts_v4.pdf. Armado con escenas de "Sam - 10 Min Fat Burning (2 min) 9x16.mp4";
-# los textos salen de las frases de Sam en ese video. Uso: python3 build.py [fonts.css]
+# Sam graba las frases nuevas y el B-roll sale de ese video. Uso: python3 build.py [fonts.css]
 import html, pathlib, subprocess, sys, glob
 
 HERE = pathlib.Path(__file__).parent
@@ -9,17 +9,16 @@ OUT = "IronBird_10MinNoGym_AdScript.pdf"
 
 ADS = [
     dict(title="10 Minutes. No Gym.", angle="Talking Head + B-roll · Value-first angle",
-         fmt="Talking Head + B-roll", length="40-45 sec",
-         hook="This is a 10-minute workout that's going to work this whole area. Get your whole body stronger.",
-         alts=["As you can see, I didn't use any weights. So please do not say, ‘Oh, I wasn't able to go to the gym.’",
-               "The gym is wherever you're at.",
-               "Basics for the beginner, and you can step it up as much as you want."],
-         core=["First, definitely do your cardio, also do your nutrition, and then get as many reps in that work on the midsection.",
-               "Knees to wall. Push-ups. Sit-ups and crunches. And a core finisher to close it out.",
-               "Three to five rounds. You're a beginner? Start with one set.",
-               "As you can see, I didn't use any weights. So please do not say, ‘Oh, I wasn't able to go to the gym.’ The gym is wherever you're at.",
-               "I'm Sam, owner of Iron Bird Fitness here in Fresno. Train smarter, not longer."],
-         cta="Tap 'Apply Now' below and someone from my team will reach out."),
+         fmt="Talking Head + B-roll", length="30-45 sec",
+         hook="You don't need a gym to work your core. You need ten minutes and a wall.",
+         alts=["Give me ten minutes and I'll give you a workout you can do anywhere.",
+               "Busy week? This is the workout I'd do if I only had ten minutes.",
+               "Four moves, ten minutes, zero equipment."],
+         core=["Here's the order: knees to the wall, push-ups, sit-ups with crunches, and a plank to finish.",
+               "Three to five rounds. If you're just starting, one round is enough. Do it right before you do it fast.",
+               "But this workout is only one piece. Real results show up when your training, your nutrition and how much you move during the day all line up.",
+               "I'm Sam, owner of Iron Bird Fitness, and that's exactly what I build with my clients here in Fresno: a plan around your schedule, one-on-one."],
+         cta="Want me to build that plan for you? Tap 'Apply Now' below and my team will reach out."),
 ]
 
 e = lambda s: html.escape(s, quote=False)

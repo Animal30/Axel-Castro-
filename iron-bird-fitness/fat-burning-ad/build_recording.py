@@ -11,18 +11,16 @@ SETUP = ["Wear the Iron Bird tank, same gym corner as the 10-minute workout vide
          "Say each line straight to camera. Short pause between lines; we cut those out in editing.",
          "Do each line 2 or 3 times so we can pick the best take."]
 
-LINES = ["This is a 10-minute workout that's going to work this whole area. Get your whole body stronger.",
-         "First, definitely do your cardio, also do your nutrition, and then get as many reps in that work on the midsection.",
-         "Knees to wall. Push-ups. Sit-ups and crunches. And a core finisher to close it out.",
-         "Three to five rounds. You're a beginner? Start with one set.",
-         "As you can see, I didn't use any weights. So please do not say, “Oh, I wasn't able to go to the gym.”",
-         "The gym is wherever you're at.",
-         "I'm Sam, owner of Iron Bird Fitness here in Fresno. Train smarter, not longer.",
-         "Tap “Apply Now” below and someone from my team will reach out."]
+LINES = ["You don't need a gym to work your core. You need ten minutes and a wall.",
+         "Here's the order: knees to the wall, push-ups, sit-ups with crunches, and a plank to finish.",
+         "Three to five rounds. If you're just starting, one round is enough. Do it right before you do it fast.",
+         "But this workout is only one piece. Real results show up when your training, your nutrition and how much you move during the day all line up.",
+         "I'm Sam, owner of Iron Bird Fitness, and that's exactly what I build with my clients here in Fresno: a plan around your schedule, one-on-one.",
+         "Want me to build that plan for you? Tap “Apply Now” below and my team will reach out."]
 
-HOOKS = ["As you can see, I didn't use any weights. So please do not say, “Oh, I wasn't able to go to the gym.”",
-         "The gym is wherever you're at.",
-         "Basics for the beginner, and you can step it up as much as you want."]
+HOOKS = ["Give me ten minutes and I'll give you a workout you can do anywhere.",
+         "Busy week? This is the workout I'd do if I only had ten minutes.",
+         "Four moves, ten minutes, zero equipment."]
 
 e = lambda s: html.escape(s, quote=False)
 page = f'''<section class="page">
@@ -33,7 +31,7 @@ page = f'''<section class="page">
   <div class="angle">Read the lines in order, straight to camera</div>
   <div class="facts">
     <div><span>FORMAT</span><b>Talking Head</b></div>
-    <div><span>LENGTH</span><b>About 40 sec</b></div>
+    <div><span>LENGTH</span><b>30-45 sec</b></div>
     <div><span>VIDEO</span><b>Vertical 9:16</b></div>
     <div><span>TAKES</span><b class="kw">2-3 per line</b></div>
   </div>
