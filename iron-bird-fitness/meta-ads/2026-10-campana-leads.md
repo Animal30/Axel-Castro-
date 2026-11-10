@@ -95,3 +95,9 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 - IDs en vivo: conjunto `120252304173820200`. Anuncios: 01 `120252312551660200`, 02 `120252304395460200`, 03 `120252304398130200`, 04 `120252312590120200`.
 - Quedaron dos borradores para descartar en el Ads Manager: "ZZ_NO_USAR_copia_rota_ganador" y "ZZ_NO_USAR_static_v1_explore".
 - Para próximas campañas: no duplicar anuncios viejos con `source_ad_id`; crear el creativo de cero. Y no usar `explore` en las ubicaciones.
+
+## Noviembre: video "10 Min Fat Burning"
+
+- 06/11: se pausó "Leads Campaign". En 11 días costaba USD 25,72 por lead, contra USD 20,68 de la nueva. Nahuel había pausado antes los anuncios 02 y 03 (USD 94 gastados, 1 lead).
+- 10/11: anuncio `05_10MinFatBurning_2m16` (`120252569922450200`) en borrador, en el mismo conjunto, con el mismo formulario y sin mejoras de Meta AI. Video original de 2:16 del Drive ("November Folder"). Pendiente de publicar.
+- Guion para un corte nuevo de 45 s armado con escenas de ese video: `iron-bird-fitness/fat-burning-ad/` (PDF + build.py).
