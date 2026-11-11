@@ -47,3 +47,5 @@ Antes hay que completar la lista `ADS` en el script con los guiones aprobados.
   - "Tornado 300 / Variación Directa / Website" (campaña `120250683395140753`, anuncio `120250683397460753`). Título: "Honda XR 300 Tornado 0km".
   - "Tornado 300 / Variación Confianza / Website" (campaña `120250683395350753`, anuncio `120250683397510753`). Título: "En vivo y ante escribano, 24/12".
   - Los títulos no dicen "sorteo", pero el texto lo menciona una vez, de forma clara. Para anunciar el sorteo sin rechazos, el camino es la autorización de Meta para juegos de azar, presentando el permiso de la lotería provincial.
+
+- **11/11/2026: cuenta publicitaria deshabilitada** (DISABLED, "actividad inusual, confirmar la información de la cuenta"), después de los rechazos por el sorteo. Próximo paso: pedir revisión desde Calidad de la cuenta (business.facebook.com/accountquality) y completar la verificación. No abrir una cuenta publicitaria nueva para seguir anunciando mientras esta esté restringida (Meta lo trata como evasión, y puede escalar al Business y a los perfiles administradores). Si la recuperan: solo campañas de venta de motos, sin sorteo.
