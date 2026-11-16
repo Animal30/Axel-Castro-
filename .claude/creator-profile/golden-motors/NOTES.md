@@ -2,13 +2,14 @@
 
 Concesionaria de autos en Córdoba, Argentina. Cliente de Nahuel desde 2026-11-16.
 
-## Estado
-- Perfil creado con valores PROVISORIOS (dorado #D4AF37 sobre negro). Reemplazar cuando Nahuel mande colores, logo, Instagram y referencias.
+## Marca (del perfil de IG, 2026-11-16)
+- IG @goldenmotorscba (≈3.2k seguidores, 556 posts). Web goldenmotorscba.com. Octavio Pinto 3181, Córdoba.
+- Lema: "La esencia de cada auto". Usados seleccionados y 0km de todas las marcas. Historias: Stock, Entregas, Ubicación, Horarios, Financiación.
+- Colores: negro + blanco + dorado amarillo (~#F2B824). Logo: monograma GM en escudo con corona (assets/logo.jpg).
+- Idioma: español rioplatense.
+- Outro de 3 s: golden-motors/outro-logo/outro.py
 
 ## Pendiente de Nahuel
-- Idioma de los videos (y de los subtítulos)
-- Colores de marca y logo (PNG/SVG)
-- Cuenta de Instagram
 - Videos de referencia / estilo que le gusta
 - Quién habla en cámara (vendedor, dueño, sin persona)
 

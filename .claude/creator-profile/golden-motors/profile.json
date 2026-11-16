@@ -1,6 +1,6 @@
 {
- "brand_note": "PROVISORIO hasta que Nahuel mande la marca: dorado sobre negro (por el nombre)",
- "accent": "#D4AF37",
+ "brand_note": "Negro, blanco y dorado (como sus historias destacadas de IG). Lema: La esencia de cada auto",
+ "accent": "#F2B824",
  "accent_name": "gold",
  "bg": "#050505",
  "creator_name": "Golden Motors",
@@ -62,6 +62,11 @@
    "configured": "2026-10-23"
   }
  },
- "language": "es (pendiente de confirmar)",
- "status": "pending-brand-info"
+ "language": "es (Argentina)",
+ "status": "brand-confirmed-from-ig",
+ "instagram": "@goldenmotorscba",
+ "website": "goldenmotorscba.com",
+ "address": "Octavio Pinto 3181, Córdoba",
+ "tagline": "La esencia de cada auto",
+ "offer": "Usados seleccionados y 0km de todas las marcas; entregas y financiación"
 }
