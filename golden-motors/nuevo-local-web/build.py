@@ -83,7 +83,7 @@ def draw_caption(img, groups, t):
     g = next((g for g in groups if g[0][0] - 0.05 <= t <= g[-1][1] + 0.12), None)
     if g is None: return
     lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
-    words = [w[2].upper() for w in g]
+    words = [w[2].upper().strip('.,;:') for w in g]
     sp = 22; widths = [d.textlength(w, font=F_CAP) for w in words]
     total = sum(widths) + sp * (len(words) - 1)
     lines = [list(range(len(words)))]
