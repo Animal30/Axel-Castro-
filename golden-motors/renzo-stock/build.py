@@ -51,12 +51,18 @@ def caption_words():
         if out and out[-1][2] == '95' and txt in ('y', 'cinco'):
             out[-1][1] = b; continue
         out.append([a, b, txt])
-    # Nahuel 2026-11-17: what Renzo meant from 'Maverick' on
+    # Nahuel 2026-11-17: exact wording he asked for
+    out = [w for w in out if w[2] != 'Una']
     i = [w[2] for w in out].index('Maverick')
-    tail = ['Maverick', 'con', '80', 'mil', 'kilómetros', 'y', 'varias', 'opciones', 'que', 'les', 'vamos', 'a', 'estar', 'mostrando']
+    groups = [['Maverick'], ['2023', 'con'], ['80'], ['mil'], ['kilómetros'], ['y'], ['varias'], ['opciones'], ['más'],
+              ['que'], ['ya'], ['les'], ['vamos', 'a'], ['estar', 'mostrando']]
     seg = out[i:]
-    assert len(seg) == len(tail), [w[2] for w in seg]
-    for w, t in zip(seg, tail): w[2] = t
+    assert len(seg) == len(groups), [w[2] for w in seg]
+    new = []
+    for w, g in zip(seg, groups):
+        d = (w[1] - w[0]) / len(g)
+        for k, t in enumerate(g): new.append([w[0] + k * d, w[0] + (k + 1) * d, t])
+    out = out[:i] + new
     return out
 
 def chunk(words, maxw=3):
@@ -187,8 +193,8 @@ def render(only=None):
     def at(word): return next(w for w in words if w[2].startswith(word))
     T = {
         'mini0': at('Mini')[0] - 0.1, 'mini1': at('Amarok')[0] - 0.4,
-        'ama0': at('Amarok')[0] - 0.1, 'ama1': at('Una')[0] - 0.35,
-        'audi0': at('Una')[0], 'audi1': at('Maverick')[0] - 0.4,
+        'ama0': at('Amarok')[0] - 0.1, 'ama1': at('Audi')[0] - 0.45,
+        'audi0': at('Audi')[0] - 0.1, 'audi1': at('Maverick')[0] - 0.4,
         'mav0': at('Maverick')[0] - 0.1, 'mav1': at('kilómetros', ) and words[[w[2] for w in words].index('Maverick') + 4][1] + 0.3,
     }
     print({k: round(v, 2) for k, v in T.items()})
@@ -206,7 +212,7 @@ def render(only=None):
         glass_card(img, W / 2, 400, 'Mini Cooper S', 'Kit John Cooper Works', icon_car, t, T['mini0'], T['mini1'], accent_title=True)
         glass_card(img, W / 2, 400, 'Amarok V6 Comfortline', '2022 · 50 mil km · Impecable', icon_car, t, T['ama0'], T['ama1'], accent_title=True)
         glass_card(img, W / 2, 400, 'Audi Q3 automática', '95 mil km · Services oficiales', icon_car, t, T['audi0'], T['audi1'], accent_title=True)
-        glass_card(img, W / 2, 400, 'Ford Maverick', '80 mil km', icon_car, t, T['mav0'], T['mav1'], accent_title=True)
+        glass_card(img, W / 2, 400, 'Ford Maverick 2023', '80 mil km', icon_car, t, T['mav0'], T['mav1'], accent_title=True)
         draw_caption(img, groups, t)
         out = img.convert('RGB')
         if only: out.save(f'chk_{i:04d}.jpg', quality=88)
