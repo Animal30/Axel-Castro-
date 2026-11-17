@@ -12,26 +12,20 @@ GRADE = 'eq=contrast=1.09:saturation=1.10:gamma=0.97,colorbalance=rs=0.02:bs=-0.
 # clip, src start, beats, speed, label (title, sub) or None
 SHOTS = [
     (4462, 0.0, 4, 0.6, None),
-    (4477, 0.5, 2, 0.6, None),
-    (4464, 0.1, 2, 0.6, ('V6', 'Motor')),
-    (4466, 0.2, 2, 0.6, ('4x4', 'Tracción')),
-    (4465, 0.3, 2, 0.8, None),
-    (4470, 0.4, 2, 0.6, ('2022', 'Modelo')),
-    (4467, 0.3, 2, 0.6, None),
-    (4468, 0.4, 2, 0.7, None),
-    (4476, 2.0, 2, 1.0, None),
-    (4475, 0.3, 2, 0.8, None),
-    (4474, 1.0, 2, 1.0, ('Primera mano', 'Un solo dueño')),
-    (4471, 0.2, 2, 0.6, ('57 mil km', 'Reales')),
-    (4472, 0.4, 2, 0.8, ('Automática', 'Caja')),
-    (4473, 0.4, 2, 0.8, None),
-    (4489, 0.3, 2, 0.8, None),
-    (4487, 0.5, 2, 1.0, ('Services', 'Oficiales')),
-    (4490, 0.3, 2, 0.8, None),
-    (4478, 0.4, 2, 0.6, None),
-    (4477, 1.6, 4, 0.6, None),
+    (4477, 0.5, 4, 0.6, None),
+    (4464, 0.1, 4, 0.6, ('V6', 'Motor')),
+    (4466, 0.2, 4, 0.6, ('4x4', 'Tracción')),
+    (4470, 0.4, 4, 0.6, ('2022', 'Modelo')),
+    (4467, 0.3, 4, 0.6, None),
+    (4468, 0.4, 4, 0.7, None),
+    (4475, 0.3, 4, 0.8, None),
+    (4474, 1.0, 4, 1.0, ('Primera mano', 'Un solo dueño')),
+    (4471, 0.2, 4, 0.6, ('57 mil km', 'Reales')),
+    (4472, 0.4, 4, 0.8, ('Automática', 'Caja')),
+    (4487, 0.5, 4, 1.0, ('Services', 'Oficiales')),
+    (4477, 1.6, 6, 0.6, None),
 ]
-FLASH_AT = {1, 4, 8, 11, 14, 17, 18}   # shot indices that start with a soft flash
+FLASH_AT = {2, 5, 8, 11}   # shot indices that start with a soft flash
 
 def starts():
     t, out = 0.0, []
@@ -113,7 +107,7 @@ def render():
         img = np.frombuffer(raw, np.uint8).reshape(H, W, 3).astype(np.float32)
         i = max(k for k in range(len(SHOTS)) if st[k] <= t + 1e-6)
         p = (t - st[i]) / (SHOTS[i][2] * BEAT)
-        z = 1.0 + 0.07 * p if i != len(SHOTS) - 1 else 1.0 + 0.04 * p
+        z = 1.0 + 0.05 * p if i != len(SHOTS) - 1 else 1.0 + 0.04 * p
         if i in FLASH_AT and t - st[i] < 0.12:  # punch-in on the beat
             z += 0.05 * (1 - (t - st[i]) / 0.12)
         if z > 1.0:
@@ -138,8 +132,8 @@ def final(out):
     fc = (f"[1:a]volume=-3dB,afade=t=out:st={total - 0.8:.2f}:d=0.8,atrim=0:{total}[m];"
           f"[2:a]atrim=0.4:{0.4 + 2 * BEAT * 2:.2f},asetpts=PTS-STARTPTS,volume=10dB,afade=t=in:d=0.1,afade=t=out:st={2 * BEAT * 2 - 0.3:.2f}:d=0.3,adelay={int(te * 1000)}|{int(te * 1000)},apad,atrim=0:{total}[e];"
           f"[m][e]amix=2:normalize=0,alimiter=limit=0.9,aformat=channel_layouts=stereo[ba];"
-          f"[0:v]setsar=1[b];[3:v]setsar=1,fps=30[o];[3:a]aresample=48000[oa];[b][ba][o][oa]concat=n=2:v=1:a=1[v][a]")
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'body2.mp4', '-i', 'music2.wav', '-i', f'{AUD}/e4487.wav', '-i', OUTRO,
+          f"[0:v]setsar=1,fade=t=out:st={total - 0.6:.2f}:d=0.6[v];[ba]afade=t=out:st={total - 0.8:.2f}:d=0.8[a]")
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'body2.mp4', '-i', 'music2.wav', '-i', f'{AUD}/e4487.wav',
                     '-filter_complex', fc, '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-pix_fmt', 'yuv420p',
                     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out], check=True)
 
