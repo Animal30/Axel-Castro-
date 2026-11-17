@@ -23,9 +23,9 @@ UNITS = [
         (4469, 0.4, 1.30, 1.0, 0.7),
         (4464, 0.2, 1.25, 1.0, 0.7)]),
     talk(4484, 2.20, 3.80, 1.0),
-    dict(aud=('e4484', 8.60, 10.40, 6), cap=None, vid=[(4484, 8.60, 1.80, 1.12, 1.0)]),
-    dict(aud=('e4487', 0.30, 2.80, 9), cap=None, vid=[(4487, 0.30, 2.50, 1.0, 1.0)]),
-    dict(aud=('e4488', 0.50, 1.80, 9), cap=None, vid=[(4488, 0.50, 1.30, 1.0, 1.0)]),
+    dict(aud=('e4484', 4.70, 7.95, 17), cap=None, vid=[(4484, 4.70, 3.25, 1.12, 1.0)]),   # key turn -> crank -> start
+    dict(aud=('e4487', 0.30, 2.80, 15), cap=None, vid=[(4487, 0.30, 2.50, 1.0, 1.0)]),
+    dict(aud=('e4488', 0.50, 1.80, 15), cap=None, vid=[(4488, 0.50, 1.30, 1.0, 1.0)]),
     talk(4486, 0.55, 3.55, 1.0),
     talk(4486, 3.55, 5.15, 1.12),
     talk(4481, 12.30, 13.72, 1.12),
@@ -51,7 +51,7 @@ def make_cut():
         out = f'pieces/a{ui:02d}.wav'
         nfr = sum(round(p[2] * FPS) for p in u['vid']); dur = nfr / FPS
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{AUD}/{f}.wav', '-af',
-                        f'atrim={a}:{a + dur},asetpts=PTS-STARTPTS,volume={g}dB,afade=t=in:d=0.02,afade=t=out:st={dur - 0.03:.3f}:d=0.03,apad,atrim=0:{dur}',
+                        f'atrim={a}:{a + dur},asetpts=PTS-STARTPTS,' + ('highpass=f=40,equalizer=f=90:t=q:w=1:g=4,' if g > 0 else '') + f'volume={g}dB,alimiter=limit=0.95,afade=t=in:d=0.02,afade=t=out:st={dur - 0.03:.3f}:d=0.03,apad,atrim=0:{dur}',
                         '-ar', '48000', '-ac', '1', out], check=True)
         alist.append(out)
     open('pieces/v.txt', 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in vlist))
@@ -59,7 +59,7 @@ def make_cut():
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'pieces/v.txt', '-f', 'concat', '-safe', '0', '-i', 'pieces/a.txt',
                     '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'pcm_s16le', 'cut.mov'], check=True)
 
-FIX = {'cincuenta': '57'}
+FIX = {'cincuenta': '57', 'servicios': 'services'}
 def unit_starts():
     t, out = 0, []
     for u in UNITS:
@@ -97,7 +97,7 @@ def render(only=None):
     st, total = unit_starts()
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     T = dict(v6=at('V6', st[1])[0], km=at('57')[0], pm=at('primera')[0], so=at('todos', st[1])[0],
-             eng0=st[4], eng1=st[6] - 0.3, cta0=at('tiranos')[0] - 0.2, cta1=st[8] - 0.3, end0=st[8], end1=total)
+             eng0=st[3] + 0.2, eng1=st[6] - 0.3, cta0=at('tiranos')[0] - 0.2, cta1=st[8] - 0.3, end0=st[8], end1=total)
     cards = [
         ('Amarok V6 2022', 'Volkswagen · 4x4', icon_car, T['v6'] - 0.1, T['km'] - 0.35),
         ('57 mil km', 'Kilómetros reales', icon_check, T['km'] - 0.05, T['pm'] - 0.35),
