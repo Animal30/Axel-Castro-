@@ -38,7 +38,7 @@ def src_to_cut(t):
     return None
 
 # ---------- 2. words -> captions ----------
-FIX = {'cincuenta': '50', 'veinticinco': '25', 'ochenta': '80', 'Amaro': 'Amarok'}
+FIX = {'cincuenta': '50', 'veinticinco': '95', 'vehículo': '2022', 'ochenta': '80', 'Amaro': 'Amarok'}
 DROP = set()
 def caption_words():
     d = json.load(open(os.path.join(HERE, 'tx.json')))
@@ -212,8 +212,8 @@ def render(only=None):
         if only and i not in only: enc.stdin.write(raw); continue
         img = Image.frombytes('RGB', (W, H), raw).convert('RGBA')
         glass_card(img, W / 2, 400, 'Mini Cooper S', 'Kit John Cooper Works', icon_car, t, T['mini0'], T['mini1'], accent_title=True)
-        glass_card(img, W / 2, 400, 'Amarok V6 Comfortline', '50 mil km · Impecable', icon_car, t, T['ama0'], T['ama1'], accent_title=True)
-        glass_card(img, W / 2, 400, 'Audi Q3 automática', '25 mil km · Services oficiales', icon_car, t, T['audi0'], T['audi1'], accent_title=True)
+        glass_card(img, W / 2, 400, 'Amarok V6 Comfortline', '2022 · 50 mil km · Impecable', icon_car, t, T['ama0'], T['ama1'], accent_title=True)
+        glass_card(img, W / 2, 400, 'Audi Q3 automática', '95 mil km · Services oficiales', icon_car, t, T['audi0'], T['audi1'], accent_title=True)
         glass_card(img, W / 2, 400, 'Ford Maverick 2023', '80 mil km', icon_car, t, T['mav0'], T['mav1'], accent_title=True)
         draw_caption(img, groups, t)
         out = img.convert('RGB')
