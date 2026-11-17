@@ -125,6 +125,42 @@ def render():
     enc.stdin.close(); enc.wait(); dec.stdout.close(); dec.kill(); dec.wait()
     print('total', round(total, 2))
 
+COVER_SRC = (4469, 0.2)   # 3/4 front, no ceiling-light reflection on the windshield
+def cover():
+    c, t = COVER_SRC
+    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/c{c}.mov', '-frames:v', '1',
+                                   '-vf', f'scale={W}:{H}:flags=lanczos,{GRADE}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
+    im = np.frombuffer(raw, np.uint8).reshape(H, W, 3).copy()
+    # retouch: tiny LED-strip glints along the windshield's left edge
+    g = cv2.cvtColor(im, cv2.COLOR_RGB2GRAY); band = np.zeros((H, W), np.uint8)
+    cv2.line(band, (475, 600), (572, 752), 255, 28)
+    m = ((g.astype(int) - cv2.GaussianBlur(g, (31, 31), 0)) > 25) & (band > 0)
+    im = cv2.inpaint(im, cv2.dilate(m.astype(np.uint8) * 255, np.ones((5, 5), np.uint8)), 5, cv2.INPAINT_TELEA)
+    # lift the truck so the title sits on the floor, not on the wheel
+    UP = 200; im = np.concatenate([im[UP:], im[-1:-UP - 1:-1]], 0)
+    img = Image.fromarray(im).convert('RGBA')
+    dark = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(dark)
+    for y in range(0, 300): dd.line((0, y, W, y), fill=(0, 0, 0, int(150 * (1 - y / 300))))
+    for y in range(1180, H): dd.line((0, y, W, y), fill=(0, 0, 0, int(215 * min(1, (y - 1180) / 260))))
+    img.alpha_composite(dark); d = ImageDraw.Draw(img)
+    big = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 170)
+    for txt, col, y in [('AMAROK', WHITE, 1290), ('V6', GOLD, 1460)]:
+        tw = sum(d.textlength(ch, font=big) for ch in txt) + 10 * (len(txt) - 1); x = W / 2 - tw / 2
+        for ch in txt:
+            d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 10
+    f2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 46)
+    sub = '2022 · 57 mil km · Primera mano'; tw = d.textlength(sub, font=f2)
+    d.rounded_rectangle((W / 2 - tw / 2 - 32, 1675, W / 2 + tw / 2 + 32, 1757), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
+    d.text((W / 2 - tw / 2, 1687), sub, font=f2, fill=WHITE + (255,))
+    img.convert('RGB').save('cover2.png')
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover2.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
+                    '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover2.mp4'], check=True)
+
+def withcover(body, out):
+    fc = '[0:v]setsar=1[c];[1:v]setsar=1[b];[0:a]aresample=48000[ca];[1:a]aresample=48000,aformat=channel_layouts=stereo[ba];[c][ca][b][ba]concat=n=2:v=1:a=1[v][a]'
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'cover2.mp4', '-i', body, '-filter_complex', fc, '-map', '[v]', '-map', '[a]',
+                    '-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out], check=True)
+
 def final(out):
     st, total = starts()
     i = [s[0] for s in SHOTS].index(4487); te = st[i]
@@ -139,4 +175,7 @@ def final(out):
 
 if __name__ == '__main__':
     os.chdir(HERE)
-    {'pieces': pieces, 'render': render}.get(sys.argv[1], lambda: final(sys.argv[2]))()
+    a = sys.argv[1]
+    if a == 'cover': cover()
+    elif a == 'withcover': withcover(sys.argv[2], sys.argv[3])
+    else: {'pieces': pieces, 'render': render}.get(a, lambda: final(sys.argv[2]))()
