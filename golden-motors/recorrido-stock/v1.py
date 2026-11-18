@@ -13,7 +13,7 @@ GRADE = 'eq=contrast=1.06:saturation=1.08:gamma=0.98,colorbalance=rs=0.015:bs=-0
 
 # unit: audio (file, a, b), caption clip (or None), video pieces [(clip, start, dur_out, zoom, speed)]
 def talk(clip, a, b, z=1.0, cut=None):
-    return dict(aud=(f'vm{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
+    return dict(aud=(f'orig{clip}_fix' if clip == 'a' else f'orig{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
 UNITS = [
     talk('a', 1.80, 4.96, 1.0),        # Mirá, tenemos un Yaris 2023 que no entiendo todavía cómo está acá
     talk('a', 5.12, 7.52, 1.12),       # automático. Mirá el estado que tiene, impecable
