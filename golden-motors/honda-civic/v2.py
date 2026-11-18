@@ -8,20 +8,20 @@ OUTRO = '/mnt/project-files/golden-motors/outro-logo/golden-motors-outro-girando
 W, H, FPS = 1080, 1920, 30
 BPM = 120; BEAT = 60 / BPM
 GOLD = (242, 184, 36); WHITE = (255, 255, 255)
-GRADE = 'eq=contrast=1.09:saturation=1.10:gamma=0.97,colorbalance=rs=0.02:bs=-0.02:rh=0.02:bh=-0.03,vignette=PI/5'
+GRADE = 'eq=contrast=1.07:saturation=1.10:gamma=1.20:brightness=0.03,colorbalance=rs=0.02:bs=-0.02:rh=0.02:bh=-0.03,vignette=PI/8'
 # clip, src start, beats, speed, label (title, sub) or None
 SHOTS = [
     (4518, 0.0, 4, 0.6, None),
     (4519, 0.3, 4, 0.6, None),
     (4520, 0.6, 4, 0.6, ('EXS', 'Versión full')),
     (4526, 0.2, 4, 0.6, None),
-    (4522, 0.3, 4, 0.6, ('Automático', 'Caja')),
+    (4522, 0.3, 4, 0.6, (['CAJA AUTOMÁTICA'], None)),
     (4524, 0.3, 4, 0.6, None),
     (4523, 0.9, 4, 0.6, ('132.000 km', 'Kilometraje')),
     (4527, 1.2, 4, 0.6, ('Techo solar', 'Y tapizado de cuero')),
     (4530, 0.3, 4, 0.6, None),
-    (4529, 5.0, 4, 0.6, ('Cámara', 'De retroceso')),
-    (4529, 8.2, 4, 0.6, ('Modo ECO', 'Control de estabilidad')),
+    (4529, 5.0, 4, 0.6, (['CÁMARA', 'DE RETROCESO'], None)),
+    (4529, 8.2, 4, 0.6, (['CONTROL DE', 'ESTABILIDAD', 'Y MODO ECO'], None)),
     (4525, 0.2, 4, 0.6, None),
     (4532, 21.9, 6, 0.5, None),
 ]
@@ -81,6 +81,13 @@ def text_layer(t, st, total):
         if a <= 0: continue
         title, sub = s[4]
         y = 1330 + int((1 - p) * 30)
+        if sub is None:   # one typography: big white lines, each fitted to the frame
+            for ln in title:
+                f = F_L1; sz = 96
+                while sum(d.textlength(ch, font=f) for ch in ln) + 4 * (len(ln) - 1) > 960:
+                    sz -= 4; f = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', sz)
+                spaced(d, y, ln, f, WHITE, 4, a, 5); y += int(sz * 1.08)
+            continue
         spaced(d, y, sub.upper(), F_L2, GOLD, 9, a, 2)
         spaced(d, y + 48, title.upper(), F_L1, WHITE, 4, a, 5)
     # end card

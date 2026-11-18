@@ -9,11 +9,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(HERE, 'raw'); AUD = os.path.join(HERE, 'aud'); TX = os.path.join(HERE, 'tx')
 OUTRO = '/mnt/project-files/golden-motors/outro-logo/golden-motors-outro-girando-con-sonido.mp4'
 FY = 700
-GRADE = 'eq=contrast=1.06:saturation=1.08:gamma=0.98,colorbalance=rs=0.015:bs=-0.015'
+GRADE = 'eq=contrast=1.05:saturation=1.10:gamma=1.14:brightness=0.02,colorbalance=rs=0.015:bs=-0.015'
 
 # unit: audio (file, a, b), caption clip (or None), video pieces [(clip, start, dur_out, zoom, speed)]
 def talk(clip, a, b, z=1.0, cut=None):
-    return dict(aud=(f'iso{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
+    return dict(aud=(f'orig{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
 UNITS = [
     talk(4532, 1.08, 5.98, 1.0),                                   # hook: Vento Corolla Focus -> Honda Civic
     talk(4532, 6.52, 10.14, 1.0),                                  # el más full de todos, EXS automático
@@ -36,6 +36,14 @@ def zoom_vf(z):
 
 def nframes(u): return sum(round(p[2] * FPS) for p in u['vid'])
 
+def unit_gain(u, target=-21.5):
+    import soundfile as sf
+    f, a, b = u['aud']; x, sr = sf.read(f'{AUD}/{f}.wav'); seg = x[int(a * sr):int(b * sr)].mean(1)
+    fr = seg[:len(seg) // 2400 * 2400].reshape(-1, 2400); r = np.sort(np.sqrt((fr ** 2).mean(1)))[len(fr) // 2:]
+    lvl = 20 * np.log10(np.sqrt((r ** 2).mean()))
+    pk = 20 * np.log10(np.abs(x[int(a * sr):int(b * sr)]).max())
+    return float(np.clip(min(target - lvl, -1.0 - pk), -12, 14))
+
 def make_cut():
     os.makedirs('pieces', exist_ok=True)
     vlist, alist = [], []
@@ -50,10 +58,9 @@ def make_cut():
         f, a, b = u['aud']; dur = nframes(u) / FPS
         out = f'pieces/a{ui:02d}.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{AUD}/{f}.wav', '-af',
-                        f'atrim={a}:{a + dur},asetpts=PTS-STARTPTS,highpass=f=80,equalizer=f=3000:t=q:w=1.2:g=2,'
-                        f'acompressor=threshold=0.1:ratio=3:attack=10:release=150:makeup=1.5,'
+                        f'atrim={a}:{a + dur},asetpts=PTS-STARTPTS,volume={unit_gain(u):.2f}dB,'   # original audio, static level match only
                         f'afade=t=in:d=0.02,afade=t=out:st={dur - 0.04:.3f}:d=0.04,apad,atrim=0:{dur}',
-                        '-ar', '48000', '-ac', '1', out], check=True)
+                        '-ar', '48000', '-ac', '2', '-c:a', 'pcm_s24le', out], check=True)
         alist.append(out)
     open('pieces/v.txt', 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in vlist))
     open('pieces/a.txt', 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in alist))
@@ -148,7 +155,7 @@ def cover():
 
 def final(out):
     fc = ('[0:v]setsar=1[c];[1:v]setsar=1[b];[3:v]setsar=1,fps=30[o];'
-          '[0:a]aresample=48000,aformat=channel_layouts=stereo[ca];[2:a]aresample=48000,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000,aformat=channel_layouts=stereo[ba];'
+          '[0:a]aresample=48000,aformat=channel_layouts=stereo[ca];[2:a]aresample=48000,aformat=channel_layouts=stereo[ba];'
           '[3:a]aresample=48000,aformat=channel_layouts=stereo[oa];[c][ca][b][ba][o][oa]concat=n=3:v=1:a=1[v][a]')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'cover.mp4', '-i', 'body.mp4', '-i', 'cut.mov', '-i', OUTRO,
                     '-filter_complex', fc, '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-crf', '16', '-preset', 'slow',
