@@ -13,7 +13,7 @@ GRADE = 'eq=contrast=1.06:saturation=1.08:gamma=0.98,colorbalance=rs=0.015:bs=-0
 
 # unit: audio (file, a, b), caption clip (or None), video pieces [(clip, start, dur_out, zoom, speed)]
 def talk(clip, a, b, z=1.0, cut=None):
-    return dict(aud=(f'orig{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
+    return dict(aud=(f'orig{clip}_fix' if clip == 'a' else f'orig{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
 UNITS = [
     talk('a', 1.80, 4.96, 1.0),        # Mirá, tenemos un Yaris 2023 que no entiendo todavía cómo está acá
     talk('a', 5.12, 7.52, 1.12),       # automático. Mirá el estado que tiene, impecable
@@ -38,6 +38,13 @@ def zoom_vf(z):
 
 def nframes(u): return sum(round(p[2] * FPS) for p in u['vid'])
 
+def unit_gain(u, target=-21.5):
+    import soundfile as sf
+    f, a, b = u['aud']; x, sr = sf.read(f'{AUD}/{f}.wav'); seg = x[int(a * sr):int(b * sr)].mean(1)
+    fr = seg[:len(seg) // 2400 * 2400].reshape(-1, 2400); r = np.sort(np.sqrt((fr ** 2).mean(1)))[len(fr) // 2:]
+    lvl = 20 * np.log10(np.sqrt((r ** 2).mean()))
+    return float(np.clip(target - lvl, 0, 8))
+
 def make_cut():
     os.makedirs('pieces', exist_ok=True)
     vlist, alist = [], []
@@ -52,7 +59,7 @@ def make_cut():
         f, a, b = u['aud']; dur = nframes(u) / FPS
         out = f'pieces/a{ui:02d}.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{AUD}/{f}.wav', '-af',
-                        f'atrim={a}:{a + dur},asetpts=PTS-STARTPTS,'   # original sound, untouched (Nahuel 2026-11-18)
+                        f'atrim={a}:{a + dur},asetpts=PTS-STARTPTS,volume={unit_gain(u):.2f}dB,'   # original sound, only a static level match (Nahuel 2026-11-18)
                         f'afade=t=in:d=0.02,afade=t=out:st={dur - 0.04:.3f}:d=0.04,apad,atrim=0:{dur}',
                         '-ar', '48000', '-ac', '2', '-c:a', 'pcm_s24le', out], check=True)
         alist.append(out)
@@ -82,6 +89,18 @@ def caption_words():
             if words and words[-1][2] == 'cuatro' and txt == 'por': words[-1][2] = '4x4'; words[-1][1] = t0 + w['end'] - a; continue
             if words and words[-1][2] == '4x4' and txt == 'cuatro': words[-1][1] = t0 + w['end'] - a; continue
             words.append([t0 + w['start'] - a, t0 + min(w['end'], a + dur) - a, txt])
+    def swap(old, new):
+        toks = [w[2].strip('.,;:') for w in words]
+        for i in range(len(toks) - len(old) + 1):
+            if toks[i:i + len(old)] == old:
+                t0, t1 = words[i][0], words[i + len(old) - 1][1]; d = (t1 - t0) / len(new)
+                words[i:i + len(old)] = [[t0 + k * d, t0 + (k + 1) * d, n] for k, n in enumerate(new)]
+                return
+        raise ValueError(old)
+    swap(['los', '10', 'días', 'que', 'se', 'ven'], ['los', 'días', 'que', 'se', 'vienen'])
+    swap(['flota', 'de', 'motos'], ['flor', 'de', 'moto'])
+    swap(['la', 'lleves', 'a', 'la', 'pelota', 'y', 'vayas', 'a', 'las', 'compras'],
+         ['la', 'lleves', 'a', 'dar', 'una', 'vuelta', 'y', 'vayas', 'a', 'hacer', 'las', 'compras'])
     return words
 
 def icon_chat(d, x, y):
