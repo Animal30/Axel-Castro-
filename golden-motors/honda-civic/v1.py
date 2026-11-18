@@ -98,7 +98,7 @@ def render(only=None):
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     cards = [
         ('Honda Civic EXS', '2016 · Automático', icon_car, at('EXS')[0] - 0.15, st[2] - 0.15),
-        ('120 mil km', 'Techo solar · Cuero', icon_check, st[2] + 0.05, st[3] - 0.15),
+        ('132.000 km', 'Techo solar · Cuero', icon_check, st[2] + 0.05, st[3] - 0.15),
         ('Cámara de retroceso', 'Full equipo', icon_check, at('Cámara')[0] - 0.1, st[4] - 0.15),
         ('Control de estabilidad', 'Modo ECO', icon_check, st[4] + 0.05, st[5] - 0.15),
         ('Velocidad crucero', 'Comandos al volante', icon_check, st[5] + 0.05, st[8] - 0.15),
@@ -139,7 +139,7 @@ def cover():
     for txt, font, col, y in [('¿BUSCÁS UN', F_H1, WHITE, 200), ('SEDÁN FULL?', F_H2, GOLD, 315)]:
         tw = d.textlength(txt, font=font)
         d.text((W / 2 - tw / 2, y), txt, font=font, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
-    sub = 'Honda Civic EXS · 2016 · 120 mil km'; tw = d.textlength(sub, font=kit.F_HOOK2)
+    sub = 'Honda Civic EXS · 2016 · 132.000 km'; tw = d.textlength(sub, font=kit.F_HOOK2)
     d.rounded_rectangle((W / 2 - tw / 2 - 30, 520, W / 2 + tw / 2 + 30, 600), 20, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
     d.text((W / 2 - tw / 2, 531), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
     img.convert('RGB').save('cover.png')

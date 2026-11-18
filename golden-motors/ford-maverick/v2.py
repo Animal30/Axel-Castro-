@@ -121,33 +121,34 @@ def render():
     enc.stdin.close(); enc.wait(); dec.stdout.close(); dec.kill(); dec.wait()
     print('total', round(total, 2))
 
-COVER_SRC = (4518, 0.3)   # front 3/4, lights on; ceiling-lamp reflection retouched out of the windshield
+COVER_SRC = (4493, 3.9)   # straight front, lights on; ceiling-lamp reflection retouched out of the windshield
 def cover():
     c, t = COVER_SRC
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/c{c}.mov', '-frames:v', '1',
                                    '-vf', f'scale={W}:{H}:flags=lanczos', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     im = np.frombuffer(raw, np.uint8).reshape(H, W, 3).copy()
-    m = np.zeros((H, W), np.uint8)
-    cv2.ellipse(m, (663, 826), (54, 52), 0, 0, 360, 255, -1); cv2.line(m, (654, 860), (654, 886), 255, 18)
-    im = cv2.seamlessClone(np.roll(im, 115, axis=1), im, m, (663, 840), cv2.NORMAL_CLONE)
-    tmp = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-', '-vf', GRADE,
-                          '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], input=im.tobytes(), capture_output=True, check=True).stdout
-    img = Image.frombytes('RGB', (W, H), tmp).convert('RGBA')
+    m = np.zeros((H, W), np.uint8); cv2.ellipse(m, (CX, CY), (RX, RY), 0, 0, 360, 255, -1)
+    im = cv2.seamlessClone(np.roll(im, SHIFT, axis=1), im, m, (CX, CY), cv2.NORMAL_CLONE)
+    DOWN = 190; im = np.concatenate([im[DOWN - 1::-1], im[:-DOWN]], 0)   # room for the title below the story header
+    im = np.frombuffer(subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-', '-vf', GRADE,
+                                       '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], input=im.tobytes(), capture_output=True, check=True).stdout, np.uint8).reshape(H, W, 3)
+    img = Image.fromarray(im).convert('RGBA')
     dark = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(dark)
-    for y in range(0, 760): dd.line((0, y, W, y), fill=(0, 0, 0, int(215 * (1 - y / 760) ** 0.8)))
+    for y in range(0, 720): dd.line((0, y, W, y), fill=(0, 0, 0, int(225 * (1 - y / 720) ** 0.7)))
     img.alpha_composite(dark); d = ImageDraw.Draw(img)
-    big = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 170)
-    for txt, col, y in [('HONDA', WHITE, 150), ('CIVIC', GOLD, 325)]:
-        tw = sum(d.textlength(ch, font=big) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
+    for txt, size, col, y in [('FORD', 130, WHITE, 245), ('MAVERICK', 150, GOLD, 385)]:
+        f = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', size)
+        tw = sum(d.textlength(ch, font=f) for ch in txt) + 10 * (len(txt) - 1); x = W / 2 - tw / 2
         for ch in txt:
-            d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 12
+            d.text((x, y), ch, font=f, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=f) + 10
     f2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 46)
-    sub = 'EXS · 2016 · 120 mil km'; tw = d.textlength(sub, font=f2)
-    d.rounded_rectangle((W / 2 - tw / 2 - 32, 545, W / 2 + tw / 2 + 32, 627), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
-    d.text((W / 2 - tw / 2, 557), sub, font=f2, fill=WHITE + (255,))
+    sub = '2023 · XLT · 84.500 km'; tw = d.textlength(sub, font=f2)
+    d.rounded_rectangle((W / 2 - tw / 2 - 32, 578, W / 2 + tw / 2 + 32, 660), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
+    d.text((W / 2 - tw / 2, 590), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover2.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
                     '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover2.mp4'], check=True)
+CX, CY, RX, RY, SHIFT = 505, 728, 68, 66, -150
 
 def withcover(body, out):
     fc = '[0:v]setsar=1[c];[1:v]setsar=1[b];[0:a]aresample=48000[ca];[1:a]aresample=48000,aformat=channel_layouts=stereo[ba];[c][ca][b][ba]concat=n=2:v=1:a=1[v][a]'

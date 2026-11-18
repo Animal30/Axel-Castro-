@@ -17,7 +17,7 @@ SHOTS = [
     (4526, 0.2, 4, 0.6, None),
     (4522, 0.3, 4, 0.6, ('Automático', 'Caja')),
     (4524, 0.3, 4, 0.6, None),
-    (4523, 0.9, 4, 0.6, ('120 mil km', 'Kilometraje')),
+    (4523, 0.9, 4, 0.6, ('132.000 km', 'Kilometraje')),
     (4527, 1.2, 4, 0.6, ('Techo solar', 'Y tapizado de cuero')),
     (4530, 0.3, 4, 0.6, None),
     (4529, 5.0, 4, 0.6, ('Cámara', 'De retroceso')),
@@ -146,7 +146,7 @@ def cover():
         for ch in txt:
             d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 12
     f2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 46)
-    sub = 'EXS · 2016 · 120 mil km'; tw = d.textlength(sub, font=f2)
+    sub = 'EXS · 2016 · 132.000 km'; tw = d.textlength(sub, font=f2)
     d.rounded_rectangle((W / 2 - tw / 2 - 32, 545, W / 2 + tw / 2 + 32, 627), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
     d.text((W / 2 - tw / 2, 557), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
