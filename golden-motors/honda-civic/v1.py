@@ -105,7 +105,7 @@ def render(only=None):
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     cards = [
         ('Honda Civic EXS', '2016 · Automático', icon_car, at('EXS')[0] - 0.15, st[2] - 0.15),
-        ('132.000 km', 'Techo solar · Cuero', icon_check, st[2] + 0.05, st[3] - 0.15),
+        ('120.000 km', 'Techo solar · Cuero', icon_check, st[2] + 0.05, st[3] - 0.15),
         ('Cámara de retroceso', 'Full equipo', icon_check, at('Cámara')[0] - 0.1, st[4] - 0.15),
         ('Control de estabilidad', 'Modo ECO', icon_check, st[4] + 0.05, st[5] - 0.15),
         ('Velocidad crucero', 'Comandos al volante', icon_check, st[5] + 0.05, st[8] - 0.15),
