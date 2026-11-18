@@ -13,7 +13,7 @@ GRADE = 'eq=contrast=1.06:saturation=1.08:gamma=0.98,colorbalance=rs=0.015:bs=-0
 
 # unit: audio (file, a, b), caption clip (or None), video pieces [(clip, start, dur_out, zoom, speed)]
 def talk(clip, a, b, z=1.0, cut=None):
-    return dict(aud=(f'orig{clip}_fix' if clip == 'a' else f'orig{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
+    return dict(aud=(f'vm{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
 UNITS = [
     talk('a', 1.80, 4.96, 1.0),        # Mirá, tenemos un Yaris 2023 que no entiendo todavía cómo está acá
     talk('a', 5.12, 7.52, 1.12),       # automático. Mirá el estado que tiene, impecable
@@ -43,7 +43,8 @@ def unit_gain(u, target=-21.5):
     f, a, b = u['aud']; x, sr = sf.read(f'{AUD}/{f}.wav'); seg = x[int(a * sr):int(b * sr)].mean(1)
     fr = seg[:len(seg) // 2400 * 2400].reshape(-1, 2400); r = np.sort(np.sqrt((fr ** 2).mean(1)))[len(fr) // 2:]
     lvl = 20 * np.log10(np.sqrt((r ** 2).mean()))
-    return float(np.clip(target - lvl, 0, 8))
+    pk = 20 * np.log10(np.abs(x[int(a * sr):int(b * sr)]).max())
+    return float(np.clip(min(target - lvl, -1.0 - pk), 0, 14))
 
 def make_cut():
     os.makedirs('pieces', exist_ok=True)
