@@ -17,7 +17,7 @@ SHOTS = [
     (4526, 0.2, 4, 0.6, None),
     (4522, 0.3, 4, 0.6, (['CAJA AUTOMÁTICA'], None)),
     (4524, 0.3, 4, 0.6, None),
-    (4523, 0.9, 4, 0.6, ('132.000 km', 'Kilometraje')),
+    (4523, 0.9, 4, 0.6, ('120.000 km', 'Kilometraje')),
     (4527, 1.2, 4, 0.6, ('Techo solar', 'Y tapizado de cuero')),
     (4530, 0.3, 4, 0.6, None),
     (4529, 5.0, 4, 0.6, (['CÁMARA', 'DE RETROCESO'], None)),
@@ -132,28 +132,30 @@ def render():
     enc.stdin.close(); enc.wait(); dec.stdout.close(); dec.kill(); dec.wait()
     print('total', round(total, 2))
 
-COVER_SRC = (4518, 0.3)   # front 3/4, lights on; ceiling-lamp reflection retouched out of the windshield
+COVER_SRC = (4520, 0.9)   # front 3/4, lights on; ceiling-lamp reflection retouched out of the windshield
 def cover():
     c, t = COVER_SRC
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/c{c}.mov', '-frames:v', '1',
                                    '-vf', f'scale={W}:{H}:flags=lanczos', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     im = np.frombuffer(raw, np.uint8).reshape(H, W, 3).copy()
-    m = np.zeros((H, W), np.uint8)
-    cv2.ellipse(m, (663, 826), (54, 52), 0, 0, 360, 255, -1); cv2.line(m, (654, 860), (654, 886), 255, 18)
-    im = cv2.seamlessClone(np.roll(im, 115, axis=1), im, m, (663, 840), cv2.NORMAL_CLONE)
     tmp = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-', '-vf', GRADE,
                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], input=im.tobytes(), capture_output=True, check=True).stdout
     img = Image.frombytes('RGB', (W, H), tmp).convert('RGBA')
-    dark = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(dark)
-    for y in range(0, 760): dd.line((0, y, W, y), fill=(0, 0, 0, int(215 * (1 - y / 760) ** 0.8)))
-    img.alpha_composite(dark); d = ImageDraw.Draw(img)
+    # no dark band: only a soft shadow behind the letters
+    sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    bigs = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 170)
+    for txt, y in [('HONDA', 150), ('CIVIC', 325)]:
+        tw = sum(sd.textlength(ch, font=bigs) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
+        for ch in txt:
+            sd.text((x + 4, y + 10), ch, font=bigs, fill=(0, 0, 0, 170), stroke_width=10, stroke_fill=(0, 0, 0, 170)); x += sd.textlength(ch, font=bigs) + 12
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14))); d = ImageDraw.Draw(img)
     big = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 170)
     for txt, col, y in [('HONDA', WHITE, 150), ('CIVIC', GOLD, 325)]:
         tw = sum(d.textlength(ch, font=big) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
         for ch in txt:
             d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 12
     f2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 46)
-    sub = 'EXS · 2016 · 132.000 km'; tw = d.textlength(sub, font=f2)
+    sub = 'EXS · 2016 · 120.000 km'; tw = d.textlength(sub, font=f2)
     d.rounded_rectangle((W / 2 - tw / 2 - 32, 545, W / 2 + tw / 2 + 32, 627), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
     d.text((W / 2 - tw / 2, 557), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
@@ -168,7 +170,7 @@ def withcover(body, out):
 def final(out):
     st, total = starts()
     fc = (f"[1:a]volume=-3dB,atrim=0:{total},afade=t=out:st={total - 1.0:.2f}:d=1.0,alimiter=limit=0.9,aformat=channel_layouts=stereo[a];"
-          f"[0:v]setsar=1,fade=t=out:st={total - 0.6:.2f}:d=0.6[v]")
+          f"[0:v]setsar=1[v]")
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'body2.mp4', '-i', 'music2.wav',
                     '-filter_complex', fc, '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-pix_fmt', 'yuv420p',
                     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out], check=True)
