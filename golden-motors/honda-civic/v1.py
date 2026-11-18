@@ -146,7 +146,7 @@ def cover():
     for txt, font, col, y in [('¿BUSCÁS UN', F_H1, WHITE, 200), ('SEDÁN FULL?', F_H2, GOLD, 315)]:
         tw = d.textlength(txt, font=font)
         d.text((W / 2 - tw / 2, y), txt, font=font, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
-    sub = 'Honda Civic EXS · 2016 · 132.000 km'; tw = d.textlength(sub, font=kit.F_HOOK2)
+    sub = 'Honda Civic EXS · 2016 · 120.000 km'; tw = d.textlength(sub, font=kit.F_HOOK2)
     d.rounded_rectangle((W / 2 - tw / 2 - 30, 520, W / 2 + tw / 2 + 30, 600), 20, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
     d.text((W / 2 - tw / 2, 531), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
     img.convert('RGB').save('cover.png')
