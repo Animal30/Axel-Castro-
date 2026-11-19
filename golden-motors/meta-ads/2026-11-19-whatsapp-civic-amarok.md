@@ -12,7 +12,7 @@ Dos videos del Drive (carpeta `1Mvy-XwVcOKVVg42Prv7f8uW035ykFuVX`), uno por auto
 | Amarok v6 Ale speaking.mp4 | 30 s | Alejandro presenta la camioneta. Textos en pantalla: Amarok V6 2022, Volkswagen 4×4, 57 mil km reales, services oficiales al día, "Subí el volumen, escuchá el V6". Cierra con "Escribinos" y el logo | `1105734122257478` | `6487c6b6fb87a8d745bf770790f3941f` |
 
 - Asignación: **Civic → Alejandro** (él habla en ese video) y **Amarok → Renzo**. Ojo: Alejandro también aparece en el video de la Amarok, pero el copy no nombra a ningún vendedor, así que no hay contradicción. Se puede invertir.
-- En el audio del Civic parece que Alejandro dice un precio ("23 millones"). Hay que confirmar que siga vigente. El copy no lleva precio.
+- Precio del Civic confirmado por Nahuel el 19/11: **$23.500.000**. Se sumó al copy (creativo v2).
 - En el audio de la Amarok parece decir "primera mano". No lo puse en el copy hasta confirmarlo.
 
 ## Estructura (todo en borrador, nada publicado)
@@ -26,7 +26,8 @@ Una campaña por auto, para que cada vendedor tenga sus ARS 20.000 fijos y uno n
 | Conjunto | `120253604759810736` "Cba ciudad · Hombres 30-65 · WA Alejandro" | `120253604765070736` "Cba ciudad · Hombres 30-65 · WA Renzo" |
 | Optimización | Conversaciones, destino WhatsApp, página `621210564402720` | igual |
 | Anuncio | `120253604778050736` 01_Civic2016_Alejandro_Video42s | `120253604778320736` 01_AmarokV6_2022_Renzo_Video30s |
-| Creativo | `1771309471662176` | `1666350091558315` |
+| Creativo | `1644891303786332` (v2, con precio; reemplazó a `1771309471662176`) | `1666350091558315` |
+| WhatsApp | Alejandro, +54 9 3515 90-1528 (`5493515901528`) | Renzo, +54 9 3585 48-0090 (`5493585480090`) |
 
 **Público (los dos conjuntos):**
 - Ciudad de Córdoba (key 84740), sin radio extra.
@@ -41,9 +42,10 @@ Una campaña por auto, para que cada vendedor tenga sus ARS 20.000 fijos y uno n
 
 ## Copy
 
-**Civic** · Título: "Honda Civic EXS 2016 automático" · Descripción: "Golden Motors · Córdoba"
+**Civic (v2)** · Título: "Civic EXS 2016 · $23.500.000" · Descripción: "Golden Motors · Córdoba"
 
 > Honda Civic EXS 2016, automático, con 120.000 km.
+> Precio: $23.500.000
 >
 > Viene completo: techo solar, tapizado de cuero, cámara de retroceso, control de estabilidad, modo ECO, velocidad crucero y comandos al volante.
 >
@@ -65,7 +67,7 @@ Una campaña por auto, para que cada vendedor tenga sus ARS 20.000 fijos y uno n
 
 ## Pendiente
 
-1. **Números de WhatsApp:** la API no muestra qué número usa cada conjunto (los conjuntos viejos de "Ale" y "Renzo" solo devuelven la página). Hay que elegir el número de cada vendedor en el Ads Manager, dentro de cada conjunto, o pasarme los dos números para cargarlos yo.
+1. ~~Números de WhatsApp~~: cargados el 19/11 en el `promoted_object` de cada conjunto (`whatsapp_phone_number`). Conviene confirmar en el Ads Manager que aparezca el número correcto en cada conjunto.
 2. Revisar en el Ads Manager que "Reach more people likely to respond" aparezca destildado. En la API se mandaron apagados Advantage+ audience y la expansión de públicos.
 3. Revisar que multi-advertiser ads aparezca apagado.
 4. Al crear el creativo, la herramienta metió un `link_title` en el CTA. En Iron Bird ese campo trabó la publicación de un anuncio copiado. Si al publicar da error, se rehace el creativo.
