@@ -108,3 +108,12 @@ Revisión en vivo después de publicar:
 - Ubicaciones: se sumaron Marketplace y el feed de perfil de Facebook, que no estaban en el plan.
 - El `promoted_object` no muestra el número de WhatsApp por API. Hay que confirmarlo en el Ads Manager.
 - Propuesto a Nahuel (espera su sí): corregir la ubicación a la ciudad de Córdoba, solo "vive" (y opcionalmente sacar Marketplace y el feed de perfil de Facebook), volver a publicar el conjunto, y publicar la campaña del Civic.
+
+## Revisión de solo lectura (19/11, después de que Nahuel editó desde el Ads Manager)
+
+Nahuel pidió que no toque nada. Estado en vivo:
+- **Dos campañas de la Amarok activas a la vez:**
+  1. `120253604752410736` "GM_WA_AmarokV6_2022_Renzo_Nov26": Interacción, ARS 20.000/día. Anuncio en revisión (creativo `2701359420308541`, copy correcto). **La ubicación sigue en toda Argentina** (home, recent y frequently_in), con Marketplace y el feed de perfil de Facebook.
+  2. `120253607809590736` "Amarok V6 2022" (creada por Nahuel): **Tráfico**, ARS 7.000/día, optimiza conversaciones por WhatsApp. Ciudad de Córdoba, pero con "vive, estuvo recientemente o frecuenta". **Advantage+ audience prendido**: edad mínima fija de 18 (el rango 30-65 queda solo como sugerencia), y género e interés "Automobiles" también como sugerencia. Creativo `1468765791874154` = posteo de Instagram con otro copy ("Volkswagen Amarok 3.0 V6 Comfortline… Diésel, Cabina doble"), sin título.
+- **El Civic no tiene ninguna campaña publicada.**
+- Mensajes prefijados y número de WhatsApp: la API no los muestra en anuncios publicados. Hay que mirarlos en el Ads Manager.
