@@ -125,3 +125,9 @@ Nahuel pidió que no toque nada. Estado en vivo:
 - **Amarok V6 2022 (posteo)** `120253607809590736`: Tráfico, ARS 7.000/día, aprobado. **Advantage+ audience sigue prendido** (edad mínima fija 18; 30-65 y género como sugerencia) e interés Automobiles. Ubicación ciudad de Córdoba, con vive, reciente y frecuenta.
 - Ningún conjunto excluye seguidores. Que los videos sean anuncios sin publicar en el perfil (dark posts) no los saca de los seguidores.
 - Total diario si todo entrega: ARS 47.000 (Amarok 27.000 entre dos campañas, Civic 20.000).
+
+## Revisión de solo lectura #3 (19/11)
+
+- **Amarok (Renzo, video):** el cambio a la ciudad de Córdoba que hizo Nahuel quedó como **borrador sin publicar** (draft "modify" en el conjunto `120253604765070736`). Lo publicado sigue en toda Argentina, y el anuncio está aprobado y preparando la entrega. Falta que Nahuel apriete "Publicar" en el Ads Manager.
+- **Amarok V6 2022 (posteo):** corregido. Advantage+ audience apagado, hombres 30-65 fijos, ciudad de Córdoba (vive, reciente y frecuenta), interés Automobiles. Anuncio en revisión otra vez por la edición.
+- **Civic:** aprobado y preparando la entrega. Ciudad de Córdoba, hombres 30-65 fijos, Advantage+ audience apagado.
