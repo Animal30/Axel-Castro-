@@ -72,3 +72,19 @@ Una campaña por auto, para que cada vendedor tenga sus ARS 20.000 fijos y uno n
 3. Revisar que multi-advertiser ads aparezca apagado.
 4. Al crear el creativo, la herramienta metió un `link_title` en el CTA. En Iron Bird ese campo trabó la publicación de un anuncio copiado. Si al publicar da error, se rehace el creativo.
 5. Publicar solo con el OK de Nahuel: `ads_activate_entity` con los IDs de campaña, conjunto y anuncio, y después verificar en vivo.
+
+## Corrección (19/11): anuncios vacíos en el Ads Manager
+
+**Qué pasó:** `ads_create_creative` mete solo un `link_title` y un `link_description` dentro del CTA de WhatsApp, tomados del título y la descripción. Meta ya no acepta esos campos (error 1815589, "Link Title and Link Description Are Deprecated"). Por eso el Ads Manager mostraba los anuncios sin video ni copy, y el de la Amarok tenía un error de publicación. Además, el conjunto de Renzo había quedado con ubicación "vive, estuvo recientemente o frecuenta".
+
+**Arreglo:**
+- Se reemplazó el creativo de los dos anuncios por un creativo inline, cargado con `ads_update_entity` en el borrador. Tiene `video_data` con `video_id`, `image_hash` de portada, `title` y `message`, y un CTA `WHATSAPP_MESSAGE` con solo `link` y `app_destination`, sin `link_title` ni `link_description`.
+- Se dejó `contextual_multi_ads` en OPT_OUT y las mejoras de Meta AI en OPT_OUT.
+- El conjunto de Renzo volvió a ubicación "home" (solo gente que vive en la ciudad de Córdoba).
+- Releído el borrador: los dos anuncios y los dos conjuntos quedaron sin `active_errors`.
+- Se perdió el mensaje de bienvenida y el mensaje precargado de WhatsApp: venían con el creativo viejo. Se pueden cargar a mano en el Ads Manager, en la sección "Plantilla de mensaje".
+- La descripción "Golden Motors · Córdoba" se sacó: Meta no la muestra en anuncios de video.
+
+**Regla para próximas campañas:** no usar `ads_create_creative` con headline o description para anuncios de mensajes. Crear el creativo inline en `ads_create_ad` (o `ads_update_entity` en el borrador) con `video_data` armado a mano.
+
+**Borradores que no son de esta sesión:** en la cuenta hay dos borradores creados a mano desde el Ads Manager ("Website / Catalogo" y "New Engagement Campaign"), los dos con errores. No los toqué. Nahuel decide si los descarta.
