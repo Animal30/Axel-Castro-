@@ -98,3 +98,13 @@ Una campaña por auto, para que cada vendedor tenga sus ARS 20.000 fijos y uno n
 - Ojo: `ads_create_creative` sin `message_template` le pone a los anuncios de WhatsApp un saludo por defecto **en inglés**. Siempre hay que pasar la plantilla en español.
 - Creativos de referencia ya creados en la cuenta: Civic `1680485846777761`, Amarok `40173781652266476`. Los creativos viejos (`1771309471662176`, `1644891303786332`, `1666350091558315` y `2298508254262028`) no están en uso.
 - Relectura final del borrador: los dos anuncios figuran como **VALIDATED**, sin `active_errors`.
+
+## Publicación (19/11, Nahuel la publicó desde el Ads Manager)
+
+Revisión en vivo después de publicar:
+- **Publicada solo la Amarok:** campaña `120253604752410736` ACTIVE, ARS 20.000/día. Conjunto `120253604765070736` ACTIVE. Anuncio `120253604778320736` en revisión (IN_PROCESS, todavía sin entrega). Creativo publicado `1165249865980242`: copy, título, video, portada y botón WhatsApp correctos.
+- **El Civic no está publicado:** la campaña `120253604751880736` sigue en borrador. Nahuel pensaba que los dos anuncios estaban en una sola campaña, pero en la cuenta hay un solo anuncio activo.
+- **Error grave en el conjunto publicado:** la ubicación quedó en **toda Argentina** (countries AR, con home, recent y frequently_in), no en la ciudad de Córdoba. Edad 30-65, hombres y Advantage+ audience apagado quedaron bien.
+- Ubicaciones: se sumaron Marketplace y el feed de perfil de Facebook, que no estaban en el plan.
+- El `promoted_object` no muestra el número de WhatsApp por API. Hay que confirmarlo en el Ads Manager.
+- Propuesto a Nahuel (espera su sí): corregir la ubicación a la ciudad de Córdoba, solo "vive" (y opcionalmente sacar Marketplace y el feed de perfil de Facebook), volver a publicar el conjunto, y publicar la campaña del Civic.
