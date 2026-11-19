@@ -88,3 +88,13 @@ Una campaña por auto, para que cada vendedor tenga sus ARS 20.000 fijos y uno n
 **Regla para próximas campañas:** no usar `ads_create_creative` con headline o description para anuncios de mensajes. Crear el creativo inline en `ads_create_ad` (o `ads_update_entity` en el borrador) con `video_data` armado a mano.
 
 **Borradores que no son de esta sesión:** en la cuenta hay dos borradores creados a mano desde el Ads Manager ("Website / Catalogo" y "New Engagement Campaign"), los dos con errores. No los toqué. Nahuel decide si los descarta.
+
+## Segunda corrección (19/11): copy invisible en las casillas del Ads Manager
+
+- Nahuel seguía sin ver el texto principal y el título en las casillas del Ads Manager. El copy estaba guardado solo dentro de `object_story_spec.video_data`.
+- Se cargó el creativo de los dos anuncios con el copy **también a nivel del creativo** (`body` y `title`), que es de donde el Ads Manager llena las casillas, además de en `video_data`.
+- Botón WhatsApp con solo `link` y `app_destination` (sin `link_title`), con la portada, `contextual_multi_ads` en OPT_OUT y las mejoras de Meta AI en OPT_OUT.
+- Se recuperaron el saludo y el mensaje precargado en español con plantillas nuevas: Civic `3412028115647662`, Amarok `2570280666790668`.
+- Ojo: `ads_create_creative` sin `message_template` le pone a los anuncios de WhatsApp un saludo por defecto **en inglés**. Siempre hay que pasar la plantilla en español.
+- Creativos de referencia ya creados en la cuenta: Civic `1680485846777761`, Amarok `40173781652266476`. Los creativos viejos (`1771309471662176`, `1644891303786332`, `1666350091558315` y `2298508254262028`) no están en uso.
+- Relectura final del borrador: los dos anuncios figuran como **VALIDATED**, sin `active_errors`.
