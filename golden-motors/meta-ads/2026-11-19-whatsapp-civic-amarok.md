@@ -117,3 +117,11 @@ Nahuel pidió que no toque nada. Estado en vivo:
   2. `120253607809590736` "Amarok V6 2022" (creada por Nahuel): **Tráfico**, ARS 7.000/día, optimiza conversaciones por WhatsApp. Ciudad de Córdoba, pero con "vive, estuvo recientemente o frecuenta". **Advantage+ audience prendido**: edad mínima fija de 18 (el rango 30-65 queda solo como sugerencia), y género e interés "Automobiles" también como sugerencia. Creativo `1468765791874154` = posteo de Instagram con otro copy ("Volkswagen Amarok 3.0 V6 Comfortline… Diésel, Cabina doble"), sin título.
 - **El Civic no tiene ninguna campaña publicada.**
 - Mensajes prefijados y número de WhatsApp: la API no los muestra en anuncios publicados. Hay que mirarlos en el Ads Manager.
+
+## Revisión de solo lectura #2 (19/11, después de que Nahuel publicó el Civic)
+
+- **Civic** `120253604751880736`: ACTIVE, ARS 20.000/día. Anuncio en revisión (creativo `1003796589470863`, copy, título, video y botón correctos). Conjunto: ciudad de Córdoba, hombres 30-65 fijos, Advantage+ audience apagado. Ubicación con "vive, reciente y frecuenta". Suma Marketplace y el feed de perfil de Facebook.
+- **Amarok (Renzo, video)** `120253604752410736`: ACTIVE, ARS 20.000/día, anuncio **aprobado y preparando la entrega**. **La ubicación SIGUE en toda Argentina.** Urgente.
+- **Amarok V6 2022 (posteo)** `120253607809590736`: Tráfico, ARS 7.000/día, aprobado. **Advantage+ audience sigue prendido** (edad mínima fija 18; 30-65 y género como sugerencia) e interés Automobiles. Ubicación ciudad de Córdoba, con vive, reciente y frecuenta.
+- Ningún conjunto excluye seguidores. Que los videos sean anuncios sin publicar en el perfil (dark posts) no los saca de los seguidores.
+- Total diario si todo entrega: ARS 47.000 (Amarok 27.000 entre dos campañas, Civic 20.000).
