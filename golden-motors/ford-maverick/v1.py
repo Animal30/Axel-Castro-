@@ -14,22 +14,16 @@ GRADE = 'eq=contrast=1.06:saturation=1.08:gamma=0.98,colorbalance=rs=0.015:bs=-0
 # unit: audio (file, a, b), caption clip (or None), video pieces [(clip, start, dur_out, zoom, speed)]
 def talk(clip, a, b, z=1.0, cut=None):
     return dict(aud=(f'orig{clip}', a, b), cap=clip, vid=cut or [(clip, a, b - a, z, 1.0)])
+# Nahuel 2026-11-19: use BOTH takes complete and in order, only trim the silence at the start/end of each.
+# Audio runs continuously; cutaways only cover the picture.
 UNITS = [
-    talk(4516, 7.70, 10.74, 1.0),     # hook: Estás buscando una camioneta y te parecen grandes las Amarok o las Hilux
-    talk(4516, 10.80, 13.92, cut=[(4516, 10.80, 1.50, 1.12, 1.0), (4501, 1.3, 1.62, 1.0, 0.7)]),   # punto intermedio, mismas funciones
-    talk(4516, 14.40, 16.30, 1.0),    # y mirá la facha que tiene
-    talk(4516, 3.42, 6.00, cut=[(4516, 3.42, 1.30, 1.12, 1.0), (4495, 0.4, 1.28, 1.0, 0.7)]),      # tenemos esta Ford Maverick 2023
-    talk(4516, 6.36, 7.40, cut=[(4505, 0.6, 1.04, 1.0, 0.7)]),     # mirá el estado que tiene (interior)
-    talk(9001, 3.52, 6.12, 1.0),      # tiene la caja de octava, como la Bronco
-    talk(9001, 6.64, 9.10, cut=[(9001, 6.64, 1.10, 1.12, 1.0), (4504, 2.6, 1.36, 1.0, 0.7)]),     # toda la conectividad de los autos 2023
-    talk(4516, 1.34, 3.00, 1.12),     # 38 millones de pesos
-    talk(9001, 11.52, 12.34, 1.0),    # y le digo un secreto
-    talk(9001, 13.84, 16.58, 1.12),   # unos pesos menos le podemos hacer en 38, un poco menos
-    talk(9001, 17.08, 18.20, 1.0),    # si viene la gente a preguntar
+    talk(4516, 1.30, 15.50, cut=[(4516, 1.30, 2.10, 1.12, 1.0), (4516, 3.40, 2.00, 1.0, 1.0), (4495, 0.4, 1.00, 1.0, 0.7),
+                                 (4505, 0.6, 1.10, 1.0, 0.7), (4516, 7.50, 3.30, 1.0, 1.0), (4516, 10.80, 1.50, 1.12, 1.0),
+                                 (4501, 1.3, 1.20, 1.0, 0.7), (4516, 13.50, 2.00, 1.0, 1.0)]),
+    talk(9001, 1.05, 18.62, cut=[(9001, 1.05, 2.45, 1.0, 1.0), (9001, 3.50, 3.10, 1.12, 1.0), (4504, 2.6, 1.40, 1.0, 0.7),
+                                 (9001, 8.00, 3.40, 1.0, 1.0), (9001, 11.40, 2.40, 1.12, 1.0), (9001, 13.80, 2.80, 1.0, 1.0),
+                                 (9001, 16.60, 2.02, 1.12, 1.0)]),
 ]
-
-
-
 
 def zoom_vf(z):
     if z == 1.0: return ''
@@ -85,6 +79,10 @@ def caption_words():
         for w in d['words']:
             if w['type'] != 'word' or not (a - 0.06 <= w['start'] < a + dur - 0.05): continue
             txt = FIX.get(w['text'], w['text'])
+            if txt == 'hacemos' and words and words[-1][2] == 'le': words[-1][2] = 'lo'
+            if txt.startswith('Nahuel'):   # never show Nahuel's name on screen (audio stays untouched)
+                if words and words[-1][2] == 'a': words.pop()
+                continue
             if words and words[-1][2] == '38' and txt.strip('.,') in ('y', 'ocho'): words[-1][1] = t0 + w['end'] - a; continue
             if words and words[-1][2] == 'veinte' and txt in ('2021', '2023'): words[-1][1] = t0 + w['end'] - a; words[-1][2] = txt; continue
             if words and words[-1][2] in ('4', 'cuatro') and txt == 'mil': words[-1][2] = '4'
@@ -110,12 +108,12 @@ def render(only=None):
     st, total = unit_starts()
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     cards = [
-        ('Punto intermedio', 'Mismas funciones', icon_check, at('punto')[0] - 0.1, st[2] - 0.1),
-        ('Ford Maverick 2023', 'XLT · 84.500 km', icon_car, at('Ford')[0] - 0.1, st[5] - 0.15),
-        ('Caja de 8 velocidades', 'Como la Ford Bronco', icon_check, st[5] + 0.05, st[6] - 0.15),
-        ('Conectividad total', 'La de los autos 2023', icon_check, st[6] + 0.05, st[7] - 0.15),
-        ('$38.000.000', 'Golden Motors · Córdoba', icon_tag, st[7] + 0.05, st[10] - 0.15),
-        ('Consultá por mensaje', 'Hay un precio especial', icon_chat, st[10] + 0.0, total + 0.5),
+        ('$38.000.000', 'Golden Motors · Córdoba', icon_tag, 0.05, at('tenemos')[0] - 0.1),
+        ('Ford Maverick 2023', 'XLT · 84.500 km', icon_car, at('Ford')[0] - 0.1, at('Estás')[0] - 0.15),
+        ('Punto intermedio', 'Mismas funciones', icon_check, at('punto')[0] - 0.1, st[1] - 0.15),
+        ('Caja de 8 velocidades', 'Como la Ford Bronco', icon_check, at('caja')[0] - 0.1, at('toda')[0] - 0.1),
+        ('Conectividad total', 'La de los autos 2023', icon_check, at('toda')[0] - 0.05, at('Voy')[0] - 0.1),
+        ('Consultá por mensaje', 'Hay un precio especial', icon_chat, at('unos')[0] - 0.1, total + 0.5),
     ]
     print([(c[0], round(c[3], 2), round(c[4], 2)) for c in cards], round(total, 2))
     n = int(round(total * FPS))
@@ -151,9 +149,7 @@ def cover():
     im = np.frombuffer(subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-', '-vf', GRADE,
                                        '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], input=im.tobytes(), capture_output=True, check=True).stdout, np.uint8).reshape(H, W, 3)
     img = Image.fromarray(im).convert('RGBA')
-    dark = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(dark)
-    for y in range(0, 760): dd.line((0, y, W, y), fill=(0, 0, 0, int(170 * (1 - y / 760))))
-    img.alpha_composite(dark); d = ImageDraw.Draw(img)
+    d = ImageDraw.Draw(img)   # no dark band (Nahuel 2026-11-18)
     def fit(txt, size, maxw=980):
         while True:
             f = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', size)
