@@ -18,7 +18,7 @@ SHOTS = [
     (4606, 0.3, 4, 0.6, None),
     (4600, 0.3, 4, 0.6, (['AUTO DE', 'COMPETICIÓN'], None)),
     (4602, 1.3, 4, 0.6, None),
-    (4610, 0.3, 4, 0.6, (['VOLANTE', 'DE MADERA'], None)),
+    (4610, 0.3, 4, 0.6, (['VOLANTE NARDI'], None)),
     (4611, 5.0, 4, 0.6, None),
     (4614, 2.2, 4, 0.6, None),
     (4596, 2.5, 4, 0.6, (['HISTORIA', 'EN LAS PISTAS'], None)),
