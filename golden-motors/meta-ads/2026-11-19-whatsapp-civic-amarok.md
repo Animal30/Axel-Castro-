@@ -131,3 +131,9 @@ Nahuel pidió que no toque nada. Estado en vivo:
 - **Amarok (Renzo, video):** el cambio a la ciudad de Córdoba que hizo Nahuel quedó como **borrador sin publicar** (draft "modify" en el conjunto `120253604765070736`). Lo publicado sigue en toda Argentina, y el anuncio está aprobado y preparando la entrega. Falta que Nahuel apriete "Publicar" en el Ads Manager.
 - **Amarok V6 2022 (posteo):** corregido. Advantage+ audience apagado, hombres 30-65 fijos, ciudad de Córdoba (vive, reciente y frecuenta), interés Automobiles. Anuncio en revisión otra vez por la edición.
 - **Civic:** aprobado y preparando la entrega. Ciudad de Córdoba, hombres 30-65 fijos, Advantage+ audience apagado.
+
+## Corrección publicada (19/11, con OK de Nahuel)
+
+- Conjunto `120253604765070736` (Amarok de Renzo): targeting cargado como ciudad de Córdoba (84740), location_types "home", hombres, 30-65, Advantage+ audience y relaxation apagados, mismas ubicaciones. Publicado con `ads_activate_entity` (object_ids solo el conjunto).
+- **Verificado en vivo:** ciudad de Córdoba, hombres 30-65, Advantage+ audience apagado. Meta guardó location_types como `home` + `frequently_in`: lo normaliza así, sin "recent". Toda Argentina quedó eliminada. Borrador vacío.
+- El conjunto quedó IN_PROCESS (Meta revisa el cambio antes de entregar).
