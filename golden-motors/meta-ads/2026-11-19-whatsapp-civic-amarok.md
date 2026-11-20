@@ -137,3 +137,17 @@ Nahuel pidió que no toque nada. Estado en vivo:
 - Conjunto `120253604765070736` (Amarok de Renzo): targeting cargado como ciudad de Córdoba (84740), location_types "home", hombres, 30-65, Advantage+ audience y relaxation apagados, mismas ubicaciones. Publicado con `ads_activate_entity` (object_ids solo el conjunto).
 - **Verificado en vivo:** ciudad de Córdoba, hombres 30-65, Advantage+ audience apagado. Meta guardó location_types como `home` + `frequently_in`: lo normaliza así, sin "recent". Toda Argentina quedó eliminada. Borrador vacío.
 - El conjunto quedó IN_PROCESS (Meta revisa el cambio antes de entregar).
+
+## Resultados primeras ~30 h (19/11 tarde y 20/11 parcial)
+
+| Campaña | Gasto ARS | Conversaciones WA | Costo/conv | Alcance | Frec. | CTR | CPM |
+|---|---|---|---|---|---|---|---|
+| Civic, Alejandro (20.000/día) | 14.592 | 16 | 912 (20/11: 612) | 2.332 | 1,45 | 4,09% | 4.320 |
+| Amarok, Renzo, video (20.000/día) | 10.851 | 11 | 986 (20/11: 1.161) | 1.491 | 1,38 | 3,02% | 5.280 |
+| Amarok V6 2022, posteo (7.000/día) | 5.688 | 7 | 813 | 609 | 1,62 | 4,67% | 5.775 |
+| **Total** | **31.131** | **34** | **~916** | | | | |
+
+- El video del Civic retiene bien: 573 reproducciones de 25% y 495 ThruPlay sobre 3.378 impresiones.
+- Amarok de Renzo: ~ARS 550 (5%) se gastaron fuera de Córdoba, en el rato antes de la corrección. Desde el arreglo, todo va a Córdoba.
+- En 2025, la misma cuenta pagaba entre ARS 290 y 990 por conversación (con pesos de 2025). ~ARS 900 hoy está en línea.
+- Recomendación: no tocar nada hasta tener 5-7 días de datos (fase de aprendizaje). Pedir a Renzo y Alejandro cuántas consultas son reales y cuántas avanzan.
