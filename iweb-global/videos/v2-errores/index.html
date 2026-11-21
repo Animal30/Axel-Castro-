@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/>
+<title>iWeb Global - Errores al importar</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+:root{--navy:#0A1B33;--ink:#fff;--accent:#7db2f0;--blue:#1D5BA4;--pink:#EE2D6C;--font:Inter,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#071326;font-family:var(--font);color:var(--ink)}
+#bg{position:absolute;left:0;top:0;width:1080px;height:1920px;background:radial-gradient(ellipse at 80% 8%,#17407a 0%,#0A1B33 55%,#071326 100%)}
+#glow{position:absolute;left:300px;top:700px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(125,178,240,.22),rgba(125,178,240,0) 70%)}
+#logo{position:absolute;left:90px;top:190px;width:158px;height:84px}
+.scene{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.abs{position:absolute;left:120px;right:192px}
+.h{font-weight:900;line-height:1.04;letter-spacing:-.02em}
+.acc{color:var(--accent)}
+.pill{position:absolute;left:120px;display:inline-flex;align-items:center;padding:12px 30px;border:3px solid rgba(125,178,240,.6);border-radius:100px;font-weight:700;font-size:34px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.row{position:absolute;left:120px;right:192px;display:flex;align-items:center;gap:24px;font-weight:700;font-size:44px}
+.plus{flex:none;width:54px;height:54px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900}
+.box{position:absolute;left:120px;right:300px;border-radius:26px}
+.cap{position:absolute;left:120px;right:300px;top:1050px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;font-size:52px;line-height:1.15;text-shadow:0 4px 22px rgba(0,0,0,.55)}
+.err{position:absolute;left:120px;right:300px;display:flex;align-items:center;gap:24px;font-weight:700;font-size:38px;line-height:1.12}
+.num{flex:none;width:72px;height:72px;border-radius:50%;border:4px solid var(--pink);color:var(--pink);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900}
+.ok{flex:none;width:72px;height:72px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900}
+.btn{position:absolute;left:120px;display:inline-flex;align-items:center;padding:30px 64px;border-radius:100px;background:#fff;color:var(--navy);font-weight:900;font-size:58px}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="33.2" data-width="1080" data-height="1920">
+<div id="bg"></div><div id="glow"></div>
+<img id="logo" class="clip" data-start="0" data-duration="33.2" data-track-index="1" src="assets/logo-white.png" alt="iWeb Global"/>
+<div id="sa" class="scene clip" data-start="0" data-duration="3.6" data-track-index="2"><div class="abs h" style="top:450px;font-size:82px"><span id="a1" class="acc" style="display:block;font-size:170px;line-height:.9">4</span><span id="a2" style="display:block;margin-top:10px">errores que te pueden hacer perder plata al importar</span></div></div>
+<div id="sb" class="scene clip" data-start="3.4" data-duration="14.4" data-track-index="2"><div id="pill" class="pill" style="top:410px">Errores al importar</div>
+<div id="e0" class="err" style="top:470px"><span class="num">1</span><span>Mirar solo el precio de origen</span></div>
+<div id="e1" class="err" style="top:595px"><span class="num">2</span><span>No sumar impuestos, flete y despacho antes de comprar</span></div>
+<div id="e2" class="err" style="top:720px"><span class="num">3</span><span>No revisar la mercadería antes del envío</span></div>
+<div id="e3" class="err" style="top:845px"><span class="num">4</span><span>No confirmar los requisitos del producto antes de comprarlo</span></div>
+</div>
+<div id="sd" class="scene clip" data-start="17.7" data-duration="7.3" data-track-index="2"><div id="dpill" class="pill" style="top:410px">iWeb Global</div>
+<div id="dh" class="abs h" style="top:500px;font-size:84px">Lo resolvemos<br><span class="acc">antes de comprar</span></div>
+<div id="d1" class="err" style="top:790px;right:300px"><span class="ok">✓</span><span>Cotización con el costo estimado puesto en destino</span></div>
+<div id="d2" class="err" style="top:900px;right:300px"><span class="ok">✓</span><span>Revisamos la mercadería antes del envío</span></div></div>
+<div id="se" class="scene clip" data-start="24.9" data-duration="8.3" data-track-index="2"><div id="eh" class="abs h" style="top:440px;font-size:120px">Pedí tu<br><span class="acc">cotización</span></div>
+<div id="ebtn" class="btn" style="top:760px">En nuestra web</div>
+<div id="enote" class="abs acc" style="top:910px;font-size:44px;font-weight:700">Link en bio</div></div>
+<div id="caps">
+<div id="cap0" class="cap clip" data-start="3.5" data-duration="2.75" data-track-index="5">Uno, mirar solo<br>el precio de origen.</div>
+<div id="cap1" class="cap clip" data-start="6.3" data-duration="1.85" data-track-index="5">Dos, no sumar impuestos,</div>
+<div id="cap2" class="cap clip" data-start="8.2" data-duration="2.35" data-track-index="5">flete y despacho<br>antes de comprar.</div>
+<div id="cap3" class="cap clip" data-start="10.6" data-duration="2.35" data-track-index="5">Tres, no revisar<br>la mercadería</div>
+<div id="cap4" class="cap clip" data-start="13.0" data-duration="0.75" data-track-index="5">antes del envío.</div>
+<div id="cap5" class="cap clip" data-start="13.8" data-duration="2.15" data-track-index="5">Cuatro, no confirmar<br>los requisitos</div>
+<div id="cap6" class="cap clip" data-start="15.95" data-duration="1.8" data-track-index="5">del producto<br>antes de comprarlo.</div>
+<div id="cap7" class="cap clip" data-start="17.8" data-duration="1.2" data-track-index="5">En iWeb Global<br>te armamos</div>
+<div id="cap8" class="cap clip" data-start="19.0" data-duration="1.8" data-track-index="5">una cotización<br>con el costo estimado</div>
+<div id="cap9" class="cap clip" data-start="20.8" data-duration="1.15" data-track-index="5">puesto en destino</div>
+<div id="cap10" class="cap clip" data-start="22.0" data-duration="1.95" data-track-index="5">y revisamos<br>la mercadería</div>
+<div id="cap11" class="cap clip" data-start="24.0" data-duration="0.95" data-track-index="5">antes del envío.</div>
+<div id="cap12" class="cap clip" data-start="25.0" data-duration="2.25" data-track-index="5">Pedí tu cotización<br>en nuestra web.</div>
+<div id="cap13" class="cap clip" data-start="27.3" data-duration="1.8" data-track-index="5">La normativa<br>de importación</div>
+<div id="cap14" class="cap clip" data-start="29.1" data-duration="0.75" data-track-index="5">cambia con frecuencia.</div>
+<div id="cap15" class="cap clip" data-start="29.9" data-duration="1.25" data-track-index="5">Confirmamos<br>los requisitos</div>
+<div id="cap16" class="cap clip" data-start="31.2" data-duration="1.8" data-track-index="5">vigentes antes<br>de cada operación.</div>
+</div><audio id="voz" data-start="0" data-duration="32.99" data-track-index="9" data-volume="1" src="assets/voz.mp3"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#glow",{x:-90,y:0},{x:110,y:150,duration:33.2,ease:"none"},0);
+tl.fromTo("#a1",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},0.1);
+tl.fromTo("#a2",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},0.9);
+tl.to("#sa",{opacity:0,duration:.2,ease:"power2.in"},3.4);
+tl.fromTo("#pill",{opacity:0,x:-40,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},3.5);
+tl.fromTo("#e0",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},3.9);
+tl.fromTo("#e1",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},6.4);
+tl.to("#e0",{opacity:.38,duration:.3},6.4);
+tl.fromTo("#e2",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},10.7);
+tl.to("#e1",{opacity:.38,duration:.3},10.7);
+tl.fromTo("#e3",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},13.9);
+tl.to("#e2",{opacity:.38,duration:.3},13.9);
+tl.to("#sb",{opacity:0,duration:.2,ease:"power2.in"},17.5);
+tl.fromTo("#dpill",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},17.9);
+tl.fromTo("#dh",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},18.1);
+tl.fromTo("#d1",{opacity:0,x:-50,y:0},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},19.0);
+tl.fromTo("#d2",{opacity:0,x:-50,y:0},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},22.0);
+tl.fromTo("#eh",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},25.0);
+tl.fromTo("#ebtn",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.4,ease:"back.out(1.6)"},25.8);
+tl.fromTo("#enote",{opacity:0,x:0,y:20},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},26.4);
+tl.fromTo("#cap0",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},3.5);
+tl.fromTo("#cap1",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},6.3);
+tl.fromTo("#cap2",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},8.2);
+tl.fromTo("#cap3",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},10.6);
+tl.fromTo("#cap4",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},13.0);
+tl.fromTo("#cap5",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},13.8);
+tl.fromTo("#cap6",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},15.95);
+tl.fromTo("#cap7",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},17.8);
+tl.fromTo("#cap8",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},19.0);
+tl.fromTo("#cap9",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},20.8);
+tl.fromTo("#cap10",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},22.0);
+tl.fromTo("#cap11",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},24.0);
+tl.fromTo("#cap12",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},25.0);
+tl.fromTo("#cap13",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},27.3);
+tl.fromTo("#cap14",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},29.1);
+tl.fromTo("#cap15",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},29.9);
+tl.fromTo("#cap16",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},31.2);
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script></body></html>
