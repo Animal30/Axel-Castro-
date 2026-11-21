@@ -135,8 +135,8 @@ def render(only=None):
         enc.stdin.write(out.tobytes())
     enc.stdin.close(); enc.wait(); dec.stdout.close(); dec.kill(); dec.wait()
 
-F_H1 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 90)
-F_H2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 134)
+F_H1 = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 128)
+F_H2 = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 196)
 COVER = ('0043', 4.8)
 def cover():
     c, t = COVER
@@ -144,13 +144,13 @@ def cover():
                                    '-vf', f'scale={W}:{H}:flags=lanczos,{GRADE}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA')
     d = ImageDraw.Draw(img)   # no dark band (Nahuel 2026-11-18)
-    for txt, font, col, y in [('¿BUSCÁS TU', F_H1, WHITE, 315), ('PRIMER AUTO?', F_H2, GOLD, 420)]:
+    for txt, font, col, y in [('¿BUSCÁS TU', F_H1, WHITE, 300), ('PRIMER AUTO?', F_H2, GOLD, 395)]:
         while d.textlength(txt, font=font) > 940: font = ImageFont.truetype(font.path, font.size - 4)
         tw = d.textlength(txt, font=font)
         d.text((W / 2 - tw / 2, y), txt, font=font, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
     sub = 'Ford Ka SEL · 2018 · 90.000 km'; tw = d.textlength(sub, font=kit.F_HOOK2)
-    d.rounded_rectangle((W / 2 - tw / 2 - 30, 590, W / 2 + tw / 2 + 30, 670), 20, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
-    d.text((W / 2 - tw / 2, 601), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
+    d.rounded_rectangle((W / 2 - tw / 2 - 34, 640, W / 2 + tw / 2 + 34, 730), 22, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
+    d.text((W / 2 - tw / 2, 646), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
     img.convert('RGB').save('cover.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
                     '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover.mp4'], check=True)

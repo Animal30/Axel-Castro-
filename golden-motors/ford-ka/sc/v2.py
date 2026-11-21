@@ -43,10 +43,11 @@ def pieces():
     open('p2/list.txt', 'w').write(''.join(f"file '{os.path.abspath(f'p2/{i:02d}.mp4')}'\n" for i in range(len(SHOTS))))
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'p2/list.txt', '-c', 'copy', 'cut2.mp4'], check=True)
 
-F_T1 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 150)
-F_T2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-SemiBold.otf', 40)
-F_L1 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 96)
-F_L2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-SemiBold.otf', 34)
+BF = lambda w, z: ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-' + w + '.ttf', z)
+F_T1 = BF('ExtraBold', 250)
+F_T2 = BF('Bold', 70)
+F_L1 = BF('ExtraBold', 190)
+F_L2 = BF('SemiBold', 44)
 
 def ease(x): x = min(max(x, 0), 1); return 1 - (1 - x) ** 3
 
@@ -65,12 +66,10 @@ def text_layer(t, st, total):
         p = ease((t - 0.25) / 0.7); q = 1 - ease((t - (st[1] - 0.25)) / 0.35)
         a = int(255 * p * q)
         if a > 0:
-            spaced(d, 330, 'FORD', F_T1, WHITE, 18 - 8 * p, a, 4)
-            spaced(d, 495, 'KA', F_T1, GOLD, 18 - 8 * p, a, 4)
-            y = 680; L = int(120 * p)
-            d.line((W / 2 - 200 - L, y + 22, W / 2 - 200, y + 22), fill=GOLD + (a,), width=3)
-            d.line((W / 2 + 200, y + 22, W / 2 + 200 + L, y + 22), fill=GOLD + (a,), width=3)
-            spaced(d, y, 'SEL 2018', F_T2, WHITE, 10, a, 2)
+            f = F_T1
+            while sum(d.textlength(ch, font=f) for ch in 'FORD KA') + 4 * 6 > 900: f = BF('ExtraBold', f.size - 4)
+            spaced(d, 250, 'FORD KA', f, WHITE, 4 + 8 * (1 - p), a, 3)
+            spaced(d, 560, 'SEL · 2018', F_T2, GOLD, 10, a, 2)
     # spec labels
     for i, s in enumerate(SHOTS):
         if not s[4]: continue
@@ -80,23 +79,21 @@ def text_layer(t, st, total):
         a = int(255 * p * q)
         if a <= 0: continue
         title, sub = s[4]
-        y = 1330 + int((1 - p) * 30)
-        if sub is None:   # one typography: big white lines, each fitted to the frame
-            for ln in title:
-                f = F_L1; sz = 96
-                while sum(d.textlength(ch, font=f) for ch in ln) + 4 * (len(ln) - 1) > 960:
-                    sz -= 4; f = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', sz)
-                spaced(d, y, ln, f, WHITE, 4, a, 5); y += int(sz * 1.08)
-            continue
-        spaced(d, y, sub.upper(), F_L2, GOLD, 9, a, 2)
-        spaced(d, y + 48, title.upper(), F_L1, WHITE, 4, a, 5)
+        y = 1250 + int((1 - p) * 30)
+        lines = title if sub is None else [title.upper()]
+        for k, ln in enumerate(lines):
+            sz = 190 if sub is not None else 165
+            f = BF('ExtraBold', sz)
+            while sum(d.textlength(ch, font=f) for ch in ln) + 2 * (len(ln) - 1) > 940: sz -= 4; f = BF('ExtraBold', sz)
+            spaced(d, y, ln, f, WHITE if k == 0 else GOLD, 2, a, 3); y += int(sz * 1.12)
+        if sub is not None: spaced(d, y + 6, sub.upper(), F_L2, GOLD, 14, a, 2)
     # end card
     i = len(SHOTS) - 1
     if t >= st[i]:
         p = ease((t - st[i] - 0.2) / 0.6); a = int(255 * p)
-        spaced(d, 330, 'GOLDEN MOTORS', F_L1 if False else ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 84), WHITE, 8, a, 5)
-        spaced(d, 440, 'OCTAVIO PINTO 3181 · CÓRDOBA', F_L2, GOLD, 6, a, 2)
-        spaced(d, 495, 'CONSULTANOS POR MENSAJE', F_L2, WHITE, 6, int(a * 0.9), 2)
+        spaced(d, 270, 'GOLDEN MOTORS', BF('ExtraBold', 150), WHITE, 6, a, 4)
+        spaced(d, 450, 'OCTAVIO PINTO 3181 · CÓRDOBA', F_L2, GOLD, 8, a, 2)
+        spaced(d, 510, 'CONSULTANOS POR MENSAJE', F_L2, WHITE, 8, int(a * 0.9), 2)
     sh = lay.filter(ImageFilter.GaussianBlur(12)); sa = np.array(sh)[..., 3].astype(np.float32) * 0.5
     return lay, sa
 
@@ -143,21 +140,21 @@ def cover():
     img = Image.frombytes('RGB', (W, H), tmp).convert('RGBA')
     # no dark band: only a soft shadow behind the letters
     sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
-    bigs = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 150)
-    for txt, y in [('FORD', 340), ('KA', 500)]:
+    bigs = BF('ExtraBold', 270)
+    for txt, y in [('FORD', 270), ('KA', 450)]:
         tw = sum(sd.textlength(ch, font=bigs) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
         for ch in txt:
             sd.text((x + 4, y + 10), ch, font=bigs, fill=(0, 0, 0, 170), stroke_width=10, stroke_fill=(0, 0, 0, 170)); x += sd.textlength(ch, font=bigs) + 12
     img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14))); d = ImageDraw.Draw(img)
-    big = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 150)
-    for txt, col, y in [('FORD', WHITE, 340), ('KA', GOLD, 500)]:
+    big = bigs
+    for txt, col, y in [('FORD', WHITE, 270), ('KA', GOLD, 450)]:
         tw = sum(d.textlength(ch, font=big) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
         for ch in txt:
             d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 12
-    f2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 46)
+    f2 = BF('SemiBold', 62)
     sub = 'SEL · 2018 · 90.000 km'; tw = d.textlength(sub, font=f2)
-    d.rounded_rectangle((W / 2 - tw / 2 - 32, 715, W / 2 + tw / 2 + 32, 797), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
-    d.text((W / 2 - tw / 2, 727), sub, font=f2, fill=WHITE + (255,))
+    d.rounded_rectangle((W / 2 - tw / 2 - 34, 760, W / 2 + tw / 2 + 34, 850), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
+    d.text((W / 2 - tw / 2, 766), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover2.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
                     '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover2.mp4'], check=True)

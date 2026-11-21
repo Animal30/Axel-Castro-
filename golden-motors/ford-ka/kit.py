@@ -82,13 +82,13 @@ def chunk(words, maxw=3):
     return res
 
 # ---------- 3. overlay drawing ----------
-F_CAP = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-ExtraBold.otf', 74)
-F_CARD = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 58)
-F_CARD_S = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Medium.otf', 36)
-F_TAG = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 40)
-F_TAG_S = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Medium.otf', 26)
-F_HOOK = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Black.otf', 132)
-F_HOOK2 = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Bold.otf', 46)
+F_CAP = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 104)
+F_CARD = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-Bold.ttf', 76)
+F_CARD_S = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-Medium.ttf', 44)
+F_TAG = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-Bold.ttf', 52)
+F_TAG_S = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-Medium.ttf', 34)
+F_HOOK = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 184)
+F_HOOK2 = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-SemiBold.ttf', 60)
 CAP_Y = 1290
 
 def ease(x): x = min(max(x, 0), 1); return 1 - (1 - x) ** 3
