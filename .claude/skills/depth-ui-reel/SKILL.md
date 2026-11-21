@@ -27,12 +27,12 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set (Instagram) |
-| What they teach, and to whom | not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez (Instagram) |
+| What they teach, and to whom | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC |
 | Fonts | main: Inter (every figure and label) · emphasis: Playfair Display Italic (the few key words, never numbers) · captions: the main font |
 | Transcriber | elevenlabs |
-| Working style | build-first |
+| Working style | build first and report |
 | Folders | working files `~/reel-work` · HyperFrames projects `~/videos` · finished reels: /mnt/project-files/<cliente>/ (carpeta compartida del proyecto, una por cliente) |
 | Real material (proof) | none yet · footage drive: none |
 | Real assets from the web | yes: real over drawn, every source listed in the report |
@@ -94,7 +94,7 @@ The numbers below are for a tight 9:16 crop where the head covers roughly the he
 
 ## Working with the creator
 
-- **Working style: build-first.** `consult` = ask about design choices (which interface per sentence, the opening
+- **Working style: build first and report.** `consult` = ask about design choices (which interface per sentence, the opening
   graphic, wording) with 2-4 concrete options before building. `build-first` = build the whole reel on your own
   judgement and report everything you chose, everything invented and every placeholder.
 - **Review first.** Never render the full-quality final first. Render the 720p preview, give the creator the file and the

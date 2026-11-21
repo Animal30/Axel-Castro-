@@ -27,8 +27,8 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set (not set) |
-| What they teach, and to whom | not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez (Instagram) |
+| What they teach, and to whom | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Colours | accent #FF7A1A (orange) · background #050505 · text #F2F0EC |
 | Fonts | main: Inter (title, tier letters, item names on the cards) · captions: Inter |
 | Topic title | style italic, case uppercase, in the accent colour |

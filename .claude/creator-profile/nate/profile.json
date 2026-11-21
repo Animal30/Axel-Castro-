@@ -60,6 +60,15 @@
   },
   "visual-essay-reel": {
    "configured": "2026-10-23"
+  },
+  "business-short-form-reels": {
+   "configured": "2026-10-23"
   }
- }
+ },
+ "handle": "@_natevelazquez",
+ "--set": "",
+ "platform": "Instagram",
+ "niche": "Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa)",
+ "camera_setup": "iPhone, vertical 9:16, talking head, HDR (convert to SDR bt709 23.976)",
+ "working_style": "build first and report"
 }

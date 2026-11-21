@@ -27,8 +27,8 @@ Filled in by setup. To change a line, change the answer (`setup/SETUP.md`), neve
 
 | | |
 |---|---|
-| Creator | Nahuel · Nahuel · not set |
-| What they teach, and to whom | not set |
+| Creator | Nahuel · Nahuel · @_natevelazquez |
+| What they teach, and to whom | Helping busy adults lose weight without restrictive diets (nutrition coach, Tampa) |
 | Caption font | Inter (white, a regular or medium weight reads best at this size) |
 | Caption size and position | 30 px · left edge x 92 · top y 1196 (on a 1080 x 1920 frame; `plan.json` can override per reel) |
 | Kinds of image | a mix of metaphor and surreal art, memes people recognise, known experiments or diagrams, and quote screenshots or the person when one is named |

@@ -101,7 +101,7 @@ K.chat("s14-chat", 56.22, 61.1424, False, "3C Hook Rewriter", "Rewrite my hook: 
     "<b>Change</b> &nbsp;<s>no gain or loss for the viewer</s>", "<b>Clarity</b> &nbsp;<s>no subject named</s>", "<b>Curiosity</b> &nbsp;<s>no open loop</s>",
     "<em>&rarr; &ldquo;Stuck on 300 views? Your hook is missing this&rdquo;</em>"], 56.7, [58.2, 58.75, 59.3, 60.1])
 K.ac(60.1, "shine")
-K.notifs("s15-cta", 61.1424, DUR, True, [("Instagram", "<b>jess.creates</b> commented: HOOKS", False, None), ("Instagram", "<b>mark.builds</b> commented: HOOKS", False, 62.2), ("@@HANDLE@@".lstrip("@"), "Your 3C Hook skill is here", True, 63.05)])
+K.notifs("s15-cta", 61.1424, DUR, True, [("Instagram", "<b>jess.creates</b> commented: HOOKS", False, None), ("Instagram", "<b>mark.builds</b> commented: HOOKS", False, 62.2), ("@_natevelazquez".lstrip("@"), "Your 3C Hook skill is here", True, 63.05)])
 
 
 # ---------------------------------------------------------------- the AGENDA: a squared box at the top while each C is being covered
