@@ -12,19 +12,18 @@ GRADE = 'eq=contrast=1.07:saturation=1.10:gamma=1.06:brightness=0.0,colorbalance
 # clip, src start, beats, speed, label (title, sub) or None
 SHOTS = [
     ('0043', 0.0, 4.34, 0.65, None),
-    ('0037', 1.15, 4, 0.6, None),
-    ('0042', 0.2, 4, 0.6, None),
-    ('0038', 0.5, 4, 0.6, (['4 CUBIERTAS', 'NUEVAS'], None)),
-    ('0039', 0.3, 4, 0.6, (['LLANTAS', 'DE ALEACIÓN'], None)),
-    ('0040', 0.8, 4, 0.6, None),
-    ('0050', 0.3, 4, 0.6, ('90.000 km', 'Kilometraje')),
-    ('0053', 0.3, 4, 0.6, ('SEL', 'Versión 2018')),
-    ('0046', 1.0, 4, 0.6, (['COMANDOS', 'AL VOLANTE'], None)),
-    ('0047', 0.5, 4, 0.6, None),
-    ('0045', 0.3, 4, 0.6, (['ESPEJOS', 'ELÉCTRICOS'], None)),
-    ('0057', 4.0, 4.917, 0.5, None),
+    ('0037', 1.15, 2, 0.7, None),
+    ('0042', 0.2, 2, 0.7, None),
+    ('0038', 0.5, 2, 0.7, None),
+    ('0040', 0.8, 2, 0.7, None),
+    ('0050', 0.3, 2, 0.7, ('90.000 km', 'Kilometraje')),
+    ('0053', 0.3, 2, 0.7, ('SEL', 'Versión 2018')),
+    ('0046', 1.0, 2, 0.7, (['COMANDOS', 'AL VOLANTE'], None)),
+    ('0047', 0.5, 2, 0.7, None),
+    ('0045', 0.3, 2, 0.7, (['ESPEJOS', 'ELÉCTRICOS'], None)),
+    ('0043', 3.2, 3.686, 0.65, None),
 ]
-FLASH_AT = {2, 4, 6, 8, 10}   # shot indices that start with a soft flash
+FLASH_AT = {2, 4, 6, 8}   # shot indices that start with a soft flash
 
 def starts():
     t, out = 0.0, []
