@@ -3,7 +3,7 @@
 Voz: Fraser (Higgsfield). B-roll: fotos propias de iwebglobal.com.ar (puerto, depósito, escritorio, control de calidad, entrega, productos).
 Estilos de edición (todos distintos): 1 panel explainer de vidrio, 2 pared de evidencias (ensayo visual) con subtítulos apilados, 3 pantalla dividida con diagrama, 4 grilla 2x2 de imágenes, 5 B-roll a pantalla completa con texto apilado.
 
-## Video 1: costo real puesto en destino (`iweb-v1-costo-real.mp4`, 26 s)
+## Video 1: costo real puesto en destino (en `PUBLICAR/02-...`)
 Estilo: panel explainer de vidrio. Cierre: mock del formulario de la web ("Producto o link de referencia").
 
 El precio de China no es lo que te cuesta. Al precio en origen hay que sumarle comisión, flete, seguro si corresponde, impuestos y tasas, despacho y entrega. Recién ahí sabés cuánto te cuesta puesto en Argentina.
@@ -14,7 +14,7 @@ La normativa de importación cambia con frecuencia; confirmamos los requisitos v
 
 #importacionesargentina #importardechina #emprendedoresargentina
 
-## Video 2: cuatro errores al importar (`iweb-v2-errores.mp4`, 30 s)
+## Video 2: cuatro errores al importar (en `PUBLICAR/04-...`)
 Estilo: pared de evidencias con subtítulos apilados. Cierre: pregunta en los comentarios.
 
 Cuatro errores que te pueden hacer perder plata al importar: mirar solo el precio de origen, no sumar impuestos, flete y despacho, no revisar la mercadería antes del envío y no confirmar los requisitos del producto.
@@ -23,7 +23,7 @@ Cuatro errores que te pueden hacer perder plata al importar: mirar solo el preci
 
 #importaciones #importardechina #negociosargentina
 
-## Video 3: impuestos explicados fácil (`iweb-v3-impuestos.mp4`, 27 s)
+## Video 3: impuestos explicados fácil (en `PUBLICAR/06-...`)
 Estilo: pantalla dividida con diagrama. Cierre: "Guardalo".
 
 Impuestos de importación, explicados fácil. Al entrar una mercadería a Argentina se pagan derechos de importación, tasa de estadística, IVA y percepciones. Cuánto es cada uno depende del producto y de la normativa vigente, por eso cada producto se cotiza por separado.
