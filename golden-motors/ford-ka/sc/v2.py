@@ -6,12 +6,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); RAW = os.path.join(HERE, 'raw'); AUD = os.path.join(HERE, 'aud')
 OUTRO = '/mnt/project-files/golden-motors/outro-logo/golden-motors-outro-girando-con-sonido.mp4'
 W, H, FPS = 1080, 1920, 30
-BPM = 104.8; BEAT = 60 / BPM  # tempo of the '10 car shots' reference reel audio
+BEAT = 0.5944  # beat of 'Dreamin (Slowed)' (first beat at 0.07 s); body starts 0.5 s into the audio, so the first shot is shorter
 GOLD = (242, 184, 36); WHITE = (255, 255, 255)
 GRADE = 'eq=contrast=1.07:saturation=1.10:gamma=1.06:brightness=0.0,colorbalance=rs=0.02:bs=-0.02:rh=0.02:bh=-0.03,vignette=PI/8'
 # clip, src start, beats, speed, label (title, sub) or None
 SHOTS = [
-    ('0043', 0.0, 6, 0.65, None),
+    ('0043', 0.0, 4.277, 0.65, None),
     ('0037', 1.15, 4, 0.6, None),
     ('0042', 0.2, 4, 0.6, None),
     ('0038', 0.5, 4, 0.6, (['4 CUBIERTAS', 'NUEVAS'], None)),
@@ -22,7 +22,7 @@ SHOTS = [
     ('0046', 1.0, 4, 0.6, (['COMANDOS', 'AL VOLANTE'], None)),
     ('0047', 0.5, 4, 0.6, None),
     ('0045', 0.3, 4, 0.6, (['ESPEJOS', 'ELÉCTRICOS'], None)),
-    ('0057', 4.0, 6, 0.5, None),
+    ('0057', 4.0, 5.35, 0.5, None),
 ]
 FLASH_AT = {2, 4, 6, 8, 10}   # shot indices that start with a soft flash
 
