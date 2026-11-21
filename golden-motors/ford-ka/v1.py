@@ -29,7 +29,7 @@ UNITS = [
     talk('0054', 27.82, 30.40, cut=[('0057', 3.0, 2.58, 1.0, S)]),
     talk('0056', 0.45, 5.28, cut=[('0058', 0.3, 2.40, 1.0, S), ('0052', 0.0, 2.43, 1.0, S)]),
     talk('0056', 5.52, 6.65, cut=[('0051', 0.0, 1.13, 1.0, S)]),
-    talk('0056', 6.85, 12.70, cut=[('0036', 1.6, 2.60, 1.0, 1.0), ('0042', 0.0, 3.25, 1.0, 0.58)]),
+    talk('0056', 6.85, 12.70, cut=[('0043', 3.4, 2.60, 1.0, S), ('0042', 0.0, 3.25, 1.0, 0.58)]),
 ]
 
 def zoom_vf(z):
@@ -87,6 +87,7 @@ def caption_words():
             if w['type'] != 'word' or not (w['end'] > a + 0.05 and w['start'] < a + dur - 0.02): continue
             txt = FIX.get(w['text'], w['text'])
             if words and words[-1][2] == 'cuentavueltas' and txt.strip(',.') in ('de', 'revoluciones'): words[-1][1] = t0 + w['end'] - a; continue
+            if words and words[-1][2].lower().strip(',.') == txt.lower().strip(',.') and t0 + w['start'] - a - words[-1][1] < 0.6: words[-1][1] = t0 + w['end'] - a; continue  # stutter (lo lo)
             words.append([t0 + max(w['start'], a) - a, t0 + min(w['end'], a + dur) - a, txt])
     return words
 
