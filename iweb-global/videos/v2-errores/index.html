@@ -1,105 +1,156 @@
 <!doctype html>
 <html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/>
-<title>iWeb Global - Errores al importar</title>
+<title>iWeb Global - Errores al importar (visual essay)</title>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <style>
-:root{--navy:#0A1B33;--ink:#fff;--accent:#7db2f0;--blue:#1D5BA4;--pink:#EE2D6C;--font:Inter,sans-serif}
+:root{--accent:#7db2f0;--blue:#1D5BA4;--pink:#EE2D6C;--navy:#0A1B33}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;height:1920px;overflow:hidden;background:#071326;font-family:var(--font);color:var(--ink)}
-#bg{position:absolute;left:0;top:0;width:1080px;height:1920px;background:radial-gradient(ellipse at 80% 8%,#17407a 0%,#0A1B33 55%,#071326 100%)}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#05101f;font-family:Inter,sans-serif;color:#fff}
 #glow{position:absolute;left:300px;top:700px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(125,178,240,.22),rgba(125,178,240,0) 70%)}
-#logo{position:absolute;left:90px;top:190px;width:158px;height:84px}
+#logo{position:absolute;left:120px;top:190px;width:158px;height:84px;z-index:20}
 .scene{position:absolute;left:0;top:0;width:1080px;height:1920px}
 .abs{position:absolute;left:120px;right:192px}
 .h{font-weight:900;line-height:1.04;letter-spacing:-.02em}
 .acc{color:var(--accent)}
 .pill{position:absolute;left:120px;display:inline-flex;align-items:center;padding:12px 30px;border:3px solid rgba(125,178,240,.6);border-radius:100px;font-weight:700;font-size:34px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.row{position:absolute;left:120px;right:192px;display:flex;align-items:center;gap:24px;font-weight:700;font-size:44px}
-.plus{flex:none;width:54px;height:54px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900}
-.box{position:absolute;left:120px;right:300px;border-radius:26px}
-.cap{position:absolute;left:120px;right:300px;top:1050px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;font-size:52px;line-height:1.15;text-shadow:0 4px 22px rgba(0,0,0,.55)}
-.err{position:absolute;left:120px;right:300px;display:flex;align-items:center;gap:24px;font-weight:700;font-size:38px;line-height:1.12}
-.num{flex:none;width:72px;height:72px;border-radius:50%;border:4px solid var(--pink);color:var(--pink);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900}
-.ok{flex:none;width:72px;height:72px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900}
-.btn{position:absolute;left:120px;display:inline-flex;align-items:center;padding:30px 64px;border-radius:100px;background:#fff;color:var(--navy);font-weight:900;font-size:58px}
+.cap{position:absolute;left:90px;right:190px;top:1170px;height:160px;display:flex;flex-wrap:wrap;align-content:center;column-gap:.3em;align-items:center;justify-content:center;text-align:center;font-weight:900;font-size:56px;line-height:1.15;text-shadow:0 4px 22px rgba(0,0,0,.6);z-index:30}
+.capst{position:absolute;left:90px;right:190px;top:1110px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:30;text-shadow:0 4px 22px rgba(0,0,0,.7)}
+.capst .sm{font-weight:700;font-size:40px;line-height:1.1}
+.capst .big{font-weight:900;color:var(--accent);letter-spacing:-.02em;line-height:1}
+.w{opacity:.45}
+.img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.dots{background-image:radial-gradient(rgba(255,255,255,.13) 2px,transparent 2.4px);background-size:38px 38px}
+
+.card{position:absolute;left:90px;top:330px;width:900px;height:690px;border-radius:34px;overflow:hidden;border:2px solid rgba(255,255,255,.18);box-shadow:0 0 70px rgba(29,91,164,.45)}
+.card .shade{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.88))}
+.chip{position:absolute;left:36px;top:34px;padding:12px 28px;border-radius:100px;background:var(--pink);font-weight:900;font-size:34px;letter-spacing:.06em}
+.cnt{position:absolute;right:36px;top:40px;font-weight:800;font-size:32px;color:#fff;opacity:.85}
+.ttl{position:absolute;left:40px;right:40px;bottom:36px;font-weight:900;font-size:62px;line-height:1.05;letter-spacing:-.01em}
+.ok{position:absolute;left:90px;width:900px;display:flex;align-items:center;gap:22px;font-weight:700;font-size:36px;line-height:1.15}
+.okc{flex:none;width:68px;height:68px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900}
+.nchip{position:absolute;top:700px;width:150px;height:150px;border-radius:50%;border:5px solid var(--pink);color:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:84px}
+.cmt{position:absolute;left:90px;top:910px;width:860px;height:100px;border-radius:100px;background:#fff;color:#0A1B33;display:flex;align-items:center;gap:20px;padding:0 24px;font-size:36px;font-weight:600}
+.av{flex:none;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#1D5BA4,#7db2f0)}
 </style></head><body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="33.2" data-width="1080" data-height="1920">
-<div id="bg"></div><div id="glow"></div>
-<img id="logo" class="clip" data-start="0" data-duration="33.2" data-track-index="1" src="assets/logo-white.png" alt="iWeb Global"/>
-<div id="sa" class="scene clip" data-start="0" data-duration="3.6" data-track-index="2"><div class="abs h" style="top:450px;font-size:82px"><span id="a1" class="acc" style="display:block;font-size:170px;line-height:.9">4</span><span id="a2" style="display:block;margin-top:10px">errores que te pueden hacer perder plata al importar</span></div></div>
-<div id="sb" class="scene clip" data-start="3.4" data-duration="14.4" data-track-index="2"><div id="pill" class="pill" style="top:410px">Errores al importar</div>
-<div id="e0" class="err" style="top:470px"><span class="num">1</span><span>Mirar solo el precio de origen</span></div>
-<div id="e1" class="err" style="top:595px"><span class="num">2</span><span>No sumar impuestos, flete y despacho antes de comprar</span></div>
-<div id="e2" class="err" style="top:720px"><span class="num">3</span><span>No revisar la mercadería antes del envío</span></div>
-<div id="e3" class="err" style="top:845px"><span class="num">4</span><span>No confirmar los requisitos del producto antes de comprarlo</span></div>
-</div>
-<div id="sd" class="scene clip" data-start="17.7" data-duration="7.3" data-track-index="2"><div id="dpill" class="pill" style="top:410px">iWeb Global</div>
-<div id="dh" class="abs h" style="top:500px;font-size:84px">Lo resolvemos<br><span class="acc">antes de comprar</span></div>
-<div id="d1" class="err" style="top:790px;right:300px"><span class="ok">✓</span><span>Cotización con el costo estimado puesto en destino</span></div>
-<div id="d2" class="err" style="top:900px;right:300px"><span class="ok">✓</span><span>Revisamos la mercadería antes del envío</span></div></div>
-<div id="se" class="scene clip" data-start="24.9" data-duration="8.3" data-track-index="2"><div id="eh" class="abs h" style="top:440px;font-size:120px">Pedí tu<br><span class="acc">cotización</span></div>
-<div id="ebtn" class="btn" style="top:760px">En nuestra web</div>
-<div id="enote" class="abs acc" style="top:910px;font-size:44px;font-weight:700">Link en bio</div></div>
+<div id="root" data-composition-id="main" data-start="0" data-duration="30.67" data-width="1080" data-height="1920">
+<div style="position:absolute;left:0;top:0;width:1080px;height:1920px;background:#000"></div><div style="position:absolute;left:0;top:760px;width:1080px;height:700px;background:radial-gradient(ellipse at 50% 100%,rgba(29,91,164,.55),rgba(0,0,0,0) 70%)"></div>
+<div id="glow"></div>
+<img id="logo" class="clip" data-start="0" data-duration="30.67" data-track-index="1" src="assets/logo-white.png" alt="iWeb Global"/>
+<div id="sa" class="scene clip" data-layout-allow-safe-zone data-start="0" data-duration="3.43" data-track-index="2" ><div id="c0" style="position:absolute;left:90px;top:330px;width:432px;height:330px;border-radius:26px;overflow:hidden;border:2px solid rgba(255,255,255,.15)"><img id="ci0" class="img" src="assets/mini-proyector.webp" alt=""/></div><div id="c1" style="position:absolute;left:558px;top:330px;width:432px;height:330px;border-radius:26px;overflow:hidden;border:2px solid rgba(255,255,255,.15)"><img id="ci1" class="img" src="assets/consulta.webp" alt=""/></div><div id="c2" style="position:absolute;left:90px;top:680px;width:432px;height:330px;border-radius:26px;overflow:hidden;border:2px solid rgba(255,255,255,.15)"><img id="ci2" class="img" src="assets/control-calidad.webp" alt=""/></div><div id="c3" style="position:absolute;left:558px;top:680px;width:432px;height:330px;border-radius:26px;overflow:hidden;border:2px solid rgba(255,255,255,.15)"><img id="ci3" class="img" src="assets/deposito.webp" alt=""/></div><div style="position:absolute;left:90px;top:330px;width:900px;height:680px;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.55))"></div><div class="abs h" style="left:90px;right:90px;top:360px"><span id="n4" class="acc" style="display:block;font-size:230px;line-height:.9">4</span><span id="n4t" style="display:block;font-size:84px;margin-top:8px">errores que te pueden hacer<br>perder plata al importar</span></div></div>
+<div id="e0" class="scene clip" data-layout-allow-safe-zone data-start="3.43" data-duration="2.78" data-track-index="3" ><div id="cd0" class="card"><img id="im0" class="img" src="assets/mini-proyector.webp" alt=""/><div class="shade"></div><div class="chip">ERROR 1</div><div class="cnt">1 / 4</div><div id="tt0" class="ttl">Mirar solo el precio de origen</div></div></div>
+<div id="e1" class="scene clip" data-layout-allow-safe-zone data-start="6.21" data-duration="4.27" data-track-index="3" ><div id="cd1" class="card"><img id="im1" class="img" src="assets/consulta.webp" alt=""/><div class="shade"></div><div class="chip">ERROR 2</div><div class="cnt">2 / 4</div><div id="tt1" class="ttl">No sumar impuestos, flete y despacho antes de comprar</div></div></div>
+<div id="e2" class="scene clip" data-layout-allow-safe-zone data-start="10.48" data-duration="3.37" data-track-index="3" ><div id="cd2" class="card"><img id="im2" class="img" src="assets/control-calidad.webp" alt=""/><div class="shade"></div><div class="chip">ERROR 3</div><div class="cnt">3 / 4</div><div id="tt2" class="ttl">No revisar la mercadería antes del envío</div></div></div>
+<div id="e3" class="scene clip" data-layout-allow-safe-zone data-start="13.85" data-duration="3.96" data-track-index="3" ><div id="cd3" class="card"><img id="im3" class="img" src="assets/deposito.webp" alt=""/><div class="shade"></div><div class="chip">ERROR 4</div><div class="cnt">4 / 4</div><div id="tt3" class="ttl">No confirmar los requisitos del producto antes de comprarlo</div></div></div>
+<div id="ss" class="scene clip" data-layout-allow-safe-zone data-start="17.81" data-duration="7.29" data-track-index="4" ><div id="sc" class="card" style="height:470px"><img id="sim" class="img" src="assets/entrega.webp" alt=""/><div class="shade"></div><div class="chip" style="background:var(--blue)">iWeb Global</div><div id="stt" class="ttl" style="font-size:66px">Lo resolvemos<br><span class="acc">antes de comprar</span></div></div>
+<div id="o1" class="ok" style="top:830px"><span class="okc">✓</span><span>Cotización con el costo estimado puesto en destino</span></div>
+<div id="o2" class="ok" style="top:945px"><span class="okc">✓</span><span>Revisamos la mercadería antes del envío</span></div></div>
+<div id="sx" class="scene clip" data-layout-allow-safe-zone data-start="25.1" data-duration="5.57" data-track-index="5" ><div id="x0" class="abs h" style="left:90px;right:90px;top:340px;font-size:92px">¿Cuál de los cuatro<br><span class="acc">te pasó?</span></div><div id="nc0" class="nchip" style="left:90px">1</div><div id="nc1" class="nchip" style="left:326px">2</div><div id="nc2" class="nchip" style="left:562px">3</div><div id="nc3" class="nchip" style="left:798px">4</div><div id="cm" class="cmt"><span class="av"></span><span id="cmt" style="display:inline-block;white-space:nowrap">Contanos en los comentarios…</span></div></div>
 <div id="caps">
-<div id="cap0" class="cap clip" data-start="3.5" data-duration="2.75" data-track-index="5">Uno, mirar solo<br>el precio de origen.</div>
-<div id="cap1" class="cap clip" data-start="6.3" data-duration="1.85" data-track-index="5">Dos, no sumar impuestos,</div>
-<div id="cap2" class="cap clip" data-start="8.2" data-duration="2.35" data-track-index="5">flete y despacho<br>antes de comprar.</div>
-<div id="cap3" class="cap clip" data-start="10.6" data-duration="2.35" data-track-index="5">Tres, no revisar<br>la mercadería</div>
-<div id="cap4" class="cap clip" data-start="13.0" data-duration="0.75" data-track-index="5">antes del envío.</div>
-<div id="cap5" class="cap clip" data-start="13.8" data-duration="2.15" data-track-index="5">Cuatro, no confirmar<br>los requisitos</div>
-<div id="cap6" class="cap clip" data-start="15.95" data-duration="1.8" data-track-index="5">del producto<br>antes de comprarlo.</div>
-<div id="cap7" class="cap clip" data-start="17.8" data-duration="1.2" data-track-index="5">En iWeb Global<br>te armamos</div>
-<div id="cap8" class="cap clip" data-start="19.0" data-duration="1.8" data-track-index="5">una cotización<br>con el costo estimado</div>
-<div id="cap9" class="cap clip" data-start="20.8" data-duration="1.15" data-track-index="5">puesto en destino</div>
-<div id="cap10" class="cap clip" data-start="22.0" data-duration="1.95" data-track-index="5">y revisamos<br>la mercadería</div>
-<div id="cap11" class="cap clip" data-start="24.0" data-duration="0.95" data-track-index="5">antes del envío.</div>
-<div id="cap12" class="cap clip" data-start="25.0" data-duration="2.25" data-track-index="5">Pedí tu cotización<br>en nuestra web.</div>
-<div id="cap13" class="cap clip" data-start="27.3" data-duration="1.8" data-track-index="5">La normativa<br>de importación</div>
-<div id="cap14" class="cap clip" data-start="29.1" data-duration="0.75" data-track-index="5">cambia con frecuencia.</div>
-<div id="cap15" class="cap clip" data-start="29.9" data-duration="1.25" data-track-index="5">Confirmamos<br>los requisitos</div>
-<div id="cap16" class="cap clip" data-start="31.2" data-duration="1.8" data-track-index="5">vigentes antes<br>de cada operación.</div>
-</div><audio id="voz" data-start="0" data-duration="32.99" data-track-index="9" data-volume="1" src="assets/voz.mp3"></audio>
+<div id="cap0" class="capst clip" data-layout-allow-safe-zone data-start="0.12" data-duration="1.26" data-track-index="5"><div class="sm">Cuatro</div><div id="e0" class="big" style="font-size:104px">ERRORES</div><div class="sm">que te pueden</div></div>
+<div id="cap1" class="capst clip" data-layout-allow-safe-zone data-start="1.41" data-duration="2.04" data-track-index="5"><div class="sm">hacer perder plata al</div><div id="e1" class="big" style="font-size:104px">IMPORTAR</div></div>
+<div id="cap2" class="capst clip" data-layout-allow-safe-zone data-start="3.48" data-duration="0.3" data-track-index="5"><div class="sm">Uno:</div></div>
+<div id="cap3" class="capst clip" data-layout-allow-safe-zone data-start="3.75" data-duration="1.58" data-track-index="5"><div class="sm">mirar solo el</div><div id="e3" class="big" style="font-size:104px">PRECIO</div><div class="sm">de</div></div>
+<div id="cap4" class="capst clip" data-layout-allow-safe-zone data-start="5.36" data-duration="0.87" data-track-index="5"><div id="e4" class="big" style="font-size:104px">ORIGEN</div></div>
+<div id="cap5" class="capst clip" data-layout-allow-safe-zone data-start="6.26" data-duration="0.3" data-track-index="5"><div class="sm">Dos:</div></div>
+<div id="cap6" class="capst clip" data-layout-allow-safe-zone data-start="6.52" data-duration="1.41" data-track-index="5"><div class="sm">no sumar</div><div id="e6" class="big" style="font-size:104px">IMPUESTOS</div></div>
+<div id="cap7" class="capst clip" data-layout-allow-safe-zone data-start="7.96" data-duration="1.65" data-track-index="5"><div class="sm">flete y</div><div id="e7" class="big" style="font-size:104px">DESPACHO</div><div class="sm">antes de</div></div>
+<div id="cap8" class="capst clip" data-layout-allow-safe-zone data-start="9.64" data-duration="0.86" data-track-index="5"><div id="e8" class="big" style="font-size:104px">COMPRAR</div></div>
+<div id="cap9" class="capst clip" data-layout-allow-safe-zone data-start="10.53" data-duration="0.35" data-track-index="5"><div class="sm">Tres:</div></div>
+<div id="cap10" class="capst clip" data-layout-allow-safe-zone data-start="10.91" data-duration="1.93" data-track-index="5"><div class="sm">no revisar la</div><div id="e10" class="big" style="font-size:93px">MERCADERÍA</div><div class="sm">antes</div></div>
+<div id="cap11" class="capst clip" data-layout-allow-safe-zone data-start="12.87" data-duration="1.0" data-track-index="5"><div class="sm">del envío.</div></div>
+<div id="cap12" class="capst clip" data-layout-allow-safe-zone data-start="13.9" data-duration="0.34" data-track-index="5"><div id="e12" class="big" style="font-size:104px">CUATRO</div></div>
+<div id="cap13" class="capst clip" data-layout-allow-safe-zone data-start="14.27" data-duration="1.71" data-track-index="5"><div class="sm">no confirmar los</div><div id="e13" class="big" style="font-size:93px">REQUISITOS</div><div class="sm">del</div></div>
+<div id="cap14" class="capst clip" data-layout-allow-safe-zone data-start="16.01" data-duration="2.0" data-track-index="5"><div class="sm">producto antes de</div><div id="e14" class="big" style="font-size:104px">COMPRARLO</div></div>
+<div id="cap15" class="capst clip" data-layout-allow-safe-zone data-start="18.04" data-duration="1.51" data-track-index="5"><div class="sm">En iWeb Global te</div><div id="e15" class="big" style="font-size:104px">ARMAMOS</div></div>
+<div id="cap16" class="capst clip" data-layout-allow-safe-zone data-start="19.58" data-duration="1.48" data-track-index="5"><div class="sm">una</div><div id="e16" class="big" style="font-size:93px">COTIZACIÓN</div><div class="sm">con el costo</div></div>
+<div id="cap17" class="capst clip" data-layout-allow-safe-zone data-start="21.09" data-duration="1.38" data-track-index="5"><div id="e17" class="big" style="font-size:104px">ESTIMADO</div><div class="sm">puesto en destino,</div></div>
+<div id="cap18" class="capst clip" data-layout-allow-safe-zone data-start="22.5" data-duration="1.99" data-track-index="5"><div class="sm">y revisamos la</div><div id="e18" class="big" style="font-size:93px">MERCADERÍA</div><div class="sm">antes</div></div>
+<div id="cap19" class="capst clip" data-layout-allow-safe-zone data-start="24.52" data-duration="0.6" data-track-index="5"><div class="sm">del envío.</div></div>
+<div id="cap20" class="capst clip" data-layout-allow-safe-zone data-start="25.15" data-duration="1.32" data-track-index="5"><div class="sm">¿Cuál de los</div><div id="e20" class="big" style="font-size:104px">CUATRO</div><div class="sm">te</div></div>
+<div id="cap21" class="capst clip" data-layout-allow-safe-zone data-start="26.5" data-duration="1.63" data-track-index="5"><div class="sm">pasó o te</div><div id="e21" class="big" style="font-size:104px">PREOCUPA</div><div class="sm">más?</div></div>
+<div id="cap22" class="capst clip" data-layout-allow-safe-zone data-start="28.16" data-duration="2.21" data-track-index="5"><div class="sm">Contanos en los</div><div id="e22" class="big" style="font-size:85px">COMENTARIOS</div></div>
+</div><audio id="voz" data-start="0" data-duration="30.07" data-track-index="9" data-volume="1" src="assets/voz.mp3"></audio>
 </div>
 <script>
 window.__timelines = window.__timelines || {};
 const tl = gsap.timeline({ paused: true });
-tl.fromTo("#glow",{x:-90,y:0},{x:110,y:150,duration:33.2,ease:"none"},0);
-tl.fromTo("#a1",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},0.1);
-tl.fromTo("#a2",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},0.9);
-tl.to("#sa",{opacity:0,duration:.2,ease:"power2.in"},3.4);
-tl.fromTo("#pill",{opacity:0,x:-40,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},3.5);
-tl.fromTo("#e0",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},3.9);
-tl.fromTo("#e1",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},6.4);
-tl.to("#e0",{opacity:.38,duration:.3},6.4);
-tl.fromTo("#e2",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},10.7);
-tl.to("#e1",{opacity:.38,duration:.3},10.7);
-tl.fromTo("#e3",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.35,ease:"power3.out"},13.9);
-tl.to("#e2",{opacity:.38,duration:.3},13.9);
-tl.to("#sb",{opacity:0,duration:.2,ease:"power2.in"},17.5);
-tl.fromTo("#dpill",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},17.9);
-tl.fromTo("#dh",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},18.1);
-tl.fromTo("#d1",{opacity:0,x:-50,y:0},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},19.0);
-tl.fromTo("#d2",{opacity:0,x:-50,y:0},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},22.0);
-tl.fromTo("#eh",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},25.0);
-tl.fromTo("#ebtn",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.4,ease:"back.out(1.6)"},25.8);
-tl.fromTo("#enote",{opacity:0,x:0,y:20},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},26.4);
-tl.fromTo("#cap0",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},3.5);
-tl.fromTo("#cap1",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},6.3);
-tl.fromTo("#cap2",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},8.2);
-tl.fromTo("#cap3",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},10.6);
-tl.fromTo("#cap4",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},13.0);
-tl.fromTo("#cap5",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},13.8);
-tl.fromTo("#cap6",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},15.95);
-tl.fromTo("#cap7",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},17.8);
-tl.fromTo("#cap8",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},19.0);
-tl.fromTo("#cap9",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},20.8);
-tl.fromTo("#cap10",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},22.0);
-tl.fromTo("#cap11",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},24.0);
-tl.fromTo("#cap12",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},25.0);
-tl.fromTo("#cap13",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},27.3);
-tl.fromTo("#cap14",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},29.1);
-tl.fromTo("#cap15",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},29.9);
-tl.fromTo("#cap16",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},31.2);
+tl.fromTo("#glow",{x:-90,y:0},{x:110,y:150,duration:30.67,ease:"none"},0);
+tl.fromTo("#c0",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},0.02);
+tl.fromTo("#ci0",{scale:1.0},{scale:1.15,duration:3.43,ease:"none"},0);
+tl.fromTo("#c1",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},0.14);
+tl.fromTo("#ci1",{scale:1.0},{scale:1.15,duration:3.43,ease:"none"},0);
+tl.fromTo("#c2",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},0.26);
+tl.fromTo("#ci2",{scale:1.0},{scale:1.15,duration:3.43,ease:"none"},0);
+tl.fromTo("#c3",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},0.38);
+tl.fromTo("#ci3",{scale:1.0},{scale:1.15,duration:3.43,ease:"none"},0);
+tl.fromTo("#n4",{opacity:0,scale:.88},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.6)"},0.05);
+tl.fromTo("#n4t",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},0.3);
+tl.fromTo("#im0",{scale:1.0},{scale:1.18,duration:2.98,ease:"none"},3.43);
+tl.fromTo("#tt0",{opacity:0,x:0,y:34},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},3.51);
+tl.fromTo("#cd0",{scale:1.03},{scale:1,duration:.25,ease:"power3.out"},3.43);
+tl.fromTo("#im1",{scale:1.0},{scale:1.18,duration:4.47,ease:"none"},6.21);
+tl.fromTo("#tt1",{opacity:0,x:0,y:34},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},6.29);
+tl.fromTo("#cd1",{scale:1.03},{scale:1,duration:.25,ease:"power3.out"},6.21);
+tl.fromTo("#im2",{scale:1.0},{scale:1.18,duration:3.57,ease:"none"},10.48);
+tl.fromTo("#tt2",{opacity:0,x:0,y:34},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},10.56);
+tl.fromTo("#cd2",{scale:1.03},{scale:1,duration:.25,ease:"power3.out"},10.48);
+tl.fromTo("#im3",{scale:1.0},{scale:1.18,duration:4.16,ease:"none"},13.85);
+tl.fromTo("#tt3",{opacity:0,x:0,y:34},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},13.93);
+tl.fromTo("#cd3",{scale:1.03},{scale:1,duration:.25,ease:"power3.out"},13.85);
+tl.fromTo("#sim",{scale:1.0},{scale:1.15,duration:7.49,ease:"none"},17.81);
+tl.fromTo("#sc",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.45,ease:"power3.out"},17.81);
+tl.fromTo("#stt",{opacity:0,x:0,y:30},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},17.96);
+tl.fromTo("#o1",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},19.59);
+tl.fromTo("#o2",{opacity:0,x:-60,y:0},{opacity:1,x:0,y:0,duration:0.4,ease:"power3.out"},22.54);
+tl.fromTo("#nc0",{opacity:0,scale:.88},{opacity:1,scale:1,duration:0.35,ease:"back.out(1.6)"},25.4);
+tl.fromTo("#nc1",{opacity:0,scale:.88},{opacity:1,scale:1,duration:0.35,ease:"back.out(1.6)"},25.52);
+tl.fromTo("#nc2",{opacity:0,scale:.88},{opacity:1,scale:1,duration:0.35,ease:"back.out(1.6)"},25.64);
+tl.fromTo("#nc3",{opacity:0,scale:.88},{opacity:1,scale:1,duration:0.35,ease:"back.out(1.6)"},25.76);
+tl.fromTo("#x0",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.5,ease:"power3.out"},25.1);
+tl.fromTo("#cm",{opacity:0,x:0,y:40},{opacity:1,x:0,y:0,duration:0.45,ease:"power3.out"},27.96);
+tl.fromTo("#cmt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:1.3,ease:"steps(26)"},28.16);
+tl.fromTo("#nc3",{scale:1},{scale:1.12,duration:.3,yoyo:true,repeat:1,ease:"power2.inOut"},26.98);
+tl.fromTo("#cap0",{opacity:0},{opacity:1,duration:.1},0.12);
+tl.fromTo("#e0",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},0.3);
+tl.fromTo("#cap1",{opacity:0},{opacity:1,duration:.1},1.41);
+tl.fromTo("#e1",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},2.43);
+tl.fromTo("#cap2",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},3.48);
+tl.fromTo("#cap3",{opacity:0},{opacity:1,duration:.1},3.75);
+tl.fromTo("#e3",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},4.6);
+tl.fromTo("#cap4",{opacity:0},{opacity:1,duration:.1},5.36);
+tl.fromTo("#e4",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},5.31);
+tl.fromTo("#cap5",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},6.26);
+tl.fromTo("#cap6",{opacity:0},{opacity:1,duration:.1},6.52);
+tl.fromTo("#e6",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},7.04);
+tl.fromTo("#cap7",{opacity:0},{opacity:1,duration:.1},7.96);
+tl.fromTo("#e7",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},8.39);
+tl.fromTo("#cap8",{opacity:0},{opacity:1,duration:.1},9.64);
+tl.fromTo("#e8",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},9.59);
+tl.fromTo("#cap9",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},10.53);
+tl.fromTo("#cap10",{opacity:0},{opacity:1,duration:.1},10.91);
+tl.fromTo("#e10",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},11.69);
+tl.fromTo("#cap11",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},12.87);
+tl.fromTo("#cap12",{opacity:0},{opacity:1,duration:.1},13.9);
+tl.fromTo("#e12",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},13.85);
+tl.fromTo("#cap13",{opacity:0},{opacity:1,duration:.1},14.27);
+tl.fromTo("#e13",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},15.08);
+tl.fromTo("#cap14",{opacity:0},{opacity:1,duration:.1},16.01);
+tl.fromTo("#e14",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},17.22);
+tl.fromTo("#cap15",{opacity:0},{opacity:1,duration:.1},18.04);
+tl.fromTo("#e15",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},19.11);
+tl.fromTo("#cap16",{opacity:0},{opacity:1,duration:.1},19.58);
+tl.fromTo("#e16",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},19.64);
+tl.fromTo("#cap17",{opacity:0},{opacity:1,duration:.1},21.09);
+tl.fromTo("#e17",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},21.04);
+tl.fromTo("#cap18",{opacity:0},{opacity:1,duration:.1},22.5);
+tl.fromTo("#e18",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},23.31);
+tl.fromTo("#cap19",{opacity:0,y:14},{opacity:1,y:0,duration:.14,ease:"power3.out"},24.52);
+tl.fromTo("#cap20",{opacity:0},{opacity:1,duration:.1},25.15);
+tl.fromTo("#e20",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},25.91);
+tl.fromTo("#cap21",{opacity:0},{opacity:1,duration:.1},26.5);
+tl.fromTo("#e21",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},26.93);
+tl.fromTo("#cap22",{opacity:0},{opacity:1,duration:.1},28.16);
+tl.fromTo("#e22",{scale:.8,opacity:0},{scale:1,opacity:1,duration:.22,ease:"back.out(1.7)"},29.08);
 window.__timelines["main"] = tl;
 tl.seek(0);
 </script></body></html>

@@ -1,518 +1,476 @@
 [
   {
     "text": "Cuatro",
-    "start": 0.09,
-    "end": 0.33,
+    "start": 0.12,
+    "end": 0.35,
     "id": "w0"
   },
   {
     "text": "errores",
-    "start": 0.33,
-    "end": 0.68,
+    "start": 0.35,
+    "end": 0.74,
     "id": "w1"
   },
   {
     "text": "que",
-    "start": 0.7,
-    "end": 0.87,
+    "start": 0.75,
+    "end": 0.92,
     "id": "w2"
   },
   {
     "text": "te",
-    "start": 0.87,
-    "end": 0.98,
+    "start": 0.97,
+    "end": 1.03,
     "id": "w3"
   },
   {
     "text": "pueden",
-    "start": 0.98,
-    "end": 1.31,
+    "start": 1.11,
+    "end": 1.41,
     "id": "w4"
   },
   {
     "text": "hacer",
-    "start": 1.31,
-    "end": 1.53,
+    "start": 1.41,
+    "end": 1.71,
     "id": "w5"
   },
   {
     "text": "perder",
-    "start": 1.61,
-    "end": 1.85,
+    "start": 1.71,
+    "end": 2.06,
     "id": "w6"
   },
   {
     "text": "plata",
-    "start": 1.97,
-    "end": 2.22,
+    "start": 2.06,
+    "end": 2.36,
     "id": "w7"
   },
   {
     "text": "al",
-    "start": 2.22,
-    "end": 2.41,
+    "start": 2.36,
+    "end": 2.48,
     "id": "w8"
   },
   {
     "text": "importar.",
-    "start": 2.41,
-    "end": 3.48,
+    "start": 2.48,
+    "end": 3.15,
     "id": "w9"
   },
   {
     "text": "Uno,",
-    "start": 3.57,
-    "end": 3.89,
+    "start": 3.48,
+    "end": 3.75,
     "id": "w10"
   },
   {
     "text": "mirar",
-    "start": 3.89,
-    "end": 4.21,
+    "start": 3.75,
+    "end": 4.13,
     "id": "w11"
   },
   {
     "text": "solo",
-    "start": 4.3,
-    "end": 4.63,
+    "start": 4.2,
+    "end": 4.49,
     "id": "w12"
   },
   {
     "text": "el",
-    "start": 4.63,
-    "end": 4.79,
+    "start": 4.49,
+    "end": 4.65,
     "id": "w13"
   },
   {
     "text": "precio",
-    "start": 4.79,
-    "end": 5.29,
+    "start": 4.65,
+    "end": 5.12,
     "id": "w14"
   },
   {
     "text": "de",
-    "start": 5.29,
-    "end": 5.32,
+    "start": 5.15,
+    "end": 5.25,
     "id": "w15"
   },
   {
     "text": "origen.",
-    "start": 5.45,
-    "end": 6.23,
+    "start": 5.36,
+    "end": 6.12,
     "id": "w16"
   },
   {
     "text": "Dos,",
-    "start": 6.35,
-    "end": 6.67,
+    "start": 6.26,
+    "end": 6.52,
     "id": "w17"
   },
   {
     "text": "no",
-    "start": 6.67,
-    "end": 6.83,
+    "start": 6.52,
+    "end": 6.68,
     "id": "w18"
   },
   {
     "text": "sumar",
-    "start": 6.83,
-    "end": 7.24,
+    "start": 6.68,
+    "end": 7.04,
     "id": "w19"
   },
   {
     "text": "impuestos,",
-    "start": 7.24,
-    "end": 8.1,
+    "start": 7.09,
+    "end": 7.96,
     "id": "w20"
   },
   {
     "text": "flete",
-    "start": 8.23,
-    "end": 8.55,
+    "start": 7.96,
+    "end": 8.36,
     "id": "w21"
   },
   {
     "text": "y",
-    "start": 8.55,
-    "end": 8.63,
+    "start": 8.36,
+    "end": 8.44,
     "id": "w22"
   },
   {
     "text": "despacho",
-    "start": 8.63,
-    "end": 9.08,
+    "start": 8.44,
+    "end": 8.94,
     "id": "w23"
   },
   {
     "text": "antes",
-    "start": 9.21,
-    "end": 9.33,
+    "start": 9.08,
+    "end": 9.17,
     "id": "w24"
   },
   {
     "text": "de",
-    "start": 9.33,
-    "end": 9.81,
+    "start": 9.61,
+    "end": 9.64,
     "id": "w25"
   },
   {
     "text": "comprar.",
-    "start": 9.81,
-    "end": 10.48,
+    "start": 9.64,
+    "end": 10.46,
     "id": "w26"
   },
   {
     "text": "Tres,",
-    "start": 10.55,
-    "end": 10.9,
+    "start": 10.53,
+    "end": 10.91,
     "id": "w27"
   },
   {
     "text": "no",
-    "start": 10.93,
-    "end": 11.05,
+    "start": 10.91,
+    "end": 11.06,
     "id": "w28"
   },
   {
     "text": "revisar",
-    "start": 11.05,
-    "end": 11.56,
+    "start": 11.06,
+    "end": 11.59,
     "id": "w29"
   },
   {
     "text": "la",
-    "start": 11.56,
-    "end": 11.7,
+    "start": 11.59,
+    "end": 11.74,
     "id": "w30"
   },
   {
     "text": "mercadería",
-    "start": 11.7,
-    "end": 12.32,
+    "start": 11.74,
+    "end": 12.49,
     "id": "w31"
   },
   {
     "text": "antes",
-    "start": 12.45,
-    "end": 12.79,
+    "start": 12.49,
+    "end": 12.87,
     "id": "w32"
   },
   {
     "text": "del",
-    "start": 12.79,
-    "end": 13,
+    "start": 12.87,
+    "end": 13.1,
     "id": "w33"
   },
   {
     "text": "envío.",
-    "start": 13,
-    "end": 13.68,
+    "start": 13.1,
+    "end": 13.77,
     "id": "w34"
   },
   {
     "text": "Cuatro,",
-    "start": 13.77,
-    "end": 14.15,
+    "start": 13.9,
+    "end": 14.27,
     "id": "w35"
   },
   {
     "text": "no",
-    "start": 14.16,
-    "end": 14.27,
+    "start": 14.27,
+    "end": 14.39,
     "id": "w36"
   },
   {
     "text": "confirmar",
-    "start": 14.28,
-    "end": 14.83,
+    "start": 14.39,
+    "end": 14.95,
     "id": "w37"
   },
   {
     "text": "los",
-    "start": 14.83,
-    "end": 15.01,
+    "start": 14.95,
+    "end": 15.13,
     "id": "w38"
   },
   {
     "text": "requisitos",
-    "start": 15.01,
-    "end": 15.68,
+    "start": 15.13,
+    "end": 15.69,
     "id": "w39"
   },
   {
     "text": "del",
-    "start": 15.68,
-    "end": 15.79,
+    "start": 15.8,
+    "end": 15.94,
     "id": "w40"
   },
   {
     "text": "producto",
-    "start": 15.87,
-    "end": 16.19,
+    "start": 16.01,
+    "end": 16.44,
     "id": "w41"
   },
   {
     "text": "antes",
-    "start": 16.19,
-    "end": 16.48,
+    "start": 16.44,
+    "end": 16.61,
     "id": "w42"
   },
   {
     "text": "de",
-    "start": 16.48,
-    "end": 16.5,
+    "start": 16.61,
+    "end": 16.95,
     "id": "w43"
   },
   {
     "text": "comprarlo.",
-    "start": 17.2,
-    "end": 17.5,
+    "start": 17.27,
+    "end": 17.9,
     "id": "w44"
   },
   {
     "text": "En",
-    "start": 17.77,
-    "end": 17.81,
+    "start": 18.04,
+    "end": 18.06,
     "id": "w45"
   },
   {
     "text": "iWeb",
-    "start": 17.81,
-    "end": 18.06,
+    "start": 18.06,
+    "end": 18.38,
     "id": "w46"
   },
   {
-    "text": "Global",
-    "start": 18.06,
-    "end": 18.36,
+    "text": "Global,",
+    "start": 18.38,
+    "end": 19.06,
     "id": "w47"
   },
   {
-    "text": "termamos",
-    "start": 18.5,
-    "end": 18.97,
+    "text": "te",
+    "start": 19.06,
+    "end": 19.16,
     "id": "w48"
   },
   {
-    "text": "una",
-    "start": 18.97,
-    "end": 19.17,
+    "text": "armamos",
+    "start": 19.16,
+    "end": 19.48,
     "id": "w49"
   },
   {
-    "text": "cotización",
-    "start": 19.17,
-    "end": 19.88,
+    "text": "una",
+    "start": 19.58,
+    "end": 19.68,
     "id": "w50"
   },
   {
-    "text": "con",
-    "start": 19.88,
-    "end": 20.03,
+    "text": "cotización",
+    "start": 19.69,
+    "end": 20.24,
     "id": "w51"
   },
   {
-    "text": "el",
-    "start": 20.03,
-    "end": 20.09,
+    "text": "con",
+    "start": 20.24,
+    "end": 20.41,
     "id": "w52"
   },
   {
-    "text": "costo",
-    "start": 20.13,
-    "end": 20.4,
+    "text": "el",
+    "start": 20.41,
+    "end": 20.46,
     "id": "w53"
   },
   {
-    "text": "estimado",
-    "start": 20.4,
-    "end": 20.76,
+    "text": "costo",
+    "start": 20.52,
+    "end": 20.8,
     "id": "w54"
   },
   {
-    "text": "puesto",
-    "start": 20.76,
-    "end": 20.995,
+    "text": "estimado",
+    "start": 21.09,
+    "end": 21.3,
     "id": "w55"
   },
   {
-    "text": "en",
-    "start": 20.995,
-    "end": 21.23,
+    "text": "puesto",
+    "start": 21.39,
+    "end": 21.63,
     "id": "w56"
   },
   {
-    "text": "destino",
-    "start": 21.23,
-    "end": 22.04,
+    "text": "en",
+    "start": 21.63,
+    "end": 21.68,
     "id": "w57"
   },
   {
-    "text": "y",
-    "start": 22.04,
-    "end": 22.13,
+    "text": "destino",
+    "start": 22.07,
+    "end": 22.5,
     "id": "w58"
   },
   {
-    "text": "revisamos",
-    "start": 22.13,
-    "end": 22.72,
+    "text": "y",
+    "start": 22.5,
+    "end": 22.64,
     "id": "w59"
   },
   {
-    "text": "la",
-    "start": 22.76,
-    "end": 22.91,
+    "text": "revisamos",
+    "start": 22.64,
+    "end": 23.22,
     "id": "w60"
   },
   {
-    "text": "mercadería",
-    "start": 22.91,
-    "end": 23.57,
+    "text": "la",
+    "start": 23.22,
+    "end": 23.29,
     "id": "w61"
   },
   {
-    "text": "antes",
-    "start": 23.65,
-    "end": 23.88,
+    "text": "mercadería",
+    "start": 23.36,
+    "end": 24.08,
     "id": "w62"
   },
   {
-    "text": "del",
-    "start": 24.01,
-    "end": 24.15,
+    "text": "antes",
+    "start": 24.08,
+    "end": 24.42,
     "id": "w63"
   },
   {
-    "text": "envío.",
-    "start": 24.23,
-    "end": 24.86,
+    "text": "del",
+    "start": 24.52,
+    "end": 24.66,
     "id": "w64"
   },
   {
-    "text": "Pedí",
-    "start": 24.97,
-    "end": 25.16,
+    "text": "envío.¿Cuál",
+    "start": 24.66,
+    "end": 25.56,
     "id": "w65"
   },
   {
-    "text": "tu",
-    "start": 25.19,
-    "end": 25.3,
+    "text": "de",
+    "start": 25.64,
+    "end": 25.76,
     "id": "w66"
   },
   {
-    "text": "cotización",
-    "start": 25.33,
-    "end": 26.07,
+    "text": "los",
+    "start": 25.76,
+    "end": 25.96,
     "id": "w67"
   },
   {
-    "text": "en",
-    "start": 26.07,
-    "end": 26.22,
+    "text": "cuatro",
+    "start": 25.96,
+    "end": 26.33,
     "id": "w68"
   },
   {
-    "text": "nuestra",
-    "start": 26.22,
-    "end": 26.73,
+    "text": "te",
+    "start": 26.41,
+    "end": 26.5,
     "id": "w69"
   },
   {
-    "text": "web.",
-    "start": 26.85,
-    "end": 27.24,
+    "text": "pasó",
+    "start": 26.5,
+    "end": 26.76,
     "id": "w70"
   },
   {
-    "text": "La",
-    "start": 27.33,
-    "end": 27.36,
+    "text": "o",
+    "start": 26.77,
+    "end": 26.84,
     "id": "w71"
   },
   {
-    "text": "normativa",
-    "start": 27.36,
-    "end": 27.9,
+    "text": "te",
+    "start": 26.84,
+    "end": 26.89,
     "id": "w72"
   },
   {
-    "text": "de",
-    "start": 27.9,
-    "end": 27.95,
+    "text": "preocupa",
+    "start": 26.98,
+    "end": 27.46,
     "id": "w73"
   },
   {
-    "text": "importación",
-    "start": 28.06,
-    "end": 28.68,
+    "text": "más?",
+    "start": 27.53,
+    "end": 28.02,
     "id": "w74"
   },
   {
-    "text": "cambia",
-    "start": 28.68,
-    "end": 29.04,
+    "text": "Contanos",
+    "start": 28.16,
+    "end": 28.68,
     "id": "w75"
   },
   {
-    "text": "con",
-    "start": 29.04,
-    "end": 29.22,
+    "text": "en",
+    "start": 28.68,
+    "end": 28.81,
     "id": "w76"
   },
   {
-    "text": "frecuencia.",
-    "start": 29.22,
-    "end": 29.84,
+    "text": "los",
+    "start": 28.88,
+    "end": 29.05,
     "id": "w77"
   },
   {
-    "text": "Confirmamos",
-    "start": 29.93,
-    "end": 30.46,
+    "text": "comentarios.",
+    "start": 29.13,
+    "end": 30.02,
     "id": "w78"
-  },
-  {
-    "text": "los",
-    "start": 30.46,
-    "end": 30.52,
-    "id": "w79"
-  },
-  {
-    "text": "requisitos",
-    "start": 30.66,
-    "end": 31.19,
-    "id": "w80"
-  },
-  {
-    "text": "vigentes",
-    "start": 31.19,
-    "end": 31.68,
-    "id": "w81"
-  },
-  {
-    "text": "antes",
-    "start": 31.68,
-    "end": 31.95,
-    "id": "w82"
-  },
-  {
-    "text": "de",
-    "start": 32.03,
-    "end": 32.1,
-    "id": "w83"
-  },
-  {
-    "text": "cada",
-    "start": 32.1,
-    "end": 32.35,
-    "id": "w84"
-  },
-  {
-    "text": "operación.",
-    "start": 32.35,
-    "end": 32.92,
-    "id": "w85"
   }
 ]
