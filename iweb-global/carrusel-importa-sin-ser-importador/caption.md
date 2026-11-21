@@ -8,7 +8,7 @@ Importar desde China sin ser importador: se puede, y los trámites no los hacés
 
 Tenemos equipo propio en China que busca y negocia el producto. Nosotros importamos por vos: compra, control de calidad, consolidación de carga, logística marítima, aduana y entrega en Argentina. Podés delegar todo el proceso o solo algunas etapas.
 
-Antes de comprar te mostramos el costo estimado puesto en destino: producto, comisión, flete, impuestos y tasas, despacho y entrega.
+Antes de comprar te mostramos el costo estimado puesto en destino: producto, comisión, flete, seguro si corresponde, impuestos y tasas, despacho y entrega.
 
 👉 Pedí tu cotización en nuestra web (link en bio).
 
