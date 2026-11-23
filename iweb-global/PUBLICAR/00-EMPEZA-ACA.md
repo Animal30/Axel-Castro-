@@ -10,8 +10,8 @@ Carpetas en GitHub (rama `claude/kind-brahmagupta-zn8qg9`): https://github.com/A
 | 3 | Mié 25/11 | Carrusel (8 slides): catálogo, 12 productos a pedido | `03-mie-25-nov-carrusel-catalogo` | Instagram feed |
 | 4 | Jue 26/11 | Video (31 s): cuatro errores al importar | `04-jue-26-nov-video-errores` | Reels + TikTok |
 | 5 | Vie 27/11 | Imagen única: mito "¿Importar es solo para empresas grandes?" | `05-vie-27-nov-imagen-mito` | Instagram feed |
-| 6 | Sáb 28/11 | Video (27 s): impuestos explicados fácil | `06-sab-28-nov-video-impuestos` | Reels + TikTok |
-| 7 | Lun 30/11 | Carrusel (8 slides): checklist de datos para cotizar | `07-lun-30-nov-carrusel-checklist` | Instagram feed |
+| 6 | Sáb 28/11 | Video (34 s): 3 señales de alerta de un proveedor de China | `06-sab-28-nov-video-senales-proveedor` | Reels + TikTok |
+| 7 | Lun 30/11 | Carrusel (8 slides): ¿Tu producto necesita certificación? | `07-lun-30-nov-carrusel-certificacion` | Instagram feed |
 
 ## Cómo publicar cada tipo
 **Carrusel o imagen (Instagram):** subí los archivos en el orden del nombre (slide-01, slide-02…), pegá `caption-instagram.txt` y, en "Texto alternativo", pegá `texto-alternativo.txt`.
@@ -23,8 +23,10 @@ Antes de publicar, ponele a cada video una portada que se lea (por ejemplo el pr
 2. El WhatsApp de la web (+54 9 351 228-0321) no coincide con el que me pasaste (+54 9 3533 58-0741).
 3. El link de la bio tiene que apuntar a iwebglobal.com.ar.
 4. Los botones "Ver ficha" del catálogo no llevan a ninguna página; conviene arreglarlo antes de la pieza 3.
-5. Los impuestos del video del sábado (derechos de importación, tasa de estadística, IVA y percepciones) conviene validarlos con tu despachante.
-6. Escuchá los audios de los videos completos: en el video 2, cerca del segundo 18, la voz puede decir mal "te armamos".
+5. Carrusel del lunes 30/11 (certificación): validá con tu despachante las slides 3, 4 y 5 (qué rubros están regulados, que un certificado de otro país no siempre alcanza y el etiquetado en español).
+6. Video del sábado 28/11: tiene B-roll hecho con IA (4 imágenes). Al subirlo, activá la etiqueta de contenido generado con IA que ofrecen Instagram y TikTok.
+7. El video del sábado promete una parte 2 ("cómo pedir una muestra"). Si lo publicás, hay que producirla.
+8. Escuchá los videos completos antes de subirlos. En el video del jueves, cerca del segundo 18, la voz puede decir mal "te armamos"; en el del sábado revisá "desconfiá" y "evitá" (la voz puede acentuarlos como "desconfía" y "evita").
 
 ## Cómo medir
 Mirá cada pieza a los 3 y a los 7 días. Lo más importante es cuántas cotizaciones llegan por la web. Si querés saber qué pieza trajo cada una, ponele al link de la bio una marca distinta por pieza.

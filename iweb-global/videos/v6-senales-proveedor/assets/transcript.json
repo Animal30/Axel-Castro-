@@ -1,0 +1,518 @@
+[
+  {
+    "text": "Tres",
+    "start": 0.06,
+    "end": 0.24,
+    "id": "w0"
+  },
+  {
+    "text": "señales",
+    "start": 0.24,
+    "end": 0.66,
+    "id": "w1"
+  },
+  {
+    "text": "de",
+    "start": 0.66,
+    "end": 0.74,
+    "id": "w2"
+  },
+  {
+    "text": "que",
+    "start": 0.81,
+    "end": 0.96,
+    "id": "w3"
+  },
+  {
+    "text": "un",
+    "start": 0.96,
+    "end": 1.08,
+    "id": "w4"
+  },
+  {
+    "text": "proveedor",
+    "start": 1.08,
+    "end": 1.62,
+    "id": "w5"
+  },
+  {
+    "text": "de",
+    "start": 1.62,
+    "end": 1.68,
+    "id": "w6"
+  },
+  {
+    "text": "China",
+    "start": 1.75,
+    "end": 2.09,
+    "id": "w7"
+  },
+  {
+    "text": "no",
+    "start": 2.15,
+    "end": 2.26,
+    "id": "w8"
+  },
+  {
+    "text": "es",
+    "start": 2.26,
+    "end": 2.42,
+    "id": "w9"
+  },
+  {
+    "text": "confiable.",
+    "start": 2.42,
+    "end": 3.76,
+    "id": "w10"
+  },
+  {
+    "text": "Una,",
+    "start": 3.86,
+    "end": 4.16,
+    "id": "w11"
+  },
+  {
+    "text": "el",
+    "start": 4.16,
+    "end": 4.32,
+    "id": "w12"
+  },
+  {
+    "text": "precio",
+    "start": 4.32,
+    "end": 4.81,
+    "id": "w13"
+  },
+  {
+    "text": "está",
+    "start": 4.81,
+    "end": 5.13,
+    "id": "w14"
+  },
+  {
+    "text": "muy",
+    "start": 5.13,
+    "end": 5.32,
+    "id": "w15"
+  },
+  {
+    "text": "por",
+    "start": 5.36,
+    "end": 5.61,
+    "id": "w16"
+  },
+  {
+    "text": "debajo",
+    "start": 5.61,
+    "end": 6.09,
+    "id": "w17"
+  },
+  {
+    "text": "del",
+    "start": 6.09,
+    "end": 6.33,
+    "id": "w18"
+  },
+  {
+    "text": "mercado.",
+    "start": 6.33,
+    "end": 7.02,
+    "id": "w19"
+  },
+  {
+    "text": "Si",
+    "start": 7.3,
+    "end": 7.35,
+    "id": "w20"
+  },
+  {
+    "text": "parece",
+    "start": 7.35,
+    "end": 7.8,
+    "id": "w21"
+  },
+  {
+    "text": "demasiado",
+    "start": 7.81,
+    "end": 8.49,
+    "id": "w22"
+  },
+  {
+    "text": "bueno,",
+    "start": 8.49,
+    "end": 9.02,
+    "id": "w23"
+  },
+  {
+    "text": "desconfía.",
+    "start": 9.02,
+    "end": 9.96,
+    "id": "w24"
+  },
+  {
+    "text": "Dos,",
+    "start": 10.06,
+    "end": 10.43,
+    "id": "w25"
+  },
+  {
+    "text": "te",
+    "start": 10.43,
+    "end": 10.63,
+    "id": "w26"
+  },
+  {
+    "text": "apura",
+    "start": 10.63,
+    "end": 11.1,
+    "id": "w27"
+  },
+  {
+    "text": "para",
+    "start": 11.19,
+    "end": 11.48,
+    "id": "w28"
+  },
+  {
+    "text": "pagar",
+    "start": 11.5,
+    "end": 12.03,
+    "id": "w29"
+  },
+  {
+    "text": "o",
+    "start": 12.05,
+    "end": 12.1,
+    "id": "w30"
+  },
+  {
+    "text": "te",
+    "start": 12.12,
+    "end": 12.26,
+    "id": "w31"
+  },
+  {
+    "text": "cambia",
+    "start": 12.26,
+    "end": 12.71,
+    "id": "w32"
+  },
+  {
+    "text": "el",
+    "start": 12.71,
+    "end": 12.86,
+    "id": "w33"
+  },
+  {
+    "text": "precio",
+    "start": 12.86,
+    "end": 13,
+    "id": "w34"
+  },
+  {
+    "text": "de",
+    "start": 13,
+    "end": 13.34,
+    "id": "w35"
+  },
+  {
+    "text": "golpe.",
+    "start": 13.77,
+    "end": 14.07,
+    "id": "w36"
+  },
+  {
+    "text": "Tres,",
+    "start": 14.15,
+    "end": 14.5,
+    "id": "w37"
+  },
+  {
+    "text": "no",
+    "start": 14.5,
+    "end": 14.64,
+    "id": "w38"
+  },
+  {
+    "text": "quiere",
+    "start": 14.64,
+    "end": 15.06,
+    "id": "w39"
+  },
+  {
+    "text": "mostrarte",
+    "start": 15.06,
+    "end": 15.64,
+    "id": "w40"
+  },
+  {
+    "text": "su",
+    "start": 15.68,
+    "end": 15.76,
+    "id": "w41"
+  },
+  {
+    "text": "fábrica",
+    "start": 15.83,
+    "end": 16.32,
+    "id": "w42"
+  },
+  {
+    "text": "en",
+    "start": 16.32,
+    "end": 16.46,
+    "id": "w43"
+  },
+  {
+    "text": "video,",
+    "start": 16.46,
+    "end": 16.93,
+    "id": "w44"
+  },
+  {
+    "text": "mandarte",
+    "start": 16.93,
+    "end": 17.13,
+    "id": "w45"
+  },
+  {
+    "text": "una",
+    "start": 17.13,
+    "end": 17.45,
+    "id": "w46"
+  },
+  {
+    "text": "muestra",
+    "start": 17.5,
+    "end": 17.96,
+    "id": "w47"
+  },
+  {
+    "text": "ni",
+    "start": 17.96,
+    "end": 18.12,
+    "id": "w48"
+  },
+  {
+    "text": "aceptar",
+    "start": 18.12,
+    "end": 18.52,
+    "id": "w49"
+  },
+  {
+    "text": "una",
+    "start": 18.6,
+    "end": 18.64,
+    "id": "w50"
+  },
+  {
+    "text": "inspección.",
+    "start": 18.64,
+    "end": 19.84,
+    "id": "w51"
+  },
+  {
+    "text": "Yuna",
+    "start": 19.92,
+    "end": 20.18,
+    "id": "w52"
+  },
+  {
+    "text": "más,",
+    "start": 20.18,
+    "end": 20.58,
+    "id": "w53"
+  },
+  {
+    "text": "evita",
+    "start": 20.65,
+    "end": 20.98,
+    "id": "w54"
+  },
+  {
+    "text": "pagar",
+    "start": 21.06,
+    "end": 21.47,
+    "id": "w55"
+  },
+  {
+    "text": "a",
+    "start": 21.47,
+    "end": 21.53,
+    "id": "w56"
+  },
+  {
+    "text": "una",
+    "start": 21.59,
+    "end": 21.81,
+    "id": "w57"
+  },
+  {
+    "text": "cuenta",
+    "start": 21.81,
+    "end": 22.31,
+    "id": "w58"
+  },
+  {
+    "text": "personal.",
+    "start": 22.37,
+    "end": 23.21,
+    "id": "w59"
+  },
+  {
+    "text": "En",
+    "start": 23.42,
+    "end": 23.48,
+    "id": "w60"
+  },
+  {
+    "text": "iWeb",
+    "start": 23.48,
+    "end": 23.8,
+    "id": "w61"
+  },
+  {
+    "text": "Global,",
+    "start": 23.8,
+    "end": 24.46,
+    "id": "w62"
+  },
+  {
+    "text": "nuestro",
+    "start": 24.54,
+    "end": 24.88,
+    "id": "w63"
+  },
+  {
+    "text": "equipo",
+    "start": 24.92,
+    "end": 25.28,
+    "id": "w64"
+  },
+  {
+    "text": "en",
+    "start": 25.28,
+    "end": 25.39,
+    "id": "w65"
+  },
+  {
+    "text": "China",
+    "start": 25.41,
+    "end": 25.7,
+    "id": "w66"
+  },
+  {
+    "text": "visita",
+    "start": 25.7,
+    "end": 26.06,
+    "id": "w67"
+  },
+  {
+    "text": "proveedores",
+    "start": 26.06,
+    "end": 26.64,
+    "id": "w68"
+  },
+  {
+    "text": "y",
+    "start": 26.64,
+    "end": 26.78,
+    "id": "w69"
+  },
+  {
+    "text": "fábricas",
+    "start": 26.78,
+    "end": 27.31,
+    "id": "w70"
+  },
+  {
+    "text": "y",
+    "start": 27.31,
+    "end": 27.42,
+    "id": "w71"
+  },
+  {
+    "text": "revisa",
+    "start": 27.42,
+    "end": 27.84,
+    "id": "w72"
+  },
+  {
+    "text": "la",
+    "start": 27.84,
+    "end": 27.99,
+    "id": "w73"
+  },
+  {
+    "text": "mercadería",
+    "start": 27.99,
+    "end": 28.71,
+    "id": "w74"
+  },
+  {
+    "text": "antes",
+    "start": 28.75,
+    "end": 29.11,
+    "id": "w75"
+  },
+  {
+    "text": "del",
+    "start": 29.13,
+    "end": 29.35,
+    "id": "w76"
+  },
+  {
+    "text": "envío.",
+    "start": 29.35,
+    "end": 29.97,
+    "id": "w77"
+  },
+  {
+    "text": "Seguinos,",
+    "start": 30.1,
+    "end": 30.71,
+    "id": "w78"
+  },
+  {
+    "text": "en",
+    "start": 30.71,
+    "end": 30.85,
+    "id": "w79"
+  },
+  {
+    "text": "la",
+    "start": 30.85,
+    "end": 30.99,
+    "id": "w80"
+  },
+  {
+    "text": "parte",
+    "start": 30.99,
+    "end": 31.35,
+    "id": "w81"
+  },
+  {
+    "text": "dos¿Cómo",
+    "start": 31.35,
+    "end": 31.93,
+    "id": "w82"
+  },
+  {
+    "text": "pedir",
+    "start": 31.93,
+    "end": 32.29,
+    "id": "w83"
+  },
+  {
+    "text": "una",
+    "start": 32.29,
+    "end": 32.47,
+    "id": "w84"
+  },
+  {
+    "text": "muestra?",
+    "start": 32.53,
+    "end": 33.05,
+    "id": "w85"
+  }
+]
