@@ -40,3 +40,11 @@ Nahuel armó desde el Ads Manager "Honda Civic Alejandro Post" y la publicó. Mi
 - Nahuel apagó Advantage+ audience (`advantage_audience` 0). Anuncio `120253672443030736` en revisión, todavía sin gasto ni impresiones. No hay borradores pendientes.
 - Pendiente: Meta sigue leyendo edad mínima 18 / máxima 65, con 30-65 como `age_range` y `individual_setting` age y gender en 1. Puede mostrarse a menores de 30 y mujeres. Pedido a Nahuel: fijar edad mínima 30 y género Hombres como controles duros en el conjunto.
 - Ubicación Córdoba con "vive, reciente y frecuenta". Número de WhatsApp: confirmar en el Ads Manager.
+
+## Campaña del VW Vento 2017 para Renzo (armada por Nahuel, 24/11, solo lectura)
+
+- Campaña `120253674539750736` "VW Vento 2017 Renzo / WSP": ACTIVE, Interacción, CBO **ARS 10.000/día** (el Civic tiene 20.000). Conjunto `120253674539770736` (conversaciones por WhatsApp). Anuncio `120253674539760736` en revisión, creativo `1135219319125673`.
+- Creativo: posteo de Facebook `621210564402720_122206547522796535`. Texto: "VW VENTO 1.4 COMFORTLINE 2017 · Nafta, caja manual de 6 velocidades, 165.000 km · 💰 $21.500.000, oferta de este mes, apúrate que se va · Octavio Pinto 3181".
+- Público: Córdoba ciudad, Advantage+ audience apagado, pero Meta lee edad 18-65 (30-65 solo sugerida) y género como sugerencia, igual que el Civic. Ubicación "vive, reciente y frecuenta". Facebook + Instagram, con Marketplace, solo celular.
+- Pendiente: confirmar con Nahuel el precio y la "oferta de este mes" (afirmación promocional con urgencia); confirmar número de Renzo en el Ads Manager; fijar edad mínima 30 y género Hombres como controles duros.
+- Borradores sueltos: mi campaña pausada del Civic (`120253672360840736`) tiene cambios sin publicar con error ("Facebook Profile Feed no puede ir solo"). Sin uso: descartar.
