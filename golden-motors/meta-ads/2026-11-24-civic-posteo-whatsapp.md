@@ -25,3 +25,12 @@ Promocionar el reel del Honda Civic que Nahuel subió al perfil de @goldenmotors
 3. La herramienta dejó dispositivos en móvil y escritorio (las campañas anteriores eran solo móvil). Dato menor.
 4. Mensaje prefijado de WhatsApp y saludo: no se pudieron cargar con el boost. Se cargan a mano si se quieren. Texto sugerido: "Hola, quiero info del Honda Civic EXS 2016".
 5. Activar solo con el OK de Nahuel: campaña, conjunto y anuncio, uno por uno.
+
+## Revisión de solo lectura de la campaña de Nahuel (24/11)
+
+Nahuel armó desde el Ads Manager "Honda Civic Alejandro Post" y la publicó. Mi borrador pausado (`120253672360840736`) quedó sin uso.
+- Campaña `120253672443010736`: ACTIVE, Interacción, CBO ARS 20.000/día. Conjunto `120253672443020736`: conversaciones por WhatsApp. Anuncio `120253672443030736`: en revisión (IN_PROCESS).
+- Creativo `2363463051091987`: usa el posteo de Facebook `621210564402720_122206463414796535` (el reel publicado también en la página), con el texto correcto ($23.500.000, Octavio Pinto 3181). Por eso permite Facebook + Instagram.
+- Ubicaciones: Feed, Stories, Reels, Marketplace y perfil de Facebook; Feed, Stories, Reels, Explorar y perfil de Instagram. Solo celular.
+- **Público con problema:** Advantage+ audience PRENDIDO. Edad mínima fija 25 (30-65 y género hombres quedan como sugerencia). Puede mostrarse a mujeres y a menores de 30. Ubicación Córdoba con "vive, estuvo recientemente o frecuenta".
+- Número de WhatsApp, botón y mensaje prefijado: la API no los muestra. Confirmar en el Ads Manager que sea el de Alejandro (+54 9 3515 90-1528).
