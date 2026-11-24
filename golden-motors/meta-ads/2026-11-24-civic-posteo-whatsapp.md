@@ -34,3 +34,9 @@ Nahuel armó desde el Ads Manager "Honda Civic Alejandro Post" y la publicó. Mi
 - Ubicaciones: Feed, Stories, Reels, Marketplace y perfil de Facebook; Feed, Stories, Reels, Explorar y perfil de Instagram. Solo celular.
 - **Público con problema:** Advantage+ audience PRENDIDO. Edad mínima fija 25 (30-65 y género hombres quedan como sugerencia). Puede mostrarse a mujeres y a menores de 30. Ubicación Córdoba con "vive, estuvo recientemente o frecuenta".
 - Número de WhatsApp, botón y mensaje prefijado: la API no los muestra. Confirmar en el Ads Manager que sea el de Alejandro (+54 9 3515 90-1528).
+
+## Revisión #2 (24/11, 14:15 UTC)
+
+- Nahuel apagó Advantage+ audience (`advantage_audience` 0). Anuncio `120253672443030736` en revisión, todavía sin gasto ni impresiones. No hay borradores pendientes.
+- Pendiente: Meta sigue leyendo edad mínima 18 / máxima 65, con 30-65 como `age_range` y `individual_setting` age y gender en 1. Puede mostrarse a menores de 30 y mujeres. Pedido a Nahuel: fijar edad mínima 30 y género Hombres como controles duros en el conjunto.
+- Ubicación Córdoba con "vive, reciente y frecuenta". Número de WhatsApp: confirmar en el Ads Manager.
