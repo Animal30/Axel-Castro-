@@ -140,7 +140,7 @@ def cover():
                                    '-vf', f'scale={W}:{H}:flags=lanczos,{GRADE}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA')
     d = ImageDraw.Draw(img)   # no dark band (Nahuel 2026-11-18)
-    for txt, font, col, y in [('¿SE VIENEN LAS', F_H1, WHITE, 300), ('VACACIONES?', F_H2, GOLD, 395)]:
+    for txt, font, col, y in [('¿ESTÁS PENSANDO', F_H1, WHITE, 285), ('EN CAMBIAR EL AUTO?', F_H2, GOLD, 440)]:
         while d.textlength(txt, font=font) > 940: font = ImageFont.truetype(font.path, font.size - 4)
         tw = d.textlength(txt, font=font)
         d.text((W / 2 - tw / 2, y), txt, font=font, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))

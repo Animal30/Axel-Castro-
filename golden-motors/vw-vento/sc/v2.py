@@ -6,22 +6,22 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); RAW = os.path.join(HERE, 'raw'); AUD = os.path.join(HERE, 'aud')
 OUTRO = '/mnt/project-files/golden-motors/outro-logo/golden-motors-outro-girando-con-sonido.mp4'
 W, H, FPS = 1080, 1920, 30
-BEAT = 0.5725  # beat of the '10 car shots' reel audio; body starts 0.5 s into the audio, first shot shorter so cuts land on beats
+BEAT = 0.5  # beat of the new track (117-120 BPM); body starts 0.5 s into the video, audio = track[0.05:]
 GOLD = (242, 184, 36); WHITE = (255, 255, 255)
 GRADE = 'eq=contrast=1.07:saturation=1.10:gamma=1.06:brightness=0.0,colorbalance=rs=0.02:bs=-0.02:rh=0.02:bh=-0.03,vignette=PI/8'
 # clip, src start, beats, speed, label (title, sub) or None
 SHOTS = [
-    ('0006', 0.4, 4.34, 0.95, None),
+    ('0006', 0.4, 6, 0.95, None),
     ('cx190230', 0.5, 2, 0.7, ('165.000 km', 'Kilometraje')),
     ('0009', 0.3, 2, 0.7, None),
     ('0011', 0.2, 2, 0.7, None),
     ('0015', 0.5, 2, 0.7, None),
     ('0019', 0.3, 2, 0.7, None),
     ('0018', 0.3, 2, 0.7, (['CAJA MANUAL', 'DE 6 VELOCIDADES'], None)),
-    ('0017', 1.0, 2, 0.7, (['CONTROL', 'DE CRUCERO'], None)),
+    ('0017', 1.0, 2, 0.7, (['CONTROL', 'CRUCERO'], None)),
     ('0021', 4.0, 2, 0.7, None),
     ('0022', 0.3, 2, 0.7, None),
-    ('0007', 1.8, 3.686, 0.9, None),
+    ('0007', 1.8, 5.8, 0.9, None),
 ]
 FLASH_AT = {2, 4, 6, 8}   # shot indices that start with a soft flash
 
