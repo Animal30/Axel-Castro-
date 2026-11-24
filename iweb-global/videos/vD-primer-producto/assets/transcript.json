@@ -1,0 +1,398 @@
+[
+  {
+    "text": "Antes",
+    "start": 0.08,
+    "end": 0.33,
+    "id": "w0"
+  },
+  {
+    "text": "de",
+    "start": 0.33,
+    "end": 0.46,
+    "id": "w1"
+  },
+  {
+    "text": "elegir",
+    "start": 0.46,
+    "end": 0.85,
+    "id": "w2"
+  },
+  {
+    "text": "qué",
+    "start": 0.85,
+    "end": 1.05,
+    "id": "w3"
+  },
+  {
+    "text": "importar,",
+    "start": 1.05,
+    "end": 1.59,
+    "id": "w4"
+  },
+  {
+    "text": "acete",
+    "start": 1.88,
+    "end": 2.13,
+    "id": "w5"
+  },
+  {
+    "text": "cuatro",
+    "start": 2.22,
+    "end": 2.66,
+    "id": "w6"
+  },
+  {
+    "text": "preguntas.",
+    "start": 2.71,
+    "end": 4.12,
+    "id": "w7"
+  },
+  {
+    "text": "Uno,¿se",
+    "start": 4.2,
+    "end": 4.84,
+    "id": "w8"
+  },
+  {
+    "text": "puede",
+    "start": 4.84,
+    "end": 5.3,
+    "id": "w9"
+  },
+  {
+    "text": "importar?",
+    "start": 5.3,
+    "end": 6.25,
+    "id": "w10"
+  },
+  {
+    "text": "Revisá",
+    "start": 6.42,
+    "end": 6.78,
+    "id": "w11"
+  },
+  {
+    "text": "si",
+    "start": 6.78,
+    "end": 6.93,
+    "id": "w12"
+  },
+  {
+    "text": "tiene",
+    "start": 6.93,
+    "end": 7.31,
+    "id": "w13"
+  },
+  {
+    "text": "restricciones",
+    "start": 7.31,
+    "end": 8.28,
+    "id": "w14"
+  },
+  {
+    "text": "o",
+    "start": 8.28,
+    "end": 8.35,
+    "id": "w15"
+  },
+  {
+    "text": "requisitos.",
+    "start": 8.35,
+    "end": 9.33,
+    "id": "w16"
+  },
+  {
+    "text": "Dos,¿hay",
+    "start": 9.46,
+    "end": 10.22,
+    "id": "w17"
+  },
+  {
+    "text": "demanda?",
+    "start": 10.22,
+    "end": 10.95,
+    "id": "w18"
+  },
+  {
+    "text": "Mira",
+    "start": 11.28,
+    "end": 11.51,
+    "id": "w19"
+  },
+  {
+    "text": "cuánta",
+    "start": 11.51,
+    "end": 11.97,
+    "id": "w20"
+  },
+  {
+    "text": "competencia",
+    "start": 11.97,
+    "end": 12.76,
+    "id": "w21"
+  },
+  {
+    "text": "tiene",
+    "start": 13.09,
+    "end": 13.22,
+    "id": "w22"
+  },
+  {
+    "text": "donde",
+    "start": 13.22,
+    "end": 13.58,
+    "id": "w23"
+  },
+  {
+    "text": "vas",
+    "start": 13.61,
+    "end": 13.84,
+    "id": "w24"
+  },
+  {
+    "text": "a",
+    "start": 13.84,
+    "end": 13.86,
+    "id": "w25"
+  },
+  {
+    "text": "vender.",
+    "start": 13.92,
+    "end": 14.49,
+    "id": "w26"
+  },
+  {
+    "text": "Tres,¿es",
+    "start": 14.76,
+    "end": 15.4,
+    "id": "w27"
+  },
+  {
+    "text": "para",
+    "start": 15.4,
+    "end": 15.72,
+    "id": "w28"
+  },
+  {
+    "text": "reventa",
+    "start": 15.72,
+    "end": 16.24,
+    "id": "w29"
+  },
+  {
+    "text": "o",
+    "start": 16.24,
+    "end": 16.57,
+    "id": "w30"
+  },
+  {
+    "text": "para",
+    "start": 16.57,
+    "end": 16.68,
+    "id": "w31"
+  },
+  {
+    "text": "uso",
+    "start": 16.68,
+    "end": 16.92,
+    "id": "w32"
+  },
+  {
+    "text": "propio?",
+    "start": 16.92,
+    "end": 17.67,
+    "id": "w33"
+  },
+  {
+    "text": "Eso",
+    "start": 17.8,
+    "end": 17.96,
+    "id": "w34"
+  },
+  {
+    "text": "define",
+    "start": 18.02,
+    "end": 18.51,
+    "id": "w35"
+  },
+  {
+    "text": "cuanto",
+    "start": 18.51,
+    "end": 18.98,
+    "id": "w36"
+  },
+  {
+    "text": "comprar.",
+    "start": 19.06,
+    "end": 19.96,
+    "id": "w37"
+  },
+  {
+    "text": "Cuatro,¿es",
+    "start": 20.04,
+    "end": 20.81,
+    "id": "w38"
+  },
+  {
+    "text": "grande",
+    "start": 20.91,
+    "end": 21.43,
+    "id": "w39"
+  },
+  {
+    "text": "o",
+    "start": 21.43,
+    "end": 21.5,
+    "id": "w40"
+  },
+  {
+    "text": "frágil?",
+    "start": 21.5,
+    "end": 22.34,
+    "id": "w41"
+  },
+  {
+    "text": "El",
+    "start": 22.44,
+    "end": 22.52,
+    "id": "w42"
+  },
+  {
+    "text": "tamaño",
+    "start": 22.52,
+    "end": 22.97,
+    "id": "w43"
+  },
+  {
+    "text": "y",
+    "start": 23.07,
+    "end": 23.09,
+    "id": "w44"
+  },
+  {
+    "text": "el",
+    "start": 23.09,
+    "end": 23.21,
+    "id": "w45"
+  },
+  {
+    "text": "cuidado",
+    "start": 23.31,
+    "end": 23.83,
+    "id": "w46"
+  },
+  {
+    "text": "cambian",
+    "start": 23.83,
+    "end": 24.4,
+    "id": "w47"
+  },
+  {
+    "text": "la",
+    "start": 24.4,
+    "end": 24.49,
+    "id": "w48"
+  },
+  {
+    "text": "logística.",
+    "start": 24.58,
+    "end": 25.36,
+    "id": "w49"
+  },
+  {
+    "text": "Ycuando",
+    "start": 25.44,
+    "end": 25.94,
+    "id": "w50"
+  },
+  {
+    "text": "lijas,",
+    "start": 25.94,
+    "end": 26.47,
+    "id": "w51"
+  },
+  {
+    "text": "en",
+    "start": 26.53,
+    "end": 26.62,
+    "id": "w52"
+  },
+  {
+    "text": "iWebGlobal",
+    "start": 26.7,
+    "end": 27.49,
+    "id": "w53"
+  },
+  {
+    "text": "lo",
+    "start": 27.58,
+    "end": 27.64,
+    "id": "w54"
+  },
+  {
+    "text": "cotizamos",
+    "start": 27.74,
+    "end": 28.35,
+    "id": "w55"
+  },
+  {
+    "text": "antes",
+    "start": 28.36,
+    "end": 28.63,
+    "id": "w56"
+  },
+  {
+    "text": "de",
+    "start": 28.63,
+    "end": 28.92,
+    "id": "w57"
+  },
+  {
+    "text": "que",
+    "start": 28.92,
+    "end": 29.17,
+    "id": "w58"
+  },
+  {
+    "text": "compres.",
+    "start": 29.5,
+    "end": 29.76,
+    "id": "w59"
+  },
+  {
+    "text": "Guarda",
+    "start": 29.84,
+    "end": 30.13,
+    "id": "w60"
+  },
+  {
+    "text": "este",
+    "start": 30.13,
+    "end": 30.37,
+    "id": "w61"
+  },
+  {
+    "text": "video",
+    "start": 30.38,
+    "end": 30.61,
+    "id": "w62"
+  },
+  {
+    "text": "para",
+    "start": 30.69,
+    "end": 30.94,
+    "id": "w63"
+  },
+  {
+    "text": "ese",
+    "start": 30.94,
+    "end": 31.12,
+    "id": "w64"
+  },
+  {
+    "text": "momento.",
+    "start": 31.12,
+    "end": 31.76,
+    "id": "w65"
+  }
+]

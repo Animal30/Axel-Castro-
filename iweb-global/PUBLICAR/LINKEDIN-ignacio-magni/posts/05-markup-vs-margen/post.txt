@@ -1,0 +1,17 @@
+Markup y margen no son lo mismo (y confundirlos cuesta caro).
+
+Ejemplo ilustrativo: un producto que te cuesta $100 puesto en tu depósito.
+• Si lo vendés a $150, el markup es 50% (ganás $50 sobre un costo de $100).
+• Pero el margen es 33,3% (esos $50 son un tercio del precio de venta de $150).
+
+Si tu objetivo es un margen del 50%, no alcanza con sumarle 50% al costo: el precio tiene que ser $200 (costo / (1 − margen) = 100 / 0,5), lo que implica un markup del 100%.
+
+Estas cuentas son antes de gastos de venta, impuestos y otros costos del negocio, que también hay que cubrir.
+
+En importaciones, la base del cálculo es el costo puesto en destino, no el precio de origen.
+
+¿Vos trabajás con markup o con margen?
+
+Contenido educativo, no constituye asesoramiento financiero personalizado.
+
+#Finanzas #Margen #Pymes #Precios

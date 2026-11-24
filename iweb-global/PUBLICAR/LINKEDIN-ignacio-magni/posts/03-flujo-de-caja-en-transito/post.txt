@@ -1,0 +1,21 @@
+Tu plata está en el agua: el flujo de caja de una importación.
+
+Cuando se compra mercadería al exterior, el dinero sale mucho antes de que vuelva. La secuencia típica es:
+1. Pago al proveedor (a veces un anticipo y un saldo)
+2. Producción o preparación del pedido
+3. Tránsito internacional
+4. Nacionalización y entrega
+5. Venta y cobro
+
+Entre el paso 1 y el 5, ese capital no está en la caja: está inmovilizado en mercadería. Los plazos reales dependen de cada operación, pero el razonamiento es siempre el mismo.
+
+Tres preguntas para hacerte antes de importar:
+→ ¿Cuánto capital queda inmovilizado hasta la primera venta?
+→ ¿Puedo sostener los gastos del negocio mientras tanto sin tocar ese capital?
+→ ¿Conviene un pedido más chico para probar y reponer, en lugar de uno grande?
+
+Importar no es solo conseguir un buen precio: es planificar la caja.
+
+Contenido educativo, no constituye asesoramiento financiero personalizado.
+
+#FlujoDeCaja #FinanzasParaPymes #CapitalDeTrabajo #Importaciones

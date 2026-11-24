@@ -1,0 +1,9 @@
+El precio de origen no es el costo de adquisición.
+
+Cuando se importa, el costo real del producto es la suma de varias partes: el precio en origen, la comisión del servicio, el flete, el seguro si corresponde, los impuestos y tasas, el despacho y la entrega. Recién ahí se conoce el costo puesto en destino, que es la base correcta para fijar el precio de venta y calcular el margen.
+
+Por eso, en iWeb Global la cotización muestra ese costo estimado antes de comprar. En el video está resumido en menos de 30 segundos.
+
+La normativa de importación cambia con frecuencia; confirmamos los requisitos vigentes antes de cada operación.
+
+#Importaciones #Costos #Finanzas #ComercioExterior
