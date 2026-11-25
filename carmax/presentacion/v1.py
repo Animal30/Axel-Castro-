@@ -18,15 +18,14 @@ S = 0.6  # b-roll slow motion
 # unit: audio (talk clip, a, b) + video pieces [(kind, clip, start, dur_out, speed)]
 def talk(clip, a, b, vid=None):
     return dict(aud=(clip, a, b), vid=vid or [('T', clip, a, b - a, 1.0)])
-UNITS = [
+UNITS = [   # v2 (Nahuel 2026-11-25): web line removed, address moved to the end
     talk('0160', 0.00, 6.25),                                    # gancho: si estás en Córdoba... visitá CarMax, flota de usados
-    talk('0155', 2.98, 5.30),                                    # estamos en Octavio Pinto al 2585
     talk('0156', 0.45, 4.70, [('T', '0156', 0.45, 1.90, 1.0),     # en nuestro catálogo de usados seleccionados
                                ('B', 'IMG_4663', 3.4, 1.20, S),   # pickups
                                ('B', 'IMG_4673', 0.3, 1.15, S)]), # salón por dentro
-    talk('0157', 0.18, 3.20),                                    # en nuestra página web...
     talk('0158', 0.22, 3.95, [('W', None, 0, 2.45, 1.0),          # deslizá y podrás ver todo nuestro catálogo completo
                                ('T', '0158', 2.67, 1.28, 1.0)]),  # no dudes en consultarnos
+    talk('0155', 2.98, 5.30),                                    # estamos en Octavio Pinto al 2585
 ]
 
 def nframes(u): return sum(round(p[3] * FPS) for p in u['vid'])
@@ -75,9 +74,7 @@ def render(only=None):
     words = caption_words(); groups = chunk(words); st, total = unit_starts()
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     cards = [
-        ('Octavio Pinto 2585', 'Córdoba', icon_pin, st[1] + 0.1, st[2] - 0.15),
-        ('Usados seleccionados', 'Toda nuestra gama', icon_car, at('usados', st[2])[0] - 0.1, st[3] - 0.15),
-        ('carmaxcordoba.com', 'Todo el catálogo online', icon_globe, at('página')[0] - 0.15, st[4] - 0.1),
+        ('Octavio Pinto 2585', 'Córdoba', icon_pin, st[3] + 0.1, total - 0.05),
     ]
     print([(c[0], round(c[3], 2), round(c[4], 2)) for c in cards], round(total, 2))
     n = int(round(total * FPS))
@@ -100,20 +97,20 @@ def render(only=None):
 
 F_H1 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 150)
 F_H2 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 196)
-COVER = ('0160', 5.0)
+COVER = ('0160', 6.3)   # v2: further away, calm, full CarMax sign
 def cover():
     c, t = COVER
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/{c}.mp4', '-map', '0:v:0', '-frames:v', '1',
                                    '-vf', f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},{GRADE}',
                                    '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); d = ImageDraw.Draw(img)
-    for txt, font, col, y in [('¿BUSCÁS AUTO', F_H1, WHITE, 300), ('EN CÓRDOBA?', F_H2, GOLD, 450)]:
+    for txt, font, col, y in [('¿BUSCÁS AUTO', F_H1, WHITE, 1180), ('EN CÓRDOBA?', F_H2, GOLD, 1330)]:
         while d.textlength(txt, font=font) > 940: font = ImageFont.truetype(font.path, font.size - 4)
         tw = d.textlength(txt, font=font)
         d.text((W / 2 - tw / 2, y), txt, font=font, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
     sub = 'CarMax Automotores · Octavio Pinto 2585'; tw = d.textlength(sub, font=kit.F_HOOK2)
-    d.rounded_rectangle((W / 2 - tw / 2 - 34, 680, W / 2 + tw / 2 + 34, 770), 22, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
-    d.text((W / 2 - tw / 2, 686), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
+    d.rounded_rectangle((W / 2 - tw / 2 - 34, 1560, W / 2 + tw / 2 + 34, 1650), 22, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
+    d.text((W / 2 - tw / 2, 1566), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
     img.convert('RGB').save('cover.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
                     '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover.mp4'], check=True)
