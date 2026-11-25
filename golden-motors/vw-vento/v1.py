@@ -86,6 +86,21 @@ def caption_words():
             if txt.startswith('.4') and words and words[-1][2] == '1': words[-1][2] = '1.4'; words[-1][1] = t0 + w['end'] - a; continue
             if words and words[-1][2].lower().strip(',.') == txt.lower().strip(',.') and t0 + w['start'] - a - words[-1][1] < 0.6: words[-1][1] = t0 + w['end'] - a; continue  # stutter (lo lo)
             words.append([t0 + max(w['start'], a) - a, t0 + min(w['end'], a + dur) - a, txt])
+    # Nahuel 2026-11-25: no filler words (bueno) in subtitles; no opening ¿ on the hook (it is a statement); "21 millones 500" stays together
+    res = []
+    for w in words:
+        base = w[2].lower().strip('.,;:¿?!')
+        if base == 'bueno':
+            if res and res[-1][2].lower().strip('.,;:¿?!') == 'y' and w[0] - res[-1][1] < 0.4: res.pop()
+            continue
+        res.append(w)
+    words = res
+    if words and words[0][2].startswith('¿'): words[0][2] = words[0][2].lstrip('¿')
+    i = 0
+    while i < len(words) - 2:
+        if words[i][2] == '21' and words[i + 1][2].lower().startswith('millones') and words[i + 2][2].strip('.,') in ('500', '500.', 'quinientos'):
+            words[i:i + 3] = [[words[i][0], words[i + 2][1], '21 millones 500']]
+        i += 1
     return words
 
 def icon_chat(d, x, y):
