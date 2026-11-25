@@ -134,7 +134,7 @@ def render(only=None):
         ('VW Amarok Comfortline', '4x4 · Diésel · 2021 · 110.000 km', icon_car, max(0.0, at('Amarok')[0] - 0.25), at('caja')[0] - 0.3),
         ('Caja manual', '6 marchas', icon_check, at('caja')[0] - 0.2, at('marchas')[1] + 0.5),
         ('Climatizador', 'Y velocidad crucero', icon_check, at('climatizador')[0] - 0.2, at('crucero')[1] + 0.25),
-        ('Comandos al volante', 'Teléfono y audio', icon_check, at('comando')[0] - 0.2, at('volante')[1] + 0.25),
+        ('Comandos al volante', '', icon_check, at('comando')[0] - 0.2, at('volante')[1] + 0.25),
         ('Todo eléctrico', 'Espejos y alzacristales en las 4 puertas', icon_check, at('espejos')[0] - 0.2, at('puertas')[1] + 0.25),
         ('Tracción 4x4', 'Playa, campo y barro', icon_check, at('4x4', st[4])[0] - 0.3, at('situaciones')[1] + 0.3),
         ('Aceptamos tu usado', 'Financiamos una parte', icon_tag, at('entregar')[0] - 0.2, at('parte')[1] + 0.3),
