@@ -104,13 +104,10 @@ def cover():
                                    '-vf', f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},{GRADE}',
                                    '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); d = ImageDraw.Draw(img)
-    for txt, font, col, y in [('¿BUSCÁS AUTO', F_H1, WHITE, 500), ('EN CÓRDOBA?', F_H2, GOLD, 600)]:
+    for txt, font, col, y in [('BUSCANDO UN AUTO', F_H1, WHITE, 500), ('EN CÓRDOBA', F_H2, GOLD, 600)]:   # v4 (Nahuel): statement, no ¿?, no address line
         while d.textlength(txt, font=font) > 940: font = ImageFont.truetype(font.path, font.size - 4)
         tw = d.textlength(txt, font=font)
         d.text((W / 2 - tw / 2, y), txt, font=font, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
-    sub = 'CarMax Automotores · Octavio Pinto 2585'; tw = d.textlength(sub, font=kit.F_HOOK2)
-    d.rounded_rectangle((W / 2 - tw / 2 - 34, 1720, W / 2 + tw / 2 + 34, 1810), 22, fill=(12, 12, 12, 225), outline=GOLD + (255,), width=3)
-    d.text((W / 2 - tw / 2, 1726), sub, font=kit.F_HOOK2, fill=WHITE + (255,))
     img.convert('RGB').save('cover.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
                     '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover.mp4'], check=True)
