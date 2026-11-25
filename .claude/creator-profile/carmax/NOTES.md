@@ -18,6 +18,9 @@ Concesionaria de autos usados y 0km en Córdoba, Argentina. Cliente de Nahuel de
 - Igual que Golden Motors: cortes (sacar silencios), subtítulos sin comas ni puntos, pocas animaciones, portada del mejor momento, mostrar la web cuando la mencionan.
 - Captions de feed: tono casual, sin lista de "ficha técnica", una sola CTA.
 
+## Cierre de logo (elegido 2026-11-25)
+- Todos los videos de CarMax terminan con /mnt/project-files/carmax/outro-logo/carmax-logo-barrido-con-musica.mp4 (2 s, barrido de luz, opción D: CarMax / AUTOMOTORES / línea / CÓRDOBA). Builder carmax/outro-logo/make.sh.
+
 ## Reglas de la casa
 - Sin marca de agua ni nombre de Nahuel. Corregir ortografía en pantalla sin preguntar.
 - Entregas en /mnt/project-files/carmax/.
