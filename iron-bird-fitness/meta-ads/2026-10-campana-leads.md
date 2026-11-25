@@ -109,3 +109,9 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 - CTR (~3%) y CPM (~USD 35-38) no se movieron. En cambio el gasto bajó de ~USD 71 por día (10 al 16/11) a ~USD 42 por día (17 al 23/11) con un presupuesto de USD 70. Lectura: el problema es el público (Fresno 10 millas, 30-65), no el anuncio.
 - Copia en borrador, sin publicar: campaña `120252776034220200`, conjunto `120252776035120200`, anuncio `120252776036600200`. Mismo público, ubicaciones, presupuesto de USD 70 y formulario. El anuncio reutiliza el post del ganador (`369420839595109_122192058086478982`), así que el copy es idéntico y conserva sus likes y comentarios.
 - Pendiente de decidir: si se pausa la campaña vieja al publicar la nueva (si no, gasto de USD 140 por día y las dos compiten por el mismo público).
+
+### 25/11: publicada la copia, pausada la vieja
+
+- Publicada `IBF_Leads_Fresno_30-65_InstantForm_Nov25_Copia` (`120252776034220200`): campaña y conjunto ACTIVE, anuncio 01 en revisión de Meta (`PENDING_REVIEW`). USD 70 por día.
+- Pausada `IBF_Leads_Fresno_30-65_InstantForm_Oct26` (`120252304173230200`). Era la única otra campaña activa; el resto de la cuenta ya estaba pausado.
+- A revisar en 3 o 4 días: si el costo por lead sigue arriba de USD 20, abrir el radio de 10 a 15 millas (suma Clovis). Consultar con Nahuel antes.
