@@ -101,3 +101,11 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 - 06/11: se pausó "Leads Campaign". En 11 días costaba USD 25,72 por lead, contra USD 20,68 de la nueva. Nahuel había pausado antes los anuncios 02 y 03 (USD 94 gastados, 1 lead).
 - 10/11: anuncio `05_10MinFatBurning_2m16` (`120252569922450200`) en borrador, en el mismo conjunto, con el mismo formulario y sin mejoras de Meta AI. Video original de 2:16 del Drive ("November Folder"). Pendiente de publicar.
 - Guion para un corte nuevo de 45 s armado con escenas de ese video: `iron-bird-fitness/fat-burning-ad/` (PDF + build.py), en el mismo formato que NateVelazquez_MetaAdScripts_v4.pdf (una página por anuncio: gancho y ganchos alternativos, mensaje central y llamado a la acción).
+
+## 25/11: copia de la campaña ganadora (en borrador)
+
+- Campaña `IBF_Leads_Fresno_30-65_InstantForm_Oct26` del 27/10 al 25/11: USD 1.749 gastados y 84 leads. El anuncio 01 ("If you live in Fresno") puso 81 de los 84, a USD 20,08 por lead. Los otros tres juntaron 3 leads.
+- Costo por lead por semana: 18,41 · 18,06 · 21,63 · 24,78 (17 al 23/11). Los dos últimos días (3 leads a USD 39) son muy poco dato.
+- CTR (~3%) y CPM (~USD 35-38) no se movieron. En cambio el gasto bajó de ~USD 71 por día (10 al 16/11) a ~USD 42 por día (17 al 23/11) con un presupuesto de USD 70. Lectura: el problema es el público (Fresno 10 millas, 30-65), no el anuncio.
+- Copia en borrador, sin publicar: campaña `120252776034220200`, conjunto `120252776035120200`, anuncio `120252776036600200`. Mismo público, ubicaciones, presupuesto de USD 70 y formulario. El anuncio reutiliza el post del ganador (`369420839595109_122192058086478982`), así que el copy es idéntico y conserva sus likes y comentarios.
+- Pendiente de decidir: si se pausa la campaña vieja al publicar la nueva (si no, gasto de USD 140 por día y las dos compiten por el mismo público).
