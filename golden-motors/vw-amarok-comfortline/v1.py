@@ -161,12 +161,15 @@ def render(only=None):
 
 F_H1 = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 128)
 F_H2 = ImageFont.truetype('/home/user/Axel-Castro-/golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 196)
-COVER = ('0064', 3.25)
+COVER = ('0064', 1.3)
 def cover():
     c, t = COVER
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/c{c}.mov', '-frames:v', '1',
                                    '-vf', f'scale={W}:{H}:flags=lanczos,{GRADE}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA')
+    SH = 140   # shift the car down so the text sits above the roof
+    im2 = Image.new('RGBA', (W, H)); im2.paste(img.crop((0, 0, W, H - SH)), (0, SH))
+    im2.paste(img.crop((0, 0, W, SH)).transpose(Image.FLIP_TOP_BOTTOM), (0, 0)); img = im2
     d = ImageDraw.Draw(img)   # no dark band (Nahuel 2026-11-18); car starts ~y 560 so the text stays above it
     F1 = ImageFont.truetype(F_H1.path, 132); F3 = ImageFont.truetype(F_H1.path, 70)
     p1, p2 = 'AMAROK ', '4X4'
