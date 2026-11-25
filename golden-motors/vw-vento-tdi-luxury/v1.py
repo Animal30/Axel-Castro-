@@ -139,7 +139,7 @@ def render(only=None):
         ('VW Vento TDI 2.0', 'Luxury · 2013 · 225.000 km', icon_car, max(0.0, at('Vento')[0] - 0.25), at('caja')[0] - 0.25),
         ('Caja DSG', 'De 6 velocidades', icon_check, at('caja')[0] - 0.2, at('sexta')[1] + 0.35),
         ('Autonomía increíble', 'Unos 1.000 km con un tanque', icon_check, at('autonomía')[0] - 0.2, at('kilómetros')[1] + 0.3),
-        ('Viajes largos', 'A Buenos Aires con 1/4 de tanque', icon_check, at('Buenos')[0] - 0.2, at('tanque')[1] + 0.3),
+        ('Viaje a Buenos Aires', 'Le quedó un cuarto de tanque', icon_check, at('Buenos')[0] - 0.2, at('tanque')[1] + 0.3),
         ('Mantenimiento al día', 'Siempre bien cuidado', icon_check, at('hice')[0] - 0.2, at('gusto')[1] + 0.3),
         ('Súper económico', 'Consumo ideal para andar', icon_check, at('súper')[0] - 0.2, at('andar')[1] + 0.3),
         ('Sin impuesto de rentas', 'Por ser modelo 2013', icon_tag, at('2013', st[11] - 0.1)[0] - 0.2, st[12] - 0.05),

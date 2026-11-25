@@ -136,9 +136,8 @@ def cover():
     tmp = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-', '-vf', GRADE,
                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], input=im.tobytes(), capture_output=True, check=True).stdout
     img = Image.frombytes('RGB', (W, H), tmp).convert('RGBA')
-    SH = 0   # shift the car down so the title and the pill have room above the roof
-    im2 = Image.new('RGBA', (W, H)); im2.paste(img.crop((0, 0, W, H - SH)), (0, SH))
-    im2.paste(img.crop((0, 0, W, SH)).transpose(Image.FLIP_TOP_BOTTOM), (0, 0)); img = im2
+    Z = 1.22; cw, ch = int(W / Z), int(H / Z); x0, y0 = 0, 100   # zoom in and crop so the car sits in the middle of the frame
+    img = img.crop((x0, y0, x0 + cw, y0 + ch)).resize((W, H), Image.LANCZOS)
     # no dark band: only a soft shadow behind the letters
     sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
     bigs = BF('ExtraBold', 200)
