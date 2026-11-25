@@ -97,12 +97,12 @@ def render(only=None):
 
 F_H1 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 112)
 F_H2 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 150)
-COVER = ('0160', 1.57)   # v3: Nahuel picked this take (hands in triangle, full CarMax sign)
+COVER = ('0160', 1.57); COVER_FRAME = 53   # Nahuel's pick: frame 53 of cut.mov (mouth slightly open, hands in triangle)
 def cover():
     c, t = COVER
-    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/{c}.mp4', '-map', '0:v:0', '-frames:v', '1',
-                                   '-vf', f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},{GRADE}',
-                                   '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
+    # v5: exact frame of the edit that Nahuel pointed at (cut.mov frame 53 = 1.767 s, matched against his screenshot)
+    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cut.mov', '-map', '0:v:0', '-vf', f'select=eq(n\\,{COVER_FRAME})',
+                                   '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); d = ImageDraw.Draw(img)
     for txt, font, col, y in [('BUSCANDO UN AUTO', F_H1, WHITE, 500), ('EN CÓRDOBA', F_H2, GOLD, 600)]:   # v4 (Nahuel): statement, no ¿?, no address line
         while d.textlength(txt, font=font) > 940: font = ImageFont.truetype(font.path, font.size - 4)
