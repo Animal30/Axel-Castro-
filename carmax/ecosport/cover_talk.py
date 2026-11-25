@@ -13,7 +13,7 @@ def txt(s, font, y, col, track=0, stroke=8):
         d.text((x, y), c, font=font, fill=col + (255,), stroke_width=stroke, stroke_fill=(0, 0, 0, 255)); x += w + track
     return tot
 f1 = ImageFont.truetype(FD + 'ExtraBold.ttf', 150); f2 = ImageFont.truetype(FD + 'ExtraBold.ttf', 200); f3 = ImageFont.truetype(FD + 'Bold.ttf', 64)
-Y = 40
+Y = 1120
 txt('ECOSPORT', f1, Y, WH, track=6)
 txt('FREESTYLE', f2, Y + 120, OR, track=2)
 # 2019 con líneas naranjas a los lados
