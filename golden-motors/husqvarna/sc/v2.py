@@ -12,7 +12,7 @@ GRADE = 'eq=contrast=1.07:saturation=1.10:gamma=1.06:brightness=0.0,colorbalance
 # clip, src start, beats, speed, label (title, sub) or None
 SHOTS = [
     ('0118', 0.3, 6, 1.0, None),
-    ('0110', 3.3, 2, 0.7, ('4.600 km', 'Kilometraje')),
+    ('0110', 3.3, 2, 0.7, ('ABS', 'Seguridad al frenar')),
     ('0122', 0.3, 2, 0.7, None),
     ('0124', 0.3, 2, 0.7, (['45 CV', 'DE POTENCIA'], None)),
     ('0121', 0.2, 2, 0.7, None),
@@ -65,9 +65,9 @@ def text_layer(t, st, total):
         a = int(255 * p * q)
         if a > 0:
             f = F_T1
-            while sum(d.textlength(ch, font=f) for ch in 'SVARTPILEN 401') + 4 * 6 > 900: f = BF('ExtraBold', f.size - 4)
-            spaced(d, 250, 'SVARTPILEN 401', f, WHITE, 4 + 8 * (1 - p), a, 3)
-            spaced(d, 560, 'HUSQVARNA · 2022', F_T2, GOLD, 10, a, 2)
+            while sum(d.textlength(ch, font=f) for ch in 'HUSQVARNA') + 4 * 6 > 900: f = BF('ExtraBold', f.size - 4)
+            spaced(d, 250, 'HUSQVARNA', f, WHITE, 4 + 8 * (1 - p), a, 3)
+            spaced(d, 560, 'SVARTPILEN 401 · 2022', F_T2, GOLD, 10, a, 2)
     # spec labels
     for i, s in enumerate(SHOTS):
         if not s[4]: continue
@@ -140,19 +140,19 @@ def cover():
     sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
     bigs = BF('ExtraBold', 270)
     _d = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
-    while sum(_d.textlength(ch, font=bigs) for ch in 'SVARTPILEN 401') + 12 * 7 > 900: bigs = BF('ExtraBold', bigs.size - 4)
-    for txt, y in [('SVARTPILEN 401', 270)]:
+    while sum(_d.textlength(ch, font=bigs) for ch in 'HUSQVARNA') + 12 * 7 > 900: bigs = BF('ExtraBold', bigs.size - 4)
+    for txt, y in [('HUSQVARNA', 270)]:
         tw = sum(sd.textlength(ch, font=bigs) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
         for ch in txt:
             sd.text((x + 4, y + 10), ch, font=bigs, fill=(0, 0, 0, 170), stroke_width=10, stroke_fill=(0, 0, 0, 170)); x += sd.textlength(ch, font=bigs) + 12
     img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14))); d = ImageDraw.Draw(img)
     big = bigs
-    for txt, col, y in [('SVARTPILEN 401', WHITE, 270)]:
+    for txt, col, y in [('HUSQVARNA', WHITE, 270)]:
         tw = sum(d.textlength(ch, font=big) for ch in txt) + 12 * (len(txt) - 1); x = W / 2 - tw / 2
         for ch in txt:
             d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 12
     f2 = BF('SemiBold', 62)
-    sub = 'HUSQVARNA · 2022 · 4.600 km'; tw = d.textlength(sub, font=f2)
+    sub = 'SVARTPILEN 401 · 2022 · 4.600 km'; tw = d.textlength(sub, font=f2)
     d.rounded_rectangle((W / 2 - tw / 2 - 34, 500, W / 2 + tw / 2 + 34, 590), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
     d.text((W / 2 - tw / 2, 506), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
