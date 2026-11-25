@@ -18,10 +18,10 @@ def talk(clip, a, b, z=1.0, cut=None):
 def vo(clip, a, b, shots):  # voice-over unit: Alejandro's audio from clip, picture = b-roll list (clip, start, dur)
     return dict(aud=(f'{AUDSRC}{clip}', a, b), cap=clip, vid=[(c, s, d, 1.0, 1.0) for c, s, d in shots])
 UNITS = [
-    vo('0082', 0.00, 2.85, [('0064', 0.0, 2.85)]),                                   # es una Amarok Comfortline
+    vo('0082', 1.20, 2.85, [('0064', 0.0, 1.65)]),                                   # es una Amarok Comfortline
     vo('0082', 3.10, 6.70, [('0077', 0.2, 3.6)]),                                    # 4x4 caja manual 6 marchas
     vo('0082', 7.10, 17.70, [('0077', 3.0, 3.0), ('0076', 3.8, 2.4), ('0075', 0.0, 1.7), ('0074', 0.2, 2.0), ('0076', 0.4, 1.5)]),
-    vo('0082', 18.50, 23.60, [('0078', 0.5, 2.5), ('0079', 3.8, 2.6)]),              # todo lo que nos acostumbra... Volkswagen
+    vo('0082', 19.30, 23.60, [('0078', 0.5, 2.2), ('0079', 3.8, 2.1)]),              # todo lo que nos acostumbra... Volkswagen
     vo('0083', 0.00, 12.70, [('0066', 0.0, 3.2), ('0068', 0.0, 2.0), ('0072', 0.0, 3.0), ('0081', 0.0, 2.5), ('0071', 3.0, 2.0)]),
     vo('0083', 13.00, 15.45, [('0073', 0.2, 2.45)]),                                  # la 4x4 te salva
     vo('0084', 0.00, 4.55, [('0080', 0.0, 4.55)]),                                   # si tenes otra Amarok...
@@ -131,7 +131,7 @@ def render(only=None):
     st, total = unit_starts()
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     cards = [
-        ('VW Amarok Comfortline', '4x4 · Diésel · 2021 · 110.000 km', icon_car, at('Amarok')[0] - 0.25, at('caja')[0] - 0.3),
+        ('VW Amarok Comfortline', '4x4 · Diésel · 2021 · 110.000 km', icon_car, max(0.0, at('Amarok')[0] - 0.25), at('caja')[0] - 0.3),
         ('Caja manual', '6 marchas', icon_check, at('caja')[0] - 0.2, at('marchas')[1] + 0.5),
         ('Climatizador', 'Y velocidad crucero', icon_check, at('climatizador')[0] - 0.2, at('crucero')[1] + 0.25),
         ('Comandos al volante', 'Teléfono y audio', icon_check, at('comando')[0] - 0.2, at('volante')[1] + 0.25),
@@ -169,7 +169,7 @@ def cover():
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA')
     d = ImageDraw.Draw(img)   # no dark band (Nahuel 2026-11-18); car starts ~y 560 so the text stays above it
     F1 = ImageFont.truetype(F_H1.path, 132); F3 = ImageFont.truetype(F_H1.path, 70)
-    p1, p2 = 'ESTA AMAROK ', '4X4'
+    p1, p2 = 'AMAROK ', '4X4'
     tw = d.textlength(p1 + p2, font=F1); x = W / 2 - tw / 2
     for txt, col in ((p1, WHITE), (p2, GOLD)):
         d.text((x, 300), txt, font=F1, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255)); x += d.textlength(txt, font=F1)

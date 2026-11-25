@@ -127,7 +127,7 @@ def render():
     enc.stdin.close(); enc.wait(); dec.stdout.close(); dec.kill(); dec.wait()
     print('total', round(total, 2))
 
-COVER_SRC = ('0065', 3.4)
+COVER_SRC = ('0064', 2.5)
 def cover():
     c, t = COVER_SRC
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/c{c}.mov', '-frames:v', '1',
@@ -136,6 +136,9 @@ def cover():
     tmp = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-', '-vf', GRADE,
                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], input=im.tobytes(), capture_output=True, check=True).stdout
     img = Image.frombytes('RGB', (W, H), tmp).convert('RGBA')
+    SH = 80   # shift the car down so the title and the pill have room above the roof
+    im2 = Image.new('RGBA', (W, H)); im2.paste(img.crop((0, 0, W, H - SH)), (0, SH))
+    im2.paste(img.crop((0, 0, W, SH)).transpose(Image.FLIP_TOP_BOTTOM), (0, 0)); img = im2
     # no dark band: only a soft shadow behind the letters
     sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
     bigs = BF('ExtraBold', 200)
@@ -153,8 +156,8 @@ def cover():
             d.text((x, y), ch, font=big, fill=col + (255,), stroke_width=8, stroke_fill=(0, 0, 0, 255)); x += d.textlength(ch, font=big) + 12
     f2 = BF('SemiBold', 62)
     sub = 'COMFORTLINE 4X4 · 2021 · 110.000 km'; tw = d.textlength(sub, font=f2)
-    d.rounded_rectangle((W / 2 - tw / 2 - 34, 490, W / 2 + tw / 2 + 34, 570), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
-    d.text((W / 2 - tw / 2, 494), sub, font=f2, fill=WHITE + (255,))
+    d.rounded_rectangle((W / 2 - tw / 2 - 34, 580, W / 2 + tw / 2 + 34, 660), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
+    d.text((W / 2 - tw / 2, 584), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover2.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
                     '-t', '0.5', '-r', str(FPS), '-c:v', 'libx264', '-crf', '14', '-pix_fmt', 'yuv420p', '-c:a', 'aac', 'cover2.mp4'], check=True)
