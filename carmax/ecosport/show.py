@@ -18,11 +18,19 @@ SHOTS = [('0175', 0.30, 4, 0.75, 0.05, False),   # intro: frente bajo el cartel,
          ('0196', 0.60, 4, 0.80, 0.05, False),
          ('0198', 2.40, 4, 0.80, 0.05, False),
          ('0166', 2.90, 6, 0.80, 0.05, False)]   # cierre: el auto se aleja frente al local
+VENTO = os.environ.get('VENTO')   # ruta del audio del showcase del Vento blanco de Golden (15.4 s, 120 BPM)
+if VENTO:   # versión 15 s con la canción del Vento: 29 beats de 0.5 s, el cierre se alarga 0.4 s hasta el final del tema
+    B = 0.5
+    SHOTS = [('0175', 0.30, 3, 0.80, 0.05, False), ('0200', 4.20, 3, 0.80, 0.05, True), ('0168', 0.40, 2, 0.70, 0.05, False),
+             ('0173', 0.50, 2, 0.70, 0.05, False), ('0170', 0.15, 2, 0.60, 0.06, False), ('0171', 0.30, 2, 0.60, 0.06, False),
+             ('0172', 0.70, 2, 0.70, 0.05, False), ('0178', 0.05, 2, 0.60, 0.06, False), ('0179', 0.00, 3, 0.85, 0.04, False),
+             ('0196', 0.60, 2, 0.70, 0.05, False), ('0198', 2.40, 2, 0.70, 0.05, False), ('0166', 2.90, 4, 0.60, 0.05, False)]
 LEAD = 0.5   # portada
 def times():
     t, out, acc = 0, [], 0
     for s in SHOTS:
-        a = round(acc * B * FPS); acc += s[2]; b = round(acc * B * FPS); out.append((a, b)); 
+        a = round(acc * B * FPS); acc += s[2]; b = round(acc * B * FPS); out.append((a, b))
+    if VENTO: out[-1] = (out[-1][0], out[-1][1] + 12)   # +0.4 s
     return out
 def total(): return times()[-1][1] / FPS
 def make_cut():
@@ -51,7 +59,8 @@ def cover(src=None):
 def final(out, music=True):
     T = LEAD + total(); s0 = DROP - (LEAD + 4 * B)
     a = (f"-ss {s0:.3f} -t {T:.2f} -i {SONG}").split()
-    af = f'aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=in:d=0.15,afade=t=out:st={T - 1.4:.2f}:d=1.4' if music else 'anull'
+    if VENTO: a = ['-i', VENTO]
+    af = f'aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-14:TP=-1.5:LRA=11' + ('' if VENTO else f',afade=t=in:d=0.15,afade=t=out:st={T - 1.4:.2f}:d=1.4') if music else 'anull'
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-i', 'cover.mp4', '-i', 'body_raw.mp4'] + a + \
           ['-filter_complex', f'[0:v]setsar=1[c];[1:v]setsar=1[b];[c][b]concat=n=2:v=1:a=0[v];[2:a]{af}[a]' if music else
            '[0:v]setsar=1[c];[1:v]setsar=1[b];[c][b]concat=n=2:v=1:a=0[v];anullsrc=r=48000:cl=stereo[a]',
