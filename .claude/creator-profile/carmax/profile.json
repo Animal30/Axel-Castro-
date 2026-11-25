@@ -1,0 +1,74 @@
+{
+ "brand_note": "Naranja sobre gris/negro (logo CarMax naranja + AUTOMOTORES blanco en mayúsculas). Sitio carmaxcordoba.com en fondo carbón.",
+ "accent": "#EE780E",
+ "accent_name": "orange",
+ "bg": "#0B0B0C",
+ "creator_name": "CarMax Automotores",
+ "brand_name": "CarMax Automotores",
+ "font_main_name": "Inter",
+ "font_main_bold": {
+  "file": "Inter-Bold.otf"
+ },
+ "font_main_regular": {
+  "file": "Inter-Regular.otf"
+ },
+ "font_accent_name": "Playfair Display Italic",
+ "font_accent": {
+  "file": "PlayfairDisplay-Italic.ttf"
+ },
+ "transcriber": "elevenlabs",
+ "output_rule": "/mnt/project-files/carmax/",
+ "proof_dir": "none yet",
+ "sfx_dir": "/home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx",
+ "music_rule": "ask",
+ "skills": {
+  "creator-setup": {
+   "configured": "2026-11-25"
+  },
+  "cutout-backdrop-reel": {
+   "configured": "2026-11-25"
+  },
+  "cutout-grid-reel": {
+   "configured": "2026-11-25"
+  },
+  "depth-ui-reel": {
+   "configured": "2026-11-25"
+  },
+  "educational-youtube-editor": {
+   "configured": "2026-11-25"
+  },
+  "explainer-panel-reel": {
+   "configured": "2026-11-25"
+  },
+  "fitted-stacked-captions": {
+   "configured": "2026-11-25"
+  },
+  "glass-explainer-reel": {
+   "configured": "2026-11-25"
+  },
+  "image-cluster-reel": {
+   "configured": "2026-11-25"
+  },
+  "ranking-format": {
+   "configured": "2026-11-25"
+  },
+  "split-reel": {
+   "configured": "2026-11-25"
+  },
+  "split-screen-document-plus-animations": {
+   "configured": "2026-11-25"
+  },
+  "visual-essay-reel": {
+   "configured": "2026-11-25"
+  }
+ },
+ "language": "es (Argentina)",
+ "status": "brand-from-ig-screenshot",
+ "instagram": "@autosusadoscarmax",
+ "website": "carmaxcordoba.com",
+ "address": "Octavio Pinto 2585, Córdoba",
+ "tagline": "",
+ "offer": "Compra y venta de autos usados y 0km; permuta, financiación, trámites y transferencias",
+ "hours": "Lun a Vie 9.30 a 13.30 y 15 a 19 hs; Sáb 9.30 a 13 hs",
+ "logo_gray": "#6E6E6E"
+}
