@@ -115,3 +115,9 @@ Los anuncios 02 y 03 ya están en el borrador (`120252304395460200` y `120252304
 - Publicada `IBF_Leads_Fresno_30-65_InstantForm_Nov25_Copia` (`120252776034220200`): campaña y conjunto ACTIVE, anuncio 01 en revisión de Meta (`PENDING_REVIEW`). USD 70 por día.
 - Pausada `IBF_Leads_Fresno_30-65_InstantForm_Oct26` (`120252304173230200`). Era la única otra campaña activa; el resto de la cuenta ya estaba pausado.
 - A revisar en 3 o 4 días: si el costo por lead sigue arriba de USD 20, abrir el radio de 10 a 15 millas (suma Clovis). Consultar con Nahuel antes.
+
+### 25/11: nombres sin fecha
+
+- Por pedido de Nahuel se sacaron las fechas de los nombres: la nueva ahora es `IBF_Leads_Fresno_30-65_InstantForm_Copia` (`120252776034220200`, ACTIVE) y la anterior `IBF_Leads_Fresno_30-65_InstantForm` (`120252304173230200`, PAUSED). Para buscarlas por nombre, usar "InstantForm_Copia" para la nueva.
+- El anuncio 01 de la copia ya está ACTIVE (aprobado por Meta).
+- Los nombres de campañas son solo internos. Ni el copy ni los títulos de los anuncios llevan fechas.
