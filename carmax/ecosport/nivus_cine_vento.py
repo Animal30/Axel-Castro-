@@ -7,15 +7,12 @@ SONGF = os.environ.get('SONGF', f'{SCR}/es/gm/vento_audio.wav')
 common.GRADE = ('eq=contrast=1.12:saturation=0.93:gamma=0.98,colorbalance=rs=-0.02:bs=0.03:rh=0.03:bh=-0.02,'
                 'vignette=PI/6,noise=alls=5:allf=t')
 T0 = 0.0
-HITS = [float(i) for i in range(9)] + [8.5 + 0.5 * i for i in range(13)] + [14.9]   # 1 s al principio, 0.5 s después
-# (clip, ss, speed, flash)
-SH = [('0247', 0.30, 0.60, True), ('0251', 1.00, 0.60, False), ('0248', 0.10, 0.55, False), ('0249', 0.00, 0.55, False),
-      ('0254', 0.00, 0.50, False), ('0246', 0.40, 0.60, False), ('0250', 0.30, 0.60, True), ('0252', 0.50, 0.60, True),
-      # final: un corte por golpe, 0.5 s
-      ('0255', 0.10, 0.55, True), ('0253', 0.20, 0.55, False), ('0253', 2.20, 0.55, False), ('0256', 0.30, 0.55, False),
-      ('0256', 1.80, 0.55, False), ('0257', 0.50, 0.55, False), ('0257', 3.00, 0.55, False), ('0257', 5.50, 0.55, False),
-      ('0260', 0.80, 0.55, False), ('0260', 3.50, 0.55, False), ('0260', 6.00, 0.55, False), ('0266', 1.00, 0.55, False),
-      ('0266', 3.00, 0.55, False), ('0246', 2.50, 0.55, False), ('0247', 2.00, 0.55, False), ('0251', 3.50, 0.55, False)]
+HITS = [float(i) for i in range(15)] + [14.9]   # un corte por segundo (más lento), 15 tomas
+# (clip, ss, speed, flash): cada toma muestra algo distinto, sin repetir tema seguido y el tablero digital una sola vez
+SH = [('0247', 0.30, 0.60, True), ('0251', 1.00, 0.60, False), ('0248', 0.10, 0.55, False), ('0250', 0.30, 0.60, True),
+      ('0246', 0.40, 0.60, False), ('0253', 0.20, 0.55, False), ('0255', 0.10, 0.55, False), ('0256', 0.15, 0.55, False),
+      ('0260', 0.80, 0.55, False), ('0251', 3.50, 0.55, False), ('0253', 2.20, 0.55, False), ('0260', 3.50, 0.55, False),
+      ('0250', 2.80, 0.55, False), ('0266', 1.00, 0.55, False), ('0247', 2.00, 0.55, False)]
 SH = SH[:len(HITS) - 1]
 assert len(SH) == len(HITS) - 1, (len(SH), len(HITS))
 LEAD = 0.5
