@@ -31,3 +31,22 @@ Ubicaciones: Feed, Stories, Reels y **Marketplace** de Facebook; Feed, Stories, 
 - Precio de la Husqvarna confirmado: $4.500 USD (el del texto del posteo).
 - Mensajes prefijados de WhatsApp aprobados; los pega Nahuel. Números de WhatsApp: los carga Nahuel.
 - Siguen pausadas hasta que Nahuel pida activar.
+
+## Versión con video (anuncio común, editable) · 26/11
+
+Nahuel no podía editar ubicaciones, anuncio ni número en los posteos promocionados (un anuncio sobre un posteo existente es de solo lectura). Se armaron dos campañas nuevas con el video cargado. **Quedan como borrador** (sin publicar) en el Ads Manager para que Nahuel cargue el número de cada vendedor y publique. Las campañas boosteadas (`120253712935080736` Yaris y `120253712938930736` Husqvarna) quedan pausadas y sin uso: descartar.
+
+| | Yaris | Husqvarna |
+|---|---|---|
+| Video en Meta | `1190052226693017` (23 s) | `1692958275507545` (53 s) |
+| Campaña | `120253713111930736` GM_WA_ToyotaYaris2024_Video_Nov26 | `120253713112070736` GM_WA_HusqvarnaSvartpilen401_Video_Nov26 |
+| Conjunto | `120253713115140736` | `120253713115700736` |
+| Anuncio | `120253713123010736` | `120253713123470736` |
+| Título | Toyota Yaris XLS 2024 · 79.000 km | Husqvarna Svartpilen 401 · USD 4.500 |
+
+- ARS 20.000/día cada una (CBO). Conversaciones por WhatsApp. Público: ciudad de Córdoba, hombres, edad 30-65 fija, Advantage+ audience apagado, solo celular. Ubicaciones: Facebook Feed, Marketplace, Stories y Reels; Instagram Feed, Stories, Reels, Explorar y perfil.
+- Texto: datos del posteo (km, services, cubiertas, equipamiento, precio de la moto USD 4.500 confirmado, dirección). Botón WhatsApp. Saludo y mensaje prefijado en español cargados por plantilla (Yaris `1055848794186871`, Husqvarna `2362432821196849`).
+- Meta AI y multi-advertiser apagados.
+- `ads_create_creative` + `ads_create_ad` volvió a dejar `link_title` en el CTA: se reemplazó el creativo con `ads_update_entity` sin ese campo (regla: ver arriba). Borradores validados, sin errores.
+- Sin número de WhatsApp: lo carga Nahuel. Al publicar, quedan ACTIVAS (el borrador está staged como ACTIVE).
+- Se subió el video desde la URL del reel de Instagram; funciona, pero el primer intento del Yaris falló al copiar el link.
