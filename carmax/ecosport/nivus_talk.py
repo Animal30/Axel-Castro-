@@ -11,10 +11,10 @@ def U(aud, vid): return dict(aud=aud, vid=vid)
 UNITS = [
   U([('0242', 0.50, 4.25)], [('0242', 0.50, 1.80, 1.0, 0.02), ('0247', 0.40, 0.95, 0.70, 0.05), ('0242', 3.25, 1.00, 1.0, 0.02)]),          # Volkswagen Nivus 2020, caja automática. Vení que te muestro el interior
   U([('0245', 3.20, 4.95), ('0245', 5.35, 9.45)], [('0260', 1.00, 1.75, 0.80, 0.04), ('0253', 0.30, 1.15, 0.80, 0.04),
-                                                    ('0256', 0.20, 0.95, 0.80, 0.04), ('0245', 7.35, 2.00, 1.0, 0.02)]),             # tope de gama, cuero, pantalla, tablero digital, arranca con botón
+                                                    ('0256', 0.20, 0.95, 0.80, 0.04), ('0257', 5.0, 2.00, 0.80, 0.04)]),             # tope de gama, cuero, pantalla, tablero digital, arranca con botón
   U([('0266', 0.65, 5.80)], [('0266', 0.65, 5.15, 1.0, 0.03)]),                                                                       # motor, 15.000 km, services oficiales
   U([('0238', 0.28, 4.40)], [('0246', 0.20, 1.40, 0.80, 0.05), ('0250', 0.30, 1.50, 0.80, 0.05), ('0238', 3.16, 1.22, 1.0, 0.02)]),   # si tenés 28.900.000 este auto puede ser para vos
-  U([('0264', 0.30, 5.25)], [('0264', 0.30, 4.95, 1.0, 0.02)]),                                                                       # si tenés uno usado... escribinos
+  U([('0264', 0.45, 5.25)], [('0264', 0.45, 4.80, 1.0, 0.02)]),                                                                       # si tenés uno usado... escribinos
 ]
 FIX = {'28': '28.900.000', '15': '15.000', 'sub,': 'SUV', '"service"': 'services'}; SKIP = {'000', '900'}
 def udur(u): return sum(round(p[2] * FPS) for p in u['vid']) / FPS
@@ -69,8 +69,7 @@ F2 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-Extra
 F3 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 270)
 COVER = (os.environ.get('CC', '0238'), float(os.environ.get('CT', 0.3)))
 def cover():
-    c, tt = COVER; piece('cov_tmp.mp4', c, tt, 1.0, 1.0, 0.0)
-    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cov_tmp.mp4', '-vf', 'select=eq(n\\,0)', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
+    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cut.mov', '-map', '0:v:0', '-vf', 'select=eq(n\\,' + os.environ.get('CF', '561') + ')', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); img.convert('RGB').save('cover_clean.png'); d = ImageDraw.Draw(img)
     y0 = int(os.environ.get('CY', 170))
     for txt, f, col, y in [('VOLKSWAGEN', F1, WHITE, y0), ('NIVUS', F3, GOLD, y0 + 110)]:
