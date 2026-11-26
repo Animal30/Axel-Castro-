@@ -17,10 +17,17 @@ Dos campañas, una por posteo nuevo de @goldenmotorscba, para conseguir conversa
 | Duración | 26/11 al 26/12 | igual |
 
 Público (verificado en vivo, los dos): ciudad de Córdoba · "vive o frecuenta" (Meta normaliza así) · hombres · **edad mínima 30 y máxima 65 fijas** · Advantage+ audience y expansión apagados (sin `individual_setting`, a diferencia de las campañas del Civic y el Vento armadas en el panel) · solo celular.
-Ubicaciones: Feed, Stories y Reels de Facebook; Feed, Stories, Reels, Explorar y perfil de Instagram. Sin Marketplace.
+Ubicaciones: Feed, Stories, Reels y **Marketplace** de Facebook; Feed, Stories, Reels, Explorar y perfil de Instagram.
 
 ## Pendiente
 1. Cargar el número de WhatsApp de cada vendedor en el conjunto. La herramienta de boost no lo guarda.
 2. Confirmar presupuesto (ARS 20.000/día cada una) y el precio de la Husqvarna.
 3. Mensajes prefijados sugeridos: "Hola, quiero info del Toyota Yaris XLS 2024" / "Hola, quiero info de la Husqvarna Svartpilen 401".
 4. Activar solo con el OK de Nahuel: campaña, conjunto y anuncio, uno por uno.
+
+## Confirmaciones de Nahuel (26/11)
+- Marketplace incluido: aplicado en los dos conjuntos con `ads_update_entity` y publicado con `ads_activate_entity` (`publish_as_active` false). Verificado en vivo: `marketplace` en facebook_positions, sin borradores pendientes, campañas siguen PAUSED.
+- Presupuesto confirmado: ARS 20.000/día en cada campaña (verificado en vivo).
+- Precio de la Husqvarna confirmado: $4.500 USD (el del texto del posteo).
+- Mensajes prefijados de WhatsApp aprobados; los pega Nahuel. Números de WhatsApp: los carga Nahuel.
+- Siguen pausadas hasta que Nahuel pida activar.
