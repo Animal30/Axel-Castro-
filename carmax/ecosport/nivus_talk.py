@@ -52,6 +52,9 @@ def caption_words():
                 if w['start'] < a - 0.03 or w['end'] > b + 0.05: continue
                 words.append([t0 + off + w['start'] - a, t0 + off + min(w['end'], b) - a, FIX.get(w['text'], w['text'])])
             off += b - a
+    for i, w in enumerate(words):   # sin "pesos": el numero se queda en pantalla hasta la palabra siguiente
+        if w[2] == '28.900.000' and i + 2 < len(words) and words[i + 1][2].startswith('pesos'):
+            w[1] = words[i + 2][0] - 0.02; del words[i + 1]; break
     return words
 def render():
     words = caption_words(); groups = chunk(words); _, total = starts(); n = round(total * FPS)
