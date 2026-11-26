@@ -11,7 +11,7 @@ def U(aud, vid): return dict(aud=aud, vid=vid)
 UNITS = [
   U([('0223', 0.08, 4.45)], [('0223', 0.08, 2.80, 1.0, 0.02), ('0208', 0.40, 1.57, 0.80, 0.05)]),                         # Ranger Black 2026 4x4 con tan solo 10.000 km
   U([('0228', 0.28, 7.56)], [('0228', 5.40, 3.50, 0.60, 0.0), ('0211', 0.05, 1.50, 0.90, 0.05), ('0217', 0.10, 1.00, 0.80, 0.04),
-                              ('0215', 1.20, 1.28, 0.90, 0.04)]),                                                          # CarPlay, cargador, 4x4, caja de sexta, pantalla digital
+                              ('0217', 1.90, 1.28, 0.70, 0.0)]),                                                          # CarPlay, cargador, 4x4, caja de sexta, pantalla digital
   U([('0231', 0.36, 3.80)], [('0231', 0.36, 3.44, 1.0, 0.02)]),                                                           # 56 millones y medio, trae tu usado
 ]
 FIX = {'10': '10.000'}; SKIP = {'000'}
