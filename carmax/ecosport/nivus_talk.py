@@ -74,7 +74,7 @@ COVER = (os.environ.get('CC', '0238'), float(os.environ.get('CT', 0.3)))
 def cover():
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cut.mov', '-map', '0:v:0', '-vf', 'select=eq(n\\,' + os.environ.get('CF', '561') + ')', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); img.convert('RGB').save('cover_clean.png'); d = ImageDraw.Draw(img)
-    y0 = int(os.environ.get('CY', 170))
+    y0 = int(os.environ.get('CY', 345))
     for txt, f, col, y in [('VOLKSWAGEN', F1, WHITE, y0), ('NIVUS', F3, GOLD, y0 + 110)]:
         tw = d.textlength(txt, font=f); d.text((W / 2 - tw / 2, y), txt, font=f, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
     img.convert('RGB').save('cover.png')
