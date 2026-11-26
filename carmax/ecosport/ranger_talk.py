@@ -71,8 +71,8 @@ F1 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-Extra
 F2 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 190)
 COVER = (os.environ.get('CC', '0222'), float(os.environ.get('CT', 0.8)))
 def cover():
-    c, t = COVER; piece('cov_tmp.mp4', c, t, 1.0, 1.0, 0.0)
-    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cov_tmp.mp4', '-vf', 'select=eq(n\\,0)', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
+    # v2 (Nahuel 26-11): cuadro exacto de su captura = cut.mov frame 13 (hallado por correlación de imagen)
+    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cut.mov', '-map', '0:v:0', '-vf', 'select=eq(n\\,13)', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); img.convert('RGB').save('cover_clean.png'); d = ImageDraw.Draw(img)
     y0 = int(os.environ.get('CY', 170))
     for txt, f, col, y in [('FORD RANGER', F1, WHITE, y0), ('BLACK', F2, GOLD, y0 + 105)]:
