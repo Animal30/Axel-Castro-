@@ -1,0 +1,3 @@
+
+## Feedback on "Quick vs Steady Energy" video (2026-11-26)
+Nate liked the visual format but not the message: splitting foods into quick vs steady energy is not scientifically accurate. He wants the message to be how COMBINING carbs with protein, fiber and healthy fats supports sustained energy and fullness (e.g. white toast vs toast with eggs and avocado; pancakes vs pancakes with Greek yogurt and berries; jasmine rice vs rice with chicken and vegetables; banana vs banana with peanut butter). Same visual format, new educational message; people keep the foods they enjoy and learn to build balanced meals. Use soft wording ("can support"). Send an outline to Nate before building.
