@@ -27,6 +27,7 @@ UNITS = [   # v2 (Nahuel 2026-11-25): web line removed, address moved to the end
                                ('T', '0158', 2.67, 1.28, 1.0)]),  # no dudes en consultarnos
     talk('0155', 2.98, 5.30),                                    # estamos en Octavio Pinto al 2585
 ]
+UNITS = [UNITS[0], UNITS[3], UNITS[1], UNITS[2]]   # v6 (Nahuel 26-11): gancho, dirección, catálogo, deslizá + consultarnos
 
 def nframes(u): return sum(round(p[3] * FPS) for p in u['vid'])
 
@@ -74,7 +75,7 @@ def render(only=None):
     words = caption_words(); groups = chunk(words); st, total = unit_starts()
     def at(word, after=0): return next(w for w in words if w[2].startswith(word) and w[0] >= after)
     cards = [
-        ('Octavio Pinto 2585', 'Córdoba', icon_pin, st[3] + 0.1, total - 0.05),
+        ('Octavio Pinto 2585', 'Córdoba', icon_pin, st[1] + 0.1, st[2] - 0.05),
     ]
     print([(c[0], round(c[3], 2), round(c[4], 2)) for c in cards], round(total, 2))
     n = int(round(total * FPS))
