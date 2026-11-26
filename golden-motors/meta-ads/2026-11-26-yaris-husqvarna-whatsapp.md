@@ -50,3 +50,9 @@ Nahuel no podía editar ubicaciones, anuncio ni número en los posteos promocion
 - `ads_create_creative` + `ads_create_ad` volvió a dejar `link_title` en el CTA: se reemplazó el creativo con `ads_update_entity` sin ese campo (regla: ver arriba). Borradores validados, sin errores.
 - Sin número de WhatsApp: lo carga Nahuel. Al publicar, quedan ACTIVAS (el borrador está staged como ACTIVE).
 - Se subió el video desde la URL del reel de Instagram; funciona, pero el primer intento del Yaris falló al copiar el link.
+
+## Revisión después del lanzamiento (Nahuel publicó, solo lectura)
+- Yaris `120253713111930736` ACTIVE, **ARS 20.000/día**, sin gasto todavía. Husqvarna `120253713112070736` ACTIVE, **ARS 24.227/día** (no 20.000; ya gastó ARS 1.054 en 228 impresiones). Conjuntos y anuncios ACTIVE, entrega "preparando".
+- Público (los dos): ciudad de Córdoba, hombres, edad 30-65 fija, Advantage+ audience apagado, solo celular. Ubicación "vive, reciente y frecuenta" (Nahuel la dejó así). Facebook Feed, Marketplace, Stories y Reels; Instagram Feed, Stories, Reels, Explorar y perfil.
+- Creativos publicados con el texto original de los posteos (con hashtags), sin título propio. Husqvarna dice "$4500 usd" (confirmado).
+- Pendiente: confirmar que el presupuesto de la Husqvarna es el deseado; confirmar número de WhatsApp de cada vendedor en el Ads Manager (la API no lo muestra); descartar las campañas "…_Posteo_Nov26" pausadas.
