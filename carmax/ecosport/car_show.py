@@ -61,6 +61,47 @@ def make_cut(car):
 F1 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 120)
 FS = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', 190)
 OR = (238, 120, 14); WH = (255, 255, 255)
+FD = f'{HERE}/../../golden-motors/fonts/'
+def _spaced(d, xy, txt, f, fill, track):
+    x, y = xy
+    for ch in txt:
+        d.text((x, y), ch, font=f, fill=fill); x += d.textlength(ch, font=f) + track
+def _spaced_w(d, txt, f, track): return sum(d.textlength(ch, font=f) for ch in txt) + track * (len(txt) - 1)
+def refined_title(img, l1, l2, y0):
+    """Barlow naranja/blanca de siempre, mas fina: marca chica espaciada con lineas finas a los costados,
+    modelo naranja con degradado suave, sin borde negro grueso (sombra difusa + contorno fino)."""
+    from PIL import ImageFilter
+    import numpy as np
+    fb = ImageFont.truetype(FD + 'BarlowCondensed-SemiBold.ttf', 74); tb = 18
+    fm = ImageFont.truetype(FD + 'BarlowCondensed-Black.ttf', 205); tm = 6
+    dd = ImageDraw.Draw(img)
+    while _spaced_w(dd, l2, fm, tm) > 820: fm = ImageFont.truetype(FD + 'BarlowCondensed-Black.ttf', fm.size - 8)
+    wb = _spaced_w(dd, l1, fb, tb); wm = _spaced_w(dd, l2, fm, tm)
+    yb = y0; ym = y0 + 78
+    # mascaras
+    mb = Image.new('L', (W, H), 0); _spaced(ImageDraw.Draw(mb), (W / 2 - wb / 2, yb), l1, fb, 255, tb)
+    lx = 64; gap = 26; ly = yb + 47
+    dl = ImageDraw.Draw(mb)
+    dl.line([(W / 2 - wb / 2 - gap - lx, ly), (W / 2 - wb / 2 - gap, ly)], fill=255, width=3)
+    dl.line([(W / 2 + wb / 2 + gap, ly), (W / 2 + wb / 2 + gap + lx, ly)], fill=255, width=3)
+    mm = Image.new('L', (W, H), 0); _spaced(ImageDraw.Draw(mm), (W / 2 - wm / 2, ym), l2, fm, 255, tm)
+    # sombra difusa (sin borde negro duro)
+    allm = Image.fromarray(np.maximum(np.array(mb), np.array(mm)))
+    sh = allm.filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.GaussianBlur(16))
+    sh = Image.fromarray((np.array(sh).astype(np.float32) * 0.78).astype(np.uint8))
+    img.alpha_composite(Image.merge('RGBA', [Image.new('L', (W, H), 0)] * 3 + [sh]), (0, 6))
+    # contorno fino oscuro solo para definir el borde
+    ol = allm.filter(ImageFilter.MaxFilter(3))
+    img.alpha_composite(Image.merge('RGBA', [Image.new('L', (W, H), 12)] * 3 + [Image.fromarray((np.array(ol) * 0.55).astype(np.uint8))]))
+    # marca blanca
+    img.alpha_composite(Image.merge('RGBA', [Image.new('L', (W, H), 255)] * 3 + [Image.fromarray((np.array(mb) * 0.96).astype(np.uint8))]))
+    # modelo naranja con degradado vertical (mas claro arriba)
+    bb = mm.getbbox(); top, bot = bb[1], bb[3]
+    g = np.clip((np.arange(H) - top) / max(1, bot - top), 0, 1)[:, None]
+    c1 = np.array([255, 150, 52], np.float32); c2 = np.array([226, 98, 6], np.float32)
+    col = (c1 * (1 - g[..., None]) + c2 * g[..., None]) * np.ones((H, W, 1), np.float32)
+    rgba = np.dstack([col, np.array(mm)[..., None].astype(np.float32)]).astype(np.uint8)
+    img.alpha_composite(Image.fromarray(rgba, 'RGBA'))
 def cover(car):
     c = CARS[car]; cc, ct = os.environ.get('CC', c['cover'][0]), float(os.environ.get('CT', c['cover'][1]))
     piece_any('cov_tmp.mp4', cc, ct, 1.5, 1.0, 0.0)
@@ -69,7 +110,9 @@ def cover(car):
     y0 = int(os.environ.get('CY', c['cy'])); l1, l2 = c['t']
     f2 = FS
     while d.textlength(l2, font=f2) > 960: f2 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', f2.size - 10)
-    if os.environ.get('GLASS') == '1':
+    if os.environ.get('REFINED') == '1':
+        refined_title(img, l1, l2, y0)
+    elif os.environ.get('GLASS') == '1':
         import kinetic
         f2 = kinetic.font(kinetic.FSB, 230)
         while d.textlength(l2.title(), font=f2) > 980: f2 = kinetic.font(kinetic.FSB, f2.size - 10)
