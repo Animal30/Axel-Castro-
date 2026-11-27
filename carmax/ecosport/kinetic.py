@@ -1,5 +1,6 @@
 """Captions estilo 'kinetic italic' (referencia captionstyle.mp4): Inter Extra Bold Italic, Title Case, palabras clave grandes y conectores chicos,
 numeros enormes, aparecen palabra por palabra con subida suave, blanco con sombra suave."""
+import os
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 W, H = 1080, 1920
@@ -47,7 +48,13 @@ def draw_caption(img, groups, t):
 
 # ---------------- letra "vidriada" (referencia de Nahuel 27/11) ----------------
 FSB = '/usr/share/fonts/opentype/inter/Inter-BoldItalic.otf'
-def glass_composite(img, mask, strength=0.85, blur=1.0):
+GLASS_STYLES = {
+    # tono sobre fondo oscuro, tono sobre fondo claro, peso del tono, opacidad, degradado abajo, brillo borde, usa inversion
+    'white':  dict(lt=(246, 247, 250), dk=(62, 64, 68), tm=0.7, op=0.85, fade=0.8, rim=28, inv=True),
+    'clear':  dict(lt=(250, 251, 253), dk=(58, 60, 64), tm=0.62, op=0.7, fade=0.62, rim=50, inv=True),
+    'orange': dict(lt=(255, 146, 52), dk=(140, 58, 8), tm=1.0, op=0.72, fade=0.62, rim=50, inv=False),
+}
+def glass_composite(img, mask, strength=None, blur=1.0, style=None):
     """mask: PIL 'L' del texto. Vidrio: el fondo se ve a traves de las letras (con su textura), invertido en luminosidad
     (claro sobre fondo oscuro, oscuro sobre fondo claro), mas transparente hacia abajo de cada letra, con un brillo fino en el borde."""
     rgb = np.array(img.convert('RGB')).astype(np.float32)
@@ -57,9 +64,13 @@ def glass_composite(img, mask, strength=0.85, blur=1.0):
     # inversion tipo "diferencia": el fondo se ve invertido a traves de la letra (con su textura)
     inv = 255 - bl
     # empujar a blanco sobre oscuro y a gris oscuro sobre claro (sin llegar a negro)
+    st = GLASS_STYLES[style or os.environ.get('GLASS_STYLE', 'white')]
+    if strength is None: strength = st['op']
     t = np.clip((lum - 0.36) / 0.18, 0, 1)[..., None]
-    tone = np.array([246, 247, 250], np.float32) * (1 - t) + np.array([62, 64, 68], np.float32) * t
-    glass = tone * 0.7 + inv * 0.3
+    tone = np.array(st['lt'], np.float32) * (1 - t) + np.array(st['dk'], np.float32) * t
+    if st['inv']: glass = tone * st['tm'] + inv * (1 - st['tm'])
+    else: glass = tone + (bl - soft) * 0.9          # vidrio de color: el tono con la textura del fondo
+    rimc = np.array(st['lt'], np.float32) * 0.5 + 127
     m = np.array(mask).astype(np.float32) / 255.0
     # transparencia vertical dentro de cada letra: arriba mas solido, abajo deja ver mas
     rows = np.where(m.max(1) > 0)[0]
@@ -74,15 +85,15 @@ def glass_composite(img, mask, strength=0.85, blur=1.0):
             prev = r
         blocks.append((start, prev))
         for a0, b0 in blocks:
-            g[a0:b0 + 1] = np.linspace(1.0, 0.8, b0 - a0 + 1)
+            g[a0:b0 + 1] = np.linspace(1.0, st['fade'], b0 - a0 + 1)
         m = m * g[:, None]
     m = (m * strength)[..., None]
     out = rgb * (1 - m) + glass * m
     mk = mask.filter(ImageFilter.MinFilter(3))
     edge = np.clip(np.array(mask).astype(np.float32) - np.roll(np.roll(np.array(mk).astype(np.float32), 2, 0), 2, 1), 0, 255) / 255.0
-    out = out + edge[..., None] * 28 * (1 - t)
+    out = out + edge[..., None] * (st['rim'] / 255.0) * rimc * (1 - t)
     img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8), 'RGB').convert('RGBA'))
-def glass_lines(img, lines, cx=W / 2, y=640, gap=6, strength=0.9, fade_bottom=False):
+def glass_lines(img, lines, cx=W / 2, y=640, gap=6, strength=None, fade_bottom=False):
     """lines: [(texto, fuente)], centrado. Devuelve nada; modifica img."""
     lay = Image.new('L', (W, H), 0); d = ImageDraw.Draw(lay); yy = y
     for txt, f in lines:
