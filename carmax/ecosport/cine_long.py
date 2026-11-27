@@ -43,7 +43,14 @@ def valid(p, d):
                                          'stream=nb_read_frames', '-of', 'csv=p=0', p]).strip())
         return n == round(d * FPS)
     except Exception: return False
+VACUO = dict(wav=f'{SCRN}/cine/vacuo/song.wav', offset=15.1, end=27.5,
+             cuts=[1.40, 4.16, 6.91, 9.65, 13.08, 15.84, 18.59, 19.96, 22.02, 24.08, 25.46],
+             shots=[('0371', 6.0, None), ('0373', 0.0, 2.4), ('0372', 0.3, 2.8), ('0378', 0.3, 2.6), ('0379', 0.3, 3.6), ('0375', 1.0, 4.0),
+                    ('0383', 0.5, 2.8), ('0381', 0.8, 2.2), ('0384', 1.5, 3.1), ('0385', 0.3, 2.2), ('0377', 0.0, 1.7), ('0380', 0.0, 0.9)])
+USE_VACUO = os.environ.get('VACUO') == '1'
+if USE_VACUO: SHOTS['amarok-plata'] = VACUO['shots']
 def assign(car):
+    if USE_VACUO and car == 'amarok-plata': return VACUO['cuts'], VACUO['end']
     """elige los cortes: para cada toma, el golpe mas cercano a donde terminaria a velocidad ~1 (0.8-1.25)"""
     c = C.CARS[car]; H = json.load(open(f'{LONG}/hits.json'))[c['song']]; end = H['dur'] - 0.05
     hits = [t for t, s in H['hits'] if s > 0.2 and 0.8 < t < end - 1.0]
@@ -99,7 +106,7 @@ def build(car):
     total = sum(p[2] for p in P); fo = max(0.3, P[0][2] - 0.45)
     vf = f"[1:v]format=rgba,fade=t=out:st={fo:.2f}:d=0.35:alpha=1[t];[0:v][t]overlay=0:0:eof_action=pass,format=yuv420p[v]"
     for music in (True, False):
-        aud = (['-i', f'{LONG}/{c["song"]}.wav'], f";[2:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.4:.3f}:d=0.4,"
+        aud = (['-ss', f'{VACUO["offset"]}', '-i', VACUO['wav']] if USE_VACUO else ['-i', f'{LONG}/{c["song"]}.wav'], f";[2:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.8:.3f}:d=0.8,"
                "aresample=48000,loudnorm=I=-14:TP=-1.5,aresample=48000[a]") if music else \
               (['-f', 'lavfi', '-t', f'{total:.3f}', '-i', 'anullsrc=r=48000:cl=stereo'], ';[2:a]anull[a]')
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'body.mp4', '-loop', '1', '-t', f'{total:.3f}', '-i', 'title.png'] + aud[0] +
