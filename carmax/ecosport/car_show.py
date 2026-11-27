@@ -69,7 +69,13 @@ def cover(car):
     y0 = int(os.environ.get('CY', c['cy'])); l1, l2 = c['t']
     f2 = FS
     while d.textlength(l2, font=f2) > 960: f2 = ImageFont.truetype(f'{HERE}/../../golden-motors/fonts/BarlowCondensed-ExtraBold.ttf', f2.size - 10)
-    for txt, f, col, y in [(l1, F1, WH, y0), (l2, f2, OR, y0 + 105)]:
+    if os.environ.get('GLASS') == '1':
+        import kinetic
+        f2 = kinetic.font(kinetic.FSB, 230)
+        while d.textlength(l2.title(), font=f2) > 980: f2 = kinetic.font(kinetic.FSB, f2.size - 10)
+        kinetic.glass_lines(img, [(l1.title(), kinetic.font(kinetic.FM, 86)), (l2.title(), f2)], y=y0)
+    else:
+      for txt, f, col, y in [(l1, F1, WH, y0), (l2, f2, OR, y0 + 105)]:
         tw = d.textlength(txt, font=f); d.text((W / 2 - tw / 2, y), txt, font=f, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
     img.convert('RGB').save('cover.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
