@@ -96,6 +96,18 @@ def auto_plan(wav, shots, offset, end, lead=(1.0, 1.9)):
         ty = 'drop' if best[2] > 0.8 and best[1] > 0.5 else 'B' if best[2] >= max(best[3], 0.25) else 'T' if best[3] > 0.15 else 'soft'
         types.append(ty)
     return dict(wav=wav, offset=offset, end=end, cuts=cuts, types=types, shots=shots)
+AB2 = [('0446', 4.4, 5.4), ('0450', 0.0, 2.2), ('0448', 0.0, 1.9), ('0452', 0.0, 2.4), ('0458', 1.0, 3.2), ('0461', 0.3, 3.0),
+       ('0462', 3.5, 7.0), ('0447', 2.0, 4.5), ('0448', 4.5, 6.8)]   # 0448 dos veces: rueda sola al principio y cierre con la camioneta entera
+AB2_FULL = {'0446', '0450', '0452', '0462', '0448'}                  # tomas sin recorte (auto entero / insignias)
+ROT_INTRO = f'{SCRN}/cine/rot/rot_es.mp4'
+def rot_wrap(src, dst, intro_s=2.6):
+    """video horizontal -> vertical 9:16 girado 90 grados horario (se ve derecho al girar el celular a la izquierda),
+    con el reel de 'please rotate your phone' al principio; la musica arranca cuando entra la portada"""
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-t', f'{intro_s}', '-i', ROT_INTRO, '-i', src, '-f', 'lavfi', '-t', f'{intro_s}', '-i', 'anullsrc=r=48000:cl=stereo',
+                    '-filter_complex', "[0:v]setsar=1,fps=30,scale=1080:1920,format=yuv420p[a];[1:v]transpose=1,setsar=1,fps=30,scale=1080:1920,format=yuv420p[b];[a][b]concat=n=2:v=1:a=0[v];"
+                    "[2:a]aresample=48000,aformat=channel_layouts=stereo[sa];[1:a]aresample=48000,aformat=channel_layouts=stereo[ma];[sa][ma]concat=n=2:v=0:a=1[a]",
+                    '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-crf', '17', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-colorspace', 'bt709', '-color_primaries', 'bt709',
+                    '-color_trc', 'bt709', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', dst], check=True)
 def assign(car):
     if car in PLANS: return PLANS[car]['cuts'], PLANS[car]['end']
     """elige los cortes: para cada toma, el golpe mas cercano a donde terminaria a velocidad ~1 (0.8-1.25)"""
@@ -142,7 +154,7 @@ def build(car):
         nm = f'st_{car}_{i}'; prep(nm, clip, ss, d, sp, land, stab=not full)
         if full:
             full_piece(pr, f'{cs.RAW}/{nm}.mp4', d, size, z0=1.0 if (i == 0 or clip in NOZOOM) else 1.045); open(pf + '.ok', 'w').close()
-        elif land: C.land_piece(pr, nm, 0.0, d, 1.0, 0.03)
+        elif land: C.land_piece(pr, nm, 0.0, d, 1.0, 0.03)  # primeros planos (si no estan en FULL)
         else: cs.piece_any(pr, nm, 0.0, d, 1.0, 0.03)
         os.remove(f'{cs.RAW}/{nm}.mp4')
         if types:
@@ -172,9 +184,11 @@ if __name__ == '__main__':
             d = b[i + 1] - b[i]; print(f'{clip} {b[i]:.2f}-{b[i + 1]:.2f} d={d:.2f} speed={(se - ss) / d if se else 0:.2f}')
         sys.exit()
     if len(sys.argv) > 2 and sys.argv[2] == 'auto':
-        wav, off, end = sys.argv[3], float(sys.argv[4]), float(sys.argv[5]); shots = STRADA2 if car == 'strada' else SHOTS[car]
+        wav, off, end = sys.argv[3], float(sys.argv[4]), float(sys.argv[5]); shots = STRADA2 if car == 'strada' else AB2 if car == 'amarok-blanca' else SHOTS[car]
         P = auto_plan(wav, shots, off, end); PLANS[car] = P; SHOTS[car] = shots
         if car == 'strada': C.CARS['strada']['cy'] = 520
-        FULL.setdefault(car, set()); FULL[car] |= NOZOOM if car == 'strada' else set(); print(P['cuts'], P['types'])
+        FULL.setdefault(car, set()); FULL[car] |= NOZOOM if car == 'strada' else set(); FULL[car] = AB2_FULL if car == 'amarok-blanca' else FULL[car]; NOZOOM.update({'0450', '0452'} if car == 'amarok-blanca' else set()); print(P['cuts'], P['types'])
         if len(sys.argv) > 6 and sys.argv[6] == 'plan': sys.exit()
     wd = os.environ.get('WORK', f'{LONG}/{car}'); os.makedirs(wd, exist_ok=True); os.chdir(wd); build(car)
+    if car == 'amarok-blanca' and os.environ.get('ROT') == '1':
+        for n in ('con', 'sin'): rot_wrap(f'{n}.mp4', f'rot_{n}.mp4')
