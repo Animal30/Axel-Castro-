@@ -16,7 +16,7 @@ SHOTS = [
     ('4573', 0.0, 8.93, 0.57, None),                                  # badge pulls back to the whole car
     ('4560', 0.3, 5.01, 0.70, (['192 CV', 'CAJA AUTOMÁTICA'], None)), # steering wheel pull back, dash
     ('4572', 0.5, 2.50, 0.70, None),
-    ('4568', 0.2, 2.49, 0.70, (['JOHN COOPER', 'WORKS'], None)),
+    ('4568', 0.2, 2.49, 0.70, None),
     ('4571', 1.0, 4.99, 0.70, (['2016', '93.000 KM'], None)),
     ('4557', 7.7, 3.97, 0.70, None),                                  # side of the car, finale with the end card
 ]
