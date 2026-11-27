@@ -96,9 +96,9 @@ def auto_plan(wav, shots, offset, end, lead=(1.0, 1.9)):
         ty = 'drop' if best[2] > 0.8 and best[1] > 0.5 else 'B' if best[2] >= max(best[3], 0.25) else 'T' if best[3] > 0.15 else 'soft'
         types.append(ty)
     return dict(wav=wav, offset=offset, end=end, cuts=cuts, types=types, shots=shots)
-AB2 = [('0446', 4.4, 5.4), ('0450', 0.0, 2.2), ('0448', 0.0, 1.9), ('0452', 0.0, 2.4), ('0458', 1.0, 3.2), ('0461', 0.3, 3.0),
-       ('0462', 3.5, 7.0), ('0447', 2.0, 4.5), ('0448', 4.5, 6.8)]   # 0448 dos veces: rueda sola al principio y cierre con la camioneta entera
-AB2_FULL = {'0446', '0450', '0452', '0462', '0448'}                  # tomas sin recorte (auto entero / insignias)
+AB2 = [('0454', 8.0, 9.5), ('0450', 0.0, 2.2), ('0448', 0.0, 1.9), ('0446', 0.0, 3.2), ('0462', 3.5, 8.5),
+       ('0461', 0.3, 2.2), ('0453', 6.6, 11.2), ('0448', 4.5, 6.8)]   # v3 (carpeta nueva): portada entera, insignias, rueda sola, interior, cierre con la camioneta entera
+AB2_FULL = {'0454', '0446', '0450', '0452', '0462', '0448', '0453'}      # tomas sin recorte (auto entero / insignias)
 ROT_INTRO = f'{SCRN}/cine/rot/rot_es.mp4'
 def rot_wrap(src, dst, intro_s=2.6):
     """video horizontal -> vertical 9:16 girado 90 grados horario (se ve derecho al girar el celular a la izquierda),
