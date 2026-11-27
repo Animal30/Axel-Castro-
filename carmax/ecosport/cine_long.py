@@ -26,6 +26,23 @@ SHOTS = {
                    ('0462', 3.0, 6.5), ('0447', 5.5, 8.0), ('0454', 7.0, 9.6), ('0448', 4.5, 6.8)],
 }
 
+# tomas que terminan mostrando el auto entero: sin estabilizador ni zoom que recorte; abren apenas cerradas
+# y terminan en el cuadro completo, asi nunca se corta la rueda (pedido de Nahuel 27/11)
+FULL = {'trailblazer': {'0347', '0362', '0349'}, 'amarok-plata': {'0371', '0379', '0380'}, 'hilux': {'0392', '0404', '0398'},
+        'saveiro': {'0414', '0415', '0421', '0417'}, 'strada': {'0428', '0436', '0438', '0429'},
+        'amarok-blanca': {'0446', '0462', '0447', '0454', '0448'}}
+def full_piece(out, src, d, size):
+    nf = round(d * FPS); D = nf / FPS; w, h = size
+    vf = (f"fps={FPS},scale=w='trunc({w}*(1.045-0.045*min(t/{D},1))/2)*2':h=-2:eval=frame:flags=bicubic,crop={w}:{h},"
+          f"{C.GRADE},format=yuv420p")
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-vf', vf, '-an', '-frames:v', str(nf), '-c:v', 'libx264',
+                    '-crf', '12', '-preset', 'fast', '-r', str(FPS), out], check=True)
+def valid(p, d):
+    try:
+        n = int(subprocess.check_output(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries',
+                                         'stream=nb_read_frames', '-of', 'csv=p=0', p]).strip())
+        return n == round(d * FPS)
+    except Exception: return False
 def assign(car):
     """elige los cortes: para cada toma, el golpe mas cercano a donde terminaria a velocidad ~1 (0.8-1.25)"""
     c = C.CARS[car]; H = json.load(open(f'{LONG}/hits.json'))[c['song']]; end = H['dur'] - 0.05
@@ -41,7 +58,7 @@ def assign(car):
         cuts.append(nxt); t = nxt
     return cuts, end
 
-def prep(name, clip, ss, d, speed, land):
+def prep(name, clip, ss, d, speed, land, stab=True):
     """fuente intermedia: recorte + velocidad + escala (+ interpolacion si es lenta) + estabilizado vidstab"""
     L = land or cs.ORIENT.get(clip) == 'L'; sc = '1920:1080' if L else '1242:2208'
     mi = f",minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1" if speed < 0.9 else f",fps={FPS}"
@@ -49,6 +66,8 @@ def prep(name, clip, ss, d, speed, land):
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{cs.RAW}/{clip}.mp4', '-map', '0:v:0', '-vf',
                     f"trim={ss}:{ss + d * speed + 0.25},setpts=(PTS-STARTPTS)/{speed},scale={sc}:flags=lanczos{mi},format=yuv420p",
                     '-an', '-t', f'{d + 0.2:.3f}', '-c:v', 'libx264', '-crf', '11', '-preset', 'fast', tmp], check=True)
+    if not stab:
+        os.replace(tmp, out); cs.ORIENT[name] = 'L' if L else 'V'; return
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', tmp, '-vf', f'vidstabdetect=shakiness=6:accuracy=12:result={trf}', '-f', 'null', '-'], check=True)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', tmp, '-vf',
                     f'vidstabtransform=input={trf}:smoothing=18:optzoom=1:interpol=bicubic,unsharp=5:5:0.5:5:5:0,format=yuv420p',
@@ -63,9 +82,12 @@ def build(car):
         d = (fr[i + 1] - fr[i]) / FPS
         sp = min(0.85, (C.cs_dur(clip) - 0.2 - ss) / d) if se is None else (se - ss) / d
         P.append((clip, ss, d, sp)); print(car, i, clip, ss, f'{b[i]:.2f}-{b[i + 1]:.2f} d={d:.2f} speed={sp:.2f}', flush=True)
-        if os.path.exists(f'p/{i:02d}.mp4'): continue
-        nm = f'st_{car}_{i}'; prep(nm, clip, ss, d, sp, land)
-        if land: C.land_piece(f'p/{i:02d}.mp4', nm, 0.0, d, 1.0, 0.03)
+        full = clip in FULL[car]; pf = f'p/{i:02d}.mp4'
+        if os.path.exists(pf) and os.path.exists(pf + '.ok' if full else pf) and valid(pf, d): continue
+        nm = f'st_{car}_{i}'; prep(nm, clip, ss, d, sp, land, stab=not full)
+        if full:
+            full_piece(pf, f'{cs.RAW}/{nm}.mp4', d, size); open(pf + '.ok', 'w').close()
+        elif land: C.land_piece(f'p/{i:02d}.mp4', nm, 0.0, d, 1.0, 0.03)
         else: cs.piece_any(f'p/{i:02d}.mp4', nm, 0.0, d, 1.0, 0.03)
         os.remove(f'{cs.RAW}/{nm}.mp4')
     C.title_layer(car, size).save('title.png')
