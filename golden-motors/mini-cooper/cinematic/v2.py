@@ -3,6 +3,8 @@ python3 v2.py pieces|render|cover|final v2_body.mp4|withcover v2_body.mp4 out.mp
 import os, subprocess, sys
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+_D = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, _D if os.path.exists(os.path.join(_D, 'title_style.py')) else os.path.join(_D, '..'))
+from title_style import title_layer
 
 HERE = os.path.dirname(os.path.abspath(__file__)); RAW = os.path.join(HERE, 'raw')
 W, H, FPS = 1080, 1920, 30
@@ -16,7 +18,7 @@ SHOTS = [
     ('4572', 0.5, 2.50, 0.70, None),
     ('4568', 0.2, 2.49, 0.70, (['JOHN COOPER', 'WORKS'], None)),
     ('4571', 1.0, 4.99, 0.70, (['2016', '93.000 KM'], None)),
-    ('2320', 32.6, 3.97, 1.00, None),                                 # walk round to the whole car, finale with the end card
+    ('4557', 7.7, 3.97, 0.70, None),                                  # side of the car, finale with the end card
 ]
 TITLE_T0, TITLE_T1 = 3.80, 8.60
 FLASH_AT = {1, 2, 4, 5}
@@ -58,9 +60,9 @@ def text_layer(t, st, total):
     if TITLE_T0 <= t < TITLE_T1:      # opening title lands on the first accent
         p = ease((t - TITLE_T0) / 0.6); q = 1 - ease((t - (TITLE_T1 - 0.4)) / 0.4); a = int(255 * p * q)
         if a > 0:
-            f = fit(d, 'MINI COOPER S', 230, 940, 6)
-            spaced(d, 300 + int((1 - p) * 20), 'MINI COOPER S', f, WHITE, 6 + 10 * (1 - p), a, 3)
-            spaced(d, 300 + int(f.size * 1.02), 'JOHN COOPER WORKS · 2016', F_T2, GOLD, 9, a, 2)
+            tl, bot = title_layer(W, H, 'MINI', 'COOPER S', y=300 + int((1 - p) * 20), alpha=p * q)
+            lay.alpha_composite(tl)
+            spaced(d, bot + 28, 'JOHN COOPER WORKS · 2016', F_T2, GOLD, 9, a, 2)
     for i, s in enumerate(SHOTS):
         if not s[4]: continue
         t0, t1 = st[i], st[i] + s[2]
@@ -105,23 +107,18 @@ def render():
     enc.stdin.close(); enc.wait(); dec.stdout.close(); dec.kill(); dec.wait()
     print('total', round(total, 2))
 
-COVER_SRC = ('2320', 36.0); SHIFT_X = 34
+COVER_SRC = ('4566', 0.1)
 def cover():
     c, t = COVER_SRC
-    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-ss', str(t), '-i', f'{RAW}/c{c}.mov', '-frames:v', '1',
+    base = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cover_base.png')
+    raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', base, '-frames:v', '1',
                                    '-vf', f'scale={W}:{H}:flags=lanczos,{GRADE}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
-    arr = np.frombuffer(raw, np.uint8).reshape(H, W, 3)
-    M = np.float32([[1, 0, SHIFT_X], [0, 1, 0]])   # nudge the car to the middle, mirror-fill the thin strip that opens on the left
-    arr = cv2.warpAffine(arr, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-    img = Image.fromarray(arr).convert('RGBA'); d = ImageDraw.Draw(img)
-    f = fit(d, 'MINI COOPER S', 210, 900, 8)
-    sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
-    spaced(sd, 305, 'MINI COOPER S', f, (0, 0, 0), 8, 170, 10)
-    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14))); d = ImageDraw.Draw(img)
-    spaced(d, 300, 'MINI COOPER S', f, WHITE, 8, 255, 8)
-    f2 = BF('SemiBold', 62); sub = 'JOHN COOPER WORKS · 2016 · 93.000 km'; tw = d.textlength(sub, font=f2)
-    y0 = 300 + int(f.size * 1.02) + 40
-    d.rounded_rectangle((W / 2 - tw / 2 - 34, y0, W / 2 + tw / 2 + 34, y0 + 80), 22, fill=(12, 12, 12, 230), outline=GOLD + (255,), width=3)
+    img = Image.frombytes('RGB', (W, H), raw).convert('RGBA')
+    tl, bot = title_layer(W, H, 'MINI', 'COOPER S', y=300)
+    img.alpha_composite(tl); d = ImageDraw.Draw(img)
+    f2 = BF('SemiBold', 58); sub = 'JOHN COOPER WORKS · 2016 · 93.000 km'; tw = d.textlength(sub, font=f2)
+    y0 = bot + 26
+    d.rounded_rectangle((W / 2 - tw / 2 - 34, y0, W / 2 + tw / 2 + 34, y0 + 78), 22, fill=(12, 12, 12, 215), outline=GOLD + (255,), width=3)
     d.text((W / 2 - tw / 2, y0 + 4), sub, font=f2, fill=WHITE + (255,))
     img.convert('RGB').save('cover2.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover2.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
