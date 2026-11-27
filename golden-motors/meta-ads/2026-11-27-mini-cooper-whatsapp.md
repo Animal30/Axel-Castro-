@@ -30,3 +30,9 @@ Texto del anuncio: "Mini Cooper S John Cooper Works 2016, naftero, con motor 2.0
 1. Nahuel cambia el número de WhatsApp en el conjunto y publica (al publicar queda ACTIVA).
 2. Confirmar presupuesto (ARS 20.000/día) y qué vendedor lleva el Mini.
 3. Ubicación "vive, reciente y frecuenta": si quiere solo gente que vive en la ciudad, cambiarlo.
+
+## Revisión después del lanzamiento (Nahuel publicó, solo lectura)
+- Campaña `120253732176460736` ACTIVE, ARS 20.000/día, sin gasto aún. Conjunto `120253732179980736` ACTIVE. Anuncio `120253732184790736` en revisión (IN_PROCESS), creativo publicado `4558084154420103`.
+- Público: ciudad de Córdoba, hombres, edad 30-65 fija, Advantage+ audience apagado, solo celular, ubicación "vive, reciente y frecuenta". Facebook Feed, Marketplace, Stories, Reels y perfil; Instagram Feed, Stories, Reels, Explorar y perfil.
+- El creativo publicado usa el texto original del posteo (con hashtags y la frase "hay autos que se manejan…"), sin título propio. La API no muestra qué video usa ni el número de WhatsApp.
+- Pendiente: confirmar en el Ads Manager que el video sea el del reel de las 08:20 y que el número sea el elegido (antes Meta había autocompletado el de Renzo).
