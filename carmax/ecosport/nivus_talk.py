@@ -1,9 +1,13 @@
 """VW Nivus presentada por Nahuel (voz + b-roll + Inner Bloom + logo final).
 python3 talk.py cut|render|cover|final out.mp4 [nomusic]|words"""
+import numpy as np
 import json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
 import kit
+import kinetic
 from kit import chunk, draw_caption, GOLD, WHITE
+KIN = os.environ.get('KIN') == '1'
+if KIN: draw_caption = kinetic.draw_caption
 from common import *
 HERE = os.path.dirname(os.path.abspath(__file__))
 # unit: aud = [(clip, a, b)...] concatenadas; vid = [(clip, ss, dur_out, speed, push)] (el video no tiene por qué ser continuo con el audio)
@@ -60,7 +64,7 @@ def caption_words():
             w[1] = words[i + 2][0] - 0.02; del words[i + 1]; break
     return words
 def render():
-    words = caption_words(); groups = chunk(words); _, total = starts(); n = round(total * FPS)
+    words = caption_words(); groups = chunk(words, 4 if KIN else 3); _, total = starts(); n = round(total * FPS)
     dec = subprocess.Popen(['ffmpeg', '-loglevel', 'error', '-i', 'cut.mov', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
     enc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-crf', '14', '-preset', 'medium', '-pix_fmt', 'yuv420p', 'body.mp4'], stdin=subprocess.PIPE)
@@ -78,7 +82,15 @@ def cover():
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'cut.mov', '-map', '0:v:0', '-vf', 'select=eq(n\\,' + os.environ.get('CF', '485') + ')', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     img = Image.frombytes('RGB', (W, H), raw).convert('RGBA'); img.convert('RGB').save('cover_clean.png'); d = ImageDraw.Draw(img)
     y0 = int(os.environ.get('CY', 345))
-    for txt, f, col, y in [('VOLKSWAGEN', F1, WHITE, y0), ('NIVUS', F3, GOLD, y0 + 110)]:
+    if KIN:
+        from PIL import ImageFilter
+        lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
+        for txt, f, y in [('Volkswagen', kinetic.font(kinetic.FM, 84), y0 + 20), ('Nivus', kinetic.font(kinetic.FB, 250), y0 + 100)]:
+            tw = dl.textlength(txt, font=f); dl.text((W / 2 - tw / 2, y), txt, font=f, fill=(255, 255, 255, 255))
+        sh = np.array(lay.filter(ImageFilter.GaussianBlur(14))); sh[..., :3] = 0; sh[..., 3] = (sh[..., 3] * 0.7).clip(0, 255).astype(np.uint8)
+        img.alpha_composite(Image.fromarray(sh, 'RGBA')); img.alpha_composite(lay)
+    else:
+      for txt, f, col, y in [('VOLKSWAGEN', F1, WHITE, y0), ('NIVUS', F3, GOLD, y0 + 110)]:
         tw = d.textlength(txt, font=f); d.text((W / 2 - tw / 2, y), txt, font=f, fill=col + (255,), stroke_width=9, stroke_fill=(0, 0, 0, 255))
     img.convert('RGB').save('cover.png')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', 'cover.png', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
