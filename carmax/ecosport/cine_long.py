@@ -61,13 +61,41 @@ for _k, _p in PLANS.items(): SHOTS[_k] = _p['shots']
 USE_VACUO = 'amarok-plata' in PLANS
 FX = {'drop': dict(ai=0.16, di=0.35, fl=0.35, ao=0.06, do=0.10), 'B': dict(ai=0.10, di=0.25, fl=0.22, ao=0.05, do=0.10),
       'T': dict(ai=0.05, di=0.30, fl=0.0, ao=0.0, do=0.10), 'soft': dict(ai=0.03, di=0.30, fl=0.0, ao=0.0, do=0.10), None: dict(ai=0, di=0.3, fl=0, ao=0, do=0.1)}
-def fx_piece(src, dst, d, in_t, out_t, full, size):
+NOZOOM = {'0434', '0435'}   # insignias (Strada F.L.G., Working 1.4): ni zoom ni estabilizador, para no comerse letras en los bordes
+def fx_piece(src, dst, d, in_t, out_t, full, size, nozoom=False):
     """transicion segun el golpe: grave = golpe de zoom + destello, agudo = entrada suave; las tomas del auto entero no recortan al salir"""
-    w, h = size; a, b = FX[in_t], FX[out_t]; ai = a['ai'] * (0.3 if full else 1); ao = 0 if full else b['ao']; do = b['do']
+    w, h = size; a, b = FX[in_t], FX[out_t]; ai = 0 if nozoom else a['ai'] * (0.3 if full else 1); ao = 0 if (full or nozoom) else b['ao']; do = b['do']
     z = f"(1+{ai}*pow(max(0,1-t/{a['di']}),2)+{ao}*pow(max(0,(t-({d}-{do}))/{do}),2))"
     vf = f"scale=w='trunc({w}*{z}/2)*2':h=-2:eval=frame:flags=bicubic,crop={w}:{h}"
     if a['fl']: vf += f",eq=brightness='{a['fl']}*max(0,1-t/0.14)':eval=frame"
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-vf', vf + ',format=yuv420p', '-an', '-c:v', 'libx264', '-crf', '12', '-preset', 'fast', '-r', str(FPS), dst], check=True)
+STRADA2 = [('0428', 10.0, 10.9), ('0434', 1.9, 2.85), ('0435', 0.45, 2.5), ('0441', 0.2, 3.0), ('0443', 2.2, 4.7),
+           ('0444', 2.0, 5.0), ('0436', 5.0, 8.0), ('0429', 3.4, 6.1)]   # sin 0438 (casi igual a la ultima); insignias completas
+def auto_plan(wav, shots, offset, end, lead=(1.0, 1.9)):
+    """cortes sobre los golpes de la cancion (desde `offset`, `end` segundos): reparte las tomas segun su fuente, elige el golpe
+    mas fuerte cerca de cada punto y clasifica cada corte: drop / B (grave) / T (agudo) / soft, para la transicion."""
+    import librosa, numpy as np
+    y, sr = librosa.load(wav, sr=22050, offset=offset, duration=end + 0.5)
+    n, hop = 2048, 256; S = np.abs(librosa.stft(y, n_fft=n, hop_length=hop)); fr = librosa.fft_frequencies(sr=sr, n_fft=n)
+    def band(lo, hi):
+        b = S[(fr >= lo) & (fr < hi)].sum(0); d = np.diff(b, prepend=0).clip(0); return d / (d.max() + 1e-9)
+    low, high = band(20, 180), band(3000, 9000)
+    full = librosa.onset.onset_strength(S=librosa.amplitude_to_db(S), sr=sr, hop_length=hop); full /= full.max()
+    sc = 0.5 * low + 0.5 * full; t = librosa.frames_to_time(np.arange(len(sc)), sr=sr, hop_length=hop)
+    pk = librosa.util.peak_pick(sc, pre_max=8, post_max=8, pre_avg=24, post_avg=24, delta=0.06, wait=30)
+    H = [(float(t[i]), float(sc[i]), float(low[max(0, i - 3):i + 4].max()), float(high[max(0, i - 3):i + 4].max())) for i in pk if 0.9 < t[i] < end - 1.5]
+    src = [1.3] + [min(3.6, max(2.0, (se - ss) / 0.9)) for _, ss, se in shots[1:]]; tot = sum(src); cuts = []; types = []; prev = 0.0
+    first = [h for h in H if lead[0] <= h[0] <= lead[1]]
+    for i in range(len(shots) - 1):
+        ideal = (end * sum(src[:i + 1]) / tot) if i else (max(first, key=lambda h: h[1])[0] if first else 1.4)
+        room = 1.3 * (len(shots) - 2 - i) + 1.6
+        cand = [h for h in H if h[0] > prev + 1.1 and h[0] < end - room]
+        if i == 0 and first: cand = first
+        best = max(cand, key=lambda h: h[1] - 0.5 * abs(h[0] - ideal)) if cand else (ideal, 0, 0, 0)
+        cuts.append(round(best[0] * FPS) / FPS); prev = cuts[-1]
+        ty = 'drop' if best[2] > 0.8 and best[1] > 0.5 else 'B' if best[2] >= max(best[3], 0.25) else 'T' if best[3] > 0.15 else 'soft'
+        types.append(ty)
+    return dict(wav=wav, offset=offset, end=end, cuts=cuts, types=types, shots=shots)
 def assign(car):
     if car in PLANS: return PLANS[car]['cuts'], PLANS[car]['end']
     """elige los cortes: para cada toma, el golpe mas cercano a donde terminaria a velocidad ~1 (0.8-1.25)"""
@@ -113,12 +141,12 @@ def build(car):
         if os.path.exists(pf) and (os.path.exists(pf + '.ok') or not full) and valid(pf, d): continue
         nm = f'st_{car}_{i}'; prep(nm, clip, ss, d, sp, land, stab=not full)
         if full:
-            full_piece(pr, f'{cs.RAW}/{nm}.mp4', d, size, z0=1.0 if i == 0 else 1.045); open(pf + '.ok', 'w').close()
+            full_piece(pr, f'{cs.RAW}/{nm}.mp4', d, size, z0=1.0 if (i == 0 or clip in NOZOOM) else 1.045); open(pf + '.ok', 'w').close()
         elif land: C.land_piece(pr, nm, 0.0, d, 1.0, 0.03)
         else: cs.piece_any(pr, nm, 0.0, d, 1.0, 0.03)
         os.remove(f'{cs.RAW}/{nm}.mp4')
         if types:
-            fx_piece(pr, pf, d, None if i == 0 else types[i - 1], types[i] if i < len(types) else None, full, size); os.remove(pr)
+            fx_piece(pr, pf, d, None if i == 0 else types[i - 1], types[i] if i < len(types) else None, full, size, nozoom=clip in NOZOOM); os.remove(pr)
     C.title_layer(car, size).save('title.png')
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'p/00.mp4', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     im = Image.frombytes('RGB', size, raw).convert('RGBA'); im.alpha_composite(Image.open('title.png')); im.convert('RGB').save('cover.png')
@@ -143,4 +171,10 @@ if __name__ == '__main__':
         for i, (clip, ss, se) in enumerate(SHOTS[car]):
             d = b[i + 1] - b[i]; print(f'{clip} {b[i]:.2f}-{b[i + 1]:.2f} d={d:.2f} speed={(se - ss) / d if se else 0:.2f}')
         sys.exit()
+    if len(sys.argv) > 2 and sys.argv[2] == 'auto':
+        wav, off, end = sys.argv[3], float(sys.argv[4]), float(sys.argv[5]); shots = STRADA2 if car == 'strada' else SHOTS[car]
+        P = auto_plan(wav, shots, off, end); PLANS[car] = P; SHOTS[car] = shots
+        if car == 'strada': C.CARS['strada']['cy'] = 520
+        FULL.setdefault(car, set()); FULL[car] |= NOZOOM if car == 'strada' else set(); print(P['cuts'], P['types'])
+        if len(sys.argv) > 6 and sys.argv[6] == 'plan': sys.exit()
     wd = os.environ.get('WORK', f'{LONG}/{car}'); os.makedirs(wd, exist_ok=True); os.chdir(wd); build(car)
