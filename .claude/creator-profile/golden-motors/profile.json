@@ -1,0 +1,72 @@
+{
+ "brand_note": "Negro, blanco y dorado (como sus historias destacadas de IG). Lema: La esencia de cada auto",
+ "accent": "#F2B824",
+ "accent_name": "gold",
+ "bg": "#050505",
+ "creator_name": "Golden Motors",
+ "brand_name": "Golden Motors",
+ "font_main_name": "Inter",
+ "font_main_bold": {
+  "file": "Inter-Bold.otf"
+ },
+ "font_main_regular": {
+  "file": "Inter-Regular.otf"
+ },
+ "font_accent_name": "Playfair Display Italic",
+ "font_accent": {
+  "file": "PlayfairDisplay-Italic.ttf"
+ },
+ "transcriber": "elevenlabs",
+ "output_rule": "/mnt/project-files/golden-motors/",
+ "proof_dir": "none yet",
+ "sfx_dir": "/home/user/Axel-Castro-/.claude/creator-profile/nahuel/assets/sfx",
+ "music_rule": "ask",
+ "skills": {
+  "creator-setup": {
+   "configured": "2026-10-23"
+  },
+  "cutout-backdrop-reel": {
+   "configured": "2026-10-23"
+  },
+  "cutout-grid-reel": {
+   "configured": "2026-10-23"
+  },
+  "depth-ui-reel": {
+   "configured": "2026-10-23"
+  },
+  "educational-youtube-editor": {
+   "configured": "2026-10-23"
+  },
+  "explainer-panel-reel": {
+   "configured": "2026-10-23"
+  },
+  "fitted-stacked-captions": {
+   "configured": "2026-10-23"
+  },
+  "glass-explainer-reel": {
+   "configured": "2026-10-23"
+  },
+  "image-cluster-reel": {
+   "configured": "2026-10-23"
+  },
+  "ranking-format": {
+   "configured": "2026-10-23"
+  },
+  "split-reel": {
+   "configured": "2026-10-23"
+  },
+  "split-screen-document-plus-animations": {
+   "configured": "2026-10-23"
+  },
+  "visual-essay-reel": {
+   "configured": "2026-10-23"
+  }
+ },
+ "language": "es (Argentina)",
+ "status": "brand-confirmed-from-ig",
+ "instagram": "@goldenmotorscba",
+ "website": "goldenmotorscba.com",
+ "address": "Octavio Pinto 3181, Córdoba",
+ "tagline": "La esencia de cada auto",
+ "offer": "Usados seleccionados y 0km de todas las marcas; entregas y financiación"
+}
