@@ -31,9 +31,9 @@ SHOTS = {
 FULL = {'trailblazer': {'0347', '0362', '0349'}, 'amarok-plata': {'0371', '0379', '0380'}, 'hilux': {'0392', '0404', '0398'},
         'saveiro': {'0414', '0415', '0421', '0417'}, 'strada': {'0428', '0436', '0438', '0429'},
         'amarok-blanca': {'0446', '0462', '0447', '0454', '0448'}}
-def full_piece(out, src, d, size):
+def full_piece(out, src, d, size, z0=1.045):
     nf = round(d * FPS); D = nf / FPS; w, h = size
-    vf = (f"fps={FPS},scale=w='trunc({w}*(1.045-0.045*min(t/{D},1))/2)*2':h=-2:eval=frame:flags=bicubic,crop={w}:{h},"
+    vf = (f"fps={FPS},scale=w='trunc({w}*({z0}-({z0}-1)*min(t/{D},1))/2)*2':h=-2:eval=frame:flags=bicubic,crop={w}:{h},"
           f"{C.GRADE},format=yuv420p")
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-vf', vf, '-an', '-frames:v', str(nf), '-c:v', 'libx264',
                     '-crf', '12', '-preset', 'fast', '-r', str(FPS), out], check=True)
@@ -47,10 +47,29 @@ VACUO = dict(wav=f'{SCRN}/cine/vacuo/song.wav', offset=15.1, end=27.5,
              cuts=[1.40, 4.16, 6.91, 9.65, 13.08, 15.84, 18.59, 19.96, 22.02, 24.08, 25.46],
              shots=[('0371', 6.0, None), ('0373', 0.0, 2.4), ('0372', 0.3, 2.8), ('0378', 0.3, 2.6), ('0379', 0.3, 3.6), ('0375', 1.0, 4.0),
                     ('0383', 0.5, 2.8), ('0381', 0.8, 2.2), ('0384', 1.5, 3.1), ('0385', 0.3, 2.2), ('0377', 0.0, 1.7), ('0380', 0.0, 0.9)])
-USE_VACUO = os.environ.get('VACUO') == '1'
-if USE_VACUO: SHOTS['amarok-plata'] = VACUO['shots']
+# Trailblazer v2 (27/11): "vacuo (super slowed)" de NIKO, ultima parte (drop en 99.66 s de la cancion), transiciones por tipo de golpe
+# tipos de corte: drop (golpe grave fuerte), B (grave), T (agudo/hi-hat), soft. Cada uno cambia la transicion del video.
+TB2 = dict(wav=f'{SCRN}/cine/vacuo/song.wav', offset=98.4, end=25.0,
+           cuts=[1.26, 4.01, 6.07, 8.50, 11.26, 15.54, 18.14, 20.87, 23.00],
+           types=['drop', 'B', 'B', 'T', 'T', 'T', 'B', 'T', 'soft'],
+           shots=[('0347', 4.65, 5.15), ('0356', 0.3, 2.6), ('0350', 0.0, 1.5), ('0352', 0.0, 2.3), ('0354', 2.0, 4.9), ('0358', 0.5, 4.1),
+                  ('0357', 1.0, 3.1), ('0361', 2.0, 4.3), ('0362', 3.0, 5.5), ('0349', 5.9, 8.0)])
+PLANS = {}
+if os.environ.get('VACUO') == '1': PLANS['amarok-plata'] = VACUO
+if os.environ.get('TB2') == '1': PLANS['trailblazer'] = TB2
+for _k, _p in PLANS.items(): SHOTS[_k] = _p['shots']
+USE_VACUO = 'amarok-plata' in PLANS
+FX = {'drop': dict(ai=0.16, di=0.35, fl=0.35, ao=0.06, do=0.10), 'B': dict(ai=0.10, di=0.25, fl=0.22, ao=0.05, do=0.10),
+      'T': dict(ai=0.05, di=0.30, fl=0.0, ao=0.0, do=0.10), 'soft': dict(ai=0.03, di=0.30, fl=0.0, ao=0.0, do=0.10), None: dict(ai=0, di=0.3, fl=0, ao=0, do=0.1)}
+def fx_piece(src, dst, d, in_t, out_t, full, size):
+    """transicion segun el golpe: grave = golpe de zoom + destello, agudo = entrada suave; las tomas del auto entero no recortan al salir"""
+    w, h = size; a, b = FX[in_t], FX[out_t]; ai = a['ai'] * (0.3 if full else 1); ao = 0 if full else b['ao']; do = b['do']
+    z = f"(1+{ai}*pow(max(0,1-t/{a['di']}),2)+{ao}*pow(max(0,(t-({d}-{do}))/{do}),2))"
+    vf = f"scale=w='trunc({w}*{z}/2)*2':h=-2:eval=frame:flags=bicubic,crop={w}:{h}"
+    if a['fl']: vf += f",eq=brightness='{a['fl']}*max(0,1-t/0.14)':eval=frame"
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-vf', vf + ',format=yuv420p', '-an', '-c:v', 'libx264', '-crf', '12', '-preset', 'fast', '-r', str(FPS), dst], check=True)
 def assign(car):
-    if USE_VACUO and car == 'amarok-plata': return VACUO['cuts'], VACUO['end']
+    if car in PLANS: return PLANS[car]['cuts'], PLANS[car]['end']
     """elige los cortes: para cada toma, el golpe mas cercano a donde terminaria a velocidad ~1 (0.8-1.25)"""
     c = C.CARS[car]; H = json.load(open(f'{LONG}/hits.json'))[c['song']]; end = H['dur'] - 0.05
     hits = [t for t, s in H['hits'] if s > 0.2 and 0.8 < t < end - 1.0]
@@ -89,14 +108,17 @@ def build(car):
         d = (fr[i + 1] - fr[i]) / FPS
         sp = min(0.85, (C.cs_dur(clip) - 0.2 - ss) / d) if se is None else (se - ss) / d
         P.append((clip, ss, d, sp)); print(car, i, clip, ss, f'{b[i]:.2f}-{b[i + 1]:.2f} d={d:.2f} speed={sp:.2f}', flush=True)
-        full = clip in FULL[car]; pf = f'p/{i:02d}.mp4'
-        if os.path.exists(pf) and os.path.exists(pf + '.ok' if full else pf) and valid(pf, d): continue
+        full = clip in FULL[car]; pf = f'p/{i:02d}.mp4'; types = PLANS.get(car, {}).get('types')
+        pr = f'p/r{i:02d}.mp4' if types else pf
+        if os.path.exists(pf) and (os.path.exists(pf + '.ok') or not full) and valid(pf, d): continue
         nm = f'st_{car}_{i}'; prep(nm, clip, ss, d, sp, land, stab=not full)
         if full:
-            full_piece(pf, f'{cs.RAW}/{nm}.mp4', d, size); open(pf + '.ok', 'w').close()
-        elif land: C.land_piece(f'p/{i:02d}.mp4', nm, 0.0, d, 1.0, 0.03)
-        else: cs.piece_any(f'p/{i:02d}.mp4', nm, 0.0, d, 1.0, 0.03)
+            full_piece(pr, f'{cs.RAW}/{nm}.mp4', d, size, z0=1.0 if i == 0 else 1.045); open(pf + '.ok', 'w').close()
+        elif land: C.land_piece(pr, nm, 0.0, d, 1.0, 0.03)
+        else: cs.piece_any(pr, nm, 0.0, d, 1.0, 0.03)
         os.remove(f'{cs.RAW}/{nm}.mp4')
+        if types:
+            fx_piece(pr, pf, d, None if i == 0 else types[i - 1], types[i] if i < len(types) else None, full, size); os.remove(pr)
     C.title_layer(car, size).save('title.png')
     raw = subprocess.check_output(['ffmpeg', '-loglevel', 'error', '-i', 'p/00.mp4', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     im = Image.frombytes('RGB', size, raw).convert('RGBA'); im.alpha_composite(Image.open('title.png')); im.convert('RGB').save('cover.png')
@@ -106,7 +128,7 @@ def build(car):
     total = sum(p[2] for p in P); fo = max(0.3, P[0][2] - 0.45)
     vf = f"[1:v]format=rgba,fade=t=out:st={fo:.2f}:d=0.35:alpha=1[t];[0:v][t]overlay=0:0:eof_action=pass,format=yuv420p[v]"
     for music in (True, False):
-        aud = (['-ss', f'{VACUO["offset"]}', '-i', VACUO['wav']] if USE_VACUO else ['-i', f'{LONG}/{c["song"]}.wav'], f";[2:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.8:.3f}:d=0.8,"
+        aud = (['-ss', f'{PLANS[car]["offset"]}', '-i', PLANS[car]['wav']] if car in PLANS else ['-i', f'{LONG}/{c["song"]}.wav'], f";[2:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.8:.3f}:d=0.8,"
                "aresample=48000,loudnorm=I=-14:TP=-1.5,aresample=48000[a]") if music else \
               (['-f', 'lavfi', '-t', f'{total:.3f}', '-i', 'anullsrc=r=48000:cl=stereo'], ';[2:a]anull[a]')
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', 'body.mp4', '-loop', '1', '-t', f'{total:.3f}', '-i', 'title.png'] + aud[0] +
